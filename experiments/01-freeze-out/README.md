@@ -33,5 +33,5 @@ python3 -m http.server 8000   # from this folder, then open http://localhost:800
 - Changing states pump energy into motion. With the state change rate at 0 the world cools steadily;
   above 0 the temperature climbs back up once groups form. Changing a particle's state changes the
   forces it feels, which does work for free. Experiment 2's energy bookkeeping should charge for it.
-- Whether anything bonds depends heavily on the law: in a 30-world sweep about a third of law/world
-  pairs bonded and the rest stayed a cooling gas.
+- Whether anything bonds depends heavily on the seeds: in a sweep of 26 law/world pairs, 7 bonded
+  and the rest stayed a cooling gas.
