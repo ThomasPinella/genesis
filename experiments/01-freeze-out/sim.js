@@ -10,15 +10,15 @@ export const FAST = 4;  // state[0..3] is the fast state; state[4..7] is the slo
 
 export const DEFAULTS = {
   worldSeed: 1,
-  lawSeed: 2,
-  n: 3000,          // particle count (fixed: matter is conserved)
+  lawSeed: 8,
+  n: 1500,          // particle count (fixed: matter is conserved)
   density: 4,       // particles per unit volume; sets the size of the box
   heat: 2.0,        // starting speed of every particle
   drag: 0.08,       // fraction of velocity lost per unit time; the world's only heat sink
   attraction: 1.5,  // strength of the match-based pull (or push, when the match is negative)
   sharpness: 1.5,   // how selective attention is
   stateRate: 0.1,   // how fast the fast state follows its update
-  spread: 0.4,      // how different the starting genomes are (0 = identical)
+  spread: 1,        // how different the starting genomes are (0 = identical)
   noise: 0,         // optional jitter per tick; off by default, and seeded when on
 };
 

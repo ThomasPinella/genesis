@@ -96,6 +96,7 @@
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     padding: 14px; display: grid; gap: 10px;
   }
+  .map[hidden], #fallback[hidden] { display: none; }
   .mapHead { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
   .map h2 { margin: 2px 0 0; font-size: 17px; font-weight: 600; }
   .mapScroll { overflow-x: auto; }
@@ -140,7 +141,7 @@
     <p class="eyebrow">Genesis &middot; Experiment 1</p>
     <h1>Freeze-out</h1>
   </div>
-  <p class="question">The world starts hot and drag slowly cools it. <b>Do distinct kinds and bonds freeze out?</b> Color shows each particle's state, so particles that look alike are alike. Lines are bonds.</p>
+  <p class="question">The world starts hot and drag slowly cools it. <b>Do distinct kinds and bonds freeze out?</b> Color shows each particle's genome, so particles that look alike are the same kind. Lines are bonds.</p>
 
   <div class="row">
     <button class="primary" id="run" type="button">Pause</button>
@@ -154,12 +155,12 @@
     <legend>Universe</legend>
     <div class="inline">
       <label for="worldSeed">World seed<input id="worldSeed" type="number" min="1" step="1" value="1"></label>
-      <label for="lawSeed">Law seed<input id="lawSeed" type="number" min="1" step="1" value="2"></label>
+      <label for="lawSeed">Law seed<input id="lawSeed" type="number" min="1" step="1" value="8"></label>
       <label for="n">Particles
         <select id="n">
           <option value="1000">1,000</option>
-          <option value="1500">1,500</option>
-          <option value="2000" selected>2,000</option>
+          <option value="1500" selected>1,500</option>
+          <option value="2000">2,000</option>
           <option value="3000">3,000</option>
           <option value="4000">4,000</option>
         </select>
@@ -172,7 +173,7 @@
     </div>
     <div class="field">
       <label for="spread">Genome spread</label><output for="spread" id="spreadOut"></output>
-      <input id="spread" type="range" min="0" max="1" step="0.01" value="0.4">
+      <input id="spread" type="range" min="0" max="1" step="0.01" value="1">
     </div>
   </fieldset>
 
@@ -302,14 +303,15 @@
         gl_FragColor = vec4(vColor * light, 1.0);
       }`,
   });
-  const bondMat = new THREE.LineBasicMaterial({ color: 0xc9d2ff, transparent: true, opacity: 0.16, depthWrite: false });
+  const bondMat = new THREE.LineBasicMaterial({ color: 0xc9d2ff, transparent: true, opacity: 0.1, depthWrite: false });
   let points, bonds, box, posAttr, colAttr, bondAttr;
 
-  // A fixed projection of the 8-number state onto a color wheel: same state, same color.
+  // Color comes from the slow state (the genome), projected onto a color wheel: particles of the
+  // same kind share a color. Forces read only this part of the state.
   const PROJ = [
-    [0.9, -0.3, 0.2, 0.4, 0.5, -0.2, 0.3, 0.1],
-    [0.1, 0.8, -0.5, 0.2, -0.3, 0.6, 0.1, -0.4],
-    [0.3, 0.2, 0.7, -0.6, 0.2, 0.1, -0.5, 0.4],
+    [0, 0, 0, 0, 0.9, -0.4, 0.5, 0.3],
+    [0, 0, 0, 0, 0.2, 0.8, -0.4, 0.5],
+    [0, 0, 0, 0, 0.4, 0.3, 0.6, -0.7],
   ];
   const tmpColor = new THREE.Color();
 

@@ -25,13 +25,21 @@ python3 -m http.server 8000   # from this folder, then open http://localhost:800
 
 `sim.js` has no dependencies and also runs in Node for headless sweeps.
 
-## First observations (law seed 2, world seed 1, 2,000 particles)
+## Findings so far
 
-- Bonds freeze out: within about 600 ticks roughly half the particles are bonded into about 10-12
-  groups of 100-300 particles.
-- Kinds don't visibly sort yet: groups are mixed colors.
-- Changing states pump energy into motion. With the state change rate at 0 the world cools steadily;
-  above 0 the temperature climbs back up once groups form. Changing a particle's state changes the
-  forces it feels, which does work for free. Experiment 2's energy bookkeeping should charge for it.
-- Whether anything bonds depends heavily on the seeds: in a sweep of 26 law/world pairs, 7 bonded
-  and the rest stayed a cooling gas.
+- **Bonds freeze out, kinds need diverse genomes.** With nearly identical starting genomes, every
+  pair has nearly the same match, so a world either all sticks or all stays a gas. Raising genome
+  spread gives picky matches: in a sweep of 120 worlds (12 laws, 5 spreads, 2 starts), spread 0 gave
+  separate groups in 3 of 24 worlds and spread 1 in 22 of 24. See `sweep-results.json` or the World
+  map panel.
+- **Groups sort by kind at high spread.** The sorting score (share of genome variation among grouped
+  particles that lies between groups) averages 0.15 at spread 1, against roughly 0.04 for random
+  mixing. Law 8 is strongest (0.44 with 20 groups), so it's the default.
+- **Energy leak fixed.** The first version let forces depend on the fast state, so a particle
+  changing its state reshaped the forces around it and created motion energy for free. Forces now
+  read only the slow state (what a particle is, not what it's doing). With drag on, total energy
+  (kinetic plus potential) now falls at every check; with drag off it drifts up by about 1% per
+  150 ticks from integration error.
+- No world in the sweep collapsed into a single blob.
+
+Rerun the sweep with `node tools/sweep.mjs > sweep-results.json` (about 25 minutes on 4 cores).
