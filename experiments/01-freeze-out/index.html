@@ -86,6 +86,35 @@
   #replayResult.ok { color: var(--ok); }
   #replayResult.bad { color: var(--bad); }
 
+  .map {
+    position: fixed; z-index: 4;
+    top: calc(12px + env(safe-area-inset-top, 0px));
+    right: max(12px, env(safe-area-inset-right, 0px));
+    width: 380px; max-width: calc(100% - 24px); box-sizing: border-box;
+    max-height: calc(100% - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); overflow-y: auto;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 14px; display: grid; gap: 10px;
+  }
+  .map[hidden], #fallback[hidden] { display: none; }
+  .mapHead { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+  .map h2 { margin: 2px 0 0; font-size: 17px; font-weight: 600; }
+  .mapScroll { overflow-x: auto; }
+  .mapGrid { display: grid; gap: 3px; font-family: var(--mono); font-size: 11px; color: var(--quiet); align-items: center; }
+  .mapGrid .colh, .mapGrid .rowh { text-align: center; font-variant-numeric: tabular-nums; }
+  .mapGrid .rowh { text-align: right; padding-right: 4px; }
+  .cell {
+    height: 22px; min-width: 40px; border-radius: 4px; border: 1px solid transparent; padding: 0;
+    font: 500 10px var(--mono); color: rgba(255,255,255,0.85); cursor: pointer;
+  }
+  .cell:hover { border-color: var(--ink); }
+  .cell.current { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .k-gas, .cell.gas { background: #262a38; }
+  .k-blob, .cell.blob { background: #9c4a4a; }
+  .k-chem { background: #2f9bb8; }
+  .mapKey { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 11px; color: var(--quiet); }
+  .mapKey i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+
   .toggle { display: none; }
   #fallback { position: fixed; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--quiet); }
 
@@ -112,24 +141,26 @@
     <p class="eyebrow">Genesis &middot; Experiment 1</p>
     <h1>Freeze-out</h1>
   </div>
-  <p class="question">The world starts hot and drag slowly cools it. <b>Do distinct kinds and bonds freeze out?</b> Color shows each particle's state, so particles that look alike are alike. Lines are bonds.</p>
+  <p class="question">The world starts hot and drag slowly cools it. <b>Do distinct kinds and bonds freeze out?</b> Color shows each particle's genome, so particles that look alike are the same kind. Lines are bonds.</p>
 
   <div class="row">
     <button class="primary" id="run" type="button">Pause</button>
     <button id="stepOnce" type="button">Step</button>
     <button id="restart" type="button">Restart</button>
     <button id="newWorld" type="button">New world</button>
+    <button id="openMap" type="button" aria-controls="map" aria-expanded="false">World map</button>
   </div>
 
   <fieldset>
     <legend>Universe</legend>
     <div class="inline">
       <label for="worldSeed">World seed<input id="worldSeed" type="number" min="1" step="1" value="1"></label>
-      <label for="lawSeed">Law seed<input id="lawSeed" type="number" min="1" step="1" value="2"></label>
+      <label for="lawSeed">Law seed<input id="lawSeed" type="number" min="1" step="1" value="8"></label>
       <label for="n">Particles
         <select id="n">
           <option value="1000">1,000</option>
-          <option value="2000" selected>2,000</option>
+          <option value="1500" selected>1,500</option>
+          <option value="2000">2,000</option>
           <option value="3000">3,000</option>
           <option value="4000">4,000</option>
         </select>
@@ -142,7 +173,7 @@
     </div>
     <div class="field">
       <label for="spread">Genome spread</label><output for="spread" id="spreadOut"></output>
-      <input id="spread" type="range" min="0" max="1" step="0.01" value="0.4">
+      <input id="spread" type="range" min="0" max="1" step="0.01" value="1">
     </div>
   </fieldset>
 
@@ -182,6 +213,23 @@
   </fieldset>
 </aside>
 
+<section class="map" id="map" hidden aria-label="World map">
+  <div class="mapHead">
+    <div>
+      <p class="eyebrow">World map</p>
+      <h2>What each law does</h2>
+    </div>
+    <button id="closeMap" type="button" aria-label="Close the world map">Close</button>
+  </div>
+  <p class="note" id="mapNote">Each square is one universe run headlessly for 800 ticks with 1,500 particles and world seed 1. Click one to load it.</p>
+  <div class="mapScroll"><div class="mapGrid" id="mapGrid"></div></div>
+  <div class="mapKey">
+    <span><i class="k-gas"></i>gas</span>
+    <span><i class="k-blob"></i>one blob</span>
+    <span><i class="k-chem"></i>separate groups (brighter = sorted into kinds)</span>
+  </div>
+</section>
+
 <section class="instruments" aria-label="Measurements">
   <dl class="stats">
     <div><dt>Tick</dt><dd id="sTick">0</dd></div>
@@ -190,6 +238,7 @@
     <div><dt>Bonds</dt><dd id="sBonds">-</dd></div>
     <div><dt>Groups (3+)</dt><dd id="sGroups">-</dd></div>
     <div><dt>Largest</dt><dd id="sLargest">-</dd></div>
+    <div><dt>Sorting</dt><dd id="sSorting">-</dd></div>
   </dl>
   <canvas class="spark" id="spark" aria-label="Temperature and bonded share over time"></canvas>
   <div class="legend"><span><i style="background: var(--accent)"></i>temperature</span><span><i style="background: var(--cool)"></i>bonded share</span></div>
@@ -254,14 +303,15 @@
         gl_FragColor = vec4(vColor * light, 1.0);
       }`,
   });
-  const bondMat = new THREE.LineBasicMaterial({ color: 0xc9d2ff, transparent: true, opacity: 0.16, depthWrite: false });
+  const bondMat = new THREE.LineBasicMaterial({ color: 0xc9d2ff, transparent: true, opacity: 0.1, depthWrite: false });
   let points, bonds, box, posAttr, colAttr, bondAttr;
 
-  // A fixed projection of the 8-number state onto a color wheel: same state, same color.
+  // Color comes from the slow state (the genome), projected onto a color wheel: particles of the
+  // same kind share a color. Forces read only this part of the state.
   const PROJ = [
-    [0.9, -0.3, 0.2, 0.4, 0.5, -0.2, 0.3, 0.1],
-    [0.1, 0.8, -0.5, 0.2, -0.3, 0.6, 0.1, -0.4],
-    [0.3, 0.2, 0.7, -0.6, 0.2, 0.1, -0.5, 0.4],
+    [0, 0, 0, 0, 0.9, -0.4, 0.5, 0.3],
+    [0, 0, 0, 0, 0.2, 0.8, -0.4, 0.5],
+    [0, 0, 0, 0, 0.4, 0.3, 0.6, -0.7],
   ];
   const tmpColor = new THREE.Color();
 
@@ -337,6 +387,7 @@
     $('sBonds').textContent = c.bonds.toLocaleString();
     $('sGroups').textContent = c.groups;
     $('sLargest').textContent = c.largest;
+    $('sSorting').textContent = c.groups ? c.sorting.toFixed(2) : '-';
     $('sHash').textContent = sim.hash();
     if (!history.length || history[history.length - 1].tick !== sim.tick) history.push({ tick: sim.tick, T, b: c.bondedShare });
     if (history.length > 400) history.splice(0, history.length - 400);
@@ -427,6 +478,55 @@
   });
 
   build();
+
+  // ---------- world map ----------
+  let mapData = null;
+  async function openMap() {
+    $('map').hidden = false;
+    $('openMap').setAttribute('aria-expanded', 'true');
+    if (!mapData) {
+      try { mapData = await (await fetch('sweep-results.json')).json(); }
+      catch (e) { $('mapNote').textContent = 'The world map could not be loaded.'; return; }
+    }
+    drawMap();
+  }
+  function drawMap() {
+    const rows = mapData.results.filter((r) => r.worldSeed === 1);
+    const laws = [...new Set(rows.map((r) => r.lawSeed))];
+    const spreads = [...new Set(rows.map((r) => r.spread))];
+    const grid = $('mapGrid');
+    grid.style.gridTemplateColumns = `auto repeat(${spreads.length}, minmax(40px, 1fr))`;
+    grid.textContent = '';
+    const add = (el) => grid.appendChild(el);
+    const head = document.createElement('div'); head.className = 'rowh'; head.textContent = 'law / spread'; add(head);
+    for (const sp of spreads) { const h = document.createElement('div'); h.className = 'colh'; h.textContent = sp.toFixed(2); add(h); }
+    for (const law of laws) {
+      const h = document.createElement('div'); h.className = 'rowh'; h.textContent = law; add(h);
+      for (const sp of spreads) {
+        const r = rows.find((x) => x.lawSeed === law && x.spread === sp);
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'cell ' + (r.outcome === 'chemistry' ? 'chem' : r.outcome);
+        if (r.outcome === 'chemistry') {
+          const k = Math.max(0, Math.min(1, r.sorting));
+          b.style.background = `hsl(193 ${45 + 35 * k}% ${22 + 30 * k}%)`;
+          b.textContent = r.sorting.toFixed(2);
+        }
+        b.title = `Law ${law}, spread ${sp}: ${r.outcome}, ${Math.round(r.bondedShare * 100)}% bonded, ${r.groups} groups, largest ${r.largest}, sorting ${r.sorting}`;
+        b.setAttribute('aria-label', b.title);
+        if (Number($('lawSeed').value) === law && Number($('spread').value) === sp && Number($('worldSeed').value) === 1 && Number($('n').value) === mapData.n) b.classList.add('current');
+        b.addEventListener('click', () => {
+          $('lawSeed').value = law; $('worldSeed').value = 1; $('n').value = String(mapData.n);
+          $('spread').value = sp; $('spreadOut').textContent = sp.toFixed(2);
+          build(); drawMap();
+        });
+        add(b);
+      }
+    }
+  }
+  $('openMap').addEventListener('click', () => ($('map').hidden ? openMap() : closeMap()));
+  function closeMap() { $('map').hidden = true; $('openMap').setAttribute('aria-expanded', 'false'); }
+  $('closeMap').addEventListener('click', closeMap);
 
   let frame = 0;
   function loop() {
