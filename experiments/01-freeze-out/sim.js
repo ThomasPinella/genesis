@@ -126,6 +126,8 @@ export class Sim {
     this.q = new Float64Array(n * D);
     this.k = new Float64Array(n * D);
     this.v = new Float64Array(n * D);
+    this.qSlow = new Float64Array(n * D);
+    this.kSlow = new Float64Array(n * D);
     this.force = new Float64Array(n * 3);
     this.msg = new Float64Array(n * D);
     this.wsum = new Float64Array(n);
@@ -142,6 +144,7 @@ export class Sim {
 
   project() {
     const { n, s, q, k, v, Wq, Wk, Wv } = this;
+    const sq_ = this.qSlow, sk_ = this.kSlow;
     for (let i = 0; i < n; i++) {
       const o = i * D;
       for (let a = 0; a < D; a++) {
@@ -152,6 +155,11 @@ export class Sim {
           sq += Wq[w + b] * x; sk += Wk[w + b] * x; sv += Wv[w + b] * x;
         }
         q[o + a] = sq; k[o + a] = sk; v[o + a] = sv;
+        // The same query and key, read from the slow state alone. Passive forces use these, so
+        // what pulls on a particle depends on what it is, not on what it is currently doing.
+        let gq = 0, gk = 0;
+        for (let b = FAST; b < D; b++) { const x = s[o + b]; gq += Wq[w + b] * x; gk += Wk[w + b] * x; }
+        sq_[o + a] = gq; sk_[o + a] = gk;
       }
     }
   }
@@ -176,6 +184,8 @@ export class Sim {
     const { attraction, sharpness, stateRate, drag, noise } = this.p;
     const half = L / 2;
     const invSqrtD = 1 / Math.sqrt(D);
+    const invSqrtSlow = 1 / Math.sqrt(D - FAST);
+    const { qSlow, kSlow } = this;
     const rc2 = RANGE * RANGE;
     const x16 = new Float64Array(2 * D);
 
@@ -218,13 +228,18 @@ export class Sim {
               if (r2 >= rc2) continue;
 
               const oj = j * D;
-              let mij = 0, mji = 0;
-              for (let a = 0; a < D; a++) { mij += q[oi + a] * k[oj + a]; mji += q[oj + a] * k[oi + a]; }
+              let mij = 0, mji = 0, gij = 0, gji = 0;
+              for (let a = 0; a < D; a++) {
+                mij += q[oi + a] * k[oj + a]; mji += q[oj + a] * k[oi + a];
+                gij += qSlow[oi + a] * kSlow[oj + a]; gji += qSlow[oj + a] * kSlow[oi + a];
+              }
               mij *= invSqrtD; mji *= invSqrtD;
 
               // Balanced force: one symmetric match per pair, applied equal and opposite.
-              // Positive match pulls together, negative pushes apart.
-              const sym = dtanh(0.5 * (mij + mji));
+              // Positive match pulls together, negative pushes apart. It reads only the slow
+              // state: if changing your fast state reshaped the forces, it would create motion
+              // energy for free. Doing that has to be paid for (experiment 2).
+              const sym = dtanh(0.5 * (gij + gji) * invSqrtSlow);
               const r = Math.sqrt(r2);
               if (r > 1e-9) {
                 let f;
@@ -318,7 +333,29 @@ export class Sim {
       if (size[i] > largest) largest = size[i];
       nBonded += bonded[i];
     }
-    return { groups, largest, bondedShare: nBonded / this.n, bonds: this.bondCount };
+    // Sorting: how much of the genome variation among grouped particles lies between groups
+    // rather than within them (0 = every group is a random mix, 1 = every group is one kind).
+    const root = new Int32Array(this.n);
+    for (let i = 0; i < this.n; i++) root[i] = find(i);
+    const S = D - FAST, sum = new Float64Array(this.n * S), all = new Float64Array(S);
+    let members = 0;
+    for (let i = 0; i < this.n; i++) {
+      if (size[root[i]] < 3) continue;
+      members++;
+      for (let a = 0; a < S; a++) { const x = this.s[i * D + FAST + a]; sum[root[i] * S + a] += x; all[a] += x; }
+    }
+    let total = 0, within = 0;
+    for (let i = 0; i < this.n; i++) {
+      const r = root[i];
+      if (size[r] < 3) continue;
+      for (let a = 0; a < S; a++) {
+        const x = this.s[i * D + FAST + a];
+        total += (x - all[a] / members) ** 2;
+        within += (x - sum[r * S + a] / size[r]) ** 2;
+      }
+    }
+    const sorting = total > 1e-12 ? 1 - within / total : 0;
+    return { groups, largest, bondedShare: nBonded / this.n, bonds: this.bondCount, sorting };
   }
 
   // A fingerprint of the whole world: identical worlds give identical hashes.
