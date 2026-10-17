@@ -90,7 +90,7 @@
     position: fixed; z-index: 4;
     top: calc(12px + env(safe-area-inset-top, 0px));
     right: max(12px, env(safe-area-inset-right, 0px));
-    width: 380px; max-width: calc(100% - 24px); box-sizing: border-box;
+    width: 460px; max-width: calc(100% - 24px); box-sizing: border-box;
     max-height: calc(100% - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); overflow-y: auto;
     background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
@@ -104,16 +104,23 @@
   .mapGrid .colh, .mapGrid .rowh { text-align: center; font-variant-numeric: tabular-nums; }
   .mapGrid .rowh { text-align: right; padding-right: 4px; }
   .cell {
-    height: 22px; min-width: 40px; border-radius: 4px; border: 1px solid transparent; padding: 0;
-    font: 500 10px var(--mono); color: rgba(255,255,255,0.85); cursor: pointer;
+    min-height: 26px; min-width: 52px; border-radius: 4px; border: 1px solid transparent; padding: 3px;
+    font: 500 10px var(--mono); color: rgba(255,255,255,0.85); cursor: pointer; background: #161a26;
+    display: flex; align-items: center; justify-content: center;
   }
+  .table { min-height: 26px; display: flex; align-items: center; }
+  .dots { display: flex; flex-wrap: wrap; gap: 3px; justify-content: center; align-items: center; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; box-sizing: border-box; flex: none; }
+  .dot.company { background: transparent !important; border: 2px solid; }
+  .dot.absent { opacity: 0.18; }
+  .mapGrid .recur { text-align: center; color: var(--ink); }
+  .elements { display: flex; flex-wrap: wrap; gap: 4px 10px; font-family: var(--mono); font-size: 11px; color: var(--quiet); min-height: 14px; }
+  .elements span { display: inline-flex; align-items: center; gap: 4px; }
   .cell:hover { border-color: var(--ink); }
   .cell.current { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
-  .k-gas, .cell.gas { background: #262a38; }
-  .k-blob, .cell.blob { background: #9c4a4a; }
-  .k-chem { background: #2f9bb8; }
+  .cell.gas { opacity: 0.55; }
   .mapKey { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 11px; color: var(--quiet); }
-  .mapKey i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+  .mapKey .dot { display: inline-block; margin-right: 5px; vertical-align: -1px; }
 
   .toggle { display: none; }
   #fallback { position: fixed; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--quiet); }
@@ -141,7 +148,7 @@
     <p class="eyebrow">Genesis &middot; Experiment 1</p>
     <h1>Freeze-out</h1>
   </div>
-  <p class="question">The world starts hot and drag slowly cools it. <b>Do distinct kinds and bonds freeze out?</b> Color shows each particle's genome, so particles that look alike are the same kind. Lines are bonds.</p>
+  <p class="question">The world starts hot, with every particle's genome random. One energy drives everything: positions and genomes both roll downhill on it, and drag cools the world. <b>Do distinct elements and bonds freeze out?</b> Color shows each particle's genome, so particles that look alike are the same element. Lines are bonds.</p>
 
   <div class="row">
     <button class="primary" id="run" type="button">Pause</button>
@@ -172,8 +179,8 @@
       <input id="heat" type="range" min="0" max="4" step="0.1" value="2">
     </div>
     <div class="field">
-      <label for="spread">Genome spread</label><output for="spread" id="spreadOut"></output>
-      <input id="spread" type="range" min="0" max="1" step="0.01" value="1">
+      <label for="spread">Starting genome range</label><output for="spread" id="spreadOut"></output>
+      <input id="spread" type="range" min="0" max="4" step="0.1" value="2.5">
     </div>
   </fieldset>
 
@@ -192,6 +199,15 @@
       <input id="sharpness" type="range" min="0" max="5" step="0.05" value="1.5">
     </div>
     <div class="field">
+      <label for="depth">Valley depth</label><output for="depth" id="depthOut"></output>
+      <input id="depth" type="range" min="0" max="10" step="0.1" value="2">
+    </div>
+    <div class="field">
+      <label for="genomeRate">Genome drift rate</label><output for="genomeRate" id="genomeRateOut"></output>
+      <input id="genomeRate" type="range" min="0" max="1" step="0.01" value="0.2">
+    </div>
+    <p class="note">Valleys are the law's elements. Deeper valleys resist the pull of neighbors on a genome.</p>
+    <div class="field">
       <label for="stateRate">State change rate</label><output for="stateRate" id="stateRateOut"></output>
       <input id="stateRate" type="range" min="0" max="0.5" step="0.005" value="0.1">
     </div>
@@ -206,7 +222,7 @@
     <legend>View</legend>
     <div class="field">
       <label for="speed">Ticks per frame</label><output for="speed" id="speedOut"></output>
-      <input id="speed" type="range" min="1" max="12" step="1" value="4">
+      <input id="speed" type="range" min="1" max="24" step="1" value="8">
     </div>
     <label class="check" for="showBonds"><input id="showBonds" type="checkbox" checked> Show bonds</label>
     <label class="check" for="spin"><input id="spin" type="checkbox" checked> Slowly rotate</label>
@@ -221,12 +237,12 @@
     </div>
     <button id="closeMap" type="button" aria-label="Close the world map">Close</button>
   </div>
-  <p class="note" id="mapNote">Each square is one universe run headlessly for 800 ticks with 1,500 particles and world seed 1. Click one to load it.</p>
+  <p class="note" id="mapNote">Each row is one law. Its possible elements, the valleys of its genome energy, are on the left. Each square is one start of that law, run headlessly for 1,600 ticks with 1,500 particles, showing the elements it settled into. Click a square to load it.</p>
   <div class="mapScroll"><div class="mapGrid" id="mapGrid"></div></div>
   <div class="mapKey">
-    <span><i class="k-gas"></i>gas</span>
-    <span><i class="k-blob"></i>one blob</span>
-    <span><i class="k-chem"></i>separate groups (brighter = sorted into kinds)</span>
+    <span><i class="dot" style="background: var(--cool)"></i>a law element that 2% or more of particles settled into</span>
+    <span><i class="dot company" style="border-color: #8c93a8"></i>an element that exists only inside clusters</span>
+    <span><b style="color: var(--ink)">Recurs</b>: law elements found in every start</span>
   </div>
 </section>
 
@@ -239,9 +255,14 @@
     <div><dt>Groups (3+)</dt><dd id="sGroups">-</dd></div>
     <div><dt>Largest</dt><dd id="sLargest">-</dd></div>
     <div><dt>Sorting</dt><dd id="sSorting">-</dd></div>
+    <div><dt>Elements</dt><dd id="sElements">-</dd></div>
+    <div><dt>Settled</dt><dd id="sSettled">-</dd></div>
+    <div><dt>Energy</dt><dd id="sEnergy">-</dd></div>
+    <div><dt>Energy rose</dt><dd id="sRose">-</dd></div>
   </dl>
-  <canvas class="spark" id="spark" aria-label="Temperature and bonded share over time"></canvas>
-  <div class="legend"><span><i style="background: var(--accent)"></i>temperature</span><span><i style="background: var(--cool)"></i>bonded share</span></div>
+  <div class="elements" id="elements" aria-label="Elements present"></div>
+  <canvas class="spark" id="spark" aria-label="Temperature, bonded share and total energy over time"></canvas>
+  <div class="legend"><span><i style="background: var(--accent)"></i>temperature</span><span><i style="background: var(--cool)"></i>bonded</span><span><i style="background: var(--ok)"></i>energy</span></div>
   <div class="fingerprint">
     <div><small>World fingerprint</small><code id="sHash">--------</code></div>
     <button id="verify" type="button">Verify replay</button>
@@ -258,11 +279,11 @@
 <script type="module">
   import * as THREE from 'three';
   import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-  import { Sim, D } from './sim.js';
+  import { Sim, D, FAST } from './sim.js';
 
   const $ = (id) => document.getElementById(id);
   const RESTART_KEYS = ['worldSeed', 'lawSeed', 'n', 'heat', 'spread'];
-  const LIVE_KEYS = ['drag', 'attraction', 'sharpness', 'stateRate', 'noise'];
+  const LIVE_KEYS = ['drag', 'attraction', 'sharpness', 'depth', 'genomeRate', 'stateRate', 'noise'];
 
   // ---------- renderer ----------
   let renderer;
@@ -303,19 +324,41 @@
         gl_FragColor = vec4(vColor * light, 1.0);
       }`,
   });
-  const bondMat = new THREE.LineBasicMaterial({ color: 0xc9d2ff, transparent: true, opacity: 0.1, depthWrite: false });
+  const bondMat = new THREE.LineBasicMaterial({ color: 0xc9d2ff, transparent: true, opacity: 0.05, depthWrite: false });
   let points, bonds, box, posAttr, colAttr, bondAttr;
 
-  // Color comes from the slow state (the genome), projected onto a color wheel: particles of the
-  // same kind share a color. Forces read only this part of the state.
+  // Particles settled into one of the law's elements take that element's color. Genomes still
+  // between valleys are shown dimmer, in a color projected from the genome itself.
+  const PALETTE = ['#f0b35a', '#5fc6e8', '#e8739e', '#8fd47f', '#a98cf2', '#f0855a', '#5ad0b0', '#d8d36a'];
   const PROJ = [
-    [0, 0, 0, 0, 0.9, -0.4, 0.5, 0.3],
-    [0, 0, 0, 0, 0.2, 0.8, -0.4, 0.5],
-    [0, 0, 0, 0, 0.4, 0.3, 0.6, -0.7],
+    [0.9, -0.4, 0.5, 0.3],
+    [0.2, 0.8, -0.4, 0.5],
+    [0.4, 0.3, 0.6, -0.7],
   ];
   const tmpColor = new THREE.Color();
+  function genomeColor(g, o = 0) {
+    let p0 = 0, p1 = 0, p2 = 0;
+    for (let a = 0; a < 4; a++) { const x = g[o + a]; p0 += PROJ[0][a] * x; p1 += PROJ[1][a] * x; p2 += PROJ[2][a] * x; }
+    const hue = (Math.atan2(p1, p0) / (2 * Math.PI) + 1) % 1;
+    return tmpColor.setHSL(hue, 0.25, 0.32 + 0.08 * Math.tanh(p2));
+  }
+  const css = (g) => '#' + genomeColor(g).getHexString();
+  const elColors = PALETTE.map((c) => new THREE.Color(c));
+  const elColor = (k) => elColors[k % elColors.length];
+  function particleColor(s, o) {
+    const els = sim.elements, r2 = 2 * (sim.settleRadius / 1.5) ** 2;
+    let best = 0, bk = 0;
+    for (let k = 0; k < els.length; k++) {
+      let d = 0;
+      for (let a = 0; a < 4; a++) d += (s[o + a] - els[k].g[a]) ** 2;
+      const w = Math.exp(-d / r2);
+      if (w > best) { best = w; bk = k; }
+    }
+    genomeColor(s, o);
+    return tmpColor.lerp(elColor(bk), best);
+  }
 
-  let sim, edits, history, initialParams;
+  let sim, edits, history, initialParams, rises = 0;
 
   function readParams() {
     const p = {};
@@ -328,6 +371,7 @@
     sim = new Sim(initialParams);
     edits = [];
     history = [];
+    rises = 0;
     if (points) { scene.remove(points, bonds, box); points.geometry.dispose(); bonds.geometry.dispose(); box.geometry.dispose(); }
     const n = sim.n, L = sim.L;
     const g = new THREE.BufferGeometry();
@@ -355,10 +399,7 @@
     const pa = posAttr.array, ca = colAttr.array;
     for (let i = 0; i < n; i++) {
       pa[i * 3] = pos[i * 3] - h; pa[i * 3 + 1] = pos[i * 3 + 1] - h; pa[i * 3 + 2] = pos[i * 3 + 2] - h;
-      let p0 = 0, p1 = 0, p2 = 0;
-      for (let a = 0; a < D; a++) { const x = s[i * D + a]; p0 += PROJ[0][a] * x; p1 += PROJ[1][a] * x; p2 += PROJ[2][a] * x; }
-      const hue = (Math.atan2(p1, p0) / (2 * Math.PI) + 1) % 1;
-      tmpColor.setHSL(hue, 0.7, 0.5 + 0.12 * Math.tanh(p2));
+      particleColor(s, i * D + FAST);
       ca[i * 3] = tmpColor.r; ca[i * 3 + 1] = tmpColor.g; ca[i * 3 + 2] = tmpColor.b;
     }
     posAttr.needsUpdate = true; colAttr.needsUpdate = true;
@@ -388,8 +429,32 @@
     $('sGroups').textContent = c.groups;
     $('sLargest').textContent = c.largest;
     $('sSorting').textContent = c.groups ? c.sorting.toFixed(2) : '-';
+    const e = sim.census();
+    $('sElements').textContent = `${e.present.length}/${e.possible}` + (e.company.length ? ` +${e.company.length}` : '');
+    $('sElements').title = `${e.present.length} of the law's ${e.possible} elements are present` + (e.company.length ? `, plus ${e.company.length} that exist only inside clusters` : '');
+    $('sSettled').textContent = Math.round(e.settled * 100) + '%';
+    const box = $('elements');
+    box.textContent = '';
+    const chip = (k, g, share, company) => {
+      const sp = document.createElement('span'), d = document.createElement('i');
+      d.className = 'dot' + (company ? ' company' : '');
+      if (company) d.style.borderColor = css(g); else d.style.background = PALETTE[k % PALETTE.length];
+      sp.append(d, `${Math.round(share * 100)}%`);
+      sp.title = company ? 'Exists only inside clusters' : 'One of the law\'s elements';
+      box.appendChild(sp);
+    };
+    for (const k of e.present) chip(k, null, e.shares[k], false);
+    for (const x of e.company) chip(0, x.g, x.share, true);
     $('sHash').textContent = sim.hash();
-    if (!history.length || history[history.length - 1].tick !== sim.tick) history.push({ tick: sim.tick, T, b: c.bondedShare });
+    const E = sim.energy ? sim.energy.total : null;
+    if (E !== null) {
+      $('sEnergy').textContent = Math.round(E).toLocaleString();
+      // Energy can only fall. Count the times it rose between readings while no knob was touched.
+      const prev = history[history.length - 1];
+      if (prev && prev.E !== null && E > prev.E + 1e-9 && !(edits.length && edits[edits.length - 1].tick >= prev.tick)) rises++;
+      $('sRose').textContent = rises ? `${rises} time${rises > 1 ? 's' : ''}` : 'never';
+    }
+    if (!history.length || history[history.length - 1].tick !== sim.tick) history.push({ tick: sim.tick, T, b: c.bondedShare, E });
     if (history.length > 400) history.splice(0, history.length - 400);
     drawSpark();
   }
@@ -416,6 +481,15 @@
     };
     line('T', Tmax, '#f0b35a');
     line('b', 1, '#6fc3df');
+    const Es = history.filter((d) => d.E !== null).map((d) => d.E);
+    if (Es.length > 1) {
+      const lo = Math.min(...Es), hi = Math.max(...Es), span = Math.max(hi - lo, 1e-6);
+      history.forEach((d) => { d.e = d.E === null ? null : (d.E - lo) / span; });
+      ctx.strokeStyle = '#7fd49a'; ctx.lineWidth = 1.5; ctx.beginPath();
+      let started = false;
+      for (const d of history) { if (d.e === null) continue; const y = h - 3 - d.e * (h - 8); started ? ctx.lineTo(X(d.tick), y) : ctx.moveTo(X(d.tick), y); started = true; }
+      ctx.stroke();
+    }
   }
 
   function resize() {
@@ -428,7 +502,7 @@
 
   // ---------- controls ----------
   let running = true;
-  const fmt = { heat: 1, spread: 2, drag: 3, attraction: 2, sharpness: 2, stateRate: 3, noise: 2, speed: 0 };
+  const fmt = { heat: 1, spread: 1, drag: 3, attraction: 2, sharpness: 2, depth: 1, genomeRate: 2, stateRate: 3, noise: 2, speed: 0 };
   for (const k of Object.keys(fmt)) {
     const el = $(k), out = $(k + 'Out');
     const show = () => { out.textContent = Number(el.value).toFixed(fmt[k]); };
@@ -491,37 +565,57 @@
     drawMap();
   }
   function drawMap() {
-    const rows = mapData.results.filter((r) => r.worldSeed === 1);
-    const laws = [...new Set(rows.map((r) => r.lawSeed))];
-    const spreads = [...new Set(rows.map((r) => r.spread))];
+    const rows = mapData.results;
+    const laws = Object.keys(mapData.laws).map(Number).sort((a, b) => a - b);
+    const worlds = mapData.worlds;
     const grid = $('mapGrid');
-    grid.style.gridTemplateColumns = `auto repeat(${spreads.length}, minmax(40px, 1fr))`;
+    grid.style.gridTemplateColumns = `auto auto repeat(${worlds.length}, minmax(52px, 1fr)) auto`;
     grid.textContent = '';
     const add = (el) => grid.appendChild(el);
-    const head = document.createElement('div'); head.className = 'rowh'; head.textContent = 'law / spread'; add(head);
-    for (const sp of spreads) { const h = document.createElement('div'); h.className = 'colh'; h.textContent = sp.toFixed(2); add(h); }
+    const div = (cls, text) => { const d = document.createElement('div'); d.className = cls; if (text !== undefined) d.textContent = text; return d; };
+    const dot = (k, g) => {
+      const d = document.createElement('i');
+      d.className = 'dot' + (g ? ' company' : '');
+      if (g) d.style.borderColor = css(g); else d.style.background = PALETTE[k % PALETTE.length];
+      return d;
+    };
+    add(div('rowh', 'law')); add(div('colh', 'possible'));
+    for (const w of worlds) add(div('colh', `start ${w}`));
+    add(div('colh', 'recurs'));
     for (const law of laws) {
-      const h = document.createElement('div'); h.className = 'rowh'; h.textContent = law; add(h);
-      for (const sp of spreads) {
-        const r = rows.find((x) => x.lawSeed === law && x.spread === sp);
+      const els = mapData.laws[law].elements;
+      add(div('rowh', law));
+      const table = div('table'), tdots = div('dots');
+      els.forEach((e, k) => tdots.appendChild(dot(k)));
+      table.appendChild(tdots);
+      table.title = `Law ${law} has ${els.length} possible element${els.length > 1 ? 's' : ''}.`;
+      add(table);
+      const starts = worlds.map((w) => rows.find((x) => x.lawSeed === law && x.worldSeed === w));
+      for (const r of starts) {
         const b = document.createElement('button');
         b.type = 'button';
-        b.className = 'cell ' + (r.outcome === 'chemistry' ? 'chem' : r.outcome);
-        if (r.outcome === 'chemistry') {
-          const k = Math.max(0, Math.min(1, r.sorting));
-          b.style.background = `hsl(193 ${45 + 35 * k}% ${22 + 30 * k}%)`;
-          b.textContent = r.sorting.toFixed(2);
-        }
-        b.title = `Law ${law}, spread ${sp}: ${r.outcome}, ${Math.round(r.bondedShare * 100)}% bonded, ${r.groups} groups, largest ${r.largest}, sorting ${r.sorting}`;
+        b.className = 'cell' + (r.outcome === 'gas' ? ' gas' : '');
+        const dots = div('dots');
+        els.forEach((e, k) => { if (r.present.includes(k)) dots.appendChild(dot(k)); });
+        r.company.forEach((c) => dots.appendChild(dot(0, c.g)));
+        if (!dots.childNodes.length) dots.textContent = '-';
+        b.appendChild(dots);
+        const mix = r.present.map((k) => `${Math.round(r.shares[k] * 100)}%`).join(', ');
+        b.title = `Law ${law}, start ${r.worldSeed}: ${r.present.length} of ${els.length} law elements settled (${mix || 'none'})` +
+          (r.company.length ? `, plus ${r.company.length} found only inside clusters` : '') +
+          `. ${Math.round(r.settled * 100)}% settled, ${Math.round(r.bondedShare * 100)}% bonded, ${r.groups} groups, sorting ${r.sorting}.`;
         b.setAttribute('aria-label', b.title);
-        if (Number($('lawSeed').value) === law && Number($('spread').value) === sp && Number($('worldSeed').value) === 1 && Number($('n').value) === mapData.n) b.classList.add('current');
+        if (Number($('lawSeed').value) === law && Number($('worldSeed').value) === r.worldSeed && Number($('n').value) === mapData.n) b.classList.add('current');
         b.addEventListener('click', () => {
-          $('lawSeed').value = law; $('worldSeed').value = 1; $('n').value = String(mapData.n);
-          $('spread').value = sp; $('spreadOut').textContent = sp.toFixed(2);
+          $('lawSeed').value = law; $('worldSeed').value = r.worldSeed; $('n').value = String(mapData.n);
           build(); drawMap();
         });
         add(b);
       }
+      const always = els.filter((e, k) => starts.every((r) => r.present.includes(k))).length;
+      const rec = div('recur', `${always} of ${els.length}`);
+      rec.title = `${always} of law ${law}'s elements appear in every start.`;
+      add(rec);
     }
   }
   $('openMap').addEventListener('click', () => ($('map').hidden ? openMap() : closeMap()));
