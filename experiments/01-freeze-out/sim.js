@@ -1,12 +1,20 @@
-// Genesis, experiment 1: particles that interact by attention, with balanced forces and drag.
+// Genesis, experiment 1: particles that interact by attention, on one energy budget.
+//
+// The world has a single energy: motion, plus a wall at contact, plus each particle's bonds (a soft
+// maximum of how well its genome matches its neighbors'), plus a term for every genome on its own
+// (how comfortable that genome is under the law). Positions roll down it (the forces, equal and opposite per pair) and
+// genomes drift slowly down it. Nothing ever climbs it, so total energy can only fall, and drag
+// is the only place it goes. The low points of the genome term are the elements: the law makes
+// them, nobody lists them.
 //
 // Determinism: step() uses only +, -, *, /, Math.sqrt, Math.floor and Math.round, which IEEE 754
-// defines exactly. exp and tanh are computed here from those operations instead of Math.exp and
-// Math.tanh, whose last bits can differ between browsers. Randomness comes from two integer
-// PRNG streams: the law seed (the physics) and the world seed (the starting conditions).
+// defines exactly. exp, tanh and log are computed here from those operations instead of Math.exp,
+// Math.tanh and Math.log, whose last bits can differ between browsers. Randomness comes from two
+// integer PRNG streams: the law seed (the physics) and the world seed (the starting conditions).
 
 export const D = 8;     // numbers in each particle's state
 export const FAST = 4;  // state[0..3] is the fast state; state[4..7] is the slow state (the genome)
+export const S = D - FAST;
 
 export const DEFAULTS = {
   worldSeed: 1,
@@ -16,19 +24,28 @@ export const DEFAULTS = {
   heat: 2.0,        // starting speed of every particle
   drag: 0.08,       // fraction of velocity lost per unit time; the world's only heat sink
   attraction: 1.5,  // strength of the match-based pull (or push, when the match is negative)
-  sharpness: 1.5,   // how selective attention is
+  sharpness: 1.5,   // how selective attention is; sharper attention gives more, crisper elements
+  depth: 2,         // how deep the law's genome valleys are, against the pull of neighbors
+  genomeRate: 0.2,  // how fast genomes drift downhill (positions move much faster)
   stateRate: 0.1,   // how fast the fast state follows its update
-  spread: 1,        // how different the starting genomes are (0 = identical)
+  spread: 2.5,      // starting genomes are random within this range on every axis
   noise: 0,         // optional jitter per tick; off by default, and seeded when on
 };
 
 const RANGE = 1.0;      // interaction range: nothing farther than this is felt
 const CONTACT = 0.35;    // closer than this, particles push apart
 const REPULSION = 8;
-const DT = 0.05;
+const DT = 0.025;
 const LAW_GAIN = 1.6;   // gain of the state update; above 1 it allows several stable states
+const MEMORY_GAIN = 3;  // scale of the law's keys when a genome attends to them
 const BOND_DIST = CONTACT * 1.4;
 const BOND_MATCH = 0.25;
+const SETTLED = 0.75;   // a genome this close to a valley has settled into that element
+const ELEMENT_SHARE = 0.02;
+
+function wall(r) {
+  return r < CONTACT ? REPULSION * ((CONTACT - r) - (CONTACT * CONTACT - r * r) / (2 * CONTACT)) : 0;
+}
 
 // ---------- exact-everywhere math ----------
 
@@ -56,6 +73,17 @@ export function dtanh(x) {
   if (x < -20) return -1;
   const e = dexp(2 * x);
   return (e - 1) / (e + 1);
+}
+
+// Natural log for x > 0: scale into [1, 2) by exact powers of two, then a series for atanh.
+export function dlog(x) {
+  let k = 0;
+  while (x >= 2 && k < 60) { x /= 2; k++; }
+  while (x < 1 && k > -60) { x *= 2; k--; }
+  const z = (x - 1) / (x + 1), z2 = z * z;
+  let t = 0;
+  for (let i = 39; i >= 1; i -= 2) t = 1 / i + z2 * t;
+  return 2 * z * t + k * LN2;
 }
 
 function dcbrt(v) {
@@ -101,9 +129,27 @@ export class Sim {
     this.Wu = new Float64Array(FAST * 2 * D).map(() => uni(uScale));
     this.bu = new Float64Array(FAST).map(() => uni(0.2));
 
-    // Starting conditions: even scatter, fast random motion, nearly shared genome.
+    // How well two genomes match: g_i . M g_j, with M the symmetric part of (query . key) read
+    // from the genome part of the state. Symmetric, so the pair's pull is the same both ways.
+    this.M = new Float64Array(S * S);
+    for (let a = 0; a < S; a++) {
+      for (let b = 0; b < S; b++) {
+        let x = 0;
+        for (let c = 0; c < D; c++) {
+          x += this.Wq[c * D + FAST + a] * this.Wk[c * D + FAST + b] + this.Wk[c * D + FAST + a] * this.Wq[c * D + FAST + b];
+        }
+        this.M[a * S + b] = x / (4 * Math.sqrt(S));
+      }
+    }
+    // The genome's own term is a modern Hopfield energy: the genome attends to the law's keys
+    // (each row of Wk, read from the genome part), and is comfortable when one key answers it
+    // strongly. Its valleys are the law's memories, and those are the elements.
+    this.X = new Float64Array(D * S);
+    for (let m = 0; m < D; m++) for (let a = 0; a < S; a++) this.X[m * S + a] = MEMORY_GAIN * this.Wk[m * D + FAST + a];
+    this.findElements();
+
+    // Starting conditions: even scatter, fast random motion, random genomes.
     const wr = rng(worldSeed * 2246822519 + 1);
-    const genome = new Float64Array(D - FAST).map(() => wr() * 2 - 1);
     this.noiseRng = rng(worldSeed * 3266489917 + 7);
     this.pos = new Float64Array(n * 3);
     this.vel = new Float64Array(n * 3);
@@ -120,31 +166,111 @@ export class Sim {
     }
     for (let i = 0; i < n; i++) {
       for (let a = 0; a < FAST; a++) this.s[i * D + a] = (wr() * 2 - 1) * 0.5;
-      for (let a = FAST; a < D; a++) this.s[i * D + a] = genome[a - FAST] + (wr() * 2 - 1) * this.p.spread;
+      for (let a = FAST; a < D; a++) this.s[i * D + a] = (wr() * 2 - 1) * this.p.spread;
     }
 
     this.q = new Float64Array(n * D);
     this.k = new Float64Array(n * D);
     this.v = new Float64Array(n * D);
-    this.qSlow = new Float64Array(n * D);
-    this.kSlow = new Float64Array(n * D);
+    this.Mg = new Float64Array(n * S);
+    this.gradG = new Float64Array(n * S);
     this.force = new Float64Array(n * 3);
     this.msg = new Float64Array(n * D);
     this.wsum = new Float64Array(n);
     this.cellStart = new Int32Array(this.G * this.G * this.G + 1);
     this.cellItems = new Int32Array(n);
     this.cellOf = new Int32Array(n);
-    this.maxBonds = n * 6;
+    this.maxBonds = n * 24;
     this.bondA = new Int32Array(this.maxBonds);
     this.bondB = new Int32Array(this.maxBonds);
     this.bondCount = 0;
+    this.energy = null;
+    this.P = new Float64Array(n);
+    this.Q = new Float64Array(n);
+    this.pairCap = 0;
+    this.growPairs();
   }
 
-  set(name, value) { this.p[name] = value; }
+  growPairs() {
+    const cap = this.pairCap ? this.pairCap * 2 : this.n * 32;
+    const grow = (old, size) => { const a = new old.constructor(size); a.set(old); return a; };
+    if (!this.pairCap) {
+      this.pi = new Int32Array(cap); this.pj = new Int32Array(cap);
+      this.pd = new Float64Array(cap * 4); this.pf = new Float64Array(cap * 2);
+    } else {
+      this.pi = grow(this.pi, cap); this.pj = grow(this.pj, cap);
+      this.pd = grow(this.pd, cap * 4); this.pf = grow(this.pf, cap * 2);
+    }
+    this.pairCap = cap;
+  }
+
+  set(name, value) {
+    this.p[name] = value;
+    if (name === 'sharpness') this.findElements();
+  }
+
+  // The genome's own energy, and its slope written into out (both scaled by depth later).
+  selfTerm(g, go, out, oo) {
+    const { X } = this, beta = Math.max(this.p.sharpness, 0.05);
+    const a = this._a || (this._a = new Float64Array(D));
+    let amax = -Infinity;
+    for (let m = 0; m < D; m++) {
+      let x = 0;
+      for (let b = 0; b < S; b++) x += X[m * S + b] * g[go + b];
+      a[m] = beta * x;
+      if (a[m] > amax) amax = a[m];
+    }
+    let Z = 0;
+    for (let m = 0; m < D; m++) { a[m] = dexp(a[m] - amax); Z += a[m]; }
+    let sq = 0;
+    for (let b = 0; b < S; b++) {
+      let pull = 0;
+      for (let m = 0; m < D; m++) pull += a[m] * X[m * S + b];
+      out[oo + b] = g[go + b] - pull / Z;
+      sq += g[go + b] * g[go + b];
+    }
+    return sq / 2 - (amax + dlog(Z)) / beta;
+  }
+
+  // The law's elements: roll many genomes downhill on the genome term alone and keep each
+  // distinct place they come to rest. Uses its own fixed starts, so it depends only on the law.
+  findElements() {
+    const r = rng(0x9e3779b9);
+    const g = new Float64Array(S), grad = new Float64Array(S);
+    const found = [];
+    const starts = 256;
+    for (let t = 0; t < starts; t++) {
+      for (let b = 0; b < S; b++) g[b] = (r() * 2 - 1) * 3;
+      for (let it = 0; it < 4000; it++) {
+        this.selfTerm(g, 0, grad, 0);
+        let d = 0;
+        for (let b = 0; b < S; b++) { g[b] -= 0.5 * grad[b]; d += grad[b] * grad[b]; }
+        if (d < 1e-16) break;
+      }
+      let hit = null;
+      for (const e of found) {
+        let d = 0;
+        for (let b = 0; b < S; b++) d += (e.g[b] - g[b]) ** 2;
+        if (d < 0.01) { hit = e; break; }
+      }
+      if (hit) hit.basin++;
+      else found.push({ g: Array.from(g), basin: 1 });
+    }
+    found.sort((x, y) => y.basin - x.basin);
+    this.elements = found.map((e) => ({ g: e.g, basin: e.basin / starts, energy: this.selfTerm(e.g, 0, grad, 0) }));
+    // How close a genome must be to count as settled: SETTLED, or less when valleys are close.
+    let gap = Infinity;
+    for (const a of this.elements) for (const b of this.elements) {
+      if (a === b) continue;
+      let d = 0;
+      for (let c = 0; c < S; c++) d += (a.g[c] - b.g[c]) ** 2;
+      gap = Math.min(gap, Math.sqrt(d));
+    }
+    this.settleRadius = Math.min(SETTLED, 0.4 * gap);
+  }
 
   project() {
-    const { n, s, q, k, v, Wq, Wk, Wv } = this;
-    const sq_ = this.qSlow, sk_ = this.kSlow;
+    const { n, s, q, k, v, Wq, Wk, Wv, M, Mg } = this;
     for (let i = 0; i < n; i++) {
       const o = i * D;
       for (let a = 0; a < D; a++) {
@@ -155,11 +281,11 @@ export class Sim {
           sq += Wq[w + b] * x; sk += Wk[w + b] * x; sv += Wv[w + b] * x;
         }
         q[o + a] = sq; k[o + a] = sk; v[o + a] = sv;
-        // The same query and key, read from the slow state alone. Passive forces use these, so
-        // what pulls on a particle depends on what it is, not on what it is currently doing.
-        let gq = 0, gk = 0;
-        for (let b = FAST; b < D; b++) { const x = s[o + b]; gq += Wq[w + b] * x; gk += Wk[w + b] * x; }
-        sq_[o + a] = gq; sk_[o + a] = gk;
+      }
+      for (let a = 0; a < S; a++) {
+        let x = 0;
+        for (let b = 0; b < S; b++) x += M[a * S + b] * s[o + FAST + b];
+        Mg[i * S + a] = x;
       }
     }
   }
@@ -180,12 +306,10 @@ export class Sim {
   }
 
   step() {
-    const { n, L, G, pos, vel, s, s2, q, k, v, force, msg, wsum, cellStart, cellItems, cellOf, Wu, bu } = this;
-    const { attraction, sharpness, stateRate, drag, noise } = this.p;
+    const { n, L, G, pos, vel, s, s2, q, k, v, Mg, gradG, force, msg, wsum, cellStart, cellItems, cellOf, Wu, bu } = this;
+    const { attraction, sharpness, stateRate, drag, noise, depth, genomeRate } = this.p;
     const half = L / 2;
     const invSqrtD = 1 / Math.sqrt(D);
-    const invSqrtSlow = 1 / Math.sqrt(D - FAST);
-    const { qSlow, kSlow } = this;
     const rc2 = RANGE * RANGE;
     const x16 = new Float64Array(2 * D);
 
@@ -193,7 +317,9 @@ export class Sim {
     this.buildGrid();
     this.bondCount = 0;
 
-    // Attention always includes yourself, so an isolated particle still updates.
+    // Attention always includes yourself, so an isolated particle still updates. Each genome
+    // also starts with the slope of its own term.
+    let selfE = 0;
     for (let i = 0; i < n; i++) {
       const oi = i * D;
       let selfDot = 0;
@@ -201,14 +327,22 @@ export class Sim {
       const w = dexp(sharpness * selfDot * invSqrtD);
       wsum[i] = w;
       for (let a = 0; a < D; a++) msg[oi + a] = w * v[oi + a];
+      selfE += this.selfTerm(s, oi + FAST, gradG, i * S);
+      for (let a = 0; a < S; a++) gradG[i * S + a] *= depth;
     }
+    selfE *= depth;
     force.fill(0);
+    let wallE = 0;
+    const beta = Math.max(sharpness, 0.05);
+    const P = this.P, Q = this.Q;
+    P.fill(1); Q.fill(1);
+    let np = 0;
 
-    // Every pair within range is visited once, always from its lower index, in a fixed order.
+    // Pass 1. Every pair within range is visited once, always from its lower index, in a fixed
+    // order. It records the pair, applies the wall, and gathers what each particle hears.
     for (let i = 0; i < n; i++) {
       const oi = i * D;
       const xi = pos[i * 3], yi = pos[i * 3 + 1], zi = pos[i * 3 + 2];
-      let fx = 0, fy = 0, fz = 0;
       const c = cellOf[i];
       const cx = c % G, cy = Math.floor(c / G) % G, cz = Math.floor(c / (G * G));
       for (let dz = -1; dz <= 1; dz++) {
@@ -227,33 +361,36 @@ export class Sim {
               const r2 = ddx * ddx + ddy * ddy + ddz * ddz;
               if (r2 >= rc2) continue;
 
-              const oj = j * D;
-              let mij = 0, mji = 0, gij = 0, gji = 0;
-              for (let a = 0; a < D; a++) {
-                mij += q[oi + a] * k[oj + a]; mji += q[oj + a] * k[oi + a];
-                gij += qSlow[oi + a] * kSlow[oj + a]; gji += qSlow[oj + a] * kSlow[oi + a];
-              }
+              const oj = j * D, gj = j * S;
+              let mij = 0, mji = 0, gm = 0;
+              for (let a = 0; a < D; a++) { mij += q[oi + a] * k[oj + a]; mji += q[oj + a] * k[oi + a]; }
+              for (let a = 0; a < S; a++) gm += s[oi + FAST + a] * Mg[gj + a];
               mij *= invSqrtD; mji *= invSqrtD;
-
-              // Balanced force: one symmetric match per pair, applied equal and opposite.
-              // Positive match pulls together, negative pushes apart. It reads only the slow
-              // state: if changing your fast state reshaped the forces, it would create motion
-              // energy for free. Doing that has to be paid for (experiment 2).
-              const sym = dtanh(0.5 * (gij + gji) * invSqrtSlow);
+              const sym = dtanh(gm);
               const r = Math.sqrt(r2);
-              if (r > 1e-9) {
-                let f;
-                if (r < CONTACT) f = -REPULSION * (1 - r / CONTACT);
-                else { const u = (r - CONTACT) / (RANGE - CONTACT); f = attraction * sym * 4 * u * (1 - u); }
-                const fr = f / r;
-                fx += fr * ddx; fy += fr * ddy; fz += fr * ddz;
+              const fall = (1 - r2 / rc2) * (1 - r2 / rc2);
+
+              // The wall at contact: its own energy, equal and opposite push.
+              if (r < CONTACT && r > 1e-9) {
+                wallE += wall(r);
+                const fr = -REPULSION * (1 - r / CONTACT) / r;
+                force[i * 3] += fr * ddx; force[i * 3 + 1] += fr * ddy; force[i * 3 + 2] += fr * ddz;
                 force[j * 3] -= fr * ddx; force[j * 3 + 1] -= fr * ddy; force[j * 3 + 2] -= fr * ddz;
               }
 
+              // The genome match, seen through the same distance fade as attention.
+              const e = dexp(beta * sym);
+              P[i] += fall * e; P[j] += fall * e;
+              Q[i] += fall; Q[j] += fall;
+              if (np === this.pairCap) this.growPairs();
+              this.pi[np] = i; this.pj[np] = j; this.pd[np * 4] = ddx; this.pd[np * 4 + 1] = ddy; this.pd[np * 4 + 2] = ddz;
+              this.pd[np * 4 + 3] = r; this.pf[np * 2] = fall; this.pf[np * 2 + 1] = sym;
+              np++;
+
               // Attention may be lopsided: i listens to j by how well i's query matches j's key,
               // and j listens to i by how well j's query matches i's key. Both fade to zero at
-              // the edge of the range.
-              const fall = (1 - r2 / rc2) * (1 - r2 / rc2);
+              // the edge of the range. What a particle hears moves only its fast state, which
+              // is not part of the energy, so it cannot create motion.
               const wij = dexp(sharpness * mij) * fall;
               const wji = dexp(sharpness * mji) * fall;
               wsum[i] += wij; wsum[j] += wji;
@@ -266,13 +403,44 @@ export class Sim {
           }
         }
       }
-      force[i * 3] += fx; force[i * 3 + 1] += fy; force[i * 3 + 2] += fz;
     }
 
+    // Each particle's bond energy is a soft maximum of its matches, like attention's softmax:
+    //   E_i = -(attraction / beta) * log( (1 + sum_j fade_ij e^(beta match_ij)) / (1 + sum_j fade_ij) )
+    // The 1s stand for empty space. It is bounded however many neighbors crowd in, so attention
+    // has a fixed budget and bonds saturate (without that, dense clumps collapse into themselves).
+    let bondE = 0;
+    const scale = attraction / beta;
+    for (let i = 0; i < n; i++) bondE -= scale * (dlog(P[i]) - dlog(Q[i]));
+
+    // Pass 2: the slopes of that energy. In distance they are the forces, equal and opposite for
+    // each pair; in each genome they are how it would like to change for its neighbors.
+    for (let t = 0; t < np; t++) {
+      const i = this.pi[t], j = this.pj[t];
+      const ddx = this.pd[t * 4], ddy = this.pd[t * 4 + 1], ddz = this.pd[t * 4 + 2], r = this.pd[t * 4 + 3];
+      const fall = this.pf[t * 2], sym = this.pf[t * 2 + 1];
+      const e = dexp(beta * sym);
+      const ci = e / P[i] - 1 / Q[i], cj = e / P[j] - 1 / Q[j];
+      if (r > 1e-9) {
+        const dfall = -4 * r / rc2 * (1 - r * r / rc2);
+        const fr = -scale * dfall * (ci + cj) / r;
+        force[i * 3] += fr * ddx; force[i * 3 + 1] += fr * ddy; force[i * 3 + 2] += fr * ddz;
+        force[j * 3] -= fr * ddx; force[j * 3 + 1] -= fr * ddy; force[j * 3 + 2] -= fr * ddz;
+      }
+      const pull = -attraction * fall * e * (1 / P[i] + 1 / P[j]) * (1 - sym * sym);
+      const gi = i * S, gj = j * S;
+      for (let a = 0; a < S; a++) { gradG[gi + a] += pull * Mg[gj + a]; gradG[gj + a] += pull * Mg[gi + a]; }
+    }
+
+    let kin = 0;
+    for (let i = 0; i < n * 3; i++) kin += vel[i] * vel[i];
+    const pairE = wallE + bondE;
+    this.energy = { kinetic: kin / 2, pair: pairE, self: selfE, total: kin / 2 + pairE + selfE, tick: this.tick };
+
+    const gstep = DT * genomeRate;
     for (let i = 0; i < n; i++) {
       const oi = i * D;
-      // Fast state follows a nonlinear update of (own state, what it heard). Slow state is fixed
-      // in this experiment: imprinting arrives in experiment 3.
+      // Fast state follows a nonlinear update of (own state, what it heard).
       const inv = 1 / wsum[i];
       for (let a = 0; a < D; a++) { x16[a] = s[oi + a]; x16[D + a] = msg[oi + a] * inv; }
       for (let a = 0; a < FAST; a++) {
@@ -281,7 +449,8 @@ export class Sim {
         for (let b = 0; b < 2 * D; b++) z += Wu[w0 + b] * x16[b];
         s2[oi + a] = s[oi + a] + stateRate * (dtanh(z) - s[oi + a]);
       }
-      for (let a = FAST; a < D; a++) s2[oi + a] = s[oi + a];
+      // The genome drifts slowly downhill: it only changes when that releases energy.
+      for (let a = 0; a < S; a++) s2[oi + FAST + a] = s[oi + FAST + a] - gstep * gradG[i * S + a];
     }
 
     // Integrate: forces, optional seeded noise, drag (the sink), then move and wrap around.
@@ -313,6 +482,53 @@ export class Sim {
     return e / (this.n * 3);
   }
 
+  // Which elements the world has settled into. A particle has settled when its genome sits
+  // close to one of the law's valleys (neighbors may hold it a little off the exact bottom). Genomes that have gathered somewhere else, in numbers,
+  // are elements that exist only in company: their neighbors hold them there.
+  census() {
+    const { n, s, elements } = this;
+    const count = new Int32Array(elements.length);
+    const loose = [];
+    for (let i = 0; i < n; i++) {
+      let best = -1, bd = this.settleRadius * this.settleRadius;
+      for (let e = 0; e < elements.length; e++) {
+        let d = 0;
+        for (let b = 0; b < S; b++) d += (s[i * D + FAST + b] - elements[e].g[b]) ** 2;
+        if (d < bd) { bd = d; best = e; }
+      }
+      if (best >= 0) count[best]++; else loose.push(i);
+    }
+    // Group the unsettled genomes: each joins the first group whose centre is close enough.
+    const groups = [];
+    for (const i of loose) {
+      let hit = null;
+      for (const gr of groups) {
+        let d = 0;
+        for (let b = 0; b < S; b++) d += (s[i * D + FAST + b] - gr.c[b]) ** 2;
+        if (d < this.settleRadius * this.settleRadius) { hit = gr; break; }
+      }
+      if (!hit) { hit = { c: Array.from(s.subarray(i * D + FAST, i * D + D)), sum: new Array(S).fill(0), size: 0 }; groups.push(hit); }
+      for (let b = 0; b < S; b++) hit.sum[b] += s[i * D + FAST + b];
+      hit.size++;
+    }
+    const min = ELEMENT_SHARE * n;
+    const present = [];
+    for (let e = 0; e < elements.length; e++) if (count[e] >= min) present.push(e);
+    const company = groups.filter((gr) => gr.size >= min)
+      .map((gr) => ({ g: gr.sum.map((x) => x / gr.size), share: gr.size / n }))
+      .sort((x, y) => y.share - x.share);
+    let settled = 0;
+    for (let e = 0; e < elements.length; e++) settled += count[e];
+    return {
+      possible: elements.length,
+      shares: Array.from(count, (c) => c / n),
+      present,
+      company,
+      distinct: present.length + company.length,
+      settled: settled / n,
+    };
+  }
+
   // Bonds from the last step, grouped into clusters with union-find.
   clusters() {
     const parent = new Int32Array(this.n);
@@ -337,7 +553,7 @@ export class Sim {
     // rather than within them (0 = every group is a random mix, 1 = every group is one kind).
     const root = new Int32Array(this.n);
     for (let i = 0; i < this.n; i++) root[i] = find(i);
-    const S = D - FAST, sum = new Float64Array(this.n * S), all = new Float64Array(S);
+    const sum = new Float64Array(this.n * S), all = new Float64Array(S);
     let members = 0;
     for (let i = 0; i < this.n; i++) {
       if (size[root[i]] < 3) continue;
