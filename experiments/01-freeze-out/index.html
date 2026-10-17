@@ -1,0 +1,444 @@
+<title>Genesis Freeze-out</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap">
+<style>
+  /* Layout: the world fills the screen; a lab panel floats on the left, instruments bottom right. */
+  :root {
+    --void: #07080c;
+    --panel: rgba(14, 16, 24, 0.86);
+    --line: rgba(160, 172, 210, 0.16);
+    --ink: #e4e7f1;
+    --quiet: #8c93a8;
+    --accent: #f0b35a;
+    --cool: #6fc3df;
+    --ok: #7fd49a;
+    --bad: #ef7f7f;
+    --ui: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    color-scheme: dark;
+  }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--void); color: var(--ink); font-family: var(--ui); font-size: 14px; overflow: hidden; }
+  #world { position: fixed; inset: 0; display: block; width: 100%; height: 100%; touch-action: none; }
+
+  .panel {
+    position: fixed; z-index: 2;
+    top: calc(12px + env(safe-area-inset-top, 0px));
+    left: max(12px, env(safe-area-inset-left, 0px));
+    width: 300px; max-height: calc(100% - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    overflow-y: auto; box-sizing: border-box;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 16px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0; }
+  h1 { font-size: 22px; font-weight: 600; margin: 2px 0 0; letter-spacing: 0.01em; text-wrap: balance; }
+  .question { margin: 0; color: var(--quiet); line-height: 1.45; }
+  .question b { color: var(--ink); font-weight: 500; }
+
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  button {
+    font: 500 13px var(--ui); color: var(--ink); background: rgba(255,255,255,0.05);
+    border: 1px solid var(--line); border-radius: 6px; padding: 7px 11px; cursor: pointer;
+  }
+  button:hover { background: rgba(255,255,255,0.1); }
+  button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button.primary { background: var(--accent); color: #1a1205; border-color: transparent; min-width: 72px; }
+  button.primary:hover { background: #f5c47c; }
+
+  fieldset { border: 0; border-top: 1px solid var(--line); margin: 0; padding: 12px 0 0; display: grid; gap: 9px; }
+  legend { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--quiet); padding: 0 6px 0 0; }
+  .field { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 10px; }
+  .field label { color: var(--ink); }
+  .field output { font-family: var(--mono); font-size: 12px; color: var(--quiet); font-variant-numeric: tabular-nums; }
+  .field input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent); margin: 0; }
+  .note { font-size: 12px; color: var(--quiet); margin: -2px 0 0; }
+  .inline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .inline label { display: grid; gap: 4px; font-size: 12px; color: var(--quiet); }
+  input[type=number], select {
+    font: 13px var(--mono); color: var(--ink); background: rgba(255,255,255,0.05);
+    border: 1px solid var(--line); border-radius: 6px; padding: 6px 7px; width: 100%; box-sizing: border-box; min-width: 0;
+  }
+  .check { display: flex; gap: 8px; align-items: center; }
+  .check input { accent-color: var(--accent); }
+
+  .instruments {
+    position: fixed; z-index: 2;
+    right: max(12px, env(safe-area-inset-right, 0px));
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    width: 290px; box-sizing: border-box;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 12px 14px; display: grid; gap: 10px;
+  }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; margin: 0; }
+  .stats div { display: flex; justify-content: space-between; gap: 8px; min-width: 0; }
+  .stats dt { color: var(--quiet); font-size: 12px; }
+  .stats dd { margin: 0; font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; }
+  .spark { width: 100%; height: 64px; display: block; }
+  .legend { display: flex; gap: 14px; font-size: 11px; color: var(--quiet); font-family: var(--mono); }
+  .legend i { display: inline-block; width: 10px; height: 2px; vertical-align: middle; margin-right: 5px; }
+  .fingerprint { display: flex; align-items: center; justify-content: space-between; gap: 8px; border-top: 1px solid var(--line); padding-top: 9px; }
+  .fingerprint code { font-family: var(--mono); font-size: 13px; color: var(--cool); }
+  .fingerprint small { display: block; color: var(--quiet); font-size: 11px; }
+  #replayResult { font-size: 12px; color: var(--quiet); margin: 0; min-height: 1em; }
+  #replayResult.ok { color: var(--ok); }
+  #replayResult.bad { color: var(--bad); }
+
+  .toggle { display: none; }
+  #fallback { position: fixed; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--quiet); }
+
+  @media (max-width: 720px) {
+    .toggle {
+      display: block; position: fixed; z-index: 3;
+      top: calc(10px + env(safe-area-inset-top, 0px)); left: max(12px, env(safe-area-inset-left, 0px));
+    }
+    .panel { top: calc(54px + env(safe-area-inset-top, 0px)); width: auto; right: max(12px, env(safe-area-inset-right, 0px)); max-height: 62%; }
+    .panel.collapsed { display: none; }
+    .instruments { left: max(12px, env(safe-area-inset-left, 0px)); width: auto; }
+    .spark { height: 44px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+
+<canvas id="world" aria-label="3D view of the simulated particles"></canvas>
+<div id="fallback" hidden></div>
+
+<button class="toggle" id="togglePanel" aria-expanded="true" aria-controls="panel">Controls</button>
+
+<aside class="panel" id="panel">
+  <div>
+    <p class="eyebrow">Genesis &middot; Experiment 1</p>
+    <h1>Freeze-out</h1>
+  </div>
+  <p class="question">The world starts hot and drag slowly cools it. <b>Do distinct kinds and bonds freeze out?</b> Color shows each particle's state, so particles that look alike are alike. Lines are bonds.</p>
+
+  <div class="row">
+    <button class="primary" id="run" type="button">Pause</button>
+    <button id="stepOnce" type="button">Step</button>
+    <button id="restart" type="button">Restart</button>
+    <button id="newWorld" type="button">New world</button>
+  </div>
+
+  <fieldset>
+    <legend>Universe</legend>
+    <div class="inline">
+      <label for="worldSeed">World seed<input id="worldSeed" type="number" min="1" step="1" value="1"></label>
+      <label for="lawSeed">Law seed<input id="lawSeed" type="number" min="1" step="1" value="2"></label>
+      <label for="n">Particles
+        <select id="n">
+          <option value="1000">1,000</option>
+          <option value="2000" selected>2,000</option>
+          <option value="3000">3,000</option>
+          <option value="4000">4,000</option>
+        </select>
+      </label>
+    </div>
+    <p class="note">The law seed picks the physics. The world seed picks the starting conditions. These restart the universe.</p>
+    <div class="field">
+      <label for="heat">Starting heat</label><output for="heat" id="heatOut"></output>
+      <input id="heat" type="range" min="0" max="4" step="0.1" value="2">
+    </div>
+    <div class="field">
+      <label for="spread">Genome spread</label><output for="spread" id="spreadOut"></output>
+      <input id="spread" type="range" min="0" max="1" step="0.01" value="0.4">
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Live physics</legend>
+    <div class="field">
+      <label for="drag">Drag (heat sink)</label><output for="drag" id="dragOut"></output>
+      <input id="drag" type="range" min="0" max="0.5" step="0.005" value="0.08">
+    </div>
+    <div class="field">
+      <label for="attraction">Match force</label><output for="attraction" id="attractionOut"></output>
+      <input id="attraction" type="range" min="0" max="5" step="0.05" value="1.5">
+    </div>
+    <div class="field">
+      <label for="sharpness">Attention sharpness</label><output for="sharpness" id="sharpnessOut"></output>
+      <input id="sharpness" type="range" min="0" max="5" step="0.05" value="1.5">
+    </div>
+    <div class="field">
+      <label for="stateRate">State change rate</label><output for="stateRate" id="stateRateOut"></output>
+      <input id="stateRate" type="range" min="0" max="0.5" step="0.005" value="0.1">
+    </div>
+    <div class="field">
+      <label for="noise">Noise</label><output for="noise" id="noiseOut"></output>
+      <input id="noise" type="range" min="0" max="1" step="0.01" value="0">
+    </div>
+    <p class="note">Off by default. When on, noise is drawn from the world seed, so runs still replay exactly.</p>
+  </fieldset>
+
+  <fieldset>
+    <legend>View</legend>
+    <div class="field">
+      <label for="speed">Ticks per frame</label><output for="speed" id="speedOut"></output>
+      <input id="speed" type="range" min="1" max="12" step="1" value="4">
+    </div>
+    <label class="check" for="showBonds"><input id="showBonds" type="checkbox" checked> Show bonds</label>
+    <label class="check" for="spin"><input id="spin" type="checkbox" checked> Slowly rotate</label>
+  </fieldset>
+</aside>
+
+<section class="instruments" aria-label="Measurements">
+  <dl class="stats">
+    <div><dt>Tick</dt><dd id="sTick">0</dd></div>
+    <div><dt>Temperature</dt><dd id="sTemp">-</dd></div>
+    <div><dt>Bonded</dt><dd id="sBonded">-</dd></div>
+    <div><dt>Bonds</dt><dd id="sBonds">-</dd></div>
+    <div><dt>Groups (3+)</dt><dd id="sGroups">-</dd></div>
+    <div><dt>Largest</dt><dd id="sLargest">-</dd></div>
+  </dl>
+  <canvas class="spark" id="spark" aria-label="Temperature and bonded share over time"></canvas>
+  <div class="legend"><span><i style="background: var(--accent)"></i>temperature</span><span><i style="background: var(--cool)"></i>bonded share</span></div>
+  <div class="fingerprint">
+    <div><small>World fingerprint</small><code id="sHash">--------</code></div>
+    <button id="verify" type="button">Verify replay</button>
+  </div>
+  <p id="replayResult" aria-live="polite"></p>
+</section>
+
+<script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  } }
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+  import { Sim, D } from './sim.js';
+
+  const $ = (id) => document.getElementById(id);
+  const RESTART_KEYS = ['worldSeed', 'lawSeed', 'n', 'heat', 'spread'];
+  const LIVE_KEYS = ['drag', 'attraction', 'sharpness', 'stateRate', 'noise'];
+
+  // ---------- renderer ----------
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas: $('world'), antialias: true });
+  } catch (e) {
+    $('fallback').hidden = false;
+    $('fallback').textContent = 'This view needs WebGL, which this browser has turned off.';
+    throw e;
+  }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x07080c);
+  const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 500);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.autoRotateSpeed = 0.35;
+
+  const pointMat = new THREE.ShaderMaterial({
+    transparent: false, depthWrite: true,
+    uniforms: { uSize: { value: 1 } },
+    vertexShader: `
+      attribute vec3 color; varying vec3 vColor; uniform float uSize;
+      void main() {
+        vColor = color;
+        vec4 mv = modelViewMatrix * vec4(position, 1.0);
+        gl_PointSize = uSize / -mv.z;
+        gl_Position = projectionMatrix * mv;
+      }`,
+    fragmentShader: `
+      varying vec3 vColor;
+      void main() {
+        vec2 c = (gl_PointCoord - 0.5) * 2.0; float d = dot(c, c);
+        if (d > 1.0) discard;
+        // Shade each point as a small lit sphere.
+        vec3 nrm = vec3(c.x, -c.y, sqrt(1.0 - d));
+        float light = 0.35 + 0.65 * max(dot(nrm, normalize(vec3(-0.4, 0.6, 0.7))), 0.0);
+        gl_FragColor = vec4(vColor * light, 1.0);
+      }`,
+  });
+  const bondMat = new THREE.LineBasicMaterial({ color: 0xc9d2ff, transparent: true, opacity: 0.16, depthWrite: false });
+  let points, bonds, box, posAttr, colAttr, bondAttr;
+
+  // A fixed projection of the 8-number state onto a color wheel: same state, same color.
+  const PROJ = [
+    [0.9, -0.3, 0.2, 0.4, 0.5, -0.2, 0.3, 0.1],
+    [0.1, 0.8, -0.5, 0.2, -0.3, 0.6, 0.1, -0.4],
+    [0.3, 0.2, 0.7, -0.6, 0.2, 0.1, -0.5, 0.4],
+  ];
+  const tmpColor = new THREE.Color();
+
+  let sim, edits, history, initialParams;
+
+  function readParams() {
+    const p = {};
+    for (const k of [...RESTART_KEYS, ...LIVE_KEYS]) p[k] = Number($(k).value);
+    return p;
+  }
+
+  function build() {
+    initialParams = readParams();
+    sim = new Sim(initialParams);
+    edits = [];
+    history = [];
+    if (points) { scene.remove(points, bonds, box); points.geometry.dispose(); bonds.geometry.dispose(); box.geometry.dispose(); }
+    const n = sim.n, L = sim.L;
+    const g = new THREE.BufferGeometry();
+    posAttr = new THREE.BufferAttribute(new Float32Array(n * 3), 3).setUsage(THREE.DynamicDrawUsage);
+    colAttr = new THREE.BufferAttribute(new Float32Array(n * 3), 3).setUsage(THREE.DynamicDrawUsage);
+    g.setAttribute('position', posAttr); g.setAttribute('color', colAttr);
+    points = new THREE.Points(g, pointMat);
+    const bg = new THREE.BufferGeometry();
+    bondAttr = new THREE.BufferAttribute(new Float32Array(sim.maxBonds * 6), 3).setUsage(THREE.DynamicDrawUsage);
+    bg.setAttribute('position', bondAttr);
+    bonds = new THREE.LineSegments(bg, bondMat);
+    box = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(L, L, L)), new THREE.LineBasicMaterial({ color: 0x3a4058, transparent: true, opacity: 0.6 }));
+    scene.add(box, bonds, points);
+    camera.position.set(L * 1.25, L * 0.75, L * 1.45);
+    controls.target.set(0, 0, 0);
+    controls.update();
+    resize();
+    $('replayResult').textContent = '';
+    $('replayResult').className = '';
+    sync(true);
+  }
+
+  function sync(full) {
+    const n = sim.n, L = sim.L, h = L / 2, pos = sim.pos, s = sim.s;
+    const pa = posAttr.array, ca = colAttr.array;
+    for (let i = 0; i < n; i++) {
+      pa[i * 3] = pos[i * 3] - h; pa[i * 3 + 1] = pos[i * 3 + 1] - h; pa[i * 3 + 2] = pos[i * 3 + 2] - h;
+      let p0 = 0, p1 = 0, p2 = 0;
+      for (let a = 0; a < D; a++) { const x = s[i * D + a]; p0 += PROJ[0][a] * x; p1 += PROJ[1][a] * x; p2 += PROJ[2][a] * x; }
+      const hue = (Math.atan2(p1, p0) / (2 * Math.PI) + 1) % 1;
+      tmpColor.setHSL(hue, 0.7, 0.5 + 0.12 * Math.tanh(p2));
+      ca[i * 3] = tmpColor.r; ca[i * 3 + 1] = tmpColor.g; ca[i * 3 + 2] = tmpColor.b;
+    }
+    posAttr.needsUpdate = true; colAttr.needsUpdate = true;
+
+    let m = 0;
+    if ($('showBonds').checked) {
+      const ba = bondAttr.array;
+      for (let b = 0; b < sim.bondCount; b++) {
+        const i = sim.bondA[b], j = sim.bondB[b];
+        if (Math.abs(pos[i * 3] - pos[j * 3]) > h || Math.abs(pos[i * 3 + 1] - pos[j * 3 + 1]) > h || Math.abs(pos[i * 3 + 2] - pos[j * 3 + 2]) > h) continue;
+        ba[m++] = pa[i * 3]; ba[m++] = pa[i * 3 + 1]; ba[m++] = pa[i * 3 + 2];
+        ba[m++] = pa[j * 3]; ba[m++] = pa[j * 3 + 1]; ba[m++] = pa[j * 3 + 2];
+      }
+      bondAttr.needsUpdate = true;
+    }
+    bonds.geometry.setDrawRange(0, m / 3);
+    if (full) measure();
+  }
+
+  function measure() {
+    const c = sim.clusters();
+    const T = sim.temperature();
+    $('sTick').textContent = sim.tick.toLocaleString();
+    $('sTemp').textContent = T.toFixed(3);
+    $('sBonded').textContent = (c.bondedShare * 100).toFixed(1) + '%';
+    $('sBonds').textContent = c.bonds.toLocaleString();
+    $('sGroups').textContent = c.groups;
+    $('sLargest').textContent = c.largest;
+    $('sHash').textContent = sim.hash();
+    if (!history.length || history[history.length - 1].tick !== sim.tick) history.push({ tick: sim.tick, T, b: c.bondedShare });
+    if (history.length > 400) history.splice(0, history.length - 400);
+    drawSpark();
+  }
+
+  function drawSpark() {
+    const cv = $('spark'), dpr = Math.min(window.devicePixelRatio, 2);
+    const w = cv.clientWidth, h = cv.clientHeight;
+    if (cv.width !== w * dpr) { cv.width = w * dpr; cv.height = h * dpr; }
+    const ctx = cv.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    ctx.strokeStyle = 'rgba(160,172,210,0.14)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(0, h - 0.5); ctx.lineTo(w, h - 0.5); ctx.stroke();
+    if (history.length < 2) return;
+    const t0 = history[0].tick, t1 = history[history.length - 1].tick || 1;
+    const X = (t) => ((t - t0) / Math.max(1, t1 - t0)) * (w - 4) + 2;
+    const Tmax = Math.max(...history.map((d) => d.T), 1e-6);
+    const line = (key, max, color) => {
+      ctx.strokeStyle = color; ctx.lineWidth = 1.5; ctx.beginPath();
+      history.forEach((d, i) => { const y = h - 3 - (d[key] / max) * (h - 8); i ? ctx.lineTo(X(d.tick), y) : ctx.moveTo(X(d.tick), y); });
+      ctx.stroke();
+      const last = history[history.length - 1];
+      ctx.fillStyle = color; ctx.beginPath(); ctx.arc(X(last.tick), h - 3 - (last[key] / max) * (h - 8), 2.5, 0, 7); ctx.fill();
+    };
+    line('T', Tmax, '#f0b35a');
+    line('b', 1, '#6fc3df');
+  }
+
+  function resize() {
+    const w = window.innerWidth, h = window.innerHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+    pointMat.uniforms.uSize.value = Math.max(6, h * 0.07);
+  }
+  window.addEventListener('resize', resize);
+
+  // ---------- controls ----------
+  let running = true;
+  const fmt = { heat: 1, spread: 2, drag: 3, attraction: 2, sharpness: 2, stateRate: 3, noise: 2, speed: 0 };
+  for (const k of Object.keys(fmt)) {
+    const el = $(k), out = $(k + 'Out');
+    const show = () => { out.textContent = Number(el.value).toFixed(fmt[k]); };
+    show();
+    el.addEventListener('input', () => {
+      show();
+      if (LIVE_KEYS.includes(k)) { sim.set(k, Number(el.value)); edits.push({ tick: sim.tick, key: k, value: Number(el.value) }); }
+    });
+    if (RESTART_KEYS.includes(k)) el.addEventListener('change', build);
+  }
+  for (const k of ['worldSeed', 'lawSeed', 'n']) $(k).addEventListener('change', build);
+  $('run').addEventListener('click', () => { running = !running; $('run').textContent = running ? 'Pause' : 'Run'; });
+  $('stepOnce').addEventListener('click', () => { sim.step(); sync(true); });
+  $('restart').addEventListener('click', build);
+  $('newWorld').addEventListener('click', () => { $('worldSeed').value = Number($('worldSeed').value) + 1; build(); });
+  $('spin').addEventListener('change', () => { controls.autoRotate = $('spin').checked; });
+  $('showBonds').addEventListener('change', () => sync(false));
+  $('togglePanel').addEventListener('click', () => {
+    const c = $('panel').classList.toggle('collapsed');
+    $('togglePanel').setAttribute('aria-expanded', String(!c));
+  });
+  if (window.matchMedia('(max-width: 720px)').matches) { $('panel').classList.add('collapsed'); $('togglePanel').setAttribute('aria-expanded', 'false'); }
+  controls.autoRotate = $('spin').checked && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Verify replay: rebuild the universe from its seeds, apply the same live edits at the same
+  // ticks, run to the current tick, and compare fingerprints.
+  $('verify').addEventListener('click', () => {
+    const target = sim.tick, want = sim.hash();
+    const replay = new Sim(initialParams);
+    const pending = edits.slice();
+    const out = $('replayResult');
+    out.className = ''; out.textContent = `Replaying ${target.toLocaleString()} ticks…`;
+    $('verify').disabled = true;
+    const chunk = () => {
+      const t0 = performance.now();
+      while (replay.tick < target && performance.now() - t0 < 12) {
+        while (pending.length && pending[0].tick === replay.tick) { const e = pending.shift(); replay.set(e.key, e.value); }
+        replay.step();
+      }
+      if (replay.tick < target) { out.textContent = `Replaying… ${replay.tick.toLocaleString()} / ${target.toLocaleString()}`; setTimeout(chunk, 0); return; }
+      const got = replay.hash();
+      $('verify').disabled = false;
+      if (got === want) { out.className = 'ok'; out.textContent = `Exact match at tick ${target.toLocaleString()} (${got}).`; }
+      else { out.className = 'bad'; out.textContent = `Fingerprints differ: ${got} vs ${want}.`; }
+    };
+    chunk();
+  });
+
+  build();
+
+  let frame = 0;
+  function loop() {
+    requestAnimationFrame(loop);
+    if (running) {
+      const budget = performance.now() + 14, max = Number($('speed').value);
+      for (let i = 0; i < max && performance.now() < budget; i++) sim.step();
+      frame++;
+      sync(frame % 6 === 0);
+    }
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  loop();
+</script>
