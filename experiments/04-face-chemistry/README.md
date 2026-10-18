@@ -103,4 +103,23 @@ only watches. Results are in `checks-results.json`.
   identical structures settle into quite different shared states, depending on their history. So a coarse-grained blend would see makeup and a group's own state, which works like a
   memory, but not its arrangement.
 
-Rerun with `WORLDS=1,2,3,4 PARTIAL=partial.jsonl node tools/checks.mjs > checks-results.json`.
+**Shallower valleys.** If settled genomes are stuck because their valleys are deep, shallower
+valleys might let a group recruit. The same checks ran with `depth` at 1 and 0.5 (the default is
+2), on 12 laws × 2 starts each (`checks-depth1.json`, `checks-depth0.5.json`).
+
+- Joiners that took on the host's element went from 22 of about 24,000 at depth 2 to 241 at depth
+  1 and 412 at depth 0.5 (about 2%). Every one of them was an unsettled genome that settled into
+  the host's element. A genome already settled in one element never switched to the host's at any
+  depth; at depth 0.5 about 900 ended up as neither their own element nor the host's.
+- The elements themselves blur: at depth 0.5, only 32 to 99% of genomes sit in an element, and up
+  to 7 kinds are present, against 3 to 5 at depth 1.
+- Splits don't change: halves keep the parent's mix at chance, and the rare splits that end as two
+  parent-sized groups stay at about 3%.
+- Why recruiting doesn't happen, as far as this shows: the bond energy pulls a genome toward
+  whatever binds its neighbors best, which is a partner, not a copy. Two elements bond because they
+  fit each other; turning one into the other would usually make the bond worse. So in this world,
+  descent makes neighbors complementary, not alike. Like making like would need an element whose
+  best partner is its own kind, and those groups are already all one kind.
+
+Rerun with `WORLDS=1,2,3,4 PARTIAL=partial.jsonl node tools/checks.mjs > checks-results.json`
+(add `DEPTH=1` for shallower valleys).

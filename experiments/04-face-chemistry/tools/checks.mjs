@@ -20,6 +20,9 @@ const TICKS = Number(process.env.TICKS) || 4000;
 const N = 1500;
 const LAWS = process.env.LAWLIST ? process.env.LAWLIST.split(',').map(Number) : Array.from({ length: 12 }, (_, i) => i + 1);
 const WORLDS = process.env.WORLDS ? process.env.WORLDS.split(',').map(Number) : [1, 2];
+// DEPTH sets how deep the genome valleys are (the elements); shallower valleys let neighbors move
+// a settled genome. Unset keeps the default.
+const DEPTH = process.env.DEPTH ? Number(process.env.DEPTH) : undefined;
 const START = 500;    // ticks before watching, so the first rush of bonding is over
 const LOOK = 25;      // ticks between looks
 const HOLD = 100;     // a split counts only if the halves are still apart this long after
@@ -46,7 +49,7 @@ function rngLocal(seed) {
 }
 
 function watch(job) {
-  const sim = new Sim({ ...job, n: N });
+  const sim = new Sim({ ...job, n: N, ...(DEPTH === undefined ? {} : { depth: DEPTH }) });
   const kinds = sim.elements.length + 1;
   const r = rngLocal(job.lawSeed * 1000 + job.worldSeed);
   const groupOf = new Int32Array(N).fill(-1);
@@ -290,6 +293,8 @@ function watch(job) {
   };
   return {
     ...job, ticks: TICKS, elements: sim.elements.length,
+    // At the end: the share of genomes settled in an element, and how many kinds are present.
+    census: (() => { const c = sim.census(); return { settled: round(c.settled), distinct: c.distinct }; })(),
     splits: sumSplits(confirmed), bigSplits: sumSplits(big),
     convert, shape, blend,
     examples: big.slice(0, 5).map((e) => ({ t: e.t, parent: e.parent, sizes: e.sizes, cls: e.cls, alike: e.alike.map((v) => round(v)), rejoined: e.rejoined, later: e.later.map((h) => ({ size: round(h.size, 2), alike: round(h.alike) })) })),
@@ -313,7 +318,7 @@ if (isMainThread) {
     feed();
   })));
   results.sort((a, b) => a.lawSeed - b.lawSeed || a.worldSeed - b.worldSeed);
-  process.stdout.write(JSON.stringify({ ticks: TICKS, n: N, worlds: WORLDS, results }, null, 1));
+  process.stdout.write(JSON.stringify({ ticks: TICKS, n: N, depth: DEPTH ?? 2, worlds: WORLDS, results }, null, 1));
 } else {
   parentPort.on('message', (job) => parentPort.postMessage(watch(job)));
 }
