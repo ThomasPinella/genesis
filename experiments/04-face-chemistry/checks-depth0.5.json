@@ -1,0 +1,4907 @@
+{
+ "ticks": 4000,
+ "n": 1500,
+ "depth": 0.5,
+ "worlds": [
+  1,
+  2
+ ],
+ "results": [
+  {
+   "lawSeed": 1,
+   "worldSeed": 1,
+   "ticks": 4000,
+   "elements": 4,
+   "census": {
+    "settled": 0.569,
+    "distinct": 7
+   },
+   "splits": {
+    "count": 239,
+    "parent": 14.2,
+    "halves": 5.3,
+    "alike": 0.707,
+    "chanceWorld": 0.58,
+    "chanceParent": 0.756,
+    "identical": 1,
+    "rejoined": 3,
+    "grewBack": 12,
+    "multiplied": 0,
+    "halvesFollowed": 478,
+    "gone": 372
+   },
+   "bigSplits": {
+    "count": 126,
+    "parent": 10.9,
+    "halves": 5.1,
+    "alike": 0.725,
+    "chanceWorld": 0.569,
+    "chanceParent": 0.778,
+    "identical": 1,
+    "rejoined": 3,
+    "grewBack": 10,
+    "multiplied": 0,
+    "halvesFollowed": 252,
+    "gone": 183
+   },
+   "convert": {
+    "joins": 13610,
+    "foreign": 5659,
+    "foreignStayed": 349,
+    "turned": 0,
+    "kept": 304,
+    "other": 45,
+    "closer": 0.009,
+    "nativeStayed": 324,
+    "nativeLost": 23,
+    "fromUnsettled": 380,
+    "unsettledTurned": 0
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.016,
+     "chance": 0.005
+    },
+    "byChainPlace": {
+     "real": 0.01,
+     "chance": 0.006
+    },
+    "byShape": {
+     "real": 0.015,
+     "chance": 0.009
+    },
+    "byGroup": {
+     "real": 0.357,
+     "chance": 0.347
+    },
+    "loose": {
+     "real": 0.005,
+     "chance": 0.001
+    }
+   },
+   "blend": {
+    "pairsSame": 5,
+    "pairsDiff": 26,
+    "fastSame": 0.462,
+    "fastDiff": 0.331,
+    "genomeSame": 0.562,
+    "genomeDiff": 0.463
+   },
+   "examples": [
+    {
+     "t": 875,
+     "parent": 10,
+     "sizes": [
+      5,
+      5
+     ],
+     "cls": "tree",
+     "alike": [
+      0.7,
+      0.7
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1075,
+     "parent": 12,
+     "sizes": [
+      8,
+      4
+     ],
+     "cls": "tree",
+     "alike": [
+      0.792,
+      0.417
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1125,
+     "parent": 8,
+     "sizes": [
+      6,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.917,
+      0.75
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 12.33,
+       "alike": 0.801
+      }
+     ]
+    },
+    {
+     "t": 1125,
+     "parent": 8,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.5,
+      0.583
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1150,
+     "parent": 8,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "chain",
+     "alike": [
+      0.5,
+      0.5
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    }
+   ],
+   "hash": "319ddb56"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 2,
+   "ticks": 4000,
+   "elements": 4,
+   "census": {
+    "settled": 0.565,
+    "distinct": 7
+   },
+   "splits": {
+    "count": 203,
+    "parent": 13.9,
+    "halves": 5.1,
+    "alike": 0.705,
+    "chanceWorld": 0.579,
+    "chanceParent": 0.744,
+    "identical": 1,
+    "rejoined": 2,
+    "grewBack": 19,
+    "multiplied": 1,
+    "halvesFollowed": 406,
+    "gone": 301
+   },
+   "bigSplits": {
+    "count": 118,
+    "parent": 10.7,
+    "halves": 5,
+    "alike": 0.711,
+    "chanceWorld": 0.571,
+    "chanceParent": 0.766,
+    "identical": 1,
+    "rejoined": 1,
+    "grewBack": 14,
+    "multiplied": 1,
+    "halvesFollowed": 236,
+    "gone": 167
+   },
+   "convert": {
+    "joins": 13547,
+    "foreign": 5718,
+    "foreignStayed": 325,
+    "turned": 4,
+    "kept": 280,
+    "other": 41,
+    "closer": 0.018,
+    "nativeStayed": 327,
+    "nativeLost": 24,
+    "fromUnsettled": 357,
+    "unsettledTurned": 4
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.023,
+     "chance": 0.005
+    },
+    "byChainPlace": {
+     "real": 0.006,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.004,
+     "chance": 0.008
+    },
+    "byGroup": {
+     "real": 0.319,
+     "chance": 0.373
+    },
+    "loose": {
+     "real": 0.017,
+     "chance": 0.003
+    }
+   },
+   "blend": {
+    "pairsSame": 9,
+    "pairsDiff": 51,
+    "fastSame": 0.361,
+    "fastDiff": 0.393,
+    "genomeSame": 0.411,
+    "genomeDiff": 0.678
+   },
+   "examples": [
+    {
+     "t": 975,
+     "parent": 10,
+     "sizes": [
+      8,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.6,
+      0.65
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1000,
+     "parent": 9,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.694,
+      0.778
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1075,
+     "parent": 15,
+     "sizes": [
+      6,
+      6
+     ],
+     "cls": "blob",
+     "alike": [
+      0.667,
+      0.633
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1100,
+     "parent": 8,
+     "sizes": [
+      3,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.75,
+      0.75
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1150,
+     "parent": 9,
+     "sizes": [
+      8,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.889,
+      0.778
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    }
+   ],
+   "hash": "9dd7ea9c"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 1,
+   "ticks": 4000,
+   "elements": 4,
+   "census": {
+    "settled": 0.971,
+    "distinct": 5
+   },
+   "splits": {
+    "count": 379,
+    "parent": 14.4,
+    "halves": 5.3,
+    "alike": 0.728,
+    "chanceWorld": 0.578,
+    "chanceParent": 0.708,
+    "identical": 1,
+    "rejoined": 1,
+    "grewBack": 54,
+    "multiplied": 2,
+    "halvesFollowed": 758,
+    "gone": 432
+   },
+   "bigSplits": {
+    "count": 213,
+    "parent": 10.3,
+    "halves": 4.7,
+    "alike": 0.739,
+    "chanceWorld": 0.567,
+    "chanceParent": 0.723,
+    "identical": 1,
+    "rejoined": 1,
+    "grewBack": 36,
+    "multiplied": 2,
+    "halvesFollowed": 426,
+    "gone": 226
+   },
+   "convert": {
+    "joins": 15620,
+    "foreign": 10148,
+    "foreignStayed": 1000,
+    "turned": 6,
+    "kept": 969,
+    "other": 25,
+    "closer": 0.009,
+    "nativeStayed": 302,
+    "nativeLost": 6,
+    "fromUnsettled": 179,
+    "unsettledTurned": 6
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.073,
+     "chance": 0.025
+    },
+    "byChainPlace": {
+     "real": 0.027,
+     "chance": 0.012
+    },
+    "byShape": {
+     "real": 0.06,
+     "chance": 0.029
+    },
+    "byGroup": {
+     "real": 0.826,
+     "chance": 0.63
+    },
+    "loose": {
+     "real": 0.053,
+     "chance": 0.009
+    }
+   },
+   "blend": {
+    "pairsSame": 31,
+    "pairsDiff": 73,
+    "fastSame": 0.106,
+    "fastDiff": 0.128,
+    "genomeSame": 0.068,
+    "genomeDiff": 0.106
+   },
+   "examples": [
+    {
+     "t": 675,
+     "parent": 8,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.625,
+      0.833
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 800,
+     "parent": 9,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.444,
+      0.556
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 850,
+     "parent": 11,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "sheet",
+     "alike": [
+      0.705,
+      0.727
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 850,
+     "parent": 9,
+     "sizes": [
+      6,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.833,
+      0.667
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 2.83,
+       "alike": 0.85
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 950,
+     "parent": 10,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "chain",
+     "alike": [
+      0.65,
+      0.6
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 3,
+       "alike": 0.767
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    }
+   ],
+   "hash": "8c3b1721"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 2,
+   "ticks": 4000,
+   "elements": 4,
+   "census": {
+    "settled": 0.969,
+    "distinct": 4
+   },
+   "splits": {
+    "count": 405,
+    "parent": 13.8,
+    "halves": 5.3,
+    "alike": 0.732,
+    "chanceWorld": 0.573,
+    "chanceParent": 0.718,
+    "identical": 3,
+    "rejoined": 8,
+    "grewBack": 60,
+    "multiplied": 0,
+    "halvesFollowed": 810,
+    "gone": 414
+   },
+   "bigSplits": {
+    "count": 248,
+    "parent": 10.5,
+    "halves": 4.9,
+    "alike": 0.741,
+    "chanceWorld": 0.566,
+    "chanceParent": 0.733,
+    "identical": 3,
+    "rejoined": 4,
+    "grewBack": 39,
+    "multiplied": 0,
+    "halvesFollowed": 496,
+    "gone": 231
+   },
+   "convert": {
+    "joins": 15589,
+    "foreign": 10009,
+    "foreignStayed": 952,
+    "turned": 6,
+    "kept": 926,
+    "other": 20,
+    "closer": 0.008,
+    "nativeStayed": 280,
+    "nativeLost": 4,
+    "fromUnsettled": 193,
+    "unsettledTurned": 6
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.021,
+     "chance": 0.019
+    },
+    "byChainPlace": {
+     "real": 0.027,
+     "chance": 0.02
+    },
+    "byShape": {
+     "real": 0.058,
+     "chance": 0.033
+    },
+    "byGroup": {
+     "real": 0.809,
+     "chance": 0.707
+    },
+    "loose": {
+     "real": 0.063,
+     "chance": 0.011
+    }
+   },
+   "blend": {
+    "pairsSame": 48,
+    "pairsDiff": 125,
+    "fastSame": 0.087,
+    "fastDiff": 0.116,
+    "genomeSame": 0.083,
+    "genomeDiff": 0.081
+   },
+   "examples": [
+    {
+     "t": 675,
+     "parent": 12,
+     "sizes": [
+      8,
+      5
+     ],
+     "cls": "blob",
+     "alike": [
+      0.958,
+      0.75
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 750,
+     "parent": 9,
+     "sizes": [
+      6,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.611,
+      0.556
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 775,
+     "parent": 10,
+     "sizes": [
+      5,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.6,
+      0.633
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 950,
+     "parent": 8,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "sheet",
+     "alike": [
+      0.625,
+      0.875
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1000,
+     "parent": 8,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.625,
+      0.625
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    }
+   ],
+   "hash": "cb3b837e"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 1,
+   "ticks": 4000,
+   "elements": 3,
+   "census": {
+    "settled": 0.511,
+    "distinct": 6
+   },
+   "splits": {
+    "count": 426,
+    "parent": 16.7,
+    "halves": 7.8,
+    "alike": 0.8,
+    "chanceWorld": 0.617,
+    "chanceParent": 0.852,
+    "identical": 0,
+    "rejoined": 14,
+    "grewBack": 88,
+    "multiplied": 6,
+    "halvesFollowed": 852,
+    "gone": 408
+   },
+   "bigSplits": {
+    "count": 284,
+    "parent": 14.5,
+    "halves": 7.2,
+    "alike": 0.806,
+    "chanceWorld": 0.612,
+    "chanceParent": 0.858,
+    "identical": 0,
+    "rejoined": 8,
+    "grewBack": 65,
+    "multiplied": 6,
+    "halvesFollowed": 568,
+    "gone": 252
+   },
+   "convert": {
+    "joins": 13132,
+    "foreign": 4850,
+    "foreignStayed": 507,
+    "turned": 11,
+    "kept": 459,
+    "other": 37,
+    "closer": -0.051,
+    "nativeStayed": 1068,
+    "nativeLost": 26,
+    "fromUnsettled": 1033,
+    "unsettledTurned": 11
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.059,
+     "chance": 0.005
+    },
+    "byChainPlace": {
+     "real": 0.141,
+     "chance": 0.014
+    },
+    "byShape": {
+     "real": 0.066,
+     "chance": 0.007
+    },
+    "byGroup": {
+     "real": 0.597,
+     "chance": 0.219
+    },
+    "loose": {
+     "real": 0.027,
+     "chance": 0.002
+    }
+   },
+   "blend": {
+    "pairsSame": 3,
+    "pairsDiff": 45,
+    "fastSame": 0.892,
+    "fastDiff": 0.397,
+    "genomeSame": 0.584,
+    "genomeDiff": 0.441
+   },
+   "examples": [
+    {
+     "t": 800,
+     "parent": 11,
+     "sizes": [
+      7,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.701,
+      0.818
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 875,
+     "parent": 8,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.75,
+      0.792
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 1.5,
+       "alike": 0.5
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 975,
+     "parent": 10,
+     "sizes": [
+      5,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.7,
+      0.7
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 975,
+     "parent": 12,
+     "sizes": [
+      7,
+      6
+     ],
+     "cls": "blob",
+     "alike": [
+      0.726,
+      0.75
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0.86,
+       "alike": 0.75
+      },
+      {
+       "size": 0.83,
+       "alike": 0.65
+      }
+     ]
+    },
+    {
+     "t": 1000,
+     "parent": 9,
+     "sizes": [
+      9,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.889,
+      0.889
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    }
+   ],
+   "hash": "79474b6a"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 2,
+   "ticks": 4000,
+   "elements": 3,
+   "census": {
+    "settled": 0.538,
+    "distinct": 9
+   },
+   "splits": {
+    "count": 421,
+    "parent": 17.6,
+    "halves": 8.1,
+    "alike": 0.804,
+    "chanceWorld": 0.612,
+    "chanceParent": 0.855,
+    "identical": 4,
+    "rejoined": 16,
+    "grewBack": 106,
+    "multiplied": 9,
+    "halvesFollowed": 842,
+    "gone": 429
+   },
+   "bigSplits": {
+    "count": 261,
+    "parent": 14.5,
+    "halves": 7.3,
+    "alike": 0.805,
+    "chanceWorld": 0.613,
+    "chanceParent": 0.858,
+    "identical": 3,
+    "rejoined": 13,
+    "grewBack": 55,
+    "multiplied": 5,
+    "halvesFollowed": 522,
+    "gone": 265
+   },
+   "convert": {
+    "joins": 13211,
+    "foreign": 4785,
+    "foreignStayed": 555,
+    "turned": 10,
+    "kept": 504,
+    "other": 41,
+    "closer": -0.058,
+    "nativeStayed": 1144,
+    "nativeLost": 29,
+    "fromUnsettled": 1071,
+    "unsettledTurned": 10
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.055,
+     "chance": 0.005
+    },
+    "byChainPlace": {
+     "real": 0.048,
+     "chance": 0.024
+    },
+    "byShape": {
+     "real": 0.02,
+     "chance": 0.009
+    },
+    "byGroup": {
+     "real": 0.611,
+     "chance": 0.218
+    },
+    "loose": {
+     "real": 0.036,
+     "chance": 0.002
+    }
+   },
+   "blend": {
+    "pairsSame": 3,
+    "pairsDiff": 64,
+    "fastSame": 0.184,
+    "fastDiff": 0.476,
+    "genomeSame": 0.491,
+    "genomeDiff": 0.531
+   },
+   "examples": [
+    {
+     "t": 850,
+     "parent": 11,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.636,
+      0.864
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 2.75,
+       "alike": 0.818
+      }
+     ]
+    },
+    {
+     "t": 975,
+     "parent": 11,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "sheet",
+     "alike": [
+      0.432,
+      0.773
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 975,
+     "parent": 20,
+     "sizes": [
+      11,
+      7
+     ],
+     "cls": "blob",
+     "alike": [
+      0.841,
+      0.536
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1025,
+     "parent": 10,
+     "sizes": [
+      9,
+      4
+     ],
+     "cls": "tree",
+     "alike": [
+      0.767,
+      0.9
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1025,
+     "parent": 8,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.75,
+      0.25
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 1.25,
+       "alike": 0.75
+      },
+      {
+       "size": 2.33,
+       "alike": 0.679
+      }
+     ]
+    }
+   ],
+   "hash": "c3a53e7e"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 1,
+   "ticks": 4000,
+   "elements": 4,
+   "census": {
+    "settled": 0.777,
+    "distinct": 6
+   },
+   "splits": {
+    "count": 512,
+    "parent": 11.7,
+    "halves": 5.4,
+    "alike": 0.769,
+    "chanceWorld": 0.592,
+    "chanceParent": 0.767,
+    "identical": 0,
+    "rejoined": 41,
+    "grewBack": 88,
+    "multiplied": 3,
+    "halvesFollowed": 1024,
+    "gone": 178
+   },
+   "bigSplits": {
+    "count": 406,
+    "parent": 10.8,
+    "halves": 5.3,
+    "alike": 0.777,
+    "chanceWorld": 0.592,
+    "chanceParent": 0.774,
+    "identical": 0,
+    "rejoined": 41,
+    "grewBack": 59,
+    "multiplied": 3,
+    "halvesFollowed": 812,
+    "gone": 121
+   },
+   "convert": {
+    "joins": 8901,
+    "foreign": 5550,
+    "foreignStayed": 1452,
+    "turned": 5,
+    "kept": 1363,
+    "other": 84,
+    "closer": 0.025,
+    "nativeStayed": 790,
+    "nativeLost": 4,
+    "fromUnsettled": 559,
+    "unsettledTurned": 5
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.02,
+     "chance": 0.01
+    },
+    "byChainPlace": {
+     "real": 0.012,
+     "chance": 0.024
+    },
+    "byShape": {
+     "real": 0.061,
+     "chance": 0.02
+    },
+    "byGroup": {
+     "real": 0.752,
+     "chance": 0.597
+    },
+    "loose": {
+     "real": 0.042,
+     "chance": 0.005
+    }
+   },
+   "blend": {
+    "pairsSame": 114,
+    "pairsDiff": 508,
+    "fastSame": 0.351,
+    "fastDiff": 0.335,
+    "genomeSame": 0.213,
+    "genomeDiff": 0.255
+   },
+   "examples": [
+    {
+     "t": 850,
+     "parent": 9,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "chain",
+     "alike": [
+      0.667,
+      0.667
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 1,
+       "alike": 0.583
+      }
+     ]
+    },
+    {
+     "t": 1025,
+     "parent": 9,
+     "sizes": [
+      6,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.778,
+      0.889
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0.67,
+       "alike": 0.583
+      },
+      {
+       "size": 2.67,
+       "alike": 0.667
+      }
+     ]
+    },
+    {
+     "t": 1025,
+     "parent": 8,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "tree",
+     "alike": [
+      0.875,
+      0.75
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 1,
+       "alike": 0.875
+      }
+     ]
+    },
+    {
+     "t": 1150,
+     "parent": 10,
+     "sizes": [
+      3,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.6,
+      0.633
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 2,
+       "alike": 0.733
+      },
+      {
+       "size": 2.67,
+       "alike": 0.675
+      }
+     ]
+    },
+    {
+     "t": 1150,
+     "parent": 9,
+     "sizes": [
+      3,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.667,
+      1
+     ],
+     "rejoined": true,
+     "later": [
+      {
+       "size": 2.67,
+       "alike": 0.792
+      },
+      {
+       "size": 2.67,
+       "alike": 0.792
+      }
+     ]
+    }
+   ],
+   "hash": "e927a90a"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 2,
+   "ticks": 4000,
+   "elements": 4,
+   "census": {
+    "settled": 0.785,
+    "distinct": 6
+   },
+   "splits": {
+    "count": 451,
+    "parent": 12.1,
+    "halves": 5.6,
+    "alike": 0.765,
+    "chanceWorld": 0.591,
+    "chanceParent": 0.769,
+    "identical": 0,
+    "rejoined": 40,
+    "grewBack": 67,
+    "multiplied": 2,
+    "halvesFollowed": 902,
+    "gone": 176
+   },
+   "bigSplits": {
+    "count": 341,
+    "parent": 10.8,
+    "halves": 5.4,
+    "alike": 0.776,
+    "chanceWorld": 0.59,
+    "chanceParent": 0.778,
+    "identical": 0,
+    "rejoined": 35,
+    "grewBack": 58,
+    "multiplied": 2,
+    "halvesFollowed": 682,
+    "gone": 114
+   },
+   "convert": {
+    "joins": 8972,
+    "foreign": 5568,
+    "foreignStayed": 1445,
+    "turned": 7,
+    "kept": 1371,
+    "other": 67,
+    "closer": 0.021,
+    "nativeStayed": 841,
+    "nativeLost": 5,
+    "fromUnsettled": 499,
+    "unsettledTurned": 7
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.016,
+     "chance": 0.007
+    },
+    "byChainPlace": {
+     "real": 0.009,
+     "chance": 0.018
+    },
+    "byShape": {
+     "real": 0.031,
+     "chance": 0.019
+    },
+    "byGroup": {
+     "real": 0.774,
+     "chance": 0.622
+    },
+    "loose": {
+     "real": 0.015,
+     "chance": 0.005
+    }
+   },
+   "blend": {
+    "pairsSame": 112,
+    "pairsDiff": 768,
+    "fastSame": 0.239,
+    "fastDiff": 0.218,
+    "genomeSame": 0.153,
+    "genomeDiff": 0.156
+   },
+   "examples": [
+    {
+     "t": 850,
+     "parent": 8,
+     "sizes": [
+      5,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.75,
+      0.708
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 1.33,
+       "alike": 0.75
+      }
+     ]
+    },
+    {
+     "t": 875,
+     "parent": 8,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "sheet",
+     "alike": [
+      0.5,
+      1
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0.75,
+       "alike": 0.75
+      },
+      {
+       "size": 1,
+       "alike": 0.75
+      }
+     ]
+    },
+    {
+     "t": 1150,
+     "parent": 8,
+     "sizes": [
+      3,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.708,
+      0.458
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1200,
+     "parent": 10,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "tree",
+     "alike": [
+      0.85,
+      0.85
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 1,
+       "alike": 0.9
+      }
+     ]
+    },
+    {
+     "t": 1200,
+     "parent": 8,
+     "sizes": [
+      5,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.925,
+      0.875
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 1.5,
+       "alike": 0.75
+      }
+     ]
+    }
+   ],
+   "hash": "59eea477"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 1,
+   "ticks": 4000,
+   "elements": 3,
+   "census": {
+    "settled": 0.991,
+    "distinct": 3
+   },
+   "splits": {
+    "count": 515,
+    "parent": 49.4,
+    "halves": 22.6,
+    "alike": 0.753,
+    "chanceWorld": 0.606,
+    "chanceParent": 0.839,
+    "identical": 0,
+    "rejoined": 80,
+    "grewBack": 195,
+    "multiplied": 16,
+    "halvesFollowed": 1030,
+    "gone": 272
+   },
+   "bigSplits": {
+    "count": 244,
+    "parent": 16.8,
+    "halves": 8.4,
+    "alike": 0.763,
+    "chanceWorld": 0.598,
+    "chanceParent": 0.845,
+    "identical": 0,
+    "rejoined": 46,
+    "grewBack": 95,
+    "multiplied": 13,
+    "halvesFollowed": 488,
+    "gone": 93
+   },
+   "convert": {
+    "joins": 15163,
+    "foreign": 8034,
+    "foreignStayed": 1779,
+    "turned": 33,
+    "kept": 1713,
+    "other": 33,
+    "closer": -0.003,
+    "nativeStayed": 1917,
+    "nativeLost": 1,
+    "fromUnsettled": 392,
+    "unsettledTurned": 33
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.062,
+     "chance": 0.004
+    },
+    "byChainPlace": {
+     "real": 0.091,
+     "chance": 0.049
+    },
+    "byShape": {
+     "real": 0.024,
+     "chance": 0.006
+    },
+    "byGroup": {
+     "real": 0.537,
+     "chance": 0.112
+    },
+    "loose": {
+     "real": 0.037,
+     "chance": 0.003
+    }
+   },
+   "blend": {
+    "pairsSame": 1,
+    "pairsDiff": 11,
+    "fastSame": 0.117,
+    "fastDiff": 0.734,
+    "genomeSame": 0.115,
+    "genomeDiff": 0.139
+   },
+   "examples": [
+    {
+     "t": 600,
+     "parent": 8,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "tree",
+     "alike": [
+      0.625,
+      0.625
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 1.25,
+       "alike": 0.625
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 750,
+     "parent": 10,
+     "sizes": [
+      6,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.8,
+      0.833
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 775,
+     "parent": 8,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.75,
+      0.708
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 850,
+     "parent": 9,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "tree",
+     "alike": [
+      0.556,
+      0.556
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 58.5,
+       "alike": 0.355
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 900,
+     "parent": 10,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "sheet",
+     "alike": [
+      0.75,
+      0.833
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 2.75,
+       "alike": 0.845
+      },
+      {
+       "size": 4,
+       "alike": 0.883
+      }
+     ]
+    }
+   ],
+   "hash": "74e12d6f"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 2,
+   "ticks": 4000,
+   "elements": 3,
+   "census": {
+    "settled": 0.993,
+    "distinct": 3
+   },
+   "splits": {
+    "count": 456,
+    "parent": 52.5,
+    "halves": 25.4,
+    "alike": 0.768,
+    "chanceWorld": 0.597,
+    "chanceParent": 0.848,
+    "identical": 0,
+    "rejoined": 68,
+    "grewBack": 180,
+    "multiplied": 23,
+    "halvesFollowed": 912,
+    "gone": 352
+   },
+   "bigSplits": {
+    "count": 209,
+    "parent": 29.7,
+    "halves": 15,
+    "alike": 0.784,
+    "chanceWorld": 0.584,
+    "chanceParent": 0.86,
+    "identical": 0,
+    "rejoined": 34,
+    "grewBack": 79,
+    "multiplied": 12,
+    "halvesFollowed": 418,
+    "gone": 152
+   },
+   "convert": {
+    "joins": 15983,
+    "foreign": 8076,
+    "foreignStayed": 1783,
+    "turned": 24,
+    "kept": 1726,
+    "other": 33,
+    "closer": -0.005,
+    "nativeStayed": 1935,
+    "nativeLost": 5,
+    "fromUnsettled": 364,
+    "unsettledTurned": 24
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.077,
+     "chance": 0.004
+    },
+    "byChainPlace": {
+     "real": 0.115,
+     "chance": 0.047
+    },
+    "byShape": {
+     "real": 0.248,
+     "chance": 0.005
+    },
+    "byGroup": {
+     "real": 0.547,
+     "chance": 0.122
+    },
+    "loose": {
+     "real": 0.047,
+     "chance": 0.001
+    }
+   },
+   "blend": {
+    "pairsSame": 3,
+    "pairsDiff": 19,
+    "fastSame": 0.133,
+    "fastDiff": 0.478,
+    "genomeSame": 0.156,
+    "genomeDiff": 0.133
+   },
+   "examples": [
+    {
+     "t": 575,
+     "parent": 9,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.722,
+      0.778
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 40.75,
+       "alike": 0.374
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 600,
+     "parent": 10,
+     "sizes": [
+      5,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.7,
+      0.55
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 625,
+     "parent": 11,
+     "sizes": [
+      5,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.564,
+      0.864
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 800,
+     "parent": 10,
+     "sizes": [
+      6,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.8,
+      0.7
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 3.67,
+       "alike": 0.8
+      },
+      {
+       "size": 2.5,
+       "alike": 0.9
+      }
+     ]
+    },
+    {
+     "t": 825,
+     "parent": 9,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.472,
+      0.778
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    }
+   ],
+   "hash": "fe0a93e9"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 1,
+   "ticks": 4000,
+   "elements": 3,
+   "census": {
+    "settled": 0.629,
+    "distinct": 6
+   },
+   "splits": {
+    "count": 41,
+    "parent": 11,
+    "halves": 4.6,
+    "alike": 0.771,
+    "chanceWorld": 0.624,
+    "chanceParent": 0.771,
+    "identical": 0,
+    "rejoined": 0,
+    "grewBack": 1,
+    "multiplied": 0,
+    "halvesFollowed": 82,
+    "gone": 73
+   },
+   "bigSplits": {
+    "count": 27,
+    "parent": 9.7,
+    "halves": 4.4,
+    "alike": 0.782,
+    "chanceWorld": 0.615,
+    "chanceParent": 0.779,
+    "identical": 0,
+    "rejoined": 0,
+    "grewBack": 0,
+    "multiplied": 0,
+    "halvesFollowed": 54,
+    "gone": 46
+   },
+   "convert": {
+    "joins": 6187,
+    "foreign": 2711,
+    "foreignStayed": 116,
+    "turned": 0,
+    "kept": 111,
+    "other": 5,
+    "closer": 0.031,
+    "nativeStayed": 86,
+    "nativeLost": 3,
+    "fromUnsettled": 106,
+    "unsettledTurned": 0
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.052,
+     "chance": 0.008
+    },
+    "byChainPlace": {
+     "real": 0.035,
+     "chance": 0.007
+    },
+    "byShape": {
+     "real": 0.008,
+     "chance": 0.016
+    },
+    "byGroup": {
+     "real": 0.491,
+     "chance": 0.488
+    },
+    "loose": {
+     "real": 0.001,
+     "chance": 0.002
+    }
+   },
+   "blend": {
+    "pairsSame": 25,
+    "pairsDiff": 35,
+    "fastSame": 0.154,
+    "fastDiff": 0.318,
+    "genomeSame": 0.153,
+    "genomeDiff": 0.592
+   },
+   "examples": [
+    {
+     "t": 1300,
+     "parent": 9,
+     "sizes": [
+      5,
+      4
+     ],
+     "cls": "tree",
+     "alike": [
+      0.667,
+      0.889
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1650,
+     "parent": 10,
+     "sizes": [
+      6,
+      6
+     ],
+     "cls": "blob",
+     "alike": [
+      0.867,
+      0.7
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0.67,
+       "alike": 0.8
+      },
+      {
+       "size": 1.17,
+       "alike": 0.914
+      }
+     ]
+    },
+    {
+     "t": 1750,
+     "parent": 10,
+     "sizes": [
+      5,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      1,
+      0.9
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1800,
+     "parent": 11,
+     "sizes": [
+      6,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.879,
+      0.705
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 2000,
+     "parent": 20,
+     "sizes": [
+      6,
+      6
+     ],
+     "cls": "tree",
+     "alike": [
+      0.85,
+      0.583
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    }
+   ],
+   "hash": "0a77ab2e"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 2,
+   "ticks": 4000,
+   "elements": 3,
+   "census": {
+    "settled": 0.582,
+    "distinct": 6
+   },
+   "splits": {
+    "count": 50,
+    "parent": 12.8,
+    "halves": 4.8,
+    "alike": 0.764,
+    "chanceWorld": 0.639,
+    "chanceParent": 0.772,
+    "identical": 0,
+    "rejoined": 0,
+    "grewBack": 4,
+    "multiplied": 0,
+    "halvesFollowed": 100,
+    "gone": 88
+   },
+   "bigSplits": {
+    "count": 30,
+    "parent": 11,
+    "halves": 4.9,
+    "alike": 0.77,
+    "chanceWorld": 0.649,
+    "chanceParent": 0.8,
+    "identical": 0,
+    "rejoined": 0,
+    "grewBack": 4,
+    "multiplied": 0,
+    "halvesFollowed": 60,
+    "gone": 50
+   },
+   "convert": {
+    "joins": 6304,
+    "foreign": 2555,
+    "foreignStayed": 96,
+    "turned": 1,
+    "kept": 93,
+    "other": 2,
+    "closer": 0.031,
+    "nativeStayed": 107,
+    "nativeLost": 4,
+    "fromUnsettled": 129,
+    "unsettledTurned": 1
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.014,
+     "chance": 0.008
+    },
+    "byChainPlace": {
+     "real": 0.007,
+     "chance": 0.005
+    },
+    "byShape": {
+     "real": 0.002,
+     "chance": 0.012
+    },
+    "byGroup": {
+     "real": 0.421,
+     "chance": 0.479
+    },
+    "loose": {
+     "real": 0.002,
+     "chance": 0.001
+    }
+   },
+   "blend": {
+    "pairsSame": 20,
+    "pairsDiff": 25,
+    "fastSame": 0.199,
+    "fastDiff": 0.302,
+    "genomeSame": 0.241,
+    "genomeDiff": 0.571
+   },
+   "examples": [
+    {
+     "t": 1350,
+     "parent": 10,
+     "sizes": [
+      6,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.867,
+      0.833
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1575,
+     "parent": 8,
+     "sizes": [
+      5,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.825,
+      0.875
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1625,
+     "parent": 13,
+     "sizes": [
+      8,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.731,
+      0.769
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1700,
+     "parent": 10,
+     "sizes": [
+      6,
+      5
+     ],
+     "cls": "blob",
+     "alike": [
+      0.867,
+      0.8
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 1,
+       "alike": 0.6
+      }
+     ]
+    },
+    {
+     "t": 1875,
+     "parent": 8,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.625,
+      0.833
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    }
+   ],
+   "hash": "42c8262d"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 1,
+   "ticks": 4000,
+   "elements": 4,
+   "census": {
+    "settled": 0.645,
+    "distinct": 4
+   },
+   "splits": {
+    "count": 884,
+    "parent": 19.4,
+    "halves": 9.6,
+    "alike": 0.859,
+    "chanceWorld": 0.586,
+    "chanceParent": 0.872,
+    "identical": 0,
+    "rejoined": 26,
+    "grewBack": 409,
+    "multiplied": 48,
+    "halvesFollowed": 1768,
+    "gone": 481
+   },
+   "bigSplits": {
+    "count": 584,
+    "parent": 17,
+    "halves": 8.7,
+    "alike": 0.862,
+    "chanceWorld": 0.585,
+    "chanceParent": 0.877,
+    "identical": 0,
+    "rejoined": 17,
+    "grewBack": 273,
+    "multiplied": 38,
+    "halvesFollowed": 1168,
+    "gone": 290
+   },
+   "convert": {
+    "joins": 10623,
+    "foreign": 4627,
+    "foreignStayed": 1156,
+    "turned": 14,
+    "kept": 1080,
+    "other": 62,
+    "closer": -0.024,
+    "nativeStayed": 1673,
+    "nativeLost": 48,
+    "fromUnsettled": 978,
+    "unsettledTurned": 14
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.043,
+     "chance": 0.004
+    },
+    "byChainPlace": {
+     "real": 0.133,
+     "chance": 0.05
+    },
+    "byShape": {
+     "real": 0.011,
+     "chance": 0.006
+    },
+    "byGroup": {
+     "real": 0.799,
+     "chance": 0.157
+    },
+    "loose": {
+     "real": 0.009,
+     "chance": 0.003
+    }
+   },
+   "blend": {
+    "pairsSame": 11,
+    "pairsDiff": 205,
+    "fastSame": 0.143,
+    "fastDiff": 0.176,
+    "genomeSame": 0.331,
+    "genomeDiff": 0.526
+   },
+   "examples": [
+    {
+     "t": 750,
+     "parent": 8,
+     "sizes": [
+      3,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.708,
+      0.625
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 775,
+     "parent": 8,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.875,
+      0.792
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 1.5,
+       "alike": 0.292
+      },
+      {
+       "size": 3,
+       "alike": 0.569
+      }
+     ]
+    },
+    {
+     "t": 825,
+     "parent": 10,
+     "sizes": [
+      3,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.833,
+      0.833
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 2.67,
+       "alike": 0.75
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 850,
+     "parent": 11,
+     "sizes": [
+      7,
+      5
+     ],
+     "cls": "blob",
+     "alike": [
+      0.883,
+      0.782
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 1.6,
+       "alike": 0.807
+      }
+     ]
+    },
+    {
+     "t": 850,
+     "parent": 10,
+     "sizes": [
+      7,
+      6
+     ],
+     "cls": "tree",
+     "alike": [
+      0.886,
+      0.9
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    }
+   ],
+   "hash": "9f3f0b81"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 2,
+   "ticks": 4000,
+   "elements": 4,
+   "census": {
+    "settled": 0.617,
+    "distinct": 4
+   },
+   "splits": {
+    "count": 758,
+    "parent": 18.9,
+    "halves": 9,
+    "alike": 0.853,
+    "chanceWorld": 0.567,
+    "chanceParent": 0.876,
+    "identical": 1,
+    "rejoined": 36,
+    "grewBack": 285,
+    "multiplied": 38,
+    "halvesFollowed": 1516,
+    "gone": 380
+   },
+   "bigSplits": {
+    "count": 499,
+    "parent": 17.4,
+    "halves": 8.5,
+    "alike": 0.861,
+    "chanceWorld": 0.564,
+    "chanceParent": 0.882,
+    "identical": 1,
+    "rejoined": 29,
+    "grewBack": 192,
+    "multiplied": 33,
+    "halvesFollowed": 998,
+    "gone": 214
+   },
+   "convert": {
+    "joins": 10126,
+    "foreign": 4396,
+    "foreignStayed": 1152,
+    "turned": 25,
+    "kept": 1051,
+    "other": 76,
+    "closer": -0.021,
+    "nativeStayed": 1666,
+    "nativeLost": 59,
+    "fromUnsettled": 1012,
+    "unsettledTurned": 25
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.023,
+     "chance": 0.004
+    },
+    "byChainPlace": {
+     "real": 0.024,
+     "chance": 0.039
+    },
+    "byShape": {
+     "real": 0.01,
+     "chance": 0.006
+    },
+    "byGroup": {
+     "real": 0.799,
+     "chance": 0.159
+    },
+    "loose": {
+     "real": 0.007,
+     "chance": 0.001
+    }
+   },
+   "blend": {
+    "pairsSame": 9,
+    "pairsDiff": 223,
+    "fastSame": 0.16,
+    "fastDiff": 0.148,
+    "genomeSame": 0.073,
+    "genomeDiff": 0.385
+   },
+   "examples": [
+    {
+     "t": 750,
+     "parent": 10,
+     "sizes": [
+      5,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.8,
+      0.6
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 5.67,
+       "alike": 0.812
+      }
+     ]
+    },
+    {
+     "t": 825,
+     "parent": 12,
+     "sizes": [
+      5,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.667,
+      0.5
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 11.75,
+       "alike": 0.965
+      }
+     ]
+    },
+    {
+     "t": 875,
+     "parent": 10,
+     "sizes": [
+      6,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.8,
+      0.7
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 1.25,
+       "alike": 0.5
+      }
+     ]
+    },
+    {
+     "t": 875,
+     "parent": 8,
+     "sizes": [
+      5,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.925,
+      0.875
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 3.4,
+       "alike": 0.713
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 875,
+     "parent": 8,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "tree",
+     "alike": [
+      0.875,
+      0.625
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 5.75,
+       "alike": 0.902
+      },
+      {
+       "size": 1.75,
+       "alike": 0.625
+      }
+     ]
+    }
+   ],
+   "hash": "34a60097"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 1,
+   "ticks": 4000,
+   "elements": 3,
+   "census": {
+    "settled": 0.428,
+    "distinct": 6
+   },
+   "splits": {
+    "count": 401,
+    "parent": 24.8,
+    "halves": 12.1,
+    "alike": 0.864,
+    "chanceWorld": 0.616,
+    "chanceParent": 0.924,
+    "identical": 0,
+    "rejoined": 53,
+    "grewBack": 140,
+    "multiplied": 10,
+    "halvesFollowed": 802,
+    "gone": 53
+   },
+   "bigSplits": {
+    "count": 253,
+    "parent": 23.4,
+    "halves": 11.8,
+    "alike": 0.89,
+    "chanceWorld": 0.615,
+    "chanceParent": 0.935,
+    "identical": 0,
+    "rejoined": 39,
+    "grewBack": 77,
+    "multiplied": 4,
+    "halvesFollowed": 506,
+    "gone": 23
+   },
+   "convert": {
+    "joins": 6593,
+    "foreign": 1454,
+    "foreignStayed": 485,
+    "turned": 28,
+    "kept": 410,
+    "other": 47,
+    "closer": -0.089,
+    "nativeStayed": 1640,
+    "nativeLost": 24,
+    "fromUnsettled": 1455,
+    "unsettledTurned": 28
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.296,
+     "chance": 0.004
+    },
+    "byChainPlace": {
+     "real": 0.169,
+     "chance": 0.026
+    },
+    "byShape": {
+     "real": 0.084,
+     "chance": 0.007
+    },
+    "byGroup": {
+     "real": 0.465,
+     "chance": 0.171
+    },
+    "loose": {
+     "real": 0.116,
+     "chance": 0.002
+    }
+   },
+   "blend": {
+    "pairsSame": 9,
+    "pairsDiff": 222,
+    "fastSame": 0.276,
+    "fastDiff": 0.27,
+    "genomeSame": 0.33,
+    "genomeDiff": 0.383
+   },
+   "examples": [
+    {
+     "t": 600,
+     "parent": 13,
+     "sizes": [
+      9,
+      6
+     ],
+     "cls": "blob",
+     "alike": [
+      0.846,
+      0.91
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 1.44,
+       "alike": 0.846
+      },
+      {
+       "size": 1.83,
+       "alike": 0.259
+      }
+     ]
+    },
+    {
+     "t": 625,
+     "parent": 11,
+     "sizes": [
+      7,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.935,
+      0.886
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 2.86,
+       "alike": 0.736
+      },
+      {
+       "size": 6,
+       "alike": 0.761
+      }
+     ]
+    },
+    {
+     "t": 650,
+     "parent": 13,
+     "sizes": [
+      13,
+      7
+     ],
+     "cls": "blob",
+     "alike": [
+      1,
+      0.879
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 3.57,
+       "alike": 0.468
+      }
+     ]
+    },
+    {
+     "t": 700,
+     "parent": 8,
+     "sizes": [
+      5,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.775,
+      0.625
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 1.4,
+       "alike": 0.768
+      },
+      {
+       "size": 2.67,
+       "alike": 0.875
+      }
+     ]
+    },
+    {
+     "t": 700,
+     "parent": 8,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.75,
+      0.875
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 2.25,
+       "alike": 0.847
+      },
+      {
+       "size": 2.5,
+       "alike": 0.7
+      }
+     ]
+    }
+   ],
+   "hash": "f1fd7b01"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 2,
+   "ticks": 4000,
+   "elements": 3,
+   "census": {
+    "settled": 0.481,
+    "distinct": 8
+   },
+   "splits": {
+    "count": 389,
+    "parent": 21.7,
+    "halves": 10.7,
+    "alike": 0.83,
+    "chanceWorld": 0.616,
+    "chanceParent": 0.905,
+    "identical": 0,
+    "rejoined": 41,
+    "grewBack": 99,
+    "multiplied": 11,
+    "halvesFollowed": 778,
+    "gone": 54
+   },
+   "bigSplits": {
+    "count": 227,
+    "parent": 19.7,
+    "halves": 10,
+    "alike": 0.86,
+    "chanceWorld": 0.624,
+    "chanceParent": 0.923,
+    "identical": 0,
+    "rejoined": 24,
+    "grewBack": 67,
+    "multiplied": 11,
+    "halvesFollowed": 454,
+    "gone": 21
+   },
+   "convert": {
+    "joins": 6224,
+    "foreign": 1899,
+    "foreignStayed": 578,
+    "turned": 31,
+    "kept": 493,
+    "other": 54,
+    "closer": -0.077,
+    "nativeStayed": 1592,
+    "nativeLost": 23,
+    "fromUnsettled": 1334,
+    "unsettledTurned": 31
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.218,
+     "chance": 0.004
+    },
+    "byChainPlace": {
+     "real": 0.241,
+     "chance": 0.033
+    },
+    "byShape": {
+     "real": 0.062,
+     "chance": 0.009
+    },
+    "byGroup": {
+     "real": 0.573,
+     "chance": 0.196
+    },
+    "loose": {
+     "real": 0.07,
+     "chance": 0.003
+    }
+   },
+   "blend": {
+    "pairsSame": 8,
+    "pairsDiff": 117,
+    "fastSame": 0.397,
+    "fastDiff": 0.329,
+    "genomeSame": 0.603,
+    "genomeDiff": 0.433
+   },
+   "examples": [
+    {
+     "t": 525,
+     "parent": 12,
+     "sizes": [
+      6,
+      5
+     ],
+     "cls": "blob",
+     "alike": [
+      0.917,
+      0.683
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 5.17,
+       "alike": 0.309
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 600,
+     "parent": 8,
+     "sizes": [
+      5,
+      4
+     ],
+     "cls": "tree",
+     "alike": [
+      0.825,
+      0.875
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 3.8,
+       "alike": 0.842
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 625,
+     "parent": 14,
+     "sizes": [
+      10,
+      6
+     ],
+     "cls": "blob",
+     "alike": [
+      0.829,
+      0.738
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 3.3,
+       "alike": 0.671
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 700,
+     "parent": 8,
+     "sizes": [
+      6,
+      5
+     ],
+     "cls": "tree",
+     "alike": [
+      0.958,
+      0.875
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 2.17,
+       "alike": 0.971
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 700,
+     "parent": 13,
+     "sizes": [
+      6,
+      6
+     ],
+     "cls": "sheet",
+     "alike": [
+      0.872,
+      0.962
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 3.33,
+       "alike": 0.838
+      },
+      {
+       "size": 3.17,
+       "alike": 0.696
+      }
+     ]
+    }
+   ],
+   "hash": "5df9e4c4"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 1,
+   "ticks": 4000,
+   "elements": 3,
+   "census": {
+    "settled": 0.737,
+    "distinct": 6
+   },
+   "splits": {
+    "count": 263,
+    "parent": 15.8,
+    "halves": 6.8,
+    "alike": 0.819,
+    "chanceWorld": 0.672,
+    "chanceParent": 0.797,
+    "identical": 1,
+    "rejoined": 38,
+    "grewBack": 51,
+    "multiplied": 2,
+    "halvesFollowed": 526,
+    "gone": 84
+   },
+   "bigSplits": {
+    "count": 168,
+    "parent": 12.1,
+    "halves": 5.8,
+    "alike": 0.834,
+    "chanceWorld": 0.662,
+    "chanceParent": 0.803,
+    "identical": 1,
+    "rejoined": 27,
+    "grewBack": 28,
+    "multiplied": 1,
+    "halvesFollowed": 336,
+    "gone": 42
+   },
+   "convert": {
+    "joins": 7928,
+    "foreign": 4508,
+    "foreignStayed": 992,
+    "turned": 15,
+    "kept": 951,
+    "other": 26,
+    "closer": 0.028,
+    "nativeStayed": 598,
+    "nativeLost": 1,
+    "fromUnsettled": 338,
+    "unsettledTurned": 15
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.07,
+     "chance": 0.005
+    },
+    "byChainPlace": {
+     "real": 0.012,
+     "chance": 0.008
+    },
+    "byShape": {
+     "real": 0.045,
+     "chance": 0.013
+    },
+    "byGroup": {
+     "real": 0.726,
+     "chance": 0.471
+    },
+    "loose": {
+     "real": 0.033,
+     "chance": 0.003
+    }
+   },
+   "blend": {
+    "pairsSame": 96,
+    "pairsDiff": 372,
+    "fastSame": 0.198,
+    "fastDiff": 0.231,
+    "genomeSame": 0.273,
+    "genomeDiff": 0.481
+   },
+   "examples": [
+    {
+     "t": 1300,
+     "parent": 8,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "chain",
+     "alike": [
+      0.75,
+      0.875
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 1,
+       "alike": 0.75
+      },
+      {
+       "size": 0.75,
+       "alike": 0.708
+      }
+     ]
+    },
+    {
+     "t": 1425,
+     "parent": 8,
+     "sizes": [
+      5,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.9,
+      0.833
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1425,
+     "parent": 14,
+     "sizes": [
+      6,
+      5
+     ],
+     "cls": "blob",
+     "alike": [
+      0.786,
+      0.829
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 16.5,
+       "alike": 0.983
+      },
+      {
+       "size": 0.6,
+       "alike": 0.69
+      }
+     ]
+    },
+    {
+     "t": 1525,
+     "parent": 8,
+     "sizes": [
+      5,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.875,
+      0.792
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 1,
+       "alike": 0.875
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1550,
+     "parent": 10,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.9,
+      0.933
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0.75,
+       "alike": 0.6
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    }
+   ],
+   "hash": "625a8e62"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 2,
+   "ticks": 4000,
+   "elements": 3,
+   "census": {
+    "settled": 0.731,
+    "distinct": 8
+   },
+   "splits": {
+    "count": 297,
+    "parent": 16.3,
+    "halves": 7.1,
+    "alike": 0.812,
+    "chanceWorld": 0.674,
+    "chanceParent": 0.806,
+    "identical": 3,
+    "rejoined": 34,
+    "grewBack": 73,
+    "multiplied": 3,
+    "halvesFollowed": 594,
+    "gone": 120
+   },
+   "bigSplits": {
+    "count": 187,
+    "parent": 13.5,
+    "halves": 6.6,
+    "alike": 0.815,
+    "chanceWorld": 0.666,
+    "chanceParent": 0.811,
+    "identical": 2,
+    "rejoined": 26,
+    "grewBack": 44,
+    "multiplied": 2,
+    "halvesFollowed": 374,
+    "gone": 58
+   },
+   "convert": {
+    "joins": 7940,
+    "foreign": 4502,
+    "foreignStayed": 1131,
+    "turned": 11,
+    "kept": 1093,
+    "other": 27,
+    "closer": 0.024,
+    "nativeStayed": 686,
+    "nativeLost": 5,
+    "fromUnsettled": 426,
+    "unsettledTurned": 11
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.073,
+     "chance": 0.005
+    },
+    "byChainPlace": {
+     "real": 0.032,
+     "chance": 0.008
+    },
+    "byShape": {
+     "real": 0.064,
+     "chance": 0.011
+    },
+    "byGroup": {
+     "real": 0.736,
+     "chance": 0.441
+    },
+    "loose": {
+     "real": 0.026,
+     "chance": 0.003
+    }
+   },
+   "blend": {
+    "pairsSame": 94,
+    "pairsDiff": 415,
+    "fastSame": 0.206,
+    "fastDiff": 0.241,
+    "genomeSame": 0.311,
+    "genomeDiff": 0.553
+   },
+   "examples": [
+    {
+     "t": 1175,
+     "parent": 10,
+     "sizes": [
+      5,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.9,
+      0.7
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1225,
+     "parent": 9,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "chain",
+     "alike": [
+      0.556,
+      0.667
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 1.75,
+       "alike": 0.794
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 1375,
+     "parent": 9,
+     "sizes": [
+      8,
+      4
+     ],
+     "cls": "tree",
+     "alike": [
+      0.806,
+      0.583
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 3,
+       "alike": 0.75
+      }
+     ]
+    },
+    {
+     "t": 1400,
+     "parent": 11,
+     "sizes": [
+      6,
+      4
+     ],
+     "cls": "tree",
+     "alike": [
+      0.894,
+      0.636
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0.75,
+       "alike": 0.606
+      }
+     ]
+    },
+    {
+     "t": 1425,
+     "parent": 10,
+     "sizes": [
+      5,
+      3
+     ],
+     "cls": "sheet",
+     "alike": [
+      0.7,
+      0.433
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    }
+   ],
+   "hash": "5cac81c4"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 1,
+   "ticks": 4000,
+   "elements": 3,
+   "census": {
+    "settled": 0.346,
+    "distinct": 7
+   },
+   "splits": {
+    "count": 400,
+    "parent": 23.8,
+    "halves": 11.9,
+    "alike": 0.865,
+    "chanceWorld": 0.723,
+    "chanceParent": 0.883,
+    "identical": 0,
+    "rejoined": 52,
+    "grewBack": 114,
+    "multiplied": 13,
+    "halvesFollowed": 800,
+    "gone": 71
+   },
+   "bigSplits": {
+    "count": 268,
+    "parent": 20.3,
+    "halves": 10.2,
+    "alike": 0.872,
+    "chanceWorld": 0.725,
+    "chanceParent": 0.886,
+    "identical": 0,
+    "rejoined": 32,
+    "grewBack": 73,
+    "multiplied": 8,
+    "halvesFollowed": 536,
+    "gone": 47
+   },
+   "convert": {
+    "joins": 6479,
+    "foreign": 956,
+    "foreignStayed": 346,
+    "turned": 33,
+    "kept": 292,
+    "other": 21,
+    "closer": -0.016,
+    "nativeStayed": 1642,
+    "nativeLost": 127,
+    "fromUnsettled": 1447,
+    "unsettledTurned": 33
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.118,
+     "chance": 0.002
+    },
+    "byChainPlace": {
+     "real": 0.016,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.094,
+     "chance": 0.004
+    },
+    "byGroup": {
+     "real": 0.85,
+     "chance": 0.162
+    },
+    "loose": {
+     "real": 0,
+     "chance": 0
+    }
+   },
+   "blend": {
+    "pairsSame": 18,
+    "pairsDiff": 205,
+    "fastSame": 0.279,
+    "fastDiff": 0.278,
+    "genomeSame": 0.239,
+    "genomeDiff": 0.371
+   },
+   "examples": [
+    {
+     "t": 725,
+     "parent": 8,
+     "sizes": [
+      5,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.925,
+      0.625
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 750,
+     "parent": 8,
+     "sizes": [
+      8,
+      3
+     ],
+     "cls": "chain",
+     "alike": [
+      0.75,
+      0.75
+     ],
+     "rejoined": true,
+     "later": [
+      {
+       "size": 21.25,
+       "alike": 0.738
+      },
+      {
+       "size": 56.67,
+       "alike": 0.738
+      }
+     ]
+    },
+    {
+     "t": 775,
+     "parent": 17,
+     "sizes": [
+      7,
+      7
+     ],
+     "cls": "blob",
+     "alike": [
+      0.941,
+      0.916
+     ],
+     "rejoined": true,
+     "later": [
+      {
+       "size": 17.71,
+       "alike": 0.486
+      },
+      {
+       "size": 17.71,
+       "alike": 0.486
+      }
+     ]
+    },
+    {
+     "t": 800,
+     "parent": 13,
+     "sizes": [
+      6,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.897,
+      0.731
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0.75,
+       "alike": 0.744
+      }
+     ]
+    },
+    {
+     "t": 825,
+     "parent": 8,
+     "sizes": [
+      5,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.775,
+      0.625
+     ],
+     "rejoined": true,
+     "later": [
+      {
+       "size": 3,
+       "alike": 0.958
+      },
+      {
+       "size": 5,
+       "alike": 0.958
+      }
+     ]
+    }
+   ],
+   "hash": "c7a3dad4"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 2,
+   "ticks": 4000,
+   "elements": 3,
+   "census": {
+    "settled": 0.303,
+    "distinct": 8
+   },
+   "splits": {
+    "count": 418,
+    "parent": 25.9,
+    "halves": 12.9,
+    "alike": 0.871,
+    "chanceWorld": 0.732,
+    "chanceParent": 0.884,
+    "identical": 2,
+    "rejoined": 44,
+    "grewBack": 156,
+    "multiplied": 16,
+    "halvesFollowed": 836,
+    "gone": 85
+   },
+   "bigSplits": {
+    "count": 259,
+    "parent": 16.9,
+    "halves": 8.5,
+    "alike": 0.872,
+    "chanceWorld": 0.731,
+    "chanceParent": 0.882,
+    "identical": 2,
+    "rejoined": 26,
+    "grewBack": 94,
+    "multiplied": 11,
+    "halvesFollowed": 518,
+    "gone": 41
+   },
+   "convert": {
+    "joins": 6823,
+    "foreign": 1021,
+    "foreignStayed": 373,
+    "turned": 41,
+    "kept": 312,
+    "other": 20,
+    "closer": -0.021,
+    "nativeStayed": 1717,
+    "nativeLost": 153,
+    "fromUnsettled": 1601,
+    "unsettledTurned": 41
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.16,
+     "chance": 0.002
+    },
+    "byChainPlace": {
+     "real": 0.048,
+     "chance": 0.006
+    },
+    "byShape": {
+     "real": 0.257,
+     "chance": 0.004
+    },
+    "byGroup": {
+     "real": 0.864,
+     "chance": 0.153
+    },
+    "loose": {
+     "real": 0.002,
+     "chance": 0.001
+    }
+   },
+   "blend": {
+    "pairsSame": 55,
+    "pairsDiff": 124,
+    "fastSame": 0.23,
+    "fastDiff": 0.328,
+    "genomeSame": 0.204,
+    "genomeDiff": 0.464
+   },
+   "examples": [
+    {
+     "t": 625,
+     "parent": 11,
+     "sizes": [
+      6,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.833,
+      0.955
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 3.5,
+       "alike": 0.879
+      },
+      {
+       "size": 8,
+       "alike": 0.92
+      }
+     ]
+    },
+    {
+     "t": 675,
+     "parent": 8,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "tree",
+     "alike": [
+      0.75,
+      0.75
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 1.75,
+       "alike": 0.786
+      },
+      {
+       "size": 30,
+       "alike": 0.867
+      }
+     ]
+    },
+    {
+     "t": 725,
+     "parent": 9,
+     "sizes": [
+      7,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.952,
+      1
+     ],
+     "rejoined": true,
+     "later": [
+      {
+       "size": 16.29,
+       "alike": 0.886
+      },
+      {
+       "size": 38,
+       "alike": 0.886
+      }
+     ]
+    },
+    {
+     "t": 775,
+     "parent": 9,
+     "sizes": [
+      7,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.683,
+      0.556
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 825,
+     "parent": 9,
+     "sizes": [
+      9,
+      6
+     ],
+     "cls": "blob",
+     "alike": [
+      0.889,
+      0.889
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 3.67,
+       "alike": 0.884
+      }
+     ]
+    }
+   ],
+   "hash": "58c396c4"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 1,
+   "ticks": 4000,
+   "elements": 4,
+   "census": {
+    "settled": 0.755,
+    "distinct": 6
+   },
+   "splits": {
+    "count": 377,
+    "parent": 39.4,
+    "halves": 19.2,
+    "alike": 0.829,
+    "chanceWorld": 0.517,
+    "chanceParent": 0.856,
+    "identical": 1,
+    "rejoined": 98,
+    "grewBack": 174,
+    "multiplied": 26,
+    "halvesFollowed": 754,
+    "gone": 53
+   },
+   "bigSplits": {
+    "count": 201,
+    "parent": 24.2,
+    "halves": 12.3,
+    "alike": 0.828,
+    "chanceWorld": 0.515,
+    "chanceParent": 0.857,
+    "identical": 1,
+    "rejoined": 42,
+    "grewBack": 92,
+    "multiplied": 13,
+    "halvesFollowed": 402,
+    "gone": 32
+   },
+   "convert": {
+    "joins": 8536,
+    "foreign": 4103,
+    "foreignStayed": 1660,
+    "turned": 43,
+    "kept": 1561,
+    "other": 56,
+    "closer": -0.018,
+    "nativeStayed": 1898,
+    "nativeLost": 16,
+    "fromUnsettled": 864,
+    "unsettledTurned": 43
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.08,
+     "chance": 0.006
+    },
+    "byChainPlace": {
+     "real": 0.003,
+     "chance": 0.015
+    },
+    "byShape": {
+     "real": 0.015,
+     "chance": 0.007
+    },
+    "byGroup": {
+     "real": 0.634,
+     "chance": 0.136
+    },
+    "loose": {
+     "real": 0.041,
+     "chance": 0.003
+    }
+   },
+   "blend": {
+    "pairsSame": 0,
+    "pairsDiff": 2,
+    "fastSame": null,
+    "fastDiff": 0.057,
+    "genomeSame": null,
+    "genomeDiff": 0.06
+   },
+   "examples": [
+    {
+     "t": 725,
+     "parent": 8,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.5,
+      0.75
+     ],
+     "rejoined": true,
+     "later": [
+      {
+       "size": 10.75,
+       "alike": 0.82
+      },
+      {
+       "size": 10.75,
+       "alike": 0.82
+      }
+     ]
+    },
+    {
+     "t": 750,
+     "parent": 8,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.75,
+      0.625
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 2,
+       "alike": 0.5
+      }
+     ]
+    },
+    {
+     "t": 750,
+     "parent": 8,
+     "sizes": [
+      6,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.75,
+      0.792
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 5.83,
+       "alike": 0.629
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 775,
+     "parent": 9,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.75,
+      0.889
+     ],
+     "rejoined": true,
+     "later": [
+      {
+       "size": 4,
+       "alike": 0.868
+      },
+      {
+       "size": 5.33,
+       "alike": 0.868
+      }
+     ]
+    },
+    {
+     "t": 775,
+     "parent": 8,
+     "sizes": [
+      8,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.875,
+      0.917
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    }
+   ],
+   "hash": "b8ff2f4a"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 2,
+   "ticks": 4000,
+   "elements": 4,
+   "census": {
+    "settled": 0.756,
+    "distinct": 6
+   },
+   "splits": {
+    "count": 393,
+    "parent": 34.6,
+    "halves": 16.9,
+    "alike": 0.841,
+    "chanceWorld": 0.53,
+    "chanceParent": 0.861,
+    "identical": 0,
+    "rejoined": 84,
+    "grewBack": 184,
+    "multiplied": 28,
+    "halvesFollowed": 786,
+    "gone": 48
+   },
+   "bigSplits": {
+    "count": 230,
+    "parent": 25,
+    "halves": 12.8,
+    "alike": 0.836,
+    "chanceWorld": 0.52,
+    "chanceParent": 0.864,
+    "identical": 0,
+    "rejoined": 58,
+    "grewBack": 105,
+    "multiplied": 22,
+    "halvesFollowed": 460,
+    "gone": 21
+   },
+   "convert": {
+    "joins": 8326,
+    "foreign": 3950,
+    "foreignStayed": 1574,
+    "turned": 47,
+    "kept": 1451,
+    "other": 76,
+    "closer": -0.017,
+    "nativeStayed": 1791,
+    "nativeLost": 17,
+    "fromUnsettled": 907,
+    "unsettledTurned": 47
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.058,
+     "chance": 0.007
+    },
+    "byChainPlace": {
+     "real": 0.016,
+     "chance": 0.02
+    },
+    "byShape": {
+     "real": 0.051,
+     "chance": 0.006
+    },
+    "byGroup": {
+     "real": 0.683,
+     "chance": 0.131
+    },
+    "loose": {
+     "real": 0.093,
+     "chance": 0.002
+    }
+   },
+   "blend": {
+    "pairsSame": 0,
+    "pairsDiff": 3,
+    "fastSame": null,
+    "fastDiff": 0.116,
+    "genomeSame": null,
+    "genomeDiff": 0.073
+   },
+   "examples": [
+    {
+     "t": 750,
+     "parent": 14,
+     "sizes": [
+      8,
+      5
+     ],
+     "cls": "blob",
+     "alike": [
+      0.893,
+      0.786
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 4.38,
+       "alike": 0.829
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 775,
+     "parent": 8,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "tree",
+     "alike": [
+      0.625,
+      0.5
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 2.75,
+       "alike": 0.864
+      }
+     ]
+    },
+    {
+     "t": 800,
+     "parent": 17,
+     "sizes": [
+      9,
+      8
+     ],
+     "cls": "blob",
+     "alike": [
+      0.837,
+      0.772
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 22.38,
+       "alike": 0.745
+      }
+     ]
+    },
+    {
+     "t": 825,
+     "parent": 12,
+     "sizes": [
+      6,
+      4
+     ],
+     "cls": "tree",
+     "alike": [
+      0.833,
+      0.75
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 1.17,
+       "alike": 0.929
+      },
+      {
+       "size": 2.5,
+       "alike": 0.933
+      }
+     ]
+    },
+    {
+     "t": 825,
+     "parent": 10,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.75,
+      0.75
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 1.5,
+       "alike": 0.833
+      },
+      {
+       "size": 3.25,
+       "alike": 0.808
+      }
+     ]
+    }
+   ],
+   "hash": "fe278181"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 1,
+   "ticks": 4000,
+   "elements": 3,
+   "census": {
+    "settled": 0.539,
+    "distinct": 4
+   },
+   "splits": {
+    "count": 427,
+    "parent": 25.6,
+    "halves": 10.6,
+    "alike": 0.903,
+    "chanceWorld": 0.748,
+    "chanceParent": 0.875,
+    "identical": 5,
+    "rejoined": 28,
+    "grewBack": 186,
+    "multiplied": 19,
+    "halvesFollowed": 854,
+    "gone": 365
+   },
+   "bigSplits": {
+    "count": 209,
+    "parent": 18.6,
+    "halves": 9.2,
+    "alike": 0.917,
+    "chanceWorld": 0.745,
+    "chanceParent": 0.881,
+    "identical": 5,
+    "rejoined": 14,
+    "grewBack": 97,
+    "multiplied": 14,
+    "halvesFollowed": 418,
+    "gone": 170
+   },
+   "convert": {
+    "joins": 14421,
+    "foreign": 4444,
+    "foreignStayed": 605,
+    "turned": 11,
+    "kept": 590,
+    "other": 4,
+    "closer": -0.024,
+    "nativeStayed": 1143,
+    "nativeLost": 54,
+    "fromUnsettled": 1173,
+    "unsettledTurned": 11
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.077,
+     "chance": 0.003
+    },
+    "byChainPlace": {
+     "real": 0.027,
+     "chance": 0.014
+    },
+    "byShape": {
+     "real": 0.1,
+     "chance": 0.007
+    },
+    "byGroup": {
+     "real": 0.91,
+     "chance": 0.271
+    },
+    "loose": {
+     "real": 0.074,
+     "chance": 0.001
+    }
+   },
+   "blend": {
+    "pairsSame": 110,
+    "pairsDiff": 469,
+    "fastSame": 0.708,
+    "fastDiff": 0.594,
+    "genomeSame": 0.078,
+    "genomeDiff": 0.13
+   },
+   "examples": [
+    {
+     "t": 600,
+     "parent": 13,
+     "sizes": [
+      8,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.856,
+      0.577
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 2.88,
+       "alike": 0.91
+      },
+      {
+       "size": 49,
+       "alike": 0.745
+      }
+     ]
+    },
+    {
+     "t": 650,
+     "parent": 10,
+     "sizes": [
+      6,
+      3
+     ],
+     "cls": "blob",
+     "alike": [
+      0.9,
+      0.933
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 700,
+     "parent": 8,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      1,
+      0.667
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 750,
+     "parent": 10,
+     "sizes": [
+      9,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.833,
+      0.75
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 15.5,
+       "alike": 0.613
+      }
+     ]
+    },
+    {
+     "t": 800,
+     "parent": 9,
+     "sizes": [
+      4,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.944,
+      0.778
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    }
+   ],
+   "hash": "21a661ce"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 2,
+   "ticks": 4000,
+   "elements": 3,
+   "census": {
+    "settled": 0.544,
+    "distinct": 4
+   },
+   "splits": {
+    "count": 435,
+    "parent": 27.4,
+    "halves": 11.2,
+    "alike": 0.903,
+    "chanceWorld": 0.754,
+    "chanceParent": 0.871,
+    "identical": 7,
+    "rejoined": 38,
+    "grewBack": 191,
+    "multiplied": 15,
+    "halvesFollowed": 870,
+    "gone": 357
+   },
+   "bigSplits": {
+    "count": 204,
+    "parent": 20.4,
+    "halves": 10.2,
+    "alike": 0.92,
+    "chanceWorld": 0.752,
+    "chanceParent": 0.882,
+    "identical": 5,
+    "rejoined": 25,
+    "grewBack": 91,
+    "multiplied": 9,
+    "halvesFollowed": 408,
+    "gone": 149
+   },
+   "convert": {
+    "joins": 14795,
+    "foreign": 4403,
+    "foreignStayed": 564,
+    "turned": 6,
+    "kept": 554,
+    "other": 4,
+    "closer": -0.017,
+    "nativeStayed": 1313,
+    "nativeLost": 55,
+    "fromUnsettled": 1347,
+    "unsettledTurned": 6
+   },
+   "shape": {
+    "byBonds": {
+     "real": 0.068,
+     "chance": 0.005
+    },
+    "byChainPlace": {
+     "real": 0.009,
+     "chance": 0.022
+    },
+    "byShape": {
+     "real": 0.152,
+     "chance": 0.008
+    },
+    "byGroup": {
+     "real": 0.889,
+     "chance": 0.252
+    },
+    "loose": {
+     "real": 0.07,
+     "chance": 0.002
+    }
+   },
+   "blend": {
+    "pairsSame": 122,
+    "pairsDiff": 578,
+    "fastSame": 0.659,
+    "fastDiff": 0.6,
+    "genomeSame": 0.101,
+    "genomeDiff": 0.107
+   },
+   "examples": [
+    {
+     "t": 675,
+     "parent": 13,
+     "sizes": [
+      9,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.974,
+      0.942
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 4.5,
+       "alike": 0.389
+      }
+     ]
+    },
+    {
+     "t": 725,
+     "parent": 22,
+     "sizes": [
+      12,
+      12
+     ],
+     "cls": "blob",
+     "alike": [
+      0.864,
+      0.886
+     ],
+     "rejoined": true,
+     "later": [
+      {
+       "size": 2.67,
+       "alike": 0.699
+      },
+      {
+       "size": 2.67,
+       "alike": 0.699
+      }
+     ]
+    },
+    {
+     "t": 725,
+     "parent": 8,
+     "sizes": [
+      4,
+      4
+     ],
+     "cls": "blob",
+     "alike": [
+      0.875,
+      0.875
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 900,
+     "parent": 11,
+     "sizes": [
+      6,
+      5
+     ],
+     "cls": "blob",
+     "alike": [
+      0.864,
+      0.673
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 0,
+       "alike": null
+      }
+     ]
+    },
+    {
+     "t": 900,
+     "parent": 8,
+     "sizes": [
+      5,
+      3
+     ],
+     "cls": "tree",
+     "alike": [
+      0.75,
+      0.583
+     ],
+     "rejoined": false,
+     "later": [
+      {
+       "size": 0,
+       "alike": null
+      },
+      {
+       "size": 13.33,
+       "alike": 0.75
+      }
+     ]
+    }
+   ],
+   "hash": "e0045dd9"
+  }
+ ]
+}
