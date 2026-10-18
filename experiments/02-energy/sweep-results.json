@@ -1,0 +1,4879 @@
+{
+ "ticks": 4000,
+ "window": 2000,
+ "n": 1500,
+ "worlds": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "laws": {
+  "1": {
+   "elements": [
+    {
+     "g": [
+      -1.245,
+      -0.516,
+      1.294,
+      -1.789
+     ],
+     "basin": 0.289
+    },
+    {
+     "g": [
+      -1.651,
+      1.117,
+      -1.253,
+      0.734
+     ],
+     "basin": 0.285
+    },
+    {
+     "g": [
+      1.127,
+      0.784,
+      1.549,
+      -0.225
+     ],
+     "basin": 0.262
+    },
+    {
+     "g": [
+      0.716,
+      -0.039,
+      -0.867,
+      -1.519
+     ],
+     "basin": 0.164
+    }
+   ]
+  },
+  "2": {
+   "elements": [
+    {
+     "g": [
+      1.59,
+      -1.623,
+      0.571,
+      0.15
+     ],
+     "basin": 0.422
+    },
+    {
+     "g": [
+      -0.922,
+      1.552,
+      -0.848,
+      -1.046
+     ],
+     "basin": 0.246
+    },
+    {
+     "g": [
+      -0.219,
+      -1.543,
+      -0.716,
+      1.749
+     ],
+     "basin": 0.176
+    },
+    {
+     "g": [
+      -0.614,
+      1.68,
+      -1.119,
+      1.456
+     ],
+     "basin": 0.156
+    }
+   ]
+  },
+  "3": {
+   "elements": [
+    {
+     "g": [
+      1.589,
+      -1.732,
+      -0.116,
+      -1.615
+     ],
+     "basin": 0.414
+    },
+    {
+     "g": [
+      -0.572,
+      -1.718,
+      -1.577,
+      -1.189
+     ],
+     "basin": 0.332
+    },
+    {
+     "g": [
+      -0.375,
+      -1.517,
+      1.081,
+      0.564
+     ],
+     "basin": 0.254
+    }
+   ]
+  },
+  "4": {
+   "elements": [
+    {
+     "g": [
+      -1.78,
+      1.71,
+      0.719,
+      1.46
+     ],
+     "basin": 0.336
+    },
+    {
+     "g": [
+      1.825,
+      -0.829,
+      0.28,
+      -1.503
+     ],
+     "basin": 0.285
+    },
+    {
+     "g": [
+      0.757,
+      -1.413,
+      0.627,
+      1.517
+     ],
+     "basin": 0.246
+    },
+    {
+     "g": [
+      -1.577,
+      -1.012,
+      0.476,
+      -0.787
+     ],
+     "basin": 0.133
+    }
+   ]
+  },
+  "5": {
+   "elements": [
+    {
+     "g": [
+      1.532,
+      0.97,
+      0.232,
+      -1.758
+     ],
+     "basin": 0.484
+    },
+    {
+     "g": [
+      -1.332,
+      -1.508,
+      1.45,
+      -0.973
+     ],
+     "basin": 0.332
+    },
+    {
+     "g": [
+      -0.777,
+      1.305,
+      -1.124,
+      -1.047
+     ],
+     "basin": 0.184
+    }
+   ]
+  },
+  "6": {
+   "elements": [
+    {
+     "g": [
+      0.284,
+      -1.763,
+      -1.234,
+      -1.646
+     ],
+     "basin": 0.594
+    },
+    {
+     "g": [
+      0.996,
+      0.768,
+      0.243,
+      1.518
+     ],
+     "basin": 0.219
+    },
+    {
+     "g": [
+      0.929,
+      1.437,
+      -0.569,
+      0.384
+     ],
+     "basin": 0.188
+    }
+   ]
+  },
+  "7": {
+   "elements": [
+    {
+     "g": [
+      1.774,
+      0.231,
+      -0.758,
+      1.602
+     ],
+     "basin": 0.402
+    },
+    {
+     "g": [
+      -1.272,
+      -0.932,
+      -0.653,
+      -0.883
+     ],
+     "basin": 0.215
+    },
+    {
+     "g": [
+      0.251,
+      -1.75,
+      1.376,
+      1.412
+     ],
+     "basin": 0.203
+    },
+    {
+     "g": [
+      -1.36,
+      0.554,
+      0.104,
+      0.438
+     ],
+     "basin": 0.18
+    }
+   ]
+  },
+  "8": {
+   "elements": [
+    {
+     "g": [
+      1.094,
+      0.717,
+      0.421,
+      -0.671
+     ],
+     "basin": 0.391
+    },
+    {
+     "g": [
+      -0.617,
+      -1.675,
+      -1.029,
+      0.604
+     ],
+     "basin": 0.355
+    },
+    {
+     "g": [
+      0.369,
+      -1.803,
+      -0.482,
+      -1.586
+     ],
+     "basin": 0.254
+    }
+   ]
+  },
+  "9": {
+   "elements": [
+    {
+     "g": [
+      1.579,
+      -0.284,
+      -1.041,
+      -1.319
+     ],
+     "basin": 0.484
+    },
+    {
+     "g": [
+      -1.306,
+      -0.932,
+      1.284,
+      0.517
+     ],
+     "basin": 0.383
+    },
+    {
+     "g": [
+      0.384,
+      1.176,
+      0.822,
+      0.101
+     ],
+     "basin": 0.133
+    }
+   ]
+  },
+  "10": {
+   "elements": [
+    {
+     "g": [
+      -0.93,
+      -1.694,
+      -1.181,
+      -0.211
+     ],
+     "basin": 0.488
+    },
+    {
+     "g": [
+      0.662,
+      0.699,
+      -0.01,
+      -1.647
+     ],
+     "basin": 0.324
+    },
+    {
+     "g": [
+      -1.001,
+      1.303,
+      -0.892,
+      1.009
+     ],
+     "basin": 0.188
+    }
+   ]
+  },
+  "11": {
+   "elements": [
+    {
+     "g": [
+      -1.575,
+      -1.762,
+      1.507,
+      -0.719
+     ],
+     "basin": 0.383
+    },
+    {
+     "g": [
+      -1.071,
+      -1.235,
+      -1.277,
+      0.935
+     ],
+     "basin": 0.223
+    },
+    {
+     "g": [
+      1.095,
+      0.179,
+      0.796,
+      -1.578
+     ],
+     "basin": 0.199
+    },
+    {
+     "g": [
+      0.503,
+      0.788,
+      -1.709,
+      0.429
+     ],
+     "basin": 0.195
+    }
+   ]
+  },
+  "12": {
+   "elements": [
+    {
+     "g": [
+      -1.83,
+      1.781,
+      1.585,
+      1.716
+     ],
+     "basin": 0.395
+    },
+    {
+     "g": [
+      -0.885,
+      0.603,
+      -1.093,
+      -1.414
+     ],
+     "basin": 0.367
+    },
+    {
+     "g": [
+      1.118,
+      1.192,
+      -0.832,
+      0.413
+     ],
+     "basin": 0.238
+    }
+   ]
+  }
+ },
+ "results": [
+  {
+   "lawSeed": 1,
+   "worldSeed": 1,
+   "kinds": [
+    {
+     "count": 398,
+     "role": "absorber",
+     "light": 44.825,
+     "eat": 1.35,
+     "eaten": 14.364,
+     "move": 29.847,
+     "height": 0.547,
+     "follow": -0.139
+    },
+    {
+     "count": 506,
+     "role": "mixed",
+     "light": 4.689,
+     "eat": 5.692,
+     "eaten": 8.582,
+     "move": 0,
+     "height": 0.46,
+     "follow": -0.061
+    },
+    {
+     "count": 369,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.293,
+     "eaten": 0.002,
+     "move": 0.289,
+     "height": 0.262,
+     "follow": -0.242
+    },
+    {
+     "count": 227,
+     "role": "mixed",
+     "light": 5.763,
+     "eat": 6.902,
+     "eaten": 0.549,
+     "move": 12.07,
+     "height": 0.428,
+     "follow": -0.132
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    349.3,
+    5350.6,
+    12.1,
+    4.9,
+    0,
+    666.2,
+    343.9,
+    203.7,
+    3128.7,
+    0,
+    0,
+    0.7,
+    0.2,
+    0,
+    0,
+    59.1,
+    65.5,
+    0.1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.265,
+    0.337,
+    0.246,
+    0.151
+   ],
+   "temperature": 0.1952,
+   "tempSwing": 0.0089,
+   "bondedShare": 0.634,
+   "groups": 94,
+   "largest": 257,
+   "sorting": 0.566,
+   "lightIn": 43968.8,
+   "worstExcess": -175.782,
+   "hash": "f193ac57"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 2,
+   "kinds": [
+    {
+     "count": 417,
+     "role": "absorber",
+     "light": 41.188,
+     "eat": 0.967,
+     "eaten": 13.309,
+     "move": 26.858,
+     "height": 0.524,
+     "follow": -0.174
+    },
+    {
+     "count": 480,
+     "role": "mixed",
+     "light": 4.151,
+     "eat": 5.78,
+     "eaten": 8.144,
+     "move": 0,
+     "height": 0.467,
+     "follow": -0.102
+    },
+    {
+     "count": 359,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.33,
+     "eaten": 0.001,
+     "move": 0.329,
+     "height": 0.291,
+     "follow": -0.187
+    },
+    {
+     "count": 244,
+     "role": "mixed",
+     "light": 5.363,
+     "eat": 6.116,
+     "eaten": 0.484,
+     "move": 10.947,
+     "height": 0.439,
+     "follow": -0.162
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    287.9,
+    5233.8,
+    20,
+    8,
+    0,
+    458.1,
+    257.3,
+    217,
+    2976.8,
+    0,
+    0,
+    0.3,
+    0,
+    0,
+    0,
+    60.6,
+    57.4,
+    0.1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.278,
+    0.32,
+    0.239,
+    0.163
+   ],
+   "temperature": 0.1938,
+   "tempSwing": 0.0068,
+   "bondedShare": 0.665,
+   "groups": 103,
+   "largest": 241,
+   "sorting": 0.537,
+   "lightIn": 43486.2,
+   "worstExcess": -176.598,
+   "hash": "ef3565af"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 3,
+   "kinds": [
+    {
+     "count": 406,
+     "role": "absorber",
+     "light": 44.111,
+     "eat": 1.125,
+     "eaten": 13.901,
+     "move": 29.334,
+     "height": 0.549,
+     "follow": -0.148
+    },
+    {
+     "count": 484,
+     "role": "mixed",
+     "light": 3.796,
+     "eat": 5.833,
+     "eaten": 7.941,
+     "move": 0,
+     "height": 0.464,
+     "follow": -0.088
+    },
+    {
+     "count": 390,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.259,
+     "eaten": 0.001,
+     "move": 0.258,
+     "height": 0.265,
+     "follow": -0.116
+    },
+    {
+     "count": 220,
+     "role": "mixed",
+     "light": 5.432,
+     "eat": 6.432,
+     "eaten": 0.476,
+     "move": 11.345,
+     "height": 0.449,
+     "follow": -0.156
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    319.3,
+    5303.6,
+    14.4,
+    6.4,
+    0,
+    538.5,
+    293.7,
+    187.6,
+    2823.7,
+    0,
+    0,
+    0.2,
+    0.1,
+    0,
+    0,
+    55.4,
+    49.3,
+    0.1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.271,
+    0.323,
+    0.26,
+    0.147
+   ],
+   "temperature": 0.1992,
+   "tempSwing": 0.008,
+   "bondedShare": 0.635,
+   "groups": 84,
+   "largest": 273,
+   "sorting": 0.573,
+   "lightIn": 42896.8,
+   "worstExcess": -180.859,
+   "hash": "334c1533"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 4,
+   "kinds": [
+    {
+     "count": 404,
+     "role": "absorber",
+     "light": 43.8,
+     "eat": 1.382,
+     "eaten": 14.045,
+     "move": 29.374,
+     "height": 0.555,
+     "follow": -0.151
+    },
+    {
+     "count": 510,
+     "role": "mixed",
+     "light": 4.441,
+     "eat": 5.606,
+     "eaten": 8.113,
+     "move": 0,
+     "height": 0.455,
+     "follow": -0.088
+    },
+    {
+     "count": 371,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.192,
+     "eaten": 0,
+     "move": 0.191,
+     "height": 0.226,
+     "follow": -0.203
+    },
+    {
+     "count": 215,
+     "role": "mixed",
+     "light": 5.576,
+     "eat": 6.869,
+     "eaten": 0.55,
+     "move": 11.85,
+     "height": 0.433,
+     "follow": -0.136
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    341.6,
+    5318.6,
+    9,
+    5.1,
+    0,
+    720.8,
+    335.2,
+    133.1,
+    2948.7,
+    0,
+    0,
+    0.1,
+    0,
+    0,
+    0,
+    54.2,
+    64,
+    0.1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.269,
+    0.34,
+    0.247,
+    0.143
+   ],
+   "temperature": 0.1939,
+   "tempSwing": 0.0121,
+   "bondedShare": 0.613,
+   "groups": 89,
+   "largest": 356,
+   "sorting": 0.574,
+   "lightIn": 44055.9,
+   "worstExcess": -175.121,
+   "hash": "907712e1"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 1,
+   "kinds": [
+    {
+     "count": 587,
+     "role": "eater",
+     "light": 0,
+     "eat": 5.303,
+     "eaten": 4.846,
+     "move": 0,
+     "height": 0.525,
+     "follow": 0.048
+    },
+    {
+     "count": 324,
+     "role": "eater",
+     "light": 0.001,
+     "eat": 7.181,
+     "eaten": 0.148,
+     "move": 7.014,
+     "height": 0.691,
+     "follow": 0.103
+    },
+    {
+     "count": 269,
+     "role": "absorber",
+     "light": 49.416,
+     "eat": 18.013,
+     "eaten": 58.007,
+     "move": 0,
+     "height": 0.31,
+     "follow": 0.024
+    },
+    {
+     "count": 320,
+     "role": "absorber",
+     "light": 12.425,
+     "eat": 4.237,
+     "eaten": 14.954,
+     "move": 0,
+     "height": 0.42,
+     "follow": 0.018
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    188.6,
+    809.6,
+    345.2,
+    1500.9,
+    0,
+    27.8,
+    0.8,
+    18.9,
+    0.5,
+    0,
+    1416.7,
+    3733.1,
+    9256.3,
+    1197.7,
+    0,
+    4592.8,
+    109.5,
+    70.3,
+    12.7,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.391,
+    0.216,
+    0.179,
+    0.213
+   ],
+   "temperature": 0.0647,
+   "tempSwing": 0.0093,
+   "bondedShare": 0.619,
+   "groups": 103,
+   "largest": 71,
+   "sorting": 0.064,
+   "lightIn": 34334.9,
+   "worstExcess": -156.299,
+   "hash": "5444d883"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 2,
+   "kinds": [
+    {
+     "count": 606,
+     "role": "eater",
+     "light": 0,
+     "eat": 4.878,
+     "eaten": 4.423,
+     "move": 0,
+     "height": 0.559,
+     "follow": 0.036
+    },
+    {
+     "count": 348,
+     "role": "eater",
+     "light": 0.002,
+     "eat": 5.6,
+     "eaten": 0.092,
+     "move": 5.489,
+     "height": 0.732,
+     "follow": 0.068
+    },
+    {
+     "count": 263,
+     "role": "absorber",
+     "light": 47.006,
+     "eat": 19.261,
+     "eaten": 57.789,
+     "move": 0,
+     "height": 0.298,
+     "follow": 0.021
+    },
+    {
+     "count": 283,
+     "role": "absorber",
+     "light": 12.97,
+     "eat": 4.129,
+     "eaten": 15.43,
+     "move": 0,
+     "height": 0.432,
+     "follow": 0.015
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    187.4,
+    744.3,
+    342.7,
+    1405.8,
+    0,
+    21,
+    0.7,
+    9.9,
+    0.3,
+    0,
+    1481.3,
+    3065,
+    9730.3,
+    922,
+    0,
+    4221.9,
+    87.5,
+    48.3,
+    9.1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.404,
+    0.232,
+    0.175,
+    0.189
+   ],
+   "temperature": 0.0571,
+   "tempSwing": 0.0077,
+   "bondedShare": 0.651,
+   "groups": 112,
+   "largest": 150,
+   "sorting": 0.074,
+   "lightIn": 32738,
+   "worstExcess": -136.433,
+   "hash": "2f6b959c"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 3,
+   "kinds": [
+    {
+     "count": 598,
+     "role": "eater",
+     "light": 0,
+     "eat": 4.723,
+     "eaten": 4.321,
+     "move": 0,
+     "height": 0.546,
+     "follow": 0.032
+    },
+    {
+     "count": 356,
+     "role": "eater",
+     "light": 0.001,
+     "eat": 5.259,
+     "eaten": 0.079,
+     "move": 5.175,
+     "height": 0.697,
+     "follow": 0.066
+    },
+    {
+     "count": 233,
+     "role": "absorber",
+     "light": 48.107,
+     "eat": 20.284,
+     "eaten": 59.406,
+     "move": 0,
+     "height": 0.265,
+     "follow": 0.039
+    },
+    {
+     "count": 313,
+     "role": "absorber",
+     "light": 12.941,
+     "eat": 3.664,
+     "eaten": 14.97,
+     "move": 0,
+     "height": 0.444,
+     "follow": 0.009
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    163.7,
+    808.7,
+    210.2,
+    1401.4,
+    0,
+    17.7,
+    0.7,
+    9.3,
+    0.4,
+    0,
+    959.5,
+    2819.1,
+    9182.7,
+    880.3,
+    0,
+    4508.2,
+    115.8,
+    50.2,
+    11.3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.399,
+    0.237,
+    0.155,
+    0.209
+   ],
+   "temperature": 0.0555,
+   "tempSwing": 0.0075,
+   "bondedShare": 0.639,
+   "groups": 109,
+   "largest": 63,
+   "sorting": 0.065,
+   "lightIn": 31580,
+   "worstExcess": -122.723,
+   "hash": "9d75fec5"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 4,
+   "kinds": [
+    {
+     "count": 629,
+     "role": "eater",
+     "light": 0,
+     "eat": 4.881,
+     "eaten": 4.433,
+     "move": 0,
+     "height": 0.536,
+     "follow": 0.036
+    },
+    {
+     "count": 328,
+     "role": "eater",
+     "light": 0.001,
+     "eat": 5.804,
+     "eaten": 0.104,
+     "move": 5.688,
+     "height": 0.718,
+     "follow": 0.088
+    },
+    {
+     "count": 234,
+     "role": "absorber",
+     "light": 46.609,
+     "eat": 16.929,
+     "eaten": 54.668,
+     "move": 0,
+     "height": 0.324,
+     "follow": 0.013
+    },
+    {
+     "count": 309,
+     "role": "absorber",
+     "light": 12.774,
+     "eat": 3.878,
+     "eaten": 15.055,
+     "move": 0,
+     "height": 0.416,
+     "follow": 0.009
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    200.1,
+    765.6,
+    319.9,
+    1502.6,
+    0,
+    23.1,
+    0.7,
+    10.1,
+    0.3,
+    0,
+    1406.4,
+    2954.7,
+    7547.2,
+    884,
+    0,
+    4510.4,
+    86.4,
+    45.6,
+    9.4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.419,
+    0.219,
+    0.156,
+    0.206
+   ],
+   "temperature": 0.0559,
+   "tempSwing": 0.008,
+   "bondedShare": 0.651,
+   "groups": 98,
+   "largest": 76,
+   "sorting": 0.07,
+   "lightIn": 30596.8,
+   "worstExcess": -123.486,
+   "hash": "fa0381a7"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 1,
+   "kinds": [
+    {
+     "count": 554,
+     "role": "absorber",
+     "light": 10.254,
+     "eat": 0.94,
+     "eaten": 1.237,
+     "move": 9.753,
+     "height": 0.473,
+     "follow": -0.313
+    },
+    {
+     "count": 524,
+     "role": "absorber",
+     "light": 8.588,
+     "eat": 0.504,
+     "eaten": 0.484,
+     "move": 8.584,
+     "height": 0.565,
+     "follow": -0.455
+    },
+    {
+     "count": 418,
+     "role": "mixed",
+     "light": 19.797,
+     "eat": 14.33,
+     "eaten": 30.237,
+     "move": 0.07,
+     "height": 0.163,
+     "follow": -0.124
+    },
+    {
+     "count": 4,
+     "role": "absorber",
+     "light": 14.449,
+     "eat": 4.167,
+     "eaten": 1.421,
+     "move": 16.968,
+     "height": 0.522,
+     "follow": -0.312
+    }
+   ],
+   "flow": [
+    491.8,
+    123.2,
+    35.9,
+    34.6,
+    64.1,
+    33,
+    0.5,
+    4.5,
+    389.4,
+    132.1,
+    11932,
+    185.7,
+    96.6,
+    36.4,
+    11.6,
+    12.6
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.369,
+    0.349,
+    0.279
+   ],
+   "temperature": 0.1321,
+   "tempSwing": 0.037,
+   "bondedShare": 0.929,
+   "groups": 18,
+   "largest": 898,
+   "sorting": 0.603,
+   "lightIn": 48233.9,
+   "worstExcess": -114.409,
+   "hash": "39120e43"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 2,
+   "kinds": [
+    {
+     "count": 560,
+     "role": "absorber",
+     "light": 13.278,
+     "eat": 1.163,
+     "eaten": 1.82,
+     "move": 12.318,
+     "height": 0.495,
+     "follow": -0.267
+    },
+    {
+     "count": 503,
+     "role": "absorber",
+     "light": 9.645,
+     "eat": 0.598,
+     "eaten": 0.747,
+     "move": 9.446,
+     "height": 0.619,
+     "follow": -0.417
+    },
+    {
+     "count": 423,
+     "role": "mixed",
+     "light": 16.446,
+     "eat": 10.539,
+     "eaten": 22.406,
+     "move": 0.212,
+     "height": 0.133,
+     "follow": -0.232
+    },
+    {
+     "count": 14,
+     "role": "absorber",
+     "light": 7.03,
+     "eat": 2.457,
+     "eaten": 1.133,
+     "move": 8.195,
+     "height": 0.503,
+     "follow": -0.277
+    }
+   ],
+   "flow": [
+    766.4,
+    168.5,
+    37.9,
+    46.5,
+    102.4,
+    48.6,
+    0.8,
+    6,
+    283.1,
+    172.6,
+    8861,
+    160.8,
+    150.2,
+    53.3,
+    16.2,
+    14.4
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.373,
+    0.335,
+    0.282
+   ],
+   "temperature": 0.146,
+   "tempSwing": 0.0433,
+   "bondedShare": 0.913,
+   "groups": 27,
+   "largest": 834,
+   "sorting": 0.622,
+   "lightIn": 49476.3,
+   "worstExcess": -139.724,
+   "hash": "c1500b2d"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 3,
+   "kinds": [
+    {
+     "count": 580,
+     "role": "absorber",
+     "light": 11.82,
+     "eat": 0.953,
+     "eaten": 1.501,
+     "move": 10.979,
+     "height": 0.478,
+     "follow": -0.26
+    },
+    {
+     "count": 514,
+     "role": "absorber",
+     "light": 7.92,
+     "eat": 0.398,
+     "eaten": 0.406,
+     "move": 7.881,
+     "height": 0.593,
+     "follow": -0.468
+    },
+    {
+     "count": 397,
+     "role": "mixed",
+     "light": 15.437,
+     "eat": 11.326,
+     "eaten": 23.884,
+     "move": 0.088,
+     "height": 0.126,
+     "follow": -0.279
+    },
+    {
+     "count": 9,
+     "role": "mixed",
+     "light": 7.19,
+     "eat": 3.811,
+     "eaten": 1.709,
+     "move": 9.121,
+     "height": 0.478,
+     "follow": -0.392
+    }
+   ],
+   "flow": [
+    676,
+    151.5,
+    22.2,
+    20.8,
+    96.1,
+    37.6,
+    0.3,
+    2.9,
+    286.1,
+    112.6,
+    8955.4,
+    128,
+    47.4,
+    19.8,
+    15.3,
+    4.6
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.387,
+    0.343,
+    0.265
+   ],
+   "temperature": 0.1376,
+   "tempSwing": 0.033,
+   "bondedShare": 0.923,
+   "groups": 27,
+   "largest": 1182,
+   "sorting": 0.074,
+   "lightIn": 47305.5,
+   "worstExcess": -120.305,
+   "hash": "4bfccdd7"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 4,
+   "kinds": [
+    {
+     "count": 583,
+     "role": "absorber",
+     "light": 8.363,
+     "eat": 0.716,
+     "eaten": 0.878,
+     "move": 8.003,
+     "height": 0.461,
+     "follow": -0.33
+    },
+    {
+     "count": 504,
+     "role": "absorber",
+     "light": 7.78,
+     "eat": 0.318,
+     "eaten": 0.279,
+     "move": 7.793,
+     "height": 0.608,
+     "follow": -0.477
+    },
+    {
+     "count": 408,
+     "role": "mixed",
+     "light": 19.721,
+     "eat": 13.691,
+     "eaten": 28.83,
+     "move": 0.1,
+     "height": 0.139,
+     "follow": -0.212
+    },
+    {
+     "count": 5,
+     "role": "mixed",
+     "light": 20.216,
+     "eat": 11.719,
+     "eaten": 5.961,
+     "move": 24.632,
+     "height": 0.533,
+     "follow": -0.332
+    }
+   ],
+   "flow": [
+    363.3,
+    106.4,
+    23.8,
+    18.5,
+    45.4,
+    27.9,
+    0.2,
+    2,
+    382.3,
+    90,
+    11117.1,
+    173.1,
+    43.6,
+    14.9,
+    31,
+    5.3
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.389,
+    0.336,
+    0.272
+   ],
+   "temperature": 0.1218,
+   "tempSwing": 0.035,
+   "bondedShare": 0.929,
+   "groups": 21,
+   "largest": 500,
+   "sorting": 0.891,
+   "lightIn": 45247.7,
+   "worstExcess": -116.869,
+   "hash": "c1ca8109"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 1,
+   "kinds": [
+    {
+     "count": 525,
+     "role": "absorber",
+     "light": 26.63,
+     "eat": 8.08,
+     "eaten": 30.868,
+     "move": 0,
+     "height": 0.376,
+     "follow": -0.007
+    },
+    {
+     "count": 423,
+     "role": "mixed",
+     "light": 11.089,
+     "eat": 16.729,
+     "eaten": 26.15,
+     "move": 0,
+     "height": 0.365,
+     "follow": 0
+    },
+    {
+     "count": 367,
+     "role": "eater",
+     "light": 0,
+     "eat": 7.794,
+     "eaten": 5.976,
+     "move": 0.356,
+     "height": 0.376,
+     "follow": 0.003
+    },
+    {
+     "count": 185,
+     "role": "mixed",
+     "light": 15.201,
+     "eat": 6.61,
+     "eaten": 7.256,
+     "move": 12.798,
+     "height": 0.758,
+     "follow": 0.004
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    141.3,
+    13147.2,
+    1680.9,
+    1236.6,
+    0,
+    7611.3,
+    20.6,
+    3348.1,
+    81.5,
+    0,
+    727,
+    642.5,
+    345.3,
+    478.4,
+    0,
+    4,
+    342.6,
+    346.4,
+    649.3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.35,
+    0.282,
+    0.245,
+    0.123
+   ],
+   "temperature": 0.0582,
+   "tempSwing": 0.0032,
+   "bondedShare": 0.606,
+   "groups": 135,
+   "largest": 19,
+   "sorting": 0.107,
+   "lightIn": 42518.3,
+   "worstExcess": -205.205,
+   "hash": "f14656e8"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 2,
+   "kinds": [
+    {
+     "count": 548,
+     "role": "absorber",
+     "light": 25.034,
+     "eat": 7.552,
+     "eaten": 28.931,
+     "move": 0,
+     "height": 0.385,
+     "follow": -0.031
+    },
+    {
+     "count": 429,
+     "role": "mixed",
+     "light": 10.224,
+     "eat": 15.974,
+     "eaten": 24.643,
+     "move": 0,
+     "height": 0.37,
+     "follow": -0.028
+    },
+    {
+     "count": 345,
+     "role": "eater",
+     "light": 0,
+     "eat": 7.651,
+     "eaten": 5.874,
+     "move": 0.474,
+     "height": 0.369,
+     "follow": -0.008
+    },
+    {
+     "count": 178,
+     "role": "absorber",
+     "light": 20.728,
+     "eat": 8.28,
+     "eaten": 9.874,
+     "move": 16.453,
+     "height": 0.709,
+     "follow": 0.07
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    152.6,
+    12632.9,
+    1582.7,
+    1486,
+    0,
+    7432.8,
+    21.1,
+    2997.1,
+    121.1,
+    0,
+    684.2,
+    530.9,
+    259.2,
+    552.1,
+    0,
+    7.7,
+    520.9,
+    440.3,
+    788.6,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.365,
+    0.286,
+    0.23,
+    0.119
+   ],
+   "temperature": 0.0713,
+   "tempSwing": 0.0043,
+   "bondedShare": 0.655,
+   "groups": 153,
+   "largest": 33,
+   "sorting": 0.073,
+   "lightIn": 43553.7,
+   "worstExcess": -204.568,
+   "hash": "897ec713"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 3,
+   "kinds": [
+    {
+     "count": 529,
+     "role": "absorber",
+     "light": 26.086,
+     "eat": 8.066,
+     "eaten": 30.395,
+     "move": 0.001,
+     "height": 0.376,
+     "follow": -0.012
+    },
+    {
+     "count": 443,
+     "role": "mixed",
+     "light": 10.823,
+     "eat": 16.074,
+     "eaten": 25.195,
+     "move": 0,
+     "height": 0.365,
+     "follow": -0.006
+    },
+    {
+     "count": 349,
+     "role": "eater",
+     "light": 0,
+     "eat": 7.954,
+     "eaten": 6.132,
+     "move": 0.329,
+     "height": 0.369,
+     "follow": 0
+    },
+    {
+     "count": 179,
+     "role": "absorber",
+     "light": 18.073,
+     "eat": 7.413,
+     "eaten": 8.95,
+     "move": 14.632,
+     "height": 0.746,
+     "follow": 0.028
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    132.5,
+    13114.5,
+    1547.7,
+    1284.1,
+    0,
+    7705.2,
+    24.6,
+    3325.5,
+    106.1,
+    0,
+    691.7,
+    651.4,
+    286.5,
+    510.4,
+    0,
+    4.7,
+    451.5,
+    392.5,
+    753.3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.353,
+    0.295,
+    0.233,
+    0.119
+   ],
+   "temperature": 0.0636,
+   "tempSwing": 0.0045,
+   "bondedShare": 0.627,
+   "groups": 154,
+   "largest": 31,
+   "sorting": 0.077,
+   "lightIn": 43557,
+   "worstExcess": -209.799,
+   "hash": "840b5d7f"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 4,
+   "kinds": [
+    {
+     "count": 518,
+     "role": "absorber",
+     "light": 26.172,
+     "eat": 7.84,
+     "eaten": 30.299,
+     "move": 0.001,
+     "height": 0.38,
+     "follow": -0.007
+    },
+    {
+     "count": 434,
+     "role": "mixed",
+     "light": 10.41,
+     "eat": 15.814,
+     "eaten": 24.596,
+     "move": 0,
+     "height": 0.365,
+     "follow": -0.005
+    },
+    {
+     "count": 357,
+     "role": "eater",
+     "light": 0,
+     "eat": 7.7,
+     "eaten": 5.908,
+     "move": 0.387,
+     "height": 0.359,
+     "follow": 0.001
+    },
+    {
+     "count": 191,
+     "role": "absorber",
+     "light": 18.931,
+     "eat": 7.561,
+     "eaten": 9.196,
+     "move": 15.072,
+     "height": 0.723,
+     "follow": 0.055
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    137,
+    12583.2,
+    1553.3,
+    1421.3,
+    0,
+    7303.5,
+    24.2,
+    3223.8,
+    123.2,
+    0,
+    675.9,
+    600.7,
+    288.4,
+    544.4,
+    0,
+    6.2,
+    518.6,
+    432.2,
+    799.5,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.345,
+    0.289,
+    0.238,
+    0.127
+   ],
+   "temperature": 0.0704,
+   "tempSwing": 0.0036,
+   "bondedShare": 0.621,
+   "groups": 150,
+   "largest": 22,
+   "sorting": 0.106,
+   "lightIn": 43101.5,
+   "worstExcess": -203.859,
+   "hash": "60bd0b59"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 1,
+   "kinds": [
+    {
+     "count": 666,
+     "role": "eater",
+     "light": 0,
+     "eat": 2.9,
+     "eaten": 2.635,
+     "move": 0,
+     "height": 0.467,
+     "follow": 0.012
+    },
+    {
+     "count": 520,
+     "role": "absorber",
+     "light": 6.638,
+     "eat": 1.531,
+     "eaten": 7.24,
+     "move": 0,
+     "height": 0.496,
+     "follow": 0.016
+    },
+    {
+     "count": 314,
+     "role": "absorber",
+     "light": 1.868,
+     "eat": 0.236,
+     "eaten": 0.265,
+     "move": 1.799,
+     "height": 0.394,
+     "follow": -0.005
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    36.6,
+    1572.9,
+    145.4,
+    0,
+    3745.5,
+    19.1,
+    0,
+    0,
+    80.3,
+    0.3,
+    2.7,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.444,
+    0.347,
+    0.209
+   ],
+   "temperature": 0.0209,
+   "tempSwing": 0.007,
+   "bondedShare": 0.665,
+   "groups": 39,
+   "largest": 289,
+   "sorting": 0.278,
+   "lightIn": 11690.3,
+   "worstExcess": -36.463,
+   "hash": "4da5169b"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 2,
+   "kinds": [
+    {
+     "count": 631,
+     "role": "eater",
+     "light": 0,
+     "eat": 3.024,
+     "eaten": 2.766,
+     "move": 0,
+     "height": 0.462,
+     "follow": 0.023
+    },
+    {
+     "count": 552,
+     "role": "absorber",
+     "light": 6.239,
+     "eat": 1.459,
+     "eaten": 6.779,
+     "move": 0,
+     "height": 0.502,
+     "follow": 0.014
+    },
+    {
+     "count": 317,
+     "role": "absorber",
+     "light": 1.499,
+     "eat": 0.212,
+     "eaten": 0.231,
+     "move": 1.429,
+     "height": 0.351,
+     "follow": 0.029
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    26.2,
+    1588,
+    131.3,
+    0,
+    3720.1,
+    22.1,
+    0,
+    0,
+    69.6,
+    0.3,
+    3.2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.421,
+    0.368,
+    0.211
+   ],
+   "temperature": 0.0171,
+   "tempSwing": 0.0045,
+   "bondedShare": 0.669,
+   "groups": 45,
+   "largest": 215,
+   "sorting": 0.302,
+   "lightIn": 11654.5,
+   "worstExcess": -35.657,
+   "hash": "4c73445d"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 3,
+   "kinds": [
+    {
+     "count": 659,
+     "role": "eater",
+     "light": 0,
+     "eat": 3.06,
+     "eaten": 2.768,
+     "move": 0,
+     "height": 0.474,
+     "follow": 0.006
+    },
+    {
+     "count": 506,
+     "role": "absorber",
+     "light": 7.173,
+     "eat": 1.668,
+     "eaten": 7.818,
+     "move": 0,
+     "height": 0.498,
+     "follow": 0.004
+    },
+    {
+     "count": 335,
+     "role": "absorber",
+     "light": 0.718,
+     "eat": 0.184,
+     "eaten": 0.195,
+     "move": 0.671,
+     "height": 0.42,
+     "follow": 0.003
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    27.5,
+    1675.4,
+    121,
+    0,
+    3942.8,
+    12.9,
+    0,
+    0,
+    62.7,
+    0.2,
+    2.6,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.439,
+    0.337,
+    0.223
+   ],
+   "temperature": 0.0123,
+   "tempSwing": 0.006,
+   "bondedShare": 0.577,
+   "groups": 15,
+   "largest": 336,
+   "sorting": 0.146,
+   "lightIn": 11411.6,
+   "worstExcess": -33.342,
+   "hash": "0d6e4091"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 4,
+   "kinds": [
+    {
+     "count": 653,
+     "role": "eater",
+     "light": 0,
+     "eat": 3.184,
+     "eaten": 2.897,
+     "move": 0,
+     "height": 0.49,
+     "follow": 0.002
+    },
+    {
+     "count": 522,
+     "role": "absorber",
+     "light": 7.149,
+     "eat": 1.692,
+     "eaten": 7.844,
+     "move": 0,
+     "height": 0.506,
+     "follow": 0
+    },
+    {
+     "count": 325,
+     "role": "absorber",
+     "light": 0.56,
+     "eat": 0.181,
+     "eaten": 0.172,
+     "move": 0.535,
+     "height": 0.453,
+     "follow": 0.011
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    23.3,
+    1753.4,
+    115.2,
+    0,
+    4081.6,
+    13,
+    0,
+    0,
+    53.1,
+    0.1,
+    2.6,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.435,
+    0.348,
+    0.217
+   ],
+   "temperature": 0.0099,
+   "tempSwing": 0.0043,
+   "bondedShare": 0.563,
+   "groups": 9,
+   "largest": 480,
+   "sorting": 0.077,
+   "lightIn": 11370.9,
+   "worstExcess": -34.765,
+   "hash": "0a6f0a14"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 1,
+   "kinds": [
+    {
+     "count": 483,
+     "role": "absorber",
+     "light": 32.23,
+     "eat": 3.748,
+     "eaten": 30.411,
+     "move": 0,
+     "height": 0.455,
+     "follow": -0.138
+    },
+    {
+     "count": 412,
+     "role": "mixed",
+     "light": 9.962,
+     "eat": 7.613,
+     "eaten": 1.629,
+     "move": 15.731,
+     "height": 0.511,
+     "follow": -0.199
+    },
+    {
+     "count": 334,
+     "role": "eater",
+     "light": 0,
+     "eat": 7.817,
+     "eaten": 0.083,
+     "move": 7.714,
+     "height": 0.582,
+     "follow": -0.078
+    },
+    {
+     "count": 271,
+     "role": "eater",
+     "light": 0.374,
+     "eat": 1.202,
+     "eaten": 1.4,
+     "move": 0,
+     "height": 0.531,
+     "follow": -0.081
+    }
+   ],
+   "flow": [
+    3318.9,
+    6048.6,
+    4930.8,
+    390.2,
+    183.2,
+    31,
+    210.6,
+    246.3,
+    17.5,
+    0.9,
+    2.7,
+    6.7,
+    100.8,
+    192.7,
+    77.6,
+    8.3
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 1,
+   "shares": [
+    0.322,
+    0.275,
+    0.223
+   ],
+   "temperature": 0.1638,
+   "tempSwing": 0.0071,
+   "bondedShare": 0.394,
+   "groups": 77,
+   "largest": 42,
+   "sorting": 0.031,
+   "lightIn": 42693.7,
+   "worstExcess": -179.899,
+   "hash": "c66a270e"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 2,
+   "kinds": [
+    {
+     "count": 495,
+     "role": "absorber",
+     "light": 32.827,
+     "eat": 4.492,
+     "eaten": 31.402,
+     "move": 0,
+     "height": 0.451,
+     "follow": -0.141
+    },
+    {
+     "count": 399,
+     "role": "mixed",
+     "light": 9.828,
+     "eat": 7.452,
+     "eaten": 1.686,
+     "move": 15.371,
+     "height": 0.509,
+     "follow": -0.21
+    },
+    {
+     "count": 302,
+     "role": "eater",
+     "light": 0,
+     "eat": 9.148,
+     "eaten": 0.114,
+     "move": 9.005,
+     "height": 0.571,
+     "follow": -0.07
+    },
+    {
+     "count": 304,
+     "role": "eater",
+     "light": 0.44,
+     "eat": 1.312,
+     "eaten": 1.533,
+     "move": 0,
+     "height": 0.531,
+     "follow": -0.085
+    }
+   ],
+   "flow": [
+    4102.6,
+    5697.5,
+    5237.1,
+    506.7,
+    182.3,
+    25.5,
+    189.6,
+    275.3,
+    21.3,
+    0.8,
+    3.2,
+    9.2,
+    140.7,
+    217.5,
+    95.4,
+    12.4
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 1,
+   "shares": [
+    0.33,
+    0.266,
+    0.201
+   ],
+   "temperature": 0.159,
+   "tempSwing": 0.0079,
+   "bondedShare": 0.395,
+   "groups": 70,
+   "largest": 57,
+   "sorting": 0.035,
+   "lightIn": 42877.2,
+   "worstExcess": -181.538,
+   "hash": "f4e609a4"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 3,
+   "kinds": [
+    {
+     "count": 507,
+     "role": "absorber",
+     "light": 33.033,
+     "eat": 4.285,
+     "eaten": 31.537,
+     "move": 0,
+     "height": 0.451,
+     "follow": -0.123
+    },
+    {
+     "count": 373,
+     "role": "mixed",
+     "light": 10.721,
+     "eat": 8.166,
+     "eaten": 1.885,
+     "move": 16.75,
+     "height": 0.506,
+     "follow": -0.181
+    },
+    {
+     "count": 337,
+     "role": "eater",
+     "light": 0,
+     "eat": 8.856,
+     "eaten": 0.107,
+     "move": 8.721,
+     "height": 0.579,
+     "follow": -0.066
+    },
+    {
+     "count": 283,
+     "role": "eater",
+     "light": 0.535,
+     "eat": 1.439,
+     "eaten": 1.734,
+     "move": 0,
+     "height": 0.535,
+     "follow": -0.065
+    }
+   ],
+   "flow": [
+    4000.3,
+    5839.8,
+    5640.6,
+    508.8,
+    179.5,
+    27.1,
+    213.8,
+    282.8,
+    21.8,
+    0.9,
+    3.7,
+    9.7,
+    143,
+    223.8,
+    111.1,
+    12.9
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 1,
+   "shares": [
+    0.338,
+    0.249,
+    0.225
+   ],
+   "temperature": 0.1627,
+   "tempSwing": 0.0031,
+   "bondedShare": 0.388,
+   "groups": 78,
+   "largest": 39,
+   "sorting": 0.038,
+   "lightIn": 43867.2,
+   "worstExcess": -192.3,
+   "hash": "173b4ca5"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 4,
+   "kinds": [
+    {
+     "count": 513,
+     "role": "absorber",
+     "light": 33.308,
+     "eat": 4.412,
+     "eaten": 31.999,
+     "move": 0,
+     "height": 0.444,
+     "follow": -0.117
+    },
+    {
+     "count": 368,
+     "role": "mixed",
+     "light": 11.216,
+     "eat": 8.367,
+     "eaten": 1.902,
+     "move": 17.398,
+     "height": 0.533,
+     "follow": -0.161
+    },
+    {
+     "count": 342,
+     "role": "eater",
+     "light": 0,
+     "eat": 8.987,
+     "eaten": 0.12,
+     "move": 8.838,
+     "height": 0.574,
+     "follow": -0.048
+    },
+    {
+     "count": 277,
+     "role": "eater",
+     "light": 0.466,
+     "eat": 1.424,
+     "eaten": 1.677,
+     "move": 0,
+     "height": 0.552,
+     "follow": -0.055
+    }
+   ],
+   "flow": [
+    4176.3,
+    5910,
+    5822.4,
+    506.6,
+    182.1,
+    29.4,
+    222.7,
+    265.7,
+    26.4,
+    1,
+    4.2,
+    9.6,
+    142,
+    212.9,
+    98,
+    11.8
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 1,
+   "shares": [
+    0.342,
+    0.245,
+    0.228
+   ],
+   "temperature": 0.1674,
+   "tempSwing": 0.0041,
+   "bondedShare": 0.364,
+   "groups": 73,
+   "largest": 20,
+   "sorting": 0.028,
+   "lightIn": 44516.2,
+   "worstExcess": -196.388,
+   "hash": "6618616f"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 1,
+   "kinds": [
+    {
+     "count": 607,
+     "role": "eater",
+     "light": 0,
+     "eat": 7.919,
+     "eaten": 1.987,
+     "move": 5.789,
+     "height": 0.401,
+     "follow": 0.079
+    },
+    {
+     "count": 241,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.585,
+     "eaten": 0.654,
+     "move": 0,
+     "height": 0.671,
+     "follow": -0.101
+    },
+    {
+     "count": 380,
+     "role": "absorber",
+     "light": 27.766,
+     "eat": 3.673,
+     "eaten": 29.51,
+     "move": 0,
+     "height": 0.383,
+     "follow": -0.252
+    },
+    {
+     "count": 272,
+     "role": "mixed",
+     "light": 25.458,
+     "eat": 18.715,
+     "eaten": 37.834,
+     "move": 0.242,
+     "height": 0.7,
+     "follow": 0.046
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    315.9,
+    1.1,
+    888,
+    0.8,
+    0,
+    0.4,
+    156.2,
+    0,
+    1.1,
+    0,
+    9297,
+    11,
+    1903.3,
+    2.5,
+    0,
+    0.5,
+    113.5,
+    0.1,
+    10176.6,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.405,
+    0.161,
+    0.253,
+    0.181
+   ],
+   "temperature": 0.079,
+   "tempSwing": 0.0109,
+   "bondedShare": 0.987,
+   "groups": 23,
+   "largest": 859,
+   "sorting": 0.679,
+   "lightIn": 40042.5,
+   "worstExcess": -136.188,
+   "hash": "68dc508d"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 2,
+   "kinds": [
+    {
+     "count": 564,
+     "role": "eater",
+     "light": 0,
+     "eat": 8.171,
+     "eaten": 2.875,
+     "move": 5.043,
+     "height": 0.461,
+     "follow": 0.118
+    },
+    {
+     "count": 278,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.399,
+     "eaten": 0.449,
+     "move": 0,
+     "height": 0.477,
+     "follow": -0.129
+    },
+    {
+     "count": 375,
+     "role": "absorber",
+     "light": 29.123,
+     "eat": 5.734,
+     "eaten": 31.74,
+     "move": 0,
+     "height": 0.473,
+     "follow": -0.257
+    },
+    {
+     "count": 283,
+     "role": "mixed",
+     "light": 18.717,
+     "eat": 15.732,
+     "eaten": 31.783,
+     "move": 0.181,
+     "height": 0.544,
+     "follow": -0.057
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    270.9,
+    0.5,
+    1349.6,
+    0.4,
+    0,
+    0.2,
+    122.6,
+    0,
+    2.2,
+    0,
+    8944.1,
+    6.5,
+    2951,
+    0.8,
+    0,
+    1.3,
+    92.2,
+    0,
+    8901.2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.376,
+    0.185,
+    0.25,
+    0.189
+   ],
+   "temperature": 0.067,
+   "tempSwing": 0.0073,
+   "bondedShare": 0.986,
+   "groups": 20,
+   "largest": 789,
+   "sorting": 0.691,
+   "lightIn": 38758.2,
+   "worstExcess": -110.072,
+   "hash": "656aa50d"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 3,
+   "kinds": [
+    {
+     "count": 604,
+     "role": "eater",
+     "light": 0,
+     "eat": 7.483,
+     "eaten": 2.182,
+     "move": 5.131,
+     "height": 0.419,
+     "follow": 0.103
+    },
+    {
+     "count": 261,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.789,
+     "eaten": 0.794,
+     "move": 0,
+     "height": 0.583,
+     "follow": -0.181
+    },
+    {
+     "count": 361,
+     "role": "absorber",
+     "light": 27.539,
+     "eat": 3.987,
+     "eaten": 29.386,
+     "move": 0,
+     "height": 0.441,
+     "follow": -0.269
+    },
+    {
+     "count": 274,
+     "role": "mixed",
+     "light": 21.447,
+     "eat": 16.263,
+     "eaten": 33.243,
+     "move": 0.218,
+     "height": 0.581,
+     "follow": 0.034
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    290.4,
+    0.5,
+    1026.8,
+    0.6,
+    0,
+    0.4,
+    205.1,
+    0,
+    1.7,
+    0,
+    8748.6,
+    6.6,
+    1851.9,
+    1.4,
+    0,
+    0.5,
+    199.7,
+    0,
+    8908.4,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.403,
+    0.174,
+    0.241,
+    0.183
+   ],
+   "temperature": 0.0729,
+   "tempSwing": 0.014,
+   "bondedShare": 0.986,
+   "groups": 19,
+   "largest": 858,
+   "sorting": 0.691,
+   "lightIn": 38608.1,
+   "worstExcess": -118.438,
+   "hash": "e03ae96e"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 4,
+   "kinds": [
+    {
+     "count": 610,
+     "role": "eater",
+     "light": 0,
+     "eat": 7.614,
+     "eaten": 2.084,
+     "move": 5.361,
+     "height": 0.484,
+     "follow": 0.093
+    },
+    {
+     "count": 258,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.704,
+     "eaten": 0.735,
+     "move": 0,
+     "height": 0.528,
+     "follow": -0.126
+    },
+    {
+     "count": 359,
+     "role": "absorber",
+     "light": 27.55,
+     "eat": 3.597,
+     "eaten": 29.561,
+     "move": 0,
+     "height": 0.48,
+     "follow": -0.331
+    },
+    {
+     "count": 273,
+     "role": "mixed",
+     "light": 18.029,
+     "eat": 12.99,
+     "eaten": 26.574,
+     "move": 0.159,
+     "height": 0.657,
+     "follow": -0.045
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    340,
+    0.7,
+    930.1,
+    0.4,
+    0,
+    0.5,
+    187.8,
+    0,
+    1.3,
+    0,
+    8948.4,
+    10.6,
+    1652.6,
+    1,
+    0,
+    0.3,
+    164.3,
+    0,
+    7090.1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.407,
+    0.172,
+    0.239,
+    0.182
+   ],
+   "temperature": 0.0746,
+   "tempSwing": 0.0091,
+   "bondedShare": 0.982,
+   "groups": 22,
+   "largest": 799,
+   "sorting": 0.688,
+   "lightIn": 37657.7,
+   "worstExcess": -111.254,
+   "hash": "9b5d868c"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 1,
+   "kinds": [
+    {
+     "count": 508,
+     "role": "eater",
+     "light": 0.107,
+     "eat": 16.219,
+     "eaten": 3.348,
+     "move": 13.007,
+     "height": 0.488,
+     "follow": 0.059
+    },
+    {
+     "count": 586,
+     "role": "absorber",
+     "light": 29.697,
+     "eat": 1.861,
+     "eaten": 28.955,
+     "move": 0.381,
+     "height": 0.5,
+     "follow": 0.051
+    },
+    {
+     "count": 381,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.12,
+     "eaten": 0,
+     "move": 0.12,
+     "height": 0.456,
+     "follow": 0.03
+    },
+    {
+     "count": 25,
+     "role": "mixed",
+     "light": 23.319,
+     "eat": 14.951,
+     "eaten": 33.21,
+     "move": 0,
+     "height": 0.298,
+     "follow": -0.053
+    }
+   ],
+   "flow": [
+    18.3,
+    1358,
+    0.4,
+    351.4,
+    15050.2,
+    287.5,
+    89.6,
+    82.5,
+    0,
+    0,
+    0,
+    0,
+    1447.7,
+    24,
+    1.2,
+    787.6
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.339,
+    0.391,
+    0.254
+   ],
+   "temperature": 0.0971,
+   "tempSwing": 0.0039,
+   "bondedShare": 0.866,
+   "groups": 94,
+   "largest": 289,
+   "sorting": 0.261,
+   "lightIn": 40602,
+   "worstExcess": -157.13,
+   "hash": "a7514c0f"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 2,
+   "kinds": [
+    {
+     "count": 505,
+     "role": "eater",
+     "light": 0.186,
+     "eat": 14.446,
+     "eaten": 2.487,
+     "move": 12.032,
+     "height": 0.485,
+     "follow": 0.039
+    },
+    {
+     "count": 567,
+     "role": "absorber",
+     "light": 27.28,
+     "eat": 1.32,
+     "eaten": 26.113,
+     "move": 0.492,
+     "height": 0.499,
+     "follow": 0.036
+    },
+    {
+     "count": 409,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.137,
+     "eaten": 0,
+     "move": 0.136,
+     "height": 0.497,
+     "follow": 0.101
+    },
+    {
+     "count": 19,
+     "role": "mixed",
+     "light": 23.018,
+     "eat": 14.979,
+     "eaten": 37.186,
+     "move": 0,
+     "height": 0.203,
+     "follow": -0.054
+    }
+   ],
+   "flow": [
+    15,
+    954.4,
+    0.6,
+    285.7,
+    13621.5,
+    256.1,
+    110.5,
+    38.1,
+    0,
+    0,
+    0,
+    0,
+    954.4,
+    12,
+    0.5,
+    519.4
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.337,
+    0.378,
+    0.273
+   ],
+   "temperature": 0.0943,
+   "tempSwing": 0.0063,
+   "bondedShare": 0.848,
+   "groups": 97,
+   "largest": 468,
+   "sorting": 0.304,
+   "lightIn": 36589.1,
+   "worstExcess": -114.673,
+   "hash": "63b3f57f"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 3,
+   "kinds": [
+    {
+     "count": 531,
+     "role": "eater",
+     "light": 0.061,
+     "eat": 14.312,
+     "eaten": 2.593,
+     "move": 11.666,
+     "height": 0.483,
+     "follow": 0.017
+    },
+    {
+     "count": 588,
+     "role": "absorber",
+     "light": 28.085,
+     "eat": 1.545,
+     "eaten": 26.749,
+     "move": 0.423,
+     "height": 0.494,
+     "follow": 0.01
+    },
+    {
+     "count": 381,
+     "role": "inert",
+     "light": 0.017,
+     "eat": 0.123,
+     "eaten": 0.012,
+     "move": 0.129,
+     "height": 0.494,
+     "follow": -0.022
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": 0.27,
+     "follow": 0.071
+    }
+   ],
+   "flow": [
+    13.7,
+    1157.4,
+    0.4,
+    205.3,
+    14268.9,
+    269.3,
+    93,
+    47,
+    0,
+    0.3,
+    0,
+    0,
+    916.7,
+    14.5,
+    0.4,
+    122.9
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.354,
+    0.392,
+    0.254
+   ],
+   "temperature": 0.0952,
+   "tempSwing": 0.0043,
+   "bondedShare": 0.873,
+   "groups": 91,
+   "largest": 403,
+   "sorting": 0.279,
+   "lightIn": 37504.1,
+   "worstExcess": -144.699,
+   "hash": "debefceb"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 4,
+   "kinds": [
+    {
+     "count": 512,
+     "role": "eater",
+     "light": 0.177,
+     "eat": 15.356,
+     "eaten": 3.078,
+     "move": 12.433,
+     "height": 0.505,
+     "follow": 0.042
+    },
+    {
+     "count": 579,
+     "role": "absorber",
+     "light": 28.191,
+     "eat": 1.507,
+     "eaten": 27.242,
+     "move": 0.428,
+     "height": 0.482,
+     "follow": 0.034
+    },
+    {
+     "count": 381,
+     "role": "inert",
+     "light": 0.051,
+     "eat": 0.134,
+     "eaten": 0.042,
+     "move": 0.138,
+     "height": 0.274,
+     "follow": 0.067
+    },
+    {
+     "count": 28,
+     "role": "mixed",
+     "light": 22.847,
+     "eat": 12.128,
+     "eaten": 31.65,
+     "move": 0.035,
+     "height": 0.163,
+     "follow": -0.082
+    }
+   ],
+   "flow": [
+    15.5,
+    1245.1,
+    0.4,
+    314.9,
+    14675.8,
+    287.7,
+    99.3,
+    49.7,
+    0,
+    0,
+    0,
+    0,
+    1033,
+    16.3,
+    0.5,
+    513
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.341,
+    0.386,
+    0.254
+   ],
+   "temperature": 0.0957,
+   "tempSwing": 0.0033,
+   "bondedShare": 0.845,
+   "groups": 87,
+   "largest": 360,
+   "sorting": 0.292,
+   "lightIn": 39082.8,
+   "worstExcess": -143.764,
+   "hash": "fe7e12fb"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 1,
+   "kinds": [
+    {
+     "count": 679,
+     "role": "eater",
+     "light": 0,
+     "eat": 4.479,
+     "eaten": 3.69,
+     "move": 0.002,
+     "height": 0.683,
+     "follow": 0.059
+    },
+    {
+     "count": 798,
+     "role": "absorber",
+     "light": 7.924,
+     "eat": 2.313,
+     "eaten": 7.839,
+     "move": 2.256,
+     "height": 0.72,
+     "follow": 0.075
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": 0.743,
+     "follow": -0.031
+    },
+    {
+     "count": 23,
+     "role": "absorber",
+     "light": 61.678,
+     "eat": 6.341,
+     "eaten": 56.742,
+     "move": 4.528,
+     "height": 0.725,
+     "follow": 0.067
+    }
+   ],
+   "flow": [
+    386.2,
+    797.3,
+    2.6,
+    1319.2,
+    186.6,
+    113.7,
+    0,
+    17.8,
+    5.3,
+    3.1,
+    0,
+    0.7,
+    5504.4,
+    1349.3,
+    0.1,
+    379.8
+   ],
+   "present": [
+    0,
+    1
+   ],
+   "company": 0,
+   "shares": [
+    0.453,
+    0.532,
+    0
+   ],
+   "temperature": 0.0358,
+   "tempSwing": 0.0109,
+   "bondedShare": 0.789,
+   "groups": 69,
+   "largest": 197,
+   "sorting": 0.014,
+   "lightIn": 25880.7,
+   "worstExcess": -27.305,
+   "hash": "bd8f6e41"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 2,
+   "kinds": [
+    {
+     "count": 687,
+     "role": "eater",
+     "light": 0,
+     "eat": 4.271,
+     "eaten": 3.501,
+     "move": 0.001,
+     "height": 0.72,
+     "follow": 0.04
+    },
+    {
+     "count": 779,
+     "role": "absorber",
+     "light": 6.464,
+     "eat": 1.967,
+     "eaten": 6.442,
+     "move": 1.948,
+     "height": 0.771,
+     "follow": 0.05
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": 0.047,
+     "follow": -0.471
+    },
+    {
+     "count": 34,
+     "role": "absorber",
+     "light": 60.611,
+     "eat": 7.237,
+     "eaten": 58.834,
+     "move": 4.053,
+     "height": 0.699,
+     "follow": 0.029
+    }
+   ],
+   "flow": [
+    372.1,
+    756.5,
+    0,
+    1276.5,
+    168,
+    102.4,
+    0,
+    15.4,
+    0,
+    0,
+    0,
+    0,
+    5327.9,
+    1135.1,
+    0,
+    270.1
+   ],
+   "present": [
+    0,
+    1
+   ],
+   "company": 1,
+   "shares": [
+    0.458,
+    0.519,
+    0
+   ],
+   "temperature": 0.0311,
+   "tempSwing": 0.0094,
+   "bondedShare": 0.817,
+   "groups": 59,
+   "largest": 635,
+   "sorting": 0.016,
+   "lightIn": 24767.5,
+   "worstExcess": -29.796,
+   "hash": "eab1fa76"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 3,
+   "kinds": [
+    {
+     "count": 698,
+     "role": "eater",
+     "light": 0,
+     "eat": 4.734,
+     "eaten": 3.89,
+     "move": 0.001,
+     "height": 0.707,
+     "follow": 0.048
+    },
+    {
+     "count": 769,
+     "role": "absorber",
+     "light": 8.141,
+     "eat": 2.376,
+     "eaten": 8.099,
+     "move": 2.29,
+     "height": 0.757,
+     "follow": 0.052
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    },
+    {
+     "count": 33,
+     "role": "absorber",
+     "light": 56.359,
+     "eat": 6.508,
+     "eaten": 52.987,
+     "move": 4.397,
+     "height": 0.707,
+     "follow": 0.058
+    }
+   ],
+   "flow": [
+    442.6,
+    839.6,
+    0,
+    1433.3,
+    203.6,
+    113,
+    0,
+    17.8,
+    0,
+    0,
+    0,
+    0,
+    5962,
+    1344.6,
+    0,
+    335.9
+   ],
+   "present": [
+    0,
+    1
+   ],
+   "company": 1,
+   "shares": [
+    0.465,
+    0.513,
+    0
+   ],
+   "temperature": 0.0346,
+   "tempSwing": 0.0104,
+   "bondedShare": 0.817,
+   "groups": 64,
+   "largest": 663,
+   "sorting": 0.015,
+   "lightIn": 27027.9,
+   "worstExcess": -32.411,
+   "hash": "701b878d"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 4,
+   "kinds": [
+    {
+     "count": 708,
+     "role": "eater",
+     "light": 0,
+     "eat": 4.452,
+     "eaten": 3.682,
+     "move": 0.002,
+     "height": 0.675,
+     "follow": 0.04
+    },
+    {
+     "count": 764,
+     "role": "absorber",
+     "light": 7.679,
+     "eat": 2.183,
+     "eaten": 7.686,
+     "move": 2.038,
+     "height": 0.713,
+     "follow": 0.051
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    },
+    {
+     "count": 28,
+     "role": "absorber",
+     "light": 56.517,
+     "eat": 6.973,
+     "eaten": 55.372,
+     "move": 3.876,
+     "height": 0.701,
+     "follow": 0.033
+    }
+   ],
+   "flow": [
+    423.6,
+    799.7,
+    0,
+    1383.6,
+    223.9,
+    100.1,
+    0,
+    21.2,
+    0,
+    0,
+    0,
+    0,
+    5656.4,
+    1066.5,
+    0,
+    354.7
+   ],
+   "present": [
+    0,
+    1
+   ],
+   "company": 0,
+   "shares": [
+    0.472,
+    0.509,
+    0
+   ],
+   "temperature": 0.0331,
+   "tempSwing": 0.0089,
+   "bondedShare": 0.764,
+   "groups": 79,
+   "largest": 228,
+   "sorting": 0.015,
+   "lightIn": 25961.5,
+   "worstExcess": -22.799,
+   "hash": "cab173ad"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 1,
+   "kinds": [
+    {
+     "count": 728,
+     "role": "eater",
+     "light": 0,
+     "eat": 2.743,
+     "eaten": 2.222,
+     "move": 0,
+     "height": 0.552,
+     "follow": -0.077
+    },
+    {
+     "count": 392,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.021,
+     "eaten": 0,
+     "move": 0.021,
+     "height": 0.149,
+     "follow": -0.078
+    },
+    {
+     "count": 380,
+     "role": "absorber",
+     "light": 26.381,
+     "eat": 3.031,
+     "eaten": 12.359,
+     "move": 15.88,
+     "height": 0.653,
+     "follow": -0.15
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    661.3,
+    15.2,
+    941.2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    3333.1,
+    0.9,
+    1362.3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.485,
+    0.261,
+    0.253
+   ],
+   "temperature": 0.0902,
+   "tempSwing": 0.0053,
+   "bondedShare": 0.265,
+   "groups": 3,
+   "largest": 367,
+   "sorting": 0.775,
+   "lightIn": 23014,
+   "worstExcess": -80.78,
+   "hash": "7cddd2af"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 2,
+   "kinds": [
+    {
+     "count": 761,
+     "role": "eater",
+     "light": 0,
+     "eat": 2.302,
+     "eaten": 1.86,
+     "move": 0,
+     "height": 0.552,
+     "follow": -0.08
+    },
+    {
+     "count": 396,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.039,
+     "eaten": 0,
+     "move": 0.039,
+     "height": 0.184,
+     "follow": -0.07
+    },
+    {
+     "count": 343,
+     "role": "absorber",
+     "light": 26.123,
+     "eat": 2.473,
+     "eaten": 11.125,
+     "move": 16.503,
+     "height": 0.658,
+     "follow": -0.163
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    660.3,
+    27.9,
+    727.3,
+    0,
+    0.1,
+    0,
+    0,
+    0,
+    2843.9,
+    3,
+    969,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.507,
+    0.264,
+    0.229
+   ],
+   "temperature": 0.089,
+   "tempSwing": 0.0081,
+   "bondedShare": 0.271,
+   "groups": 3,
+   "largest": 326,
+   "sorting": 0.06,
+   "lightIn": 21157.2,
+   "worstExcess": -71.505,
+   "hash": "1585513f"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 3,
+   "kinds": [
+    {
+     "count": 709,
+     "role": "eater",
+     "light": 0,
+     "eat": 2.482,
+     "eaten": 2.016,
+     "move": 0,
+     "height": 0.549,
+     "follow": -0.085
+    },
+    {
+     "count": 414,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.033,
+     "eaten": 0.003,
+     "move": 0.029,
+     "height": 0.149,
+     "follow": -0.074
+    },
+    {
+     "count": 377,
+     "role": "absorber",
+     "light": 25.439,
+     "eat": 2.57,
+     "eaten": 10.755,
+     "move": 16.352,
+     "height": 0.647,
+     "follow": -0.174
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    589.2,
+    22.8,
+    817.1,
+    0,
+    0.8,
+    0,
+    0.3,
+    0,
+    2929.8,
+    4.4,
+    1120.3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.473,
+    0.276,
+    0.251
+   ],
+   "temperature": 0.0944,
+   "tempSwing": 0.0042,
+   "bondedShare": 0.276,
+   "groups": 2,
+   "largest": 364,
+   "sorting": 0.01,
+   "lightIn": 22075.2,
+   "worstExcess": -81.127,
+   "hash": "b03b6c9a"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 4,
+   "kinds": [
+    {
+     "count": 714,
+     "role": "eater",
+     "light": 0,
+     "eat": 2.583,
+     "eaten": 2.077,
+     "move": 0,
+     "height": 0.554,
+     "follow": -0.074
+    },
+    {
+     "count": 422,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.017,
+     "eaten": 0,
+     "move": 0.017,
+     "height": 0.159,
+     "follow": -0.097
+    },
+    {
+     "count": 364,
+     "role": "absorber",
+     "light": 27.56,
+     "eat": 2.752,
+     "eaten": 11.603,
+     "move": 17.627,
+     "height": 0.66,
+     "follow": -0.143
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    633.4,
+    13.8,
+    836.1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    3055.6,
+    0.4,
+    1167.4,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 0,
+   "shares": [
+    0.476,
+    0.281,
+    0.243
+   ],
+   "temperature": 0.095,
+   "tempSwing": 0.0055,
+   "bondedShare": 0.284,
+   "groups": 2,
+   "largest": 394,
+   "sorting": 0.028,
+   "lightIn": 22446.1,
+   "worstExcess": -84.128,
+   "hash": "d7178875"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 1,
+   "kinds": [
+    {
+     "count": 536,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": 0.541,
+     "follow": -0.003
+    },
+    {
+     "count": 385,
+     "role": "mixed",
+     "light": 39.981,
+     "eat": 19.598,
+     "eaten": 51.52,
+     "move": 0,
+     "height": 0.363,
+     "follow": 0.002
+    },
+    {
+     "count": 257,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": 0.525,
+     "follow": -0.004
+    },
+    {
+     "count": 322,
+     "role": "mixed",
+     "light": 13.585,
+     "eat": 24.837,
+     "eaten": 34.94,
+     "move": 0,
+     "height": 0.361,
+     "follow": 0.002
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.4,
+    8449.9,
+    0,
+    11384.7,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    6640.7,
+    0,
+    4610,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.357,
+    0.257,
+    0.171,
+    0.215
+   ],
+   "temperature": 0.0012,
+   "tempSwing": 0.0011,
+   "bondedShare": 0.83,
+   "groups": 20,
+   "largest": 548,
+   "sorting": 0.585,
+   "lightIn": 39132.7,
+   "worstExcess": -151.3,
+   "hash": "2ad2ac22"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 2,
+   "kinds": [
+    {
+     "count": 583,
+     "role": "inert",
+     "light": 0.001,
+     "eat": 0.043,
+     "eaten": 0.002,
+     "move": 0.042,
+     "height": 0.532,
+     "follow": -0.001
+    },
+    {
+     "count": 377,
+     "role": "mixed",
+     "light": 37.774,
+     "eat": 18.575,
+     "eaten": 49.642,
+     "move": 0,
+     "height": 0.397,
+     "follow": -0.002
+    },
+    {
+     "count": 255,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": 0.511,
+     "follow": 0
+    },
+    {
+     "count": 285,
+     "role": "eater",
+     "light": 9.569,
+     "eat": 23.22,
+     "eaten": 30.089,
+     "move": 0,
+     "height": 0.369,
+     "follow": -0.004
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    0,
+    1.1,
+    0,
+    0.3,
+    0,
+    27.5,
+    8662.1,
+    0,
+    10025.2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    22.6,
+    5342.7,
+    0,
+    3209.9,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.389,
+    0.251,
+    0.17,
+    0.19
+   ],
+   "temperature": 0.0021,
+   "tempSwing": 0.0015,
+   "bondedShare": 0.827,
+   "groups": 23,
+   "largest": 436,
+   "sorting": 0.589,
+   "lightIn": 34909.9,
+   "worstExcess": -124.31,
+   "hash": "61463cb0"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 3,
+   "kinds": [
+    {
+     "count": 546,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.001,
+     "eaten": 0,
+     "move": 0.001,
+     "height": 0.456,
+     "follow": 0.001
+    },
+    {
+     "count": 374,
+     "role": "mixed",
+     "light": 34.727,
+     "eat": 17.123,
+     "eaten": 45.373,
+     "move": 0,
+     "height": 0.482,
+     "follow": 0.001
+    },
+    {
+     "count": 271,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": 0.454,
+     "follow": 0.003
+    },
+    {
+     "count": 309,
+     "role": "mixed",
+     "light": 10.363,
+     "eat": 21.198,
+     "eaten": 28.932,
+     "move": 0,
+     "height": 0.456,
+     "follow": 0
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.7,
+    7462.1,
+    0,
+    9506.8,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.2,
+    5345.9,
+    0,
+    3593.7,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.364,
+    0.249,
+    0.181,
+    0.206
+   ],
+   "temperature": 0.0013,
+   "tempSwing": 0.0012,
+   "bondedShare": 0.814,
+   "groups": 23,
+   "largest": 585,
+   "sorting": 0.583,
+   "lightIn": 34210.8,
+   "worstExcess": -123.485,
+   "hash": "cf8f22ce"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 4,
+   "kinds": [
+    {
+     "count": 539,
+     "role": "inert",
+     "light": 0,
+     "eat": 0.001,
+     "eaten": 0,
+     "move": 0.001,
+     "height": 0.523,
+     "follow": -0.005
+    },
+    {
+     "count": 380,
+     "role": "mixed",
+     "light": 35.862,
+     "eat": 17.998,
+     "eaten": 47.095,
+     "move": 0,
+     "height": 0.438,
+     "follow": 0.003
+    },
+    {
+     "count": 262,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": 0.519,
+     "follow": -0.005
+    },
+    {
+     "count": 319,
+     "role": "mixed",
+     "light": 11.528,
+     "eat": 21.828,
+     "eaten": 30.437,
+     "move": 0,
+     "height": 0.393,
+     "follow": 0.002
+    },
+    {
+     "count": 0,
+     "role": "inert",
+     "light": 0,
+     "eat": 0,
+     "eaten": 0,
+     "move": 0,
+     "height": null,
+     "follow": null
+    }
+   ],
+   "flow": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.8,
+    7861.2,
+    0,
+    10034,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0.3,
+    5817,
+    0,
+    3892.2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "present": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "company": 0,
+   "shares": [
+    0.359,
+    0.253,
+    0.175,
+    0.213
+   ],
+   "temperature": 0.0015,
+   "tempSwing": 0.0014,
+   "bondedShare": 0.845,
+   "groups": 19,
+   "largest": 611,
+   "sorting": 0.585,
+   "lightIn": 35848,
+   "worstExcess": -136.905,
+   "hash": "e33d1c90"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 1,
+   "kinds": [
+    {
+     "count": 653,
+     "role": "mixed",
+     "light": 3.623,
+     "eat": 8.265,
+     "eaten": 6.996,
+     "move": 3.85,
+     "height": 0.493,
+     "follow": -0.224
+    },
+    {
+     "count": 18,
+     "role": "absorber",
+     "light": 32.033,
+     "eat": 6.672,
+     "eaten": 31.591,
+     "move": 0,
+     "height": 0.419,
+     "follow": 0.389
+    },
+    {
+     "count": 325,
+     "role": "absorber",
+     "light": 0.663,
+     "eat": 0.142,
+     "eaten": 0.276,
+     "move": 0.476,
+     "height": 0.415,
+     "follow": -0.447
+    },
+    {
+     "count": 504,
+     "role": "absorber",
+     "light": 17.724,
+     "eat": 4.444,
+     "eaten": 20.595,
+     "move": 0,
+     "height": 0.49,
+     "follow": -0.266
+    }
+   ],
+   "flow": [
+    7,
+    573.4,
+    0.2,
+    3987.8,
+    1664,
+    13.9,
+    2.2,
+    27.9,
+    0.2,
+    0.1,
+    89.2,
+    0,
+    9122.6,
+    21.2,
+    0.8,
+    95.9
+   ],
+   "present": [
+    0,
+    2
+   ],
+   "company": 1,
+   "shares": [
+    0.435,
+    0.012,
+    0.217
+   ],
+   "temperature": 0.0701,
+   "tempSwing": 0.0059,
+   "bondedShare": 0.858,
+   "groups": 83,
+   "largest": 192,
+   "sorting": 0.344,
+   "lightIn": 31007.1,
+   "worstExcess": -103.907,
+   "hash": "3639d14f"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 2,
+   "kinds": [
+    {
+     "count": 658,
+     "role": "eater",
+     "light": 3.278,
+     "eat": 8.143,
+     "eaten": 6.763,
+     "move": 3.657,
+     "height": 0.479,
+     "follow": -0.242
+    },
+    {
+     "count": 30,
+     "role": "absorber",
+     "light": 31.104,
+     "eat": 6.171,
+     "eaten": 31.216,
+     "move": 0,
+     "height": 0.526,
+     "follow": 0.375
+    },
+    {
+     "count": 293,
+     "role": "absorber",
+     "light": 0.862,
+     "eat": 0.338,
+     "eaten": 0.669,
+     "move": 0.458,
+     "height": 0.567,
+     "follow": -0.344
+    },
+    {
+     "count": 519,
+     "role": "absorber",
+     "light": 16.665,
+     "eat": 4.127,
+     "eaten": 19.241,
+     "move": 0,
+     "height": 0.478,
+     "follow": -0.29
+    }
+   ],
+   "flow": [
+    5.8,
+    901.9,
+    0.6,
+    3541.7,
+    2602.5,
+    46.1,
+    1.5,
+    43.3,
+    0.9,
+    0.1,
+    195,
+    0.1,
+    8106.6,
+    30.8,
+    1.1,
+    90.6
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 1,
+   "shares": [
+    0.439,
+    0.02,
+    0.195
+   ],
+   "temperature": 0.0677,
+   "tempSwing": 0.0066,
+   "bondedShare": 0.863,
+   "groups": 73,
+   "largest": 407,
+   "sorting": 0.309,
+   "lightIn": 31125.6,
+   "worstExcess": -109.607,
+   "hash": "59cd77c1"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 3,
+   "kinds": [
+    {
+     "count": 634,
+     "role": "eater",
+     "light": 3.075,
+     "eat": 7.71,
+     "eaten": 6.18,
+     "move": 3.746,
+     "height": 0.476,
+     "follow": -0.256
+    },
+    {
+     "count": 53,
+     "role": "absorber",
+     "light": 36.421,
+     "eat": 7.986,
+     "eaten": 36.756,
+     "move": 0,
+     "height": 0.403,
+     "follow": 0.367
+    },
+    {
+     "count": 312,
+     "role": "mixed",
+     "light": 0.869,
+     "eat": 0.398,
+     "eaten": 0.785,
+     "move": 0.417,
+     "height": 0.561,
+     "follow": -0.406
+    },
+    {
+     "count": 501,
+     "role": "absorber",
+     "light": 14.17,
+     "eat": 3.396,
+     "eaten": 16.293,
+     "move": 0,
+     "height": 0.468,
+     "follow": -0.328
+    }
+   ],
+   "flow": [
+    4.4,
+    1258.8,
+    0.3,
+    2654.7,
+    3493.8,
+    164.7,
+    3,
+    57.8,
+    0.6,
+    0.1,
+    244.2,
+    0.1,
+    6277.4,
+    42,
+    1,
+    71.2
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 1,
+   "shares": [
+    0.423,
+    0.035,
+    0.208
+   ],
+   "temperature": 0.0661,
+   "tempSwing": 0.0032,
+   "bondedShare": 0.879,
+   "groups": 61,
+   "largest": 502,
+   "sorting": 0.323,
+   "lightIn": 30193.8,
+   "worstExcess": -102.252,
+   "hash": "b582121d"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 4,
+   "kinds": [
+    {
+     "count": 606,
+     "role": "mixed",
+     "light": 3.936,
+     "eat": 8.728,
+     "eaten": 7.274,
+     "move": 4.429,
+     "height": 0.47,
+     "follow": -0.245
+    },
+    {
+     "count": 58,
+     "role": "absorber",
+     "light": 30.521,
+     "eat": 6.178,
+     "eaten": 29.948,
+     "move": 0,
+     "height": 0.46,
+     "follow": 0.364
+    },
+    {
+     "count": 363,
+     "role": "absorber",
+     "light": 1.152,
+     "eat": 0.491,
+     "eaten": 0.976,
+     "move": 0.622,
+     "height": 0.573,
+     "follow": -0.261
+    },
+    {
+     "count": 473,
+     "role": "absorber",
+     "light": 16.66,
+     "eat": 4.207,
+     "eaten": 19.305,
+     "move": 0,
+     "height": 0.466,
+     "follow": -0.316
+    }
+   ],
+   "flow": [
+    5.3,
+    1502,
+    0.4,
+    2900.3,
+    4262.1,
+    90.5,
+    1.8,
+    74.3,
+    1.1,
+    0.1,
+    353,
+    0.1,
+    6309.6,
+    49.5,
+    1.1,
+    79.2
+   ],
+   "present": [
+    0,
+    1,
+    2
+   ],
+   "company": 1,
+   "shares": [
+    0.404,
+    0.039,
+    0.242
+   ],
+   "temperature": 0.0713,
+   "tempSwing": 0.0042,
+   "bondedShare": 0.855,
+   "groups": 68,
+   "largest": 319,
+   "sorting": 0.359,
+   "lightIn": 31556.9,
+   "worstExcess": -110.45,
+   "hash": "f0555180"
+  }
+ ]
+}
