@@ -98,9 +98,9 @@ only watches. Results are in `checks-results.json`.
   fast state (30 to 70% by chance), so bonded particles fall into a shared state. Where a particle
   sits (chain end or middle) explains almost none of it (at most 9%). The kind of shape matters in
   law 8 (28%, sheets against the rest) and a little in law 9 (11%). But two groups with the same
-  members arranged differently are no further apart in average fast state than two with the same
-  arrangement: identical structures settle into different shared states, depending on their
-  history. So a coarse-grained blend would see makeup and a group's own state, which works like a
+  members arranged differently are hardly further apart in average fast state than two with the
+  same arrangement (law 4 is the clearest gap, 0.46 against 0.34; laws 9 and 12 go the other way):
+  identical structures settle into quite different shared states, depending on their history. So a coarse-grained blend would see makeup and a group's own state, which works like a
   memory, but not its arrangement.
 
 Rerun with `WORLDS=1,2,3,4 PARTIAL=partial.jsonl node tools/checks.mjs > checks-results.json`.
