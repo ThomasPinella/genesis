@@ -1,0 +1,4319 @@
+{
+ "ticks": 4000,
+ "n": 1500,
+ "worlds": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "min": 5,
+ "laws": {
+  "1": {
+   "elements": [
+    {
+     "g": [
+      -1.245,
+      -0.516,
+      1.294,
+      -1.789
+     ],
+     "basin": 0.289
+    },
+    {
+     "g": [
+      -1.651,
+      1.117,
+      -1.253,
+      0.734
+     ],
+     "basin": 0.285
+    },
+    {
+     "g": [
+      1.127,
+      0.784,
+      1.549,
+      -0.225
+     ],
+     "basin": 0.262
+    },
+    {
+     "g": [
+      0.716,
+      -0.039,
+      -0.867,
+      -1.519
+     ],
+     "basin": 0.164
+    }
+   ]
+  },
+  "2": {
+   "elements": [
+    {
+     "g": [
+      1.59,
+      -1.623,
+      0.571,
+      0.15
+     ],
+     "basin": 0.422
+    },
+    {
+     "g": [
+      -0.922,
+      1.552,
+      -0.848,
+      -1.046
+     ],
+     "basin": 0.246
+    },
+    {
+     "g": [
+      -0.219,
+      -1.543,
+      -0.716,
+      1.749
+     ],
+     "basin": 0.176
+    },
+    {
+     "g": [
+      -0.614,
+      1.68,
+      -1.119,
+      1.456
+     ],
+     "basin": 0.156
+    }
+   ]
+  },
+  "3": {
+   "elements": [
+    {
+     "g": [
+      1.589,
+      -1.732,
+      -0.116,
+      -1.615
+     ],
+     "basin": 0.414
+    },
+    {
+     "g": [
+      -0.572,
+      -1.718,
+      -1.577,
+      -1.189
+     ],
+     "basin": 0.332
+    },
+    {
+     "g": [
+      -0.375,
+      -1.517,
+      1.081,
+      0.564
+     ],
+     "basin": 0.254
+    }
+   ]
+  },
+  "4": {
+   "elements": [
+    {
+     "g": [
+      -1.78,
+      1.71,
+      0.719,
+      1.46
+     ],
+     "basin": 0.336
+    },
+    {
+     "g": [
+      1.825,
+      -0.829,
+      0.28,
+      -1.503
+     ],
+     "basin": 0.285
+    },
+    {
+     "g": [
+      0.757,
+      -1.413,
+      0.627,
+      1.517
+     ],
+     "basin": 0.246
+    },
+    {
+     "g": [
+      -1.577,
+      -1.012,
+      0.476,
+      -0.787
+     ],
+     "basin": 0.133
+    }
+   ]
+  },
+  "5": {
+   "elements": [
+    {
+     "g": [
+      1.532,
+      0.97,
+      0.232,
+      -1.758
+     ],
+     "basin": 0.484
+    },
+    {
+     "g": [
+      -1.332,
+      -1.508,
+      1.45,
+      -0.973
+     ],
+     "basin": 0.332
+    },
+    {
+     "g": [
+      -0.777,
+      1.305,
+      -1.124,
+      -1.047
+     ],
+     "basin": 0.184
+    }
+   ]
+  },
+  "6": {
+   "elements": [
+    {
+     "g": [
+      0.284,
+      -1.763,
+      -1.234,
+      -1.646
+     ],
+     "basin": 0.594
+    },
+    {
+     "g": [
+      0.996,
+      0.768,
+      0.243,
+      1.518
+     ],
+     "basin": 0.219
+    },
+    {
+     "g": [
+      0.929,
+      1.437,
+      -0.569,
+      0.384
+     ],
+     "basin": 0.188
+    }
+   ]
+  },
+  "7": {
+   "elements": [
+    {
+     "g": [
+      1.774,
+      0.231,
+      -0.758,
+      1.602
+     ],
+     "basin": 0.402
+    },
+    {
+     "g": [
+      -1.272,
+      -0.932,
+      -0.653,
+      -0.883
+     ],
+     "basin": 0.215
+    },
+    {
+     "g": [
+      0.251,
+      -1.75,
+      1.376,
+      1.412
+     ],
+     "basin": 0.203
+    },
+    {
+     "g": [
+      -1.36,
+      0.554,
+      0.104,
+      0.438
+     ],
+     "basin": 0.18
+    }
+   ]
+  },
+  "8": {
+   "elements": [
+    {
+     "g": [
+      1.094,
+      0.717,
+      0.421,
+      -0.671
+     ],
+     "basin": 0.391
+    },
+    {
+     "g": [
+      -0.617,
+      -1.675,
+      -1.029,
+      0.604
+     ],
+     "basin": 0.355
+    },
+    {
+     "g": [
+      0.369,
+      -1.803,
+      -0.482,
+      -1.586
+     ],
+     "basin": 0.254
+    }
+   ]
+  },
+  "9": {
+   "elements": [
+    {
+     "g": [
+      1.579,
+      -0.284,
+      -1.041,
+      -1.319
+     ],
+     "basin": 0.484
+    },
+    {
+     "g": [
+      -1.306,
+      -0.932,
+      1.284,
+      0.517
+     ],
+     "basin": 0.383
+    },
+    {
+     "g": [
+      0.384,
+      1.176,
+      0.822,
+      0.101
+     ],
+     "basin": 0.133
+    }
+   ]
+  },
+  "10": {
+   "elements": [
+    {
+     "g": [
+      -0.93,
+      -1.694,
+      -1.181,
+      -0.211
+     ],
+     "basin": 0.488
+    },
+    {
+     "g": [
+      0.662,
+      0.699,
+      -0.01,
+      -1.647
+     ],
+     "basin": 0.324
+    },
+    {
+     "g": [
+      -1.001,
+      1.303,
+      -0.892,
+      1.009
+     ],
+     "basin": 0.188
+    }
+   ]
+  },
+  "11": {
+   "elements": [
+    {
+     "g": [
+      -1.575,
+      -1.762,
+      1.507,
+      -0.719
+     ],
+     "basin": 0.383
+    },
+    {
+     "g": [
+      -1.071,
+      -1.235,
+      -1.277,
+      0.935
+     ],
+     "basin": 0.223
+    },
+    {
+     "g": [
+      1.095,
+      0.179,
+      0.796,
+      -1.578
+     ],
+     "basin": 0.199
+    },
+    {
+     "g": [
+      0.503,
+      0.788,
+      -1.709,
+      0.429
+     ],
+     "basin": 0.195
+    }
+   ]
+  },
+  "12": {
+   "elements": [
+    {
+     "g": [
+      -1.83,
+      1.781,
+      1.585,
+      1.716
+     ],
+     "basin": 0.395
+    },
+    {
+     "g": [
+      -0.885,
+      0.603,
+      -1.093,
+      -1.414
+     ],
+     "basin": 0.367
+    },
+    {
+     "g": [
+      1.118,
+      1.192,
+      -0.832,
+      0.413
+     ],
+     "basin": 0.238
+    }
+   ]
+  }
+ },
+ "results": [
+  {
+   "lawSeed": 1,
+   "worldSeed": 1,
+   "geometry": 1,
+   "temperature": 0.2563,
+   "bondedShare": 0.003,
+   "groups": 0,
+   "largest": 2,
+   "shapes": {
+    "chain": 0,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 0,
+   "elongation": null,
+   "flatness": null,
+   "structures": 0,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -190.633,
+   "hash": "65c75a88"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 2,
+   "geometry": 1,
+   "temperature": 0.2509,
+   "bondedShare": 0.003,
+   "groups": 0,
+   "largest": 2,
+   "shapes": {
+    "chain": 0,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 0,
+   "elongation": null,
+   "flatness": null,
+   "structures": 0,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -190.962,
+   "hash": "eff286d2"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 3,
+   "geometry": 1,
+   "temperature": 0.2534,
+   "bondedShare": 0.009,
+   "groups": 0,
+   "largest": 2,
+   "shapes": {
+    "chain": 0,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 0,
+   "elongation": null,
+   "flatness": null,
+   "structures": 0,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -181.487,
+   "hash": "c3327dc7"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 4,
+   "geometry": 1,
+   "temperature": 0.2451,
+   "bondedShare": 0.008,
+   "groups": 0,
+   "largest": 2,
+   "shapes": {
+    "chain": 0,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 0,
+   "elongation": null,
+   "flatness": null,
+   "structures": 0,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -180.228,
+   "hash": "fd99ae76"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 1,
+   "geometry": 1,
+   "temperature": 0.0787,
+   "bondedShare": 0.551,
+   "groups": 122,
+   "largest": 10,
+   "shapes": {
+    "chain": 0.265,
+    "ring": 0.003,
+    "tree": 0.069,
+    "sheet": 0,
+    "blob": 0.003
+   },
+   "chainLength": 3.82,
+   "elongation": 0.812,
+   "flatness": 0.754,
+   "structures": 37,
+   "patterned": 37,
+   "repeatKinds": 6,
+   "repeatMembers": 22,
+   "repeatTop": 7,
+   "topRepeat": {
+    "count": 7,
+    "size": 6,
+    "kinds": 3,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    18,
+    17,
+    8,
+    16,
+    15,
+    22
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -161.134,
+   "hash": "00004bf3"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 2,
+   "geometry": 1,
+   "temperature": 0.0748,
+   "bondedShare": 0.549,
+   "groups": 124,
+   "largest": 8,
+   "shapes": {
+    "chain": 0.269,
+    "ring": 0,
+    "tree": 0.038,
+    "sheet": 0,
+    "blob": 0.003
+   },
+   "chainLength": 3.54,
+   "elongation": 0.766,
+   "flatness": 0.85,
+   "structures": 26,
+   "patterned": 26,
+   "repeatKinds": 4,
+   "repeatMembers": 15,
+   "repeatTop": 9,
+   "topRepeat": {
+    "count": 9,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    4,
+    8,
+    10,
+    16,
+    9,
+    15
+   ],
+   "splits": 1,
+   "splitSize": 5,
+   "worstExcess": -154.284,
+   "hash": "5ddf151a"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 3,
+   "geometry": 1,
+   "temperature": 0.0703,
+   "bondedShare": 0.585,
+   "groups": 137,
+   "largest": 17,
+   "shapes": {
+    "chain": 0.287,
+    "ring": 0.005,
+    "tree": 0.078,
+    "sheet": 0,
+    "blob": 0.006
+   },
+   "chainLength": 3.65,
+   "elongation": 0.731,
+   "flatness": 0.804,
+   "structures": 31,
+   "patterned": 31,
+   "repeatKinds": 4,
+   "repeatMembers": 12,
+   "repeatTop": 4,
+   "topRepeat": {
+    "count": 4,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    9,
+    11,
+    18,
+    23,
+    21,
+    12
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -149.819,
+   "hash": "b54a8bc3"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 4,
+   "geometry": 1,
+   "temperature": 0.0651,
+   "bondedShare": 0.637,
+   "groups": 151,
+   "largest": 14,
+   "shapes": {
+    "chain": 0.323,
+    "ring": 0.003,
+    "tree": 0.091,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 3.73,
+   "elongation": 0.782,
+   "flatness": 0.75,
+   "structures": 41,
+   "patterned": 41,
+   "repeatKinds": 8,
+   "repeatMembers": 25,
+   "repeatTop": 8,
+   "topRepeat": {
+    "count": 8,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    8,
+    11,
+    11,
+    20,
+    19,
+    25
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -145.247,
+   "hash": "4fec38ef"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 1,
+   "geometry": 1,
+   "temperature": 0.2949,
+   "bondedShare": 0.151,
+   "groups": 22,
+   "largest": 17,
+   "shapes": {
+    "chain": 0.029,
+    "ring": 0.002,
+    "tree": 0.015,
+    "sheet": 0,
+    "blob": 0.027
+   },
+   "chainLength": 3.29,
+   "elongation": 0.77,
+   "flatness": 0.594,
+   "structures": 7,
+   "patterned": 1,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 11,
+    "kinds": 2,
+    "cls": "tree"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -233.506,
+   "hash": "40801326"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 2,
+   "geometry": 1,
+   "temperature": 0.2912,
+   "bondedShare": 0.173,
+   "groups": 30,
+   "largest": 12,
+   "shapes": {
+    "chain": 0.037,
+    "ring": 0.003,
+    "tree": 0.024,
+    "sheet": 0,
+    "blob": 0.035
+   },
+   "chainLength": 3.69,
+   "elongation": 0.743,
+   "flatness": 0.597,
+   "structures": 11,
+   "patterned": 1,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 8,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -239.531,
+   "hash": "b43ec65b"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 3,
+   "geometry": 1,
+   "temperature": 0.2953,
+   "bondedShare": 0.134,
+   "groups": 23,
+   "largest": 12,
+   "shapes": {
+    "chain": 0.031,
+    "ring": 0.003,
+    "tree": 0.022,
+    "sheet": 0,
+    "blob": 0.021
+   },
+   "chainLength": 3.92,
+   "elongation": 0.626,
+   "flatness": 0.692,
+   "structures": 12,
+   "patterned": 2,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 12,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -232.046,
+   "hash": "9e010407"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 4,
+   "geometry": 1,
+   "temperature": 0.2887,
+   "bondedShare": 0.166,
+   "groups": 27,
+   "largest": 33,
+   "shapes": {
+    "chain": 0.037,
+    "ring": 0.004,
+    "tree": 0.014,
+    "sheet": 0,
+    "blob": 0.047
+   },
+   "chainLength": 3.26,
+   "elongation": 0.735,
+   "flatness": 0.653,
+   "structures": 7,
+   "patterned": 1,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 6,
+    "kinds": 2,
+    "cls": "tree"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -235.035,
+   "hash": "3ce2208d"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 1,
+   "geometry": 1,
+   "temperature": 0.0398,
+   "bondedShare": 0.453,
+   "groups": 59,
+   "largest": 5,
+   "shapes": {
+    "chain": 0.126,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 3.2,
+   "elongation": 0.866,
+   "flatness": 0.665,
+   "structures": 3,
+   "patterned": 3,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatTop": 2,
+   "topRepeat": {
+    "count": 2,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    2,
+    0,
+    2
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -198.767,
+   "hash": "d0a6e60a"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 2,
+   "geometry": 1,
+   "temperature": 0.0427,
+   "bondedShare": 0.454,
+   "groups": 71,
+   "largest": 5,
+   "shapes": {
+    "chain": 0.151,
+    "ring": 0.003,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 3.25,
+   "elongation": 0.674,
+   "flatness": 0.914,
+   "structures": 4,
+   "patterned": 4,
+   "repeatKinds": 1,
+   "repeatMembers": 3,
+   "repeatTop": 3,
+   "topRepeat": {
+    "count": 3,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    5,
+    3
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -206.567,
+   "hash": "9463fc18"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 3,
+   "geometry": 1,
+   "temperature": 0.0466,
+   "bondedShare": 0.469,
+   "groups": 66,
+   "largest": 4,
+   "shapes": {
+    "chain": 0.14,
+    "ring": 0,
+    "tree": 0.003,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 3.23,
+   "elongation": null,
+   "flatness": null,
+   "structures": 0,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    2,
+    4,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -212.19,
+   "hash": "3bb9bd10"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 4,
+   "geometry": 1,
+   "temperature": 0.043,
+   "bondedShare": 0.453,
+   "groups": 67,
+   "largest": 6,
+   "shapes": {
+    "chain": 0.138,
+    "ring": 0.011,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 3.33,
+   "elongation": 0.783,
+   "flatness": 0.771,
+   "structures": 3,
+   "patterned": 3,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatTop": 2,
+   "topRepeat": {
+    "count": 2,
+    "size": 5,
+    "kinds": 3,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    2
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -201.019,
+   "hash": "81315647"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 1,
+   "geometry": 1,
+   "temperature": 0.0102,
+   "bondedShare": 0.989,
+   "groups": 301,
+   "largest": 17,
+   "shapes": {
+    "chain": 0.275,
+    "ring": 0.27,
+    "tree": 0.052,
+    "sheet": 0,
+    "blob": 0.326
+   },
+   "chainLength": 4.02,
+   "elongation": 0.458,
+   "flatness": 0.419,
+   "structures": 128,
+   "patterned": 128,
+   "repeatKinds": 19,
+   "repeatMembers": 91,
+   "repeatTop": 23,
+   "topRepeat": {
+    "count": 23,
+    "size": 5,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    10,
+    41,
+    64,
+    79,
+    78,
+    91
+   ],
+   "splits": 3,
+   "splitSize": 6,
+   "worstExcess": -44.308,
+   "hash": "26ebe3a3"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 2,
+   "geometry": 1,
+   "temperature": 0.0096,
+   "bondedShare": 0.978,
+   "groups": 293,
+   "largest": 9,
+   "shapes": {
+    "chain": 0.271,
+    "ring": 0.2,
+    "tree": 0.049,
+    "sheet": 0,
+    "blob": 0.344
+   },
+   "chainLength": 3.78,
+   "elongation": 0.441,
+   "flatness": 0.466,
+   "structures": 124,
+   "patterned": 124,
+   "repeatKinds": 16,
+   "repeatMembers": 90,
+   "repeatTop": 19,
+   "topRepeat": {
+    "count": 19,
+    "size": 5,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    14,
+    48,
+    71,
+    72,
+    81,
+    90
+   ],
+   "splits": 1,
+   "splitSize": 5,
+   "worstExcess": -43.402,
+   "hash": "6f9748ec"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 3,
+   "geometry": 1,
+   "temperature": 0.0137,
+   "bondedShare": 0.973,
+   "groups": 288,
+   "largest": 15,
+   "shapes": {
+    "chain": 0.293,
+    "ring": 0.232,
+    "tree": 0.035,
+    "sheet": 0,
+    "blob": 0.312
+   },
+   "chainLength": 3.97,
+   "elongation": 0.504,
+   "flatness": 0.432,
+   "structures": 116,
+   "patterned": 116,
+   "repeatKinds": 13,
+   "repeatMembers": 72,
+   "repeatTop": 16,
+   "topRepeat": {
+    "count": 16,
+    "size": 5,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    11,
+    45,
+    44,
+    50,
+    66,
+    72
+   ],
+   "splits": 2,
+   "splitSize": 9,
+   "worstExcess": -43.05,
+   "hash": "7fc1f4ab"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 4,
+   "geometry": 1,
+   "temperature": 0.0065,
+   "bondedShare": 0.991,
+   "groups": 290,
+   "largest": 11,
+   "shapes": {
+    "chain": 0.261,
+    "ring": 0.224,
+    "tree": 0.044,
+    "sheet": 0,
+    "blob": 0.379
+   },
+   "chainLength": 4,
+   "elongation": 0.436,
+   "flatness": 0.393,
+   "structures": 127,
+   "patterned": 127,
+   "repeatKinds": 18,
+   "repeatMembers": 90,
+   "repeatTop": 15,
+   "topRepeat": {
+    "count": 15,
+    "size": 5,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    14,
+    43,
+    64,
+    83,
+    89,
+    90
+   ],
+   "splits": 3,
+   "splitSize": 5,
+   "worstExcess": -40.775,
+   "hash": "6866be3a"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 1,
+   "geometry": 1,
+   "temperature": 0.231,
+   "bondedShare": 0,
+   "groups": 0,
+   "largest": 1,
+   "shapes": {
+    "chain": 0,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 0,
+   "elongation": null,
+   "flatness": null,
+   "structures": 0,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -212.563,
+   "hash": "62de5c94"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 2,
+   "geometry": 1,
+   "temperature": 0.2297,
+   "bondedShare": 0,
+   "groups": 0,
+   "largest": 1,
+   "shapes": {
+    "chain": 0,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 0,
+   "elongation": null,
+   "flatness": null,
+   "structures": 0,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -221.812,
+   "hash": "a6bcc8ab"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 3,
+   "geometry": 1,
+   "temperature": 0.2181,
+   "bondedShare": 0,
+   "groups": 0,
+   "largest": 1,
+   "shapes": {
+    "chain": 0,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 0,
+   "elongation": null,
+   "flatness": null,
+   "structures": 0,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -232.038,
+   "hash": "0d3b72a0"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 4,
+   "geometry": 1,
+   "temperature": 0.2235,
+   "bondedShare": 0,
+   "groups": 0,
+   "largest": 1,
+   "shapes": {
+    "chain": 0,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 0,
+   "elongation": null,
+   "flatness": null,
+   "structures": 0,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -232.254,
+   "hash": "4690a1c2"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 1,
+   "geometry": 1,
+   "temperature": 0.1055,
+   "bondedShare": 0.129,
+   "groups": 21,
+   "largest": 4,
+   "shapes": {
+    "chain": 0.043,
+    "ring": 0.002,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 3.24,
+   "elongation": null,
+   "flatness": null,
+   "structures": 0,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -239.462,
+   "hash": "c9a8d491"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 2,
+   "geometry": 1,
+   "temperature": 0.1031,
+   "bondedShare": 0.119,
+   "groups": 20,
+   "largest": 5,
+   "shapes": {
+    "chain": 0.029,
+    "ring": 0.004,
+    "tree": 0.009,
+    "sheet": 0,
+    "blob": 0.006
+   },
+   "chainLength": 3.27,
+   "elongation": 0.571,
+   "flatness": 0.542,
+   "structures": 4,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -237.39,
+   "hash": "043d3691"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 3,
+   "geometry": 1,
+   "temperature": 0.0971,
+   "bondedShare": 0.14,
+   "groups": 21,
+   "largest": 5,
+   "shapes": {
+    "chain": 0.041,
+    "ring": 0,
+    "tree": 0.003,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 3.05,
+   "elongation": 0.686,
+   "flatness": 0.158,
+   "structures": 1,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -232.342,
+   "hash": "9a6a1a75"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 4,
+   "geometry": 1,
+   "temperature": 0.1006,
+   "bondedShare": 0.161,
+   "groups": 31,
+   "largest": 6,
+   "shapes": {
+    "chain": 0.05,
+    "ring": 0.01,
+    "tree": 0.007,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 3.1,
+   "elongation": 0.649,
+   "flatness": 0.563,
+   "structures": 1,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -236.849,
+   "hash": "42b1a110"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 1,
+   "geometry": 1,
+   "temperature": 0.1202,
+   "bondedShare": 0.223,
+   "groups": 22,
+   "largest": 78,
+   "shapes": {
+    "chain": 0.022,
+    "ring": 0,
+    "tree": 0.007,
+    "sheet": 0.073,
+    "blob": 0.097
+   },
+   "chainLength": 3.67,
+   "elongation": 0.629,
+   "flatness": 0.68,
+   "structures": 12,
+   "patterned": 3,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 52,
+    "kinds": 2,
+    "cls": "sheet"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -144.738,
+   "hash": "31047ac2"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 2,
+   "geometry": 1,
+   "temperature": 0.1279,
+   "bondedShare": 0.241,
+   "groups": 20,
+   "largest": 88,
+   "shapes": {
+    "chain": 0.018,
+    "ring": 0.002,
+    "tree": 0.005,
+    "sheet": 0.132,
+    "blob": 0.075
+   },
+   "chainLength": 3.33,
+   "elongation": 0.677,
+   "flatness": 0.8,
+   "structures": 11,
+   "patterned": 4,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 83,
+    "kinds": 2,
+    "cls": "sheet"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -130.175,
+   "hash": "a690475b"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 3,
+   "geometry": 1,
+   "temperature": 0.1215,
+   "bondedShare": 0.224,
+   "groups": 26,
+   "largest": 82,
+   "shapes": {
+    "chain": 0.021,
+    "ring": 0.003,
+    "tree": 0.017,
+    "sheet": 0.101,
+    "blob": 0.07
+   },
+   "chainLength": 3.5,
+   "elongation": 0.661,
+   "flatness": 0.837,
+   "structures": 14,
+   "patterned": 4,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 82,
+    "kinds": 2,
+    "cls": "sheet"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -142.01,
+   "hash": "84333403"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 4,
+   "geometry": 1,
+   "temperature": 0.1209,
+   "bondedShare": 0.233,
+   "groups": 22,
+   "largest": 59,
+   "shapes": {
+    "chain": 0.021,
+    "ring": 0.002,
+    "tree": 0.003,
+    "sheet": 0.102,
+    "blob": 0.083
+   },
+   "chainLength": 3.5,
+   "elongation": 0.703,
+   "flatness": 0.806,
+   "structures": 11,
+   "patterned": 2,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 39,
+    "kinds": 2,
+    "cls": "sheet"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -139.618,
+   "hash": "1c16926b"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 1,
+   "geometry": 1,
+   "temperature": 0.0133,
+   "bondedShare": 0.825,
+   "groups": 206,
+   "largest": 8,
+   "shapes": {
+    "chain": 0.387,
+    "ring": 0.096,
+    "tree": 0.013,
+    "sheet": 0,
+    "blob": 0.021
+   },
+   "chainLength": 3.68,
+   "elongation": 0.73,
+   "flatness": 0.631,
+   "structures": 35,
+   "patterned": 35,
+   "repeatKinds": 8,
+   "repeatMembers": 27,
+   "repeatTop": 9,
+   "topRepeat": {
+    "count": 9,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    3,
+    5,
+    17,
+    27
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -93.639,
+   "hash": "3b0a450b"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 2,
+   "geometry": 1,
+   "temperature": 0.0135,
+   "bondedShare": 0.863,
+   "groups": 213,
+   "largest": 11,
+   "shapes": {
+    "chain": 0.417,
+    "ring": 0.083,
+    "tree": 0.028,
+    "sheet": 0,
+    "blob": 0.015
+   },
+   "chainLength": 3.69,
+   "elongation": 0.716,
+   "flatness": 0.691,
+   "structures": 36,
+   "patterned": 36,
+   "repeatKinds": 8,
+   "repeatMembers": 25,
+   "repeatTop": 8,
+   "topRepeat": {
+    "count": 8,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    3,
+    21,
+    28,
+    25
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -80.704,
+   "hash": "10b7ae12"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 3,
+   "geometry": 1,
+   "temperature": 0.0127,
+   "bondedShare": 0.771,
+   "groups": 191,
+   "largest": 8,
+   "shapes": {
+    "chain": 0.387,
+    "ring": 0.067,
+    "tree": 0.013,
+    "sheet": 0,
+    "blob": 0.008
+   },
+   "chainLength": 3.68,
+   "elongation": 0.673,
+   "flatness": 0.676,
+   "structures": 27,
+   "patterned": 27,
+   "repeatKinds": 5,
+   "repeatMembers": 14,
+   "repeatTop": 5,
+   "topRepeat": {
+    "count": 5,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    2,
+    14,
+    23,
+    14
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -88.073,
+   "hash": "0f59d01f"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 4,
+   "geometry": 1,
+   "temperature": 0.0127,
+   "bondedShare": 0.829,
+   "groups": 206,
+   "largest": 12,
+   "shapes": {
+    "chain": 0.438,
+    "ring": 0.072,
+    "tree": 0.003,
+    "sheet": 0.004,
+    "blob": 0.018
+   },
+   "chainLength": 3.84,
+   "elongation": 0.692,
+   "flatness": 0.727,
+   "structures": 40,
+   "patterned": 40,
+   "repeatKinds": 6,
+   "repeatMembers": 28,
+   "repeatTop": 14,
+   "topRepeat": {
+    "count": 14,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    0,
+    5,
+    7,
+    19,
+    28,
+    28
+   ],
+   "splits": 2,
+   "splitSize": 6,
+   "worstExcess": -84.244,
+   "hash": "00d33c41"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 1,
+   "geometry": 1,
+   "temperature": 0.0564,
+   "bondedShare": 0.216,
+   "groups": 54,
+   "largest": 13,
+   "shapes": {
+    "chain": 0.032,
+    "ring": 0.053,
+    "tree": 0.011,
+    "sheet": 0.075,
+    "blob": 0.024
+   },
+   "chainLength": 4.13,
+   "elongation": 0.454,
+   "flatness": 0.933,
+   "structures": 31,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -114.466,
+   "hash": "1ef9b0de"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 2,
+   "geometry": 1,
+   "temperature": 0.045,
+   "bondedShare": 0.224,
+   "groups": 56,
+   "largest": 14,
+   "shapes": {
+    "chain": 0.031,
+    "ring": 0.083,
+    "tree": 0,
+    "sheet": 0.08,
+    "blob": 0.017
+   },
+   "chainLength": 4.72,
+   "elongation": 0.377,
+   "flatness": 0.979,
+   "structures": 37,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -95.038,
+   "hash": "c1a18664"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 3,
+   "geometry": 1,
+   "temperature": 0.0502,
+   "bondedShare": 0.23,
+   "groups": 55,
+   "largest": 14,
+   "shapes": {
+    "chain": 0.059,
+    "ring": 0.044,
+    "tree": 0.003,
+    "sheet": 0.083,
+    "blob": 0.021
+   },
+   "chainLength": 5,
+   "elongation": 0.439,
+   "flatness": 0.919,
+   "structures": 32,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -105.819,
+   "hash": "881217e1"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 4,
+   "geometry": 1,
+   "temperature": 0.0444,
+   "bondedShare": 0.239,
+   "groups": 55,
+   "largest": 13,
+   "shapes": {
+    "chain": 0.041,
+    "ring": 0.062,
+    "tree": 0.01,
+    "sheet": 0.079,
+    "blob": 0.019
+   },
+   "chainLength": 4.56,
+   "elongation": 0.447,
+   "flatness": 0.957,
+   "structures": 33,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -99.5,
+   "hash": "42dad458"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 1,
+   "geometry": 1,
+   "temperature": 0.0919,
+   "bondedShare": 0.075,
+   "groups": 3,
+   "largest": 3,
+   "shapes": {
+    "chain": 0.006,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 3,
+   "elongation": null,
+   "flatness": null,
+   "structures": 0,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -170.274,
+   "hash": "2200c4c5"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 2,
+   "geometry": 1,
+   "temperature": 0.0908,
+   "bondedShare": 0.058,
+   "groups": 5,
+   "largest": 3,
+   "shapes": {
+    "chain": 0.01,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 3,
+   "elongation": null,
+   "flatness": null,
+   "structures": 0,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -164.696,
+   "hash": "ccf43717"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 3,
+   "geometry": 1,
+   "temperature": 0.0947,
+   "bondedShare": 0.053,
+   "groups": 3,
+   "largest": 3,
+   "shapes": {
+    "chain": 0.006,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 3,
+   "elongation": null,
+   "flatness": null,
+   "structures": 0,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -170.557,
+   "hash": "27fcbbb9"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 4,
+   "geometry": 1,
+   "temperature": 0.092,
+   "bondedShare": 0.052,
+   "groups": 2,
+   "largest": 3,
+   "shapes": {
+    "chain": 0.004,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0
+   },
+   "chainLength": 3,
+   "elongation": null,
+   "flatness": null,
+   "structures": 0,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -166.313,
+   "hash": "d59576cb"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 1,
+   "geometry": 1,
+   "temperature": 0.1364,
+   "bondedShare": 0.103,
+   "groups": 21,
+   "largest": 11,
+   "shapes": {
+    "chain": 0.033,
+    "ring": 0.002,
+    "tree": 0.013,
+    "sheet": 0,
+    "blob": 0.017
+   },
+   "chainLength": 3.47,
+   "elongation": 0.572,
+   "flatness": 0.573,
+   "structures": 7,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -194.27,
+   "hash": "10f3f4e5"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 2,
+   "geometry": 1,
+   "temperature": 0.1447,
+   "bondedShare": 0.073,
+   "groups": 15,
+   "largest": 8,
+   "shapes": {
+    "chain": 0.019,
+    "ring": 0,
+    "tree": 0.016,
+    "sheet": 0,
+    "blob": 0.013
+   },
+   "chainLength": 3.5,
+   "elongation": 0.684,
+   "flatness": 0.572,
+   "structures": 9,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -202.912,
+   "hash": "c83d0b24"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 3,
+   "geometry": 1,
+   "temperature": 0.1418,
+   "bondedShare": 0.073,
+   "groups": 16,
+   "largest": 7,
+   "shapes": {
+    "chain": 0.021,
+    "ring": 0.004,
+    "tree": 0.008,
+    "sheet": 0,
+    "blob": 0.005
+   },
+   "chainLength": 3.17,
+   "elongation": 0.628,
+   "flatness": 0.781,
+   "structures": 1,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -197.703,
+   "hash": "a2a3ff03"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 4,
+   "geometry": 1,
+   "temperature": 0.1438,
+   "bondedShare": 0.093,
+   "groups": 15,
+   "largest": 15,
+   "shapes": {
+    "chain": 0.03,
+    "ring": 0,
+    "tree": 0.005,
+    "sheet": 0,
+    "blob": 0.017
+   },
+   "chainLength": 3.75,
+   "elongation": 0.647,
+   "flatness": 0.724,
+   "structures": 5,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -198.794,
+   "hash": "eba41185"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 1,
+   "geometry": 0,
+   "temperature": 0.1983,
+   "bondedShare": 0.634,
+   "groups": 94,
+   "largest": 257,
+   "shapes": {
+    "chain": 0.086,
+    "ring": 0.005,
+    "tree": 0.149,
+    "sheet": 0.005,
+    "blob": 0.329
+   },
+   "chainLength": 3.19,
+   "elongation": 0.614,
+   "flatness": 0.65,
+   "structures": 43,
+   "patterned": 41,
+   "repeatKinds": 4,
+   "repeatMembers": 9,
+   "repeatTop": 3,
+   "topRepeat": {
+    "count": 3,
+    "size": 5,
+    "kinds": 3,
+    "cls": "tree"
+   },
+   "repeatSeries": [
+    6,
+    6,
+    2,
+    4,
+    9,
+    9
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -175.785,
+   "hash": "ac751ae2"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 2,
+   "geometry": 0,
+   "temperature": 0.1932,
+   "bondedShare": 0.665,
+   "groups": 103,
+   "largest": 241,
+   "shapes": {
+    "chain": 0.101,
+    "ring": 0.003,
+    "tree": 0.158,
+    "sheet": 0,
+    "blob": 0.342
+   },
+   "chainLength": 3.25,
+   "elongation": 0.688,
+   "flatness": 0.618,
+   "structures": 34,
+   "patterned": 29,
+   "repeatKinds": 2,
+   "repeatMembers": 4,
+   "repeatTop": 2,
+   "topRepeat": {
+    "count": 2,
+    "size": 7,
+    "kinds": 3,
+    "cls": "tree"
+   },
+   "repeatSeries": [
+    4,
+    2,
+    5,
+    2,
+    11,
+    4
+   ],
+   "splits": 4,
+   "splitSize": 6,
+   "worstExcess": -176.598,
+   "hash": "f26f3fa6"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 3,
+   "geometry": 0,
+   "temperature": 0.1875,
+   "bondedShare": 0.635,
+   "groups": 84,
+   "largest": 273,
+   "shapes": {
+    "chain": 0.087,
+    "ring": 0.003,
+    "tree": 0.127,
+    "sheet": 0,
+    "blob": 0.353
+   },
+   "chainLength": 3.44,
+   "elongation": 0.639,
+   "flatness": 0.683,
+   "structures": 34,
+   "patterned": 32,
+   "repeatKinds": 4,
+   "repeatMembers": 10,
+   "repeatTop": 4,
+   "topRepeat": {
+    "count": 4,
+    "size": 5,
+    "kinds": 3,
+    "cls": "tree"
+   },
+   "repeatSeries": [
+    13,
+    7,
+    6,
+    6,
+    8,
+    10
+   ],
+   "splits": 1,
+   "splitSize": 5,
+   "worstExcess": -180.86,
+   "hash": "bef9db15"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 4,
+   "geometry": 0,
+   "temperature": 0.1966,
+   "bondedShare": 0.613,
+   "groups": 89,
+   "largest": 356,
+   "shapes": {
+    "chain": 0.109,
+    "ring": 0.003,
+    "tree": 0.11,
+    "sheet": 0.006,
+    "blob": 0.322
+   },
+   "chainLength": 3.17,
+   "elongation": 0.633,
+   "flatness": 0.655,
+   "structures": 24,
+   "patterned": 22,
+   "repeatKinds": 1,
+   "repeatMembers": 3,
+   "repeatTop": 3,
+   "topRepeat": {
+    "count": 3,
+    "size": 5,
+    "kinds": 3,
+    "cls": "tree"
+   },
+   "repeatSeries": [
+    14,
+    6,
+    6,
+    7,
+    4,
+    3
+   ],
+   "splits": 2,
+   "splitSize": 6,
+   "worstExcess": -175.122,
+   "hash": "9046ca36"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 1,
+   "geometry": 0,
+   "temperature": 0.0492,
+   "bondedShare": 0.619,
+   "groups": 103,
+   "largest": 71,
+   "shapes": {
+    "chain": 0.178,
+    "ring": 0,
+    "tree": 0.127,
+    "sheet": 0.011,
+    "blob": 0.086
+   },
+   "chainLength": 3.66,
+   "elongation": 0.675,
+   "flatness": 0.658,
+   "structures": 42,
+   "patterned": 42,
+   "repeatKinds": 4,
+   "repeatMembers": 9,
+   "repeatTop": 3,
+   "topRepeat": {
+    "count": 3,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    17,
+    12,
+    4,
+    16,
+    14,
+    9
+   ],
+   "splits": 1,
+   "splitSize": 6,
+   "worstExcess": -157.163,
+   "hash": "1b2b489e"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 2,
+   "geometry": 0,
+   "temperature": 0.0441,
+   "bondedShare": 0.651,
+   "groups": 112,
+   "largest": 150,
+   "shapes": {
+    "chain": 0.231,
+    "ring": 0.005,
+    "tree": 0.021,
+    "sheet": 0,
+    "blob": 0.169
+   },
+   "chainLength": 3.66,
+   "elongation": 0.686,
+   "flatness": 0.728,
+   "structures": 28,
+   "patterned": 28,
+   "repeatKinds": 3,
+   "repeatMembers": 8,
+   "repeatTop": 3,
+   "topRepeat": {
+    "count": 3,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    8,
+    14,
+    14,
+    8,
+    7,
+    8
+   ],
+   "splits": 3,
+   "splitSize": 6,
+   "worstExcess": -136.433,
+   "hash": "6d0a0c29"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 3,
+   "geometry": 0,
+   "temperature": 0.0448,
+   "bondedShare": 0.639,
+   "groups": 109,
+   "largest": 63,
+   "shapes": {
+    "chain": 0.219,
+    "ring": 0,
+    "tree": 0.053,
+    "sheet": 0,
+    "blob": 0.146
+   },
+   "chainLength": 3.92,
+   "elongation": 0.718,
+   "flatness": 0.658,
+   "structures": 42,
+   "patterned": 42,
+   "repeatKinds": 3,
+   "repeatMembers": 7,
+   "repeatTop": 3,
+   "topRepeat": {
+    "count": 3,
+    "size": 5,
+    "kinds": 3,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    13,
+    8,
+    13,
+    22,
+    5,
+    7
+   ],
+   "splits": 2,
+   "splitSize": 6,
+   "worstExcess": -122.723,
+   "hash": "4ef8bd3f"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 4,
+   "geometry": 0,
+   "temperature": 0.0414,
+   "bondedShare": 0.651,
+   "groups": 98,
+   "largest": 76,
+   "shapes": {
+    "chain": 0.179,
+    "ring": 0.003,
+    "tree": 0.075,
+    "sheet": 0,
+    "blob": 0.141
+   },
+   "chainLength": 3.68,
+   "elongation": 0.688,
+   "flatness": 0.65,
+   "structures": 33,
+   "patterned": 33,
+   "repeatKinds": 4,
+   "repeatMembers": 8,
+   "repeatTop": 2,
+   "topRepeat": {
+    "count": 2,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    23,
+    18,
+    12,
+    15,
+    12,
+    8
+   ],
+   "splits": 4,
+   "splitSize": 6,
+   "worstExcess": -123.489,
+   "hash": "93135390"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 1,
+   "geometry": 0,
+   "temperature": 0.0659,
+   "bondedShare": 0.929,
+   "groups": 18,
+   "largest": 898,
+   "shapes": {
+    "chain": 0.019,
+    "ring": 0.002,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0.895
+   },
+   "chainLength": 3.1,
+   "elongation": 0.7,
+   "flatness": 0.622,
+   "structures": 6,
+   "patterned": 3,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 408,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -114.409,
+   "hash": "1aac40de"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 2,
+   "geometry": 0,
+   "temperature": 0.0754,
+   "bondedShare": 0.913,
+   "groups": 27,
+   "largest": 834,
+   "shapes": {
+    "chain": 0.028,
+    "ring": 0.002,
+    "tree": 0,
+    "sheet": 0.264,
+    "blob": 0.601
+   },
+   "chainLength": 3.21,
+   "elongation": 0.542,
+   "flatness": 0.641,
+   "structures": 11,
+   "patterned": 7,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 834,
+    "kinds": 4,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -139.724,
+   "hash": "2c5893c0"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 3,
+   "geometry": 0,
+   "temperature": 0.0897,
+   "bondedShare": 0.923,
+   "groups": 27,
+   "largest": 1182,
+   "shapes": {
+    "chain": 0.015,
+    "ring": 0.006,
+    "tree": 0.025,
+    "sheet": 0,
+    "blob": 0.868
+   },
+   "chainLength": 3.1,
+   "elongation": 0.618,
+   "flatness": 0.644,
+   "structures": 17,
+   "patterned": 14,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 1182,
+    "kinds": 4,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -120.305,
+   "hash": "4c1ff949"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 4,
+   "geometry": 0,
+   "temperature": 0.0807,
+   "bondedShare": 0.929,
+   "groups": 21,
+   "largest": 500,
+   "shapes": {
+    "chain": 0.012,
+    "ring": 0,
+    "tree": 0.015,
+    "sheet": 0.333,
+    "blob": 0.557
+   },
+   "chainLength": 3.6,
+   "elongation": 0.575,
+   "flatness": 0.64,
+   "structures": 15,
+   "patterned": 11,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 303,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -116.869,
+   "hash": "02eca75e"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 1,
+   "geometry": 0,
+   "temperature": 0.0602,
+   "bondedShare": 0.606,
+   "groups": 135,
+   "largest": 19,
+   "shapes": {
+    "chain": 0.181,
+    "ring": 0,
+    "tree": 0.209,
+    "sheet": 0.008,
+    "blob": 0.031
+   },
+   "chainLength": 3.4,
+   "elongation": 0.627,
+   "flatness": 0.701,
+   "structures": 42,
+   "patterned": 42,
+   "repeatKinds": 5,
+   "repeatMembers": 13,
+   "repeatTop": 3,
+   "topRepeat": {
+    "count": 3,
+    "size": 5,
+    "kinds": 3,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    14,
+    13,
+    13,
+    19,
+    16,
+    13
+   ],
+   "splits": 1,
+   "splitSize": 8,
+   "worstExcess": -206.427,
+   "hash": "4160ef09"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 2,
+   "geometry": 0,
+   "temperature": 0.0724,
+   "bondedShare": 0.655,
+   "groups": 153,
+   "largest": 33,
+   "shapes": {
+    "chain": 0.205,
+    "ring": 0.005,
+    "tree": 0.213,
+    "sheet": 0.006,
+    "blob": 0.087
+   },
+   "chainLength": 3.39,
+   "elongation": 0.668,
+   "flatness": 0.703,
+   "structures": 59,
+   "patterned": 59,
+   "repeatKinds": 10,
+   "repeatMembers": 22,
+   "repeatTop": 3,
+   "topRepeat": {
+    "count": 3,
+    "size": 6,
+    "kinds": 3,
+    "cls": "tree"
+   },
+   "repeatSeries": [
+    21,
+    14,
+    14,
+    12,
+    12,
+    22
+   ],
+   "splits": 3,
+   "splitSize": 5,
+   "worstExcess": -204.568,
+   "hash": "4f1f3d12"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 3,
+   "geometry": 0,
+   "temperature": 0.0613,
+   "bondedShare": 0.627,
+   "groups": 154,
+   "largest": 31,
+   "shapes": {
+    "chain": 0.253,
+    "ring": 0.003,
+    "tree": 0.172,
+    "sheet": 0,
+    "blob": 0.049
+   },
+   "chainLength": 3.46,
+   "elongation": 0.659,
+   "flatness": 0.708,
+   "structures": 45,
+   "patterned": 45,
+   "repeatKinds": 4,
+   "repeatMembers": 9,
+   "repeatTop": 3,
+   "topRepeat": {
+    "count": 3,
+    "size": 5,
+    "kinds": 3,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    34,
+    20,
+    12,
+    6,
+    14,
+    9
+   ],
+   "splits": 1,
+   "splitSize": 6,
+   "worstExcess": -209.925,
+   "hash": "e9c511f1"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 4,
+   "geometry": 0,
+   "temperature": 0.0649,
+   "bondedShare": 0.621,
+   "groups": 150,
+   "largest": 22,
+   "shapes": {
+    "chain": 0.237,
+    "ring": 0.003,
+    "tree": 0.176,
+    "sheet": 0,
+    "blob": 0.055
+   },
+   "chainLength": 3.52,
+   "elongation": 0.695,
+   "flatness": 0.651,
+   "structures": 53,
+   "patterned": 53,
+   "repeatKinds": 9,
+   "repeatMembers": 24,
+   "repeatTop": 6,
+   "topRepeat": {
+    "count": 6,
+    "size": 5,
+    "kinds": 3,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    17,
+    12,
+    3,
+    8,
+    9,
+    24
+   ],
+   "splits": 2,
+   "splitSize": 5,
+   "worstExcess": -204.007,
+   "hash": "35d3b44e"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 1,
+   "geometry": 0,
+   "temperature": 0.011,
+   "bondedShare": 0.665,
+   "groups": 39,
+   "largest": 289,
+   "shapes": {
+    "chain": 0.072,
+    "ring": 0,
+    "tree": 0.013,
+    "sheet": 0,
+    "blob": 0.337
+   },
+   "chainLength": 3.6,
+   "elongation": 0.497,
+   "flatness": 0.559,
+   "structures": 12,
+   "patterned": 12,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 50,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    19,
+    18,
+    10,
+    8,
+    5,
+    0
+   ],
+   "splits": 2,
+   "splitSize": 5,
+   "worstExcess": -36.464,
+   "hash": "3bcc7146"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 2,
+   "geometry": 0,
+   "temperature": 0.0107,
+   "bondedShare": 0.669,
+   "groups": 45,
+   "largest": 215,
+   "shapes": {
+    "chain": 0.08,
+    "ring": 0,
+    "tree": 0.012,
+    "sheet": 0,
+    "blob": 0.32
+   },
+   "chainLength": 3.24,
+   "elongation": 0.684,
+   "flatness": 0.538,
+   "structures": 10,
+   "patterned": 10,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 130,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    14,
+    9,
+    11,
+    13,
+    0,
+    0
+   ],
+   "splits": 5,
+   "splitSize": 6,
+   "worstExcess": -35.66,
+   "hash": "9ba3f990"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 3,
+   "geometry": 0,
+   "temperature": 0.0048,
+   "bondedShare": 0.577,
+   "groups": 15,
+   "largest": 336,
+   "shapes": {
+    "chain": 0.025,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0.359
+   },
+   "chainLength": 3.36,
+   "elongation": 0.416,
+   "flatness": 0.455,
+   "structures": 4,
+   "patterned": 4,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 336,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    15,
+    16,
+    2,
+    0,
+    0,
+    0
+   ],
+   "splits": 1,
+   "splitSize": 6,
+   "worstExcess": -33.362,
+   "hash": "efbc259b"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 4,
+   "geometry": 0,
+   "temperature": 0.0047,
+   "bondedShare": 0.563,
+   "groups": 9,
+   "largest": 480,
+   "shapes": {
+    "chain": 0.013,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0.32,
+    "blob": 0.028
+   },
+   "chainLength": 3.17,
+   "elongation": 0.514,
+   "flatness": 0.458,
+   "structures": 3,
+   "patterned": 3,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 480,
+    "kinds": 2,
+    "cls": "sheet"
+   },
+   "repeatSeries": [
+    11,
+    14,
+    7,
+    0,
+    0,
+    0
+   ],
+   "splits": 2,
+   "splitSize": 5,
+   "worstExcess": -34.831,
+   "hash": "0a7633eb"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 1,
+   "geometry": 0,
+   "temperature": 0.1527,
+   "bondedShare": 0.394,
+   "groups": 77,
+   "largest": 42,
+   "shapes": {
+    "chain": 0.101,
+    "ring": 0,
+    "tree": 0.073,
+    "sheet": 0.01,
+    "blob": 0.132
+   },
+   "chainLength": 3.21,
+   "elongation": 0.655,
+   "flatness": 0.726,
+   "structures": 27,
+   "patterned": 27,
+   "repeatKinds": 2,
+   "repeatMembers": 4,
+   "repeatTop": 2,
+   "topRepeat": {
+    "count": 2,
+    "size": 5,
+    "kinds": 3,
+    "cls": "tree"
+   },
+   "repeatSeries": [
+    4,
+    3,
+    8,
+    10,
+    2,
+    4
+   ],
+   "splits": 1,
+   "splitSize": 5,
+   "worstExcess": -179.9,
+   "hash": "b321b587"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 2,
+   "geometry": 0,
+   "temperature": 0.1522,
+   "bondedShare": 0.395,
+   "groups": 70,
+   "largest": 57,
+   "shapes": {
+    "chain": 0.097,
+    "ring": 0,
+    "tree": 0.065,
+    "sheet": 0,
+    "blob": 0.155
+   },
+   "chainLength": 3.4,
+   "elongation": 0.585,
+   "flatness": 0.619,
+   "structures": 27,
+   "patterned": 27,
+   "repeatKinds": 2,
+   "repeatMembers": 5,
+   "repeatTop": 3,
+   "topRepeat": {
+    "count": 3,
+    "size": 5,
+    "kinds": 3,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    4,
+    2,
+    0,
+    4,
+    5,
+    5
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -181.538,
+   "hash": "f5877361"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 3,
+   "geometry": 0,
+   "temperature": 0.1579,
+   "bondedShare": 0.388,
+   "groups": 78,
+   "largest": 39,
+   "shapes": {
+    "chain": 0.082,
+    "ring": 0,
+    "tree": 0.139,
+    "sheet": 0,
+    "blob": 0.099
+   },
+   "chainLength": 3.42,
+   "elongation": 0.663,
+   "flatness": 0.598,
+   "structures": 33,
+   "patterned": 33,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatTop": 2,
+   "topRepeat": {
+    "count": 2,
+    "size": 5,
+    "kinds": 3,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    8,
+    4,
+    6,
+    8,
+    2,
+    2
+   ],
+   "splits": 1,
+   "splitSize": 5,
+   "worstExcess": -192.302,
+   "hash": "fe5d58df"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 4,
+   "geometry": 0,
+   "temperature": 0.1674,
+   "bondedShare": 0.364,
+   "groups": 73,
+   "largest": 20,
+   "shapes": {
+    "chain": 0.09,
+    "ring": 0.005,
+    "tree": 0.091,
+    "sheet": 0.005,
+    "blob": 0.071
+   },
+   "chainLength": 3.49,
+   "elongation": 0.634,
+   "flatness": 0.671,
+   "structures": 29,
+   "patterned": 29,
+   "repeatKinds": 3,
+   "repeatMembers": 6,
+   "repeatTop": 2,
+   "topRepeat": {
+    "count": 2,
+    "size": 6,
+    "kinds": 2,
+    "cls": "tree"
+   },
+   "repeatSeries": [
+    0,
+    6,
+    10,
+    2,
+    8,
+    6
+   ],
+   "splits": 1,
+   "splitSize": 5,
+   "worstExcess": -196.495,
+   "hash": "1e49bfd8"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 1,
+   "geometry": 0,
+   "temperature": 0.0613,
+   "bondedShare": 0.987,
+   "groups": 23,
+   "largest": 859,
+   "shapes": {
+    "chain": 0.011,
+    "ring": 0.002,
+    "tree": 0.003,
+    "sheet": 0.004,
+    "blob": 0.959
+   },
+   "chainLength": 3.8,
+   "elongation": 0.593,
+   "flatness": 0.497,
+   "structures": 16,
+   "patterned": 9,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 859,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -136.189,
+   "hash": "2a6465e0"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 2,
+   "geometry": 0,
+   "temperature": 0.0662,
+   "bondedShare": 0.986,
+   "groups": 20,
+   "largest": 789,
+   "shapes": {
+    "chain": 0.007,
+    "ring": 0.002,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0.968
+   },
+   "chainLength": 3.25,
+   "elongation": 0.69,
+   "flatness": 0.469,
+   "structures": 14,
+   "patterned": 9,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 10,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -110.072,
+   "hash": "9b3223a0"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 3,
+   "geometry": 0,
+   "temperature": 0.0525,
+   "bondedShare": 0.986,
+   "groups": 19,
+   "largest": 858,
+   "shapes": {
+    "chain": 0.01,
+    "ring": 0.002,
+    "tree": 0.003,
+    "sheet": 0,
+    "blob": 0.966
+   },
+   "chainLength": 4.5,
+   "elongation": 0.621,
+   "flatness": 0.55,
+   "structures": 15,
+   "patterned": 8,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 858,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -118.438,
+   "hash": "db667894"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 4,
+   "geometry": 0,
+   "temperature": 0.0518,
+   "bondedShare": 0.982,
+   "groups": 22,
+   "largest": 799,
+   "shapes": {
+    "chain": 0.004,
+    "ring": 0,
+    "tree": 0.003,
+    "sheet": 0.004,
+    "blob": 0.962
+   },
+   "chainLength": 3,
+   "elongation": 0.644,
+   "flatness": 0.538,
+   "structures": 18,
+   "patterned": 11,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 799,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -111.254,
+   "hash": "76fb7983"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 1,
+   "geometry": 0,
+   "temperature": 0.0908,
+   "bondedShare": 0.866,
+   "groups": 94,
+   "largest": 289,
+   "shapes": {
+    "chain": 0.159,
+    "ring": 0.003,
+    "tree": 0.046,
+    "sheet": 0.005,
+    "blob": 0.51
+   },
+   "chainLength": 3.78,
+   "elongation": 0.688,
+   "flatness": 0.619,
+   "structures": 38,
+   "patterned": 38,
+   "repeatKinds": 6,
+   "repeatMembers": 17,
+   "repeatTop": 4,
+   "topRepeat": {
+    "count": 4,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    4,
+    11,
+    11,
+    19,
+    11,
+    17
+   ],
+   "splits": 2,
+   "splitSize": 6,
+   "worstExcess": -157.13,
+   "hash": "74c57b2a"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 2,
+   "geometry": 0,
+   "temperature": 0.0781,
+   "bondedShare": 0.848,
+   "groups": 97,
+   "largest": 468,
+   "shapes": {
+    "chain": 0.153,
+    "ring": 0.013,
+    "tree": 0.089,
+    "sheet": 0,
+    "blob": 0.449
+   },
+   "chainLength": 3.85,
+   "elongation": 0.686,
+   "flatness": 0.638,
+   "structures": 42,
+   "patterned": 42,
+   "repeatKinds": 5,
+   "repeatMembers": 14,
+   "repeatTop": 5,
+   "topRepeat": {
+    "count": 5,
+    "size": 6,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    11,
+    13,
+    9,
+    10,
+    19,
+    14
+   ],
+   "splits": 7,
+   "splitSize": 9,
+   "worstExcess": -114.673,
+   "hash": "268b8596"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 3,
+   "geometry": 0,
+   "temperature": 0.096,
+   "bondedShare": 0.873,
+   "groups": 91,
+   "largest": 403,
+   "shapes": {
+    "chain": 0.155,
+    "ring": 0.008,
+    "tree": 0.038,
+    "sheet": 0.005,
+    "blob": 0.511
+   },
+   "chainLength": 3.7,
+   "elongation": 0.649,
+   "flatness": 0.56,
+   "structures": 33,
+   "patterned": 33,
+   "repeatKinds": 5,
+   "repeatMembers": 12,
+   "repeatTop": 3,
+   "topRepeat": {
+    "count": 3,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    9,
+    10,
+    15,
+    14,
+    11,
+    12
+   ],
+   "splits": 7,
+   "splitSize": 8,
+   "worstExcess": -144.699,
+   "hash": "380305ad"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 4,
+   "geometry": 0,
+   "temperature": 0.0927,
+   "bondedShare": 0.845,
+   "groups": 87,
+   "largest": 360,
+   "shapes": {
+    "chain": 0.135,
+    "ring": 0.003,
+    "tree": 0.054,
+    "sheet": 0.007,
+    "blob": 0.522
+   },
+   "chainLength": 3.98,
+   "elongation": 0.646,
+   "flatness": 0.689,
+   "structures": 44,
+   "patterned": 44,
+   "repeatKinds": 7,
+   "repeatMembers": 18,
+   "repeatTop": 4,
+   "topRepeat": {
+    "count": 4,
+    "size": 6,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    9,
+    13,
+    6,
+    16,
+    19,
+    18
+   ],
+   "splits": 3,
+   "splitSize": 6,
+   "worstExcess": -143.764,
+   "hash": "7095e334"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 1,
+   "geometry": 0,
+   "temperature": 0.0172,
+   "bondedShare": 0.789,
+   "groups": 69,
+   "largest": 197,
+   "shapes": {
+    "chain": 0.104,
+    "ring": 0.008,
+    "tree": 0.051,
+    "sheet": 0,
+    "blob": 0.381
+   },
+   "chainLength": 3.57,
+   "elongation": 0.626,
+   "flatness": 0.612,
+   "structures": 28,
+   "patterned": 28,
+   "repeatKinds": 3,
+   "repeatMembers": 10,
+   "repeatTop": 5,
+   "topRepeat": {
+    "count": 5,
+    "size": 5,
+    "kinds": 2,
+    "cls": "tree"
+   },
+   "repeatSeries": [
+    6,
+    6,
+    0,
+    2,
+    12,
+    10
+   ],
+   "splits": 21,
+   "splitSize": 7,
+   "worstExcess": -27.305,
+   "hash": "7a3d2e14"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 2,
+   "geometry": 0,
+   "temperature": 0.0149,
+   "bondedShare": 0.817,
+   "groups": 59,
+   "largest": 635,
+   "shapes": {
+    "chain": 0.105,
+    "ring": 0.003,
+    "tree": 0.023,
+    "sheet": 0.005,
+    "blob": 0.468
+   },
+   "chainLength": 3.52,
+   "elongation": 0.677,
+   "flatness": 0.682,
+   "structures": 14,
+   "patterned": 14,
+   "repeatKinds": 2,
+   "repeatMembers": 4,
+   "repeatTop": 2,
+   "topRepeat": {
+    "count": 2,
+    "size": 5,
+    "kinds": 2,
+    "cls": "tree"
+   },
+   "repeatSeries": [
+    7,
+    8,
+    3,
+    2,
+    6,
+    4
+   ],
+   "splits": 17,
+   "splitSize": 7,
+   "worstExcess": -29.796,
+   "hash": "aeff7be7"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 3,
+   "geometry": 0,
+   "temperature": 0.0171,
+   "bondedShare": 0.817,
+   "groups": 64,
+   "largest": 663,
+   "shapes": {
+    "chain": 0.116,
+    "ring": 0,
+    "tree": 0.033,
+    "sheet": 0,
+    "blob": 0.475
+   },
+   "chainLength": 3.55,
+   "elongation": 0.694,
+   "flatness": 0.76,
+   "structures": 19,
+   "patterned": 19,
+   "repeatKinds": 3,
+   "repeatMembers": 8,
+   "repeatTop": 4,
+   "topRepeat": {
+    "count": 4,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    7,
+    2,
+    0,
+    8,
+    7,
+    8
+   ],
+   "splits": 21,
+   "splitSize": 7,
+   "worstExcess": -32.411,
+   "hash": "215c0427"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 4,
+   "geometry": 0,
+   "temperature": 0.0165,
+   "bondedShare": 0.764,
+   "groups": 79,
+   "largest": 228,
+   "shapes": {
+    "chain": 0.129,
+    "ring": 0.003,
+    "tree": 0.069,
+    "sheet": 0,
+    "blob": 0.337
+   },
+   "chainLength": 3.58,
+   "elongation": 0.71,
+   "flatness": 0.635,
+   "structures": 30,
+   "patterned": 30,
+   "repeatKinds": 2,
+   "repeatMembers": 6,
+   "repeatTop": 4,
+   "topRepeat": {
+    "count": 4,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    4,
+    2,
+    0,
+    2,
+    8,
+    6
+   ],
+   "splits": 21,
+   "splitSize": 6,
+   "worstExcess": -22.799,
+   "hash": "da37ade2"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 1,
+   "geometry": 0,
+   "temperature": 0.0971,
+   "bondedShare": 0.265,
+   "groups": 3,
+   "largest": 367,
+   "shapes": {
+    "chain": 0.002,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0.261
+   },
+   "chainLength": 3,
+   "elongation": 0.215,
+   "flatness": 0.553,
+   "structures": 2,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -80.78,
+   "hash": "ffef60ca"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 2,
+   "geometry": 0,
+   "temperature": 0.0778,
+   "bondedShare": 0.271,
+   "groups": 3,
+   "largest": 326,
+   "shapes": {
+    "chain": 0,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0.263
+   },
+   "chainLength": 0,
+   "elongation": 0.356,
+   "flatness": 0.308,
+   "structures": 3,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -71.505,
+   "hash": "30544ed6"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 3,
+   "geometry": 0,
+   "temperature": 0.0942,
+   "bondedShare": 0.276,
+   "groups": 2,
+   "largest": 364,
+   "shapes": {
+    "chain": 0,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0.275
+   },
+   "chainLength": 0,
+   "elongation": 0.701,
+   "flatness": 0.316,
+   "structures": 2,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -81.132,
+   "hash": "9107b1f0"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 4,
+   "geometry": 0,
+   "temperature": 0.0884,
+   "bondedShare": 0.284,
+   "groups": 2,
+   "largest": 394,
+   "shapes": {
+    "chain": 0,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0,
+    "blob": 0.281
+   },
+   "chainLength": 0,
+   "elongation": 0.271,
+   "flatness": 0.435,
+   "structures": 2,
+   "patterned": 0,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": null,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "splitSize": 0,
+   "worstExcess": -84.128,
+   "hash": "b664d28a"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 1,
+   "geometry": 0,
+   "temperature": 0.0002,
+   "bondedShare": 0.83,
+   "groups": 20,
+   "largest": 548,
+   "shapes": {
+    "chain": 0.015,
+    "ring": 0,
+    "tree": 0,
+    "sheet": 0.114,
+    "blob": 0.691
+   },
+   "chainLength": 3.67,
+   "elongation": 0.658,
+   "flatness": 0.4,
+   "structures": 15,
+   "patterned": 15,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 26,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 3,
+   "splitSize": 9,
+   "worstExcess": -151.3,
+   "hash": "8131effb"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 2,
+   "geometry": 0,
+   "temperature": 0.0006,
+   "bondedShare": 0.827,
+   "groups": 23,
+   "largest": 436,
+   "shapes": {
+    "chain": 0.015,
+    "ring": 0,
+    "tree": 0.009,
+    "sheet": 0,
+    "blob": 0.779
+   },
+   "chainLength": 3.29,
+   "elongation": 0.607,
+   "flatness": 0.438,
+   "structures": 15,
+   "patterned": 15,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 436,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    7,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 6,
+   "splitSize": 8,
+   "worstExcess": -124.311,
+   "hash": "5ba3b105"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 3,
+   "geometry": 0,
+   "temperature": 0.0002,
+   "bondedShare": 0.814,
+   "groups": 23,
+   "largest": 585,
+   "shapes": {
+    "chain": 0.01,
+    "ring": 0,
+    "tree": 0.03,
+    "sheet": 0,
+    "blob": 0.753
+   },
+   "chainLength": 3,
+   "elongation": 0.625,
+   "flatness": 0.513,
+   "structures": 16,
+   "patterned": 16,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatTop": 0,
+   "topRepeat": {
+    "count": 1,
+    "size": 585,
+    "kinds": 2,
+    "cls": "blob"
+   },
+   "repeatSeries": [
+    4,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 8,
+   "splitSize": 7,
+   "worstExcess": -123.486,
+   "hash": "69866534"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 4,
+   "geometry": 0,
+   "temperature": 0.0002,
+   "bondedShare": 0.845,
+   "groups": 19,
+   "largest": 611,
+   "shapes": {
+    "chain": 0.018,
+    "ring": 0,
+    "tree": 0.011,
+    "sheet": 0,
+    "blob": 0.804
+   },
+   "chainLength": 3,
+   "elongation": 0.642,
+   "flatness": 0.626,
+   "structures": 9,
+   "patterned": 9,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatTop": 2,
+   "topRepeat": {
+    "count": 2,
+    "size": 6,
+    "kinds": 2,
+    "cls": "tree"
+   },
+   "repeatSeries": [
+    14,
+    3,
+    0,
+    0,
+    0,
+    2
+   ],
+   "splits": 11,
+   "splitSize": 6,
+   "worstExcess": -136.905,
+   "hash": "3fac7287"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 1,
+   "geometry": 0,
+   "temperature": 0.0625,
+   "bondedShare": 0.858,
+   "groups": 83,
+   "largest": 192,
+   "shapes": {
+    "chain": 0.137,
+    "ring": 0.003,
+    "tree": 0.042,
+    "sheet": 0.005,
+    "blob": 0.523
+   },
+   "chainLength": 3.73,
+   "elongation": 0.616,
+   "flatness": 0.639,
+   "structures": 38,
+   "patterned": 35,
+   "repeatKinds": 4,
+   "repeatMembers": 12,
+   "repeatTop": 4,
+   "topRepeat": {
+    "count": 4,
+    "size": 6,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    10,
+    2,
+    10,
+    7,
+    5,
+    12
+   ],
+   "splits": 18,
+   "splitSize": 7,
+   "worstExcess": -103.907,
+   "hash": "a8db02ea"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 2,
+   "geometry": 0,
+   "temperature": 0.0651,
+   "bondedShare": 0.863,
+   "groups": 73,
+   "largest": 407,
+   "shapes": {
+    "chain": 0.125,
+    "ring": 0.003,
+    "tree": 0.037,
+    "sheet": 0.006,
+    "blob": 0.574
+   },
+   "chainLength": 3.67,
+   "elongation": 0.629,
+   "flatness": 0.66,
+   "structures": 28,
+   "patterned": 24,
+   "repeatKinds": 2,
+   "repeatMembers": 6,
+   "repeatTop": 4,
+   "topRepeat": {
+    "count": 4,
+    "size": 6,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    15,
+    4,
+    7,
+    2,
+    11,
+    6
+   ],
+   "splits": 15,
+   "splitSize": 9,
+   "worstExcess": -109.608,
+   "hash": "9b7762ac"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 3,
+   "geometry": 0,
+   "temperature": 0.0615,
+   "bondedShare": 0.879,
+   "groups": 61,
+   "largest": 502,
+   "shapes": {
+    "chain": 0.1,
+    "ring": 0.003,
+    "tree": 0.019,
+    "sheet": 0,
+    "blob": 0.621
+   },
+   "chainLength": 3.58,
+   "elongation": 0.504,
+   "flatness": 0.62,
+   "structures": 23,
+   "patterned": 20,
+   "repeatKinds": 1,
+   "repeatMembers": 4,
+   "repeatTop": 4,
+   "topRepeat": {
+    "count": 4,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    8,
+    4,
+    10,
+    0,
+    4,
+    4
+   ],
+   "splits": 16,
+   "splitSize": 7,
+   "worstExcess": -102.252,
+   "hash": "85cea2f7"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 4,
+   "geometry": 0,
+   "temperature": 0.0672,
+   "bondedShare": 0.855,
+   "groups": 68,
+   "largest": 319,
+   "shapes": {
+    "chain": 0.136,
+    "ring": 0.003,
+    "tree": 0.02,
+    "sheet": 0,
+    "blob": 0.576
+   },
+   "chainLength": 4,
+   "elongation": 0.605,
+   "flatness": 0.658,
+   "structures": 30,
+   "patterned": 26,
+   "repeatKinds": 4,
+   "repeatMembers": 11,
+   "repeatTop": 5,
+   "topRepeat": {
+    "count": 5,
+    "size": 5,
+    "kinds": 2,
+    "cls": "chain"
+   },
+   "repeatSeries": [
+    8,
+    2,
+    9,
+    4,
+    12,
+    11
+   ],
+   "splits": 11,
+   "splitSize": 7,
+   "worstExcess": -110.45,
+   "hash": "dfb1a517"
+  }
+ ]
+}
