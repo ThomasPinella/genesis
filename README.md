@@ -10,3 +10,10 @@ A simulated universe built from simple primitives, to see what emerges.
   bonds have direction. Do chains, rings and sheets form, and does any shape assemble copies of itself?
 - [Experiment 4: Face chemistry](experiments/04-face-chemistry/): each face of a particle gets its own
   chemistry, so a chain's spine and its sides can bond differently. Can a chain act as a mold for a copy of itself?
+
+## Series B
+
+A second series that keeps only polarity and energy flow: no attention, no genome.
+
+- [B1: The polar soup](series-b/b1-soup/): balls with four + or − spots, cooling slowly. Do they build
+  small shapes that repeat, one big net, or a crystal?

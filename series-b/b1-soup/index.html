@@ -1,0 +1,309 @@
+<meta charset="utf-8">
+<title>Genesis B1 Polar Soup</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;700&family=Chivo+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: the soup fills the screen; one instrument panel floats on the left. Single dark look by choice. */
+  :root {
+    --void: #080a10;
+    --panel: rgba(13, 16, 24, 0.88);
+    --line: rgba(170, 182, 214, 0.16);
+    --ink: #e8e9ee;
+    --quiet: #8f95a8;
+    --plus: #ff7a59;
+    --minus: #4fb3ff;
+    --body: #d9d4c7;
+    --ui: "Chivo", "Helvetica Neue", Arial, sans-serif;
+    --mono: "Chivo Mono", ui-monospace, Menlo, monospace;
+    color-scheme: dark;
+  }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--void); color: var(--ink); font-family: var(--ui); font-size: 14px; overflow: hidden; }
+  #world { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+  .panel {
+    position: fixed; z-index: 2;
+    top: calc(12px + env(safe-area-inset-top, 0px));
+    left: max(12px, env(safe-area-inset-left, 0px));
+    width: 320px; max-width: calc(100% - 24px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+    max-height: calc(100% - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    overflow-y: auto; box-sizing: border-box;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 16px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--plus); margin: 0; }
+  h1 { font-size: 22px; font-weight: 700; margin: 2px 0 0; text-wrap: balance; }
+  h2 { font-size: 13px; font-weight: 600; margin: 0; letter-spacing: 0.04em; text-transform: uppercase; color: var(--quiet); }
+  p { margin: 0; line-height: 1.5; color: var(--quiet); }
+  p b { color: var(--ink); font-weight: 600; }
+  .plus { color: var(--plus); } .minus { color: var(--minus); }
+  .readout { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; }
+  .readout span:nth-child(odd) { color: var(--quiet); }
+  .readout span:nth-child(even) { text-align: right; }
+  canvas.chart { width: 100%; height: 110px; display: block; }
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-family: var(--mono); font-size: 11px; color: var(--quiet); }
+  .legend i { display: inline-block; width: 10px; height: 2px; vertical-align: middle; margin-right: 5px; }
+  .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .controls label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--quiet); }
+  .controls .wide { grid-column: 1 / -1; }
+  select, button, input[type=range] { font: inherit; font-size: 13px; }
+  select, button { background: rgba(255,255,255,0.05); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; }
+  button { cursor: pointer; }
+  button:hover, select:hover { border-color: var(--quiet); }
+  button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--minus); outline-offset: 1px; }
+  input[type=range] { width: 100%; accent-color: var(--plus); }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .row button { flex: 1; }
+  .check { flex-direction: row !important; align-items: center; gap: 8px !important; }
+  details { border-top: 1px solid var(--line); padding-top: 12px; }
+  summary { cursor: pointer; font-weight: 600; font-size: 14px; }
+  details[open] summary { margin-bottom: 10px; }
+  .findings { display: flex; flex-direction: column; gap: 10px; }
+  .findings ul { margin: 0; padding-left: 18px; color: var(--quiet); line-height: 1.5; display: flex; flex-direction: column; gap: 6px; }
+  .findings li b { color: var(--ink); font-weight: 600; }
+  .hint { font-size: 12px; }
+  @media (max-width: 480px) { .panel { max-height: 55%; } }
+</style>
+
+<canvas id="world"></canvas>
+<aside class="panel">
+  <div>
+    <p class="eyebrow">Genesis series B · experiment B1</p>
+    <h1>The polar soup</h1>
+  </div>
+  <p>Each ball has four spots, each <b class="plus">+</b> or <b class="minus">−</b>. Opposite spots pull together, like spots push apart, and balls cannot overlap. Nothing else. The soup starts hot and slowly cools. <b>As it cools, does it build many small shapes that repeat, one big tangled net, or a crystal?</b></p>
+
+  <div class="readout" id="readout"></div>
+  <div>
+    <canvas class="chart" id="chart"></canvas>
+    <div class="legend">
+      <span><i style="background: var(--body)"></i>temperature</span>
+      <span><i style="background: var(--plus)"></i>kinds of small group</span>
+      <span><i style="background: var(--minus)"></i>biggest group share</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <button id="play" type="button">Pause</button>
+    <button id="reheat" type="button">Reheat</button>
+    <button id="restart" type="button">Restart</button>
+  </div>
+  <div class="controls">
+    <label>Kinds of ball
+      <select id="mix">
+        <option value="random">All five kinds</option>
+        <option value="water">Only two + two −</option>
+        <option value="pairs">Three + or three −</option>
+      </select>
+    </label>
+    <label>Crowding
+      <select id="density">
+        <option value="0.3">Crowded</option>
+        <option value="0.05">Sparse</option>
+      </select>
+    </label>
+    <label class="wide">Cooling <input id="drag" type="range" min="0" max="0.03" step="0.001" value="0.01"></label>
+    <label class="wide">Speed <input id="speed" type="range" min="1" max="20" step="1" value="8"></label>
+    <label class="wide check"><input id="repeats" type="checkbox" checked> Color groups that appear more than once</label>
+    <label class="wide check"><input id="spots" type="checkbox" checked> Show spots</label>
+    <label class="wide check"><input id="lone" type="checkbox"> Hide balls with no bonds</label>
+  </div>
+  <p class="hint">Drag to turn, scroll or pinch to zoom. Lines are bonds between opposite spots.</p>
+
+  <details id="findingsBox" open>
+    <summary>What 27 soups showed</summary>
+    <div class="findings" id="findings"></div>
+  </details>
+</aside>
+
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+  import { Sim, SPOTS, RADIUS } from './sim.js';
+
+  const $ = (id) => document.getElementById(id);
+  const css = getComputedStyle(document.documentElement);
+  const C = (name) => new THREE.Color(css.getPropertyValue(name).trim());
+  const PLUS = C('--plus'), MINUS = C('--minus'), BODY = C('--body');
+  const N = 1000;
+
+  const renderer = new THREE.WebGLRenderer({ canvas: $('world'), antialias: true });
+  renderer.setPixelRatio(Math.min(2, devicePixelRatio));
+  const scene = new THREE.Scene();
+  scene.background = C('--void');
+  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 500);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x223044, 1.6));
+  const sun = new THREE.DirectionalLight(0xffffff, 1.4);
+  sun.position.set(1, 2, 1.5);
+  scene.add(sun);
+
+  let sim, bodies, spots, bondLines, boxLines, running = true, frame = 0, history = [], groupColor = null, alone = null;
+
+  function build() {
+    const p = { n: N, mix: $('mix').value, density: +$('density').value, drag: +$('drag').value, seed: 1 + Math.floor(Math.random() * 1e6) };
+    sim = new Sim(p);
+    history = [];
+    groupColor = null;
+    for (const o of [bodies, spots, bondLines, boxLines]) if (o) { scene.remove(o); o.geometry.dispose(); }
+    bodies = new THREE.InstancedMesh(new THREE.SphereGeometry(RADIUS * 0.92, 18, 12), new THREE.MeshStandardMaterial({ roughness: 0.7 }), N);
+    spots = new THREE.InstancedMesh(new THREE.SphereGeometry(0.13, 10, 8), new THREE.MeshStandardMaterial({ roughness: 0.4, emissiveIntensity: 0.35 }), N * SPOTS);
+    for (let k = 0; k < N * SPOTS; k++) spots.setColorAt(k, sim.sign[k] > 0 ? PLUS : MINUS);
+    bondLines = new THREE.LineSegments(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.75 }));
+    const L = sim.L;
+    boxLines = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(L, L, L)), new THREE.LineBasicMaterial({ color: 0x8f95a8, transparent: true, opacity: 0.25 }));
+    boxLines.position.set(L / 2, L / 2, L / 2);
+    scene.add(bodies, spots, bondLines, boxLines);
+    controls.target.set(L / 2, L / 2, L / 2);
+    camera.position.set(L * 1.9, L * 1.3, L * 2.1);
+    census();
+    draw();
+  }
+
+  // Colors for repeated group kinds: a hue from the group's name, so the same kind always looks the same.
+  function hueOf(sig) { let h = 0; for (const c of sig) h = (h * 31 + c.charCodeAt(0)) >>> 0; return (h % 360) / 360; }
+
+  let last = null;
+  function census() {
+    const c = sim.census();
+    last = c;
+    const counts = new Map();
+    for (const g of c.groups) if (g.size >= 2 && g.size <= 40) counts.set(g.sig, (counts.get(g.sig) || 0) + 1);
+    groupColor = new Array(N).fill(null);
+    alone = new Uint8Array(N);
+    for (const g of c.groups) {
+      if (g.size === 1) alone[g.members[0]] = 1;
+      if (g.size >= 2 && g.size <= 40 && counts.get(g.sig) >= 2) {
+        const col = new THREE.Color().setHSL(hueOf(g.sig), 0.65, 0.6);
+        for (const i of g.members) groupColor[i] = col;
+      }
+    }
+    history.push({ T: c.temperature, kinds: c.clusterKinds, largest: c.largest });
+    if (history.length > 400) history.shift();
+    const pct = (x) => (100 * x).toFixed(0) + '%';
+    $('readout').innerHTML = [
+      ['time', (sim.time).toFixed(0)],
+      ['temperature', c.temperature.toFixed(3)],
+      ['bonds per ball', c.bondsPerParticle.toFixed(2) + ' of 2'],
+      ['balls still alone', pct(c.singles)],
+      ['biggest group', pct(c.largest) + ' of all balls'],
+      ['kinds of small group', c.clusterKinds],
+      ['kinds seen twice or more', c.repeatedKinds],
+      ['spots holding two partners', c.spotsDoubled ? (100 * c.spotsDoubled).toFixed(2) + '%' : 'none'],
+    ].map(([k, v]) => `<span>${k}</span><span>${v}</span>`).join('');
+    drawChart();
+  }
+
+  function drawChart() {
+    const cv = $('chart'), ctx = cv.getContext('2d');
+    const w = cv.clientWidth, h = cv.clientHeight;
+    cv.width = w * devicePixelRatio; cv.height = h * devicePixelRatio;
+    ctx.scale(devicePixelRatio, devicePixelRatio);
+    ctx.clearRect(0, 0, w, h);
+    ctx.strokeStyle = 'rgba(170,182,214,0.12)';
+    for (let k = 1; k < 4; k++) { ctx.beginPath(); ctx.moveTo(0, h * k / 4); ctx.lineTo(w, h * k / 4); ctx.stroke(); }
+    if (history.length < 2) return;
+    const T0 = Math.max(...history.map((p) => p.T)), K0 = Math.max(10, ...history.map((p) => p.kinds));
+    const line = (f, color) => {
+      ctx.strokeStyle = color; ctx.lineWidth = 1.6; ctx.beginPath();
+      history.forEach((p, k) => { const x = (k / (history.length - 1)) * w, y = h - 4 - f(p) * (h - 8); k ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
+      ctx.stroke();
+    };
+    line((p) => p.T / T0, css.getPropertyValue('--body'));
+    line((p) => p.kinds / K0, css.getPropertyValue('--plus'));
+    line((p) => p.largest, css.getPropertyValue('--minus'));
+  }
+
+  const m4 = new THREE.Matrix4(), v3 = new THREE.Vector3(), q4 = new THREE.Quaternion(), one = new THREE.Vector3(1, 1, 1), none = new THREE.Vector3(0, 0, 0), tmp = new THREE.Color();
+  function draw() {
+    const { pos, spot } = sim;
+    const showSpots = $('spots').checked, colorRepeats = $('repeats').checked, hideLone = $('lone').checked;
+    for (let i = 0; i < N; i++) {
+      const hidden = hideLone && alone && alone[i];
+      v3.set(pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]);
+      m4.compose(v3, q4, hidden ? none : one);
+      bodies.setMatrixAt(i, m4);
+      bodies.setColorAt(i, colorRepeats && groupColor && groupColor[i] ? groupColor[i] : tmp.copy(BODY).multiplyScalar(0.55));
+      for (let a = 0; a < SPOTS; a++) {
+        const o = (i * SPOTS + a) * 3;
+        v3.set(pos[i * 3] + spot[o], pos[i * 3 + 1] + spot[o + 1], pos[i * 3 + 2] + spot[o + 2]);
+        m4.compose(v3, q4, showSpots && !hidden ? one : none);
+        spots.setMatrixAt(i * SPOTS + a, m4);
+      }
+    }
+    bodies.instanceMatrix.needsUpdate = true; bodies.instanceColor.needsUpdate = true;
+    spots.instanceMatrix.needsUpdate = true; spots.instanceColor.needsUpdate = true;
+    // Bonds: a line from ball to ball, skipped where it crosses the wrapped edge of the box.
+    if (last) {
+      const pts = [];
+      for (const [i, , j] of last.bondList) {
+        const dx = pos[j * 3] - pos[i * 3], dy = pos[j * 3 + 1] - pos[i * 3 + 1], dz = pos[j * 3 + 2] - pos[i * 3 + 2];
+        if (dx * dx + dy * dy + dz * dz > 4) continue;
+        pts.push(pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2], pos[j * 3], pos[j * 3 + 1], pos[j * 3 + 2]);
+      }
+      bondLines.geometry.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+    }
+  }
+
+  function resize() {
+    const w = innerWidth, h = innerHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+  }
+  addEventListener('resize', resize);
+
+  function loop() {
+    requestAnimationFrame(loop);
+    if (running) {
+      const steps = +$('speed').value;
+      for (let k = 0; k < steps; k++) sim.step();
+      frame++;
+      if (frame % 6 === 0) census();
+      draw();
+    }
+    controls.update();
+    renderer.render(scene, camera);
+  }
+
+  $('play').onclick = () => { running = !running; $('play').textContent = running ? 'Pause' : 'Play'; };
+  $('restart').onclick = build;
+  $('mix').onchange = build;
+  $('density').onchange = build;
+  $('drag').oninput = () => { sim.p.drag = +$('drag').value; };
+  $('repeats').onchange = draw;
+  $('spots').onchange = draw;
+  $('lone').onchange = draw;
+  // Reheat: give every ball a kick back to the starting temperature, scaled from its own motion.
+  $('reheat').onclick = () => {
+    const f = Math.sqrt(0.5 / Math.max(1e-6, sim.temperature()));
+    for (let k = 0; k < sim.vel.length; k++) { sim.vel[k] *= f; sim.L3[k] *= f; }
+  };
+
+  $('findings').innerHTML = document.getElementById('findingsText').innerHTML;
+
+  resize();
+  build();
+  loop();
+</script>
+<template id="findingsText">
+  <p><b>Answer: one big tangled net.</b> Every soup that cooled slowly enough ended with most balls joined into a single net. It is not a crystal: balls use about 1.6 of their 2 possible bonds, so the net is full of loose spots and has no regular pattern.</p>
+  <ul>
+    <li><b>A short window of variety.</b> Just before the net forms (temperature near 0.12 in a crowded soup) there are up to 100 different kinds of small group at once: pairs, chains, branches, little cages.</li>
+    <li><b>Nothing in the window lasts.</b> At that temperature only 22 to 36% of small groups are still intact 500 ticks later. Groups keep forming and breaking until they all fall into the net.</li>
+    <li><b>Groups carry leftover spots.</b> A pair might show four open + spots and two open − spots, so it acts like a bigger spotted ball. That is the level-stacking idea working, but the bigger "balls" join the net too.</li>
+    <li><b>Freezing fast keeps the variety, dead.</b> A sparse soup cooled quickly locks about 90 kinds of small group in place, including 37 groups that close into loops. They last only because nothing moves.</li>
+    <li><b>Without cooling, nothing forms.</b> A sealed box stays hot and 94% of balls stay alone.</li>
+    <li><b>The rules held.</b> At most 0.2% of spots ever held two partners, and energy plus heat removed stayed within 0.4% of the start.</li>
+  </ul>
+  <p><b>What it means for B2:</b> polarity alone gives either a hot soup where nothing lasts or a cold net where everything sticks. The interesting middle exists but slips by. Flow has to hold the world in that middle, breaking weak bonds while strong structures survive.</p>
+</template>
