@@ -74,3 +74,33 @@ the World map panel), plus template probes (`template-results.json`).
 Rerun the sweep with `PARTIAL=partial.jsonl node tools/sweep.mjs > sweep-results.json` (it saves
 each world as it finishes, so a stopped run resumes; add the experiment 3 rows as `control` for
 the map). The probe: `CODE=1 FEED=120 NOISE=0.06 LAWLIST=62 node tools/template.mjs`.
+
+## Cheap checks toward multiplying
+
+Three routes to multiplying might already be half there in this world, with no new rule. The
+probes above test one of them (templating). `tools/checks.mjs` watches 48 ordinary worlds (12 laws
+× 4 starts, 4,000 ticks) for the other two, and for whether a group's state carries its shape. It
+only watches. Results are in `checks-results.json`.
+
+- **Groups split all the time, but the halves don't inherit anything beyond chance.** There were
+  19,167 splits of groups of 8 or more. Each half's mix of elements is as close to the parent's as
+  a random handful drawn from the parent would be (0.70 to 0.92 alike, against 0.75 to 0.92 for
+  the random handful), and no closer. Most halves dissolve or rejoin. In 526 splits (3%) both
+  halves later sit in separate groups at least three quarters of the parent's size with nearly
+  its mix, mostly in laws 5, 7 and 11, where a random handful already matches the parent at 0.86
+  to 0.90; that looks like the world sorting into groups of one element rather than lineages.
+- **Groups don't recruit.** Of 47,668 particles that joined a group of another element and stayed
+  for 200 ticks, 50 turned into the group's element, and 40 of those were unsettled genomes in law
+  12 that settled. Once a genome sits in its element's valley, its neighbors' pull doesn't move it
+  out; the `depth` setting (how deep the valleys are) is what would change that.
+- **A group's members speak with one voice, but not in a way that tells arrangements apart.**
+  Within each element, which group a particle belongs to explains about 80% of the spread in its
+  fast state (30 to 70% by chance), so bonded particles fall into a shared state. Where a particle
+  sits (chain end or middle) explains almost none of it (at most 9%). The kind of shape matters in
+  law 8 (28%, sheets against the rest) and a little in law 9 (11%). But two groups with the same
+  members arranged differently are hardly further apart in average fast state than two with the
+  same arrangement (law 4 is the clearest gap, 0.46 against 0.34; laws 9 and 12 go the other way):
+  identical structures settle into quite different shared states, depending on their history. So a coarse-grained blend would see makeup and a group's own state, which works like a
+  memory, but not its arrangement.
+
+Rerun with `WORLDS=1,2,3,4 PARTIAL=partial.jsonl node tools/checks.mjs > checks-results.json`.
