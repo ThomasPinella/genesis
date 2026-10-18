@@ -33,6 +33,10 @@ const CODE = process.env.CODE === '1';
 // ISOLATE=1 turns every other particle into the element that bonds least with the chain, to see
 // whether the chain falls apart on its own (heat) or because the soup pulls it apart.
 const ISOLATE = process.env.ISOLATE === '1';
+// FEED=n also frees n building blocks: particles turned into the chain's elements and set loose,
+// at rest, around the chain. In a settled soup almost everything is already bonded, so a chain
+// has nothing to copy itself from; this supplies the raw material.
+const FEED = Number(process.env.FEED) || 0;
 const WORLDS = [1, 2];
 const FACE = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]];
 const OPP = [[0, 1], [2, 3], [4, 5]];
@@ -305,6 +309,27 @@ if (isMainThread) {
       chem.els.forEach((_, x) => { const v = Math.max(...used.map((y) => chem.best[x][y])); if (v < low) { low = v; inert = x; } });
       const keep = new Set(ids);
       for (let i = 0; i < sim.n; i++) if (!keep.has(i)) for (let b = 0; b < S; b++) sim.s[i * D + FAST + b] = chem.els[inert].g[b];
+    }
+    if (FEED) {
+      const r = rng(job.lawSeed * 104729 + job.worldSeed);
+      const letters = [...new Set(laid.map((o) => o.e))];
+      const keep = new Set(ids), c = sim.L / 2;
+      let fed = 0;
+      for (let i = sim.n - 1; i >= 0 && fed < FEED; i -= 7) {
+        if (keep.has(i)) continue;
+        const e = letters[Math.floor(r() * letters.length)];
+        for (let b = 0; b < S; b++) sim.s[i * D + FAST + b] = chem.els[e].g[b];
+        // Somewhere in a slab around the chain, not touching it.
+        let x, y, z;
+        do { x = c + (r() * 2 - 1) * 3; y = c + (r() * 2 - 1) * 2; z = c + (r() * 2 - 1) * 1.5; }
+        while (laid.some((o) => (x - o.pos[0]) ** 2 + (y - o.pos[1]) ** 2 + (z - o.pos[2]) ** 2 < 0.36));
+        sim.pos[i * 3] = x; sim.pos[i * 3 + 1] = y; sim.pos[i * 3 + 2] = z;
+        for (let a = 0; a < 3; a++) { sim.vel[i * 3 + a] = 0; sim.spin[i * 3 + a] = 0; }
+        let w = r() * 2 - 1, qx = r() * 2 - 1, qy = r() * 2 - 1, qz = r() * 2 - 1;
+        const l = Math.hypot(w, qx, qy, qz) || 1;
+        sim.rot.set([w / l, qx / l, qy / l, qz / l], i * 4);
+        fed++;
+      }
     }
     const series = [];
     for (let t = 1; t <= WATCH; t++) {
