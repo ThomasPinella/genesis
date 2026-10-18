@@ -76,12 +76,15 @@ function watch(job) {
       }
       if (e.confirmed && t >= e.t + LATER) {
         const grow = [];
-        for (const half of [e.a, e.b]) {
-          const h = home(half);
-          if (h < 0) { grow.push({ size: 0, alike: null }); continue; }
+        const homes = [home(e.a), home(e.b)];
+        // Halves back in one group have only joined up again, which is not multiplying.
+        e.rejoined = homes[0] >= 0 && homes[0] === homes[1];
+        [e.a, e.b].forEach((half, k) => {
+          const h = homes[k];
+          if (h < 0) { grow.push({ size: 0, alike: null, ofParent: 0 }); return; }
           const g = byRoot.get(h);
-          grow.push({ size: g.size / half.length, alike: alike(mix(g.members, sim.kind, kinds), e.parentMix) });
-        }
+          grow.push({ size: g.size / half.length, ofParent: g.size / e.parent, alike: alike(mix(g.members, sim.kind, kinds), e.parentMix) });
+        });
         e.later = grow;
         splits.push(e);
         pendingSplits.splice(s, 1);
@@ -255,9 +258,13 @@ function watch(job) {
     chanceWorld: round(mean(list.map((e) => e.chanceWorld))),
     chanceParent: round(mean(list.map((e) => e.chanceParent))),
     identical: list.filter((e) => e.same).length,
-    // Halves that, LATER ticks on, are in a group at least 1.5 times their size with a mix still
-    // close to the parent's: a split that multiplied.
-    grewBack: list.reduce((c, e) => c + e.later.filter((h) => h.size >= 1.5 && h.alike !== null && h.alike >= 0.8).length, 0),
+    // LATER ticks on: halves back in one group; halves apart and each in a group at least 1.5
+    // times its size with a mix still close to the parent's; and splits where both halves did
+    // that and each is now at least three quarters of the parent's size, so one group like the
+    // parent became two.
+    rejoined: list.filter((e) => e.rejoined).length,
+    grewBack: list.reduce((c, e) => c + (e.rejoined ? 0 : e.later.filter((h) => h.size >= 1.5 && h.alike !== null && h.alike >= 0.8).length), 0),
+    multiplied: list.filter((e) => !e.rejoined && e.later.every((h) => h.ofParent >= 0.75 && h.alike !== null && h.alike >= 0.8)).length,
     halvesFollowed: list.length * 2,
     gone: list.reduce((c, e) => c + e.later.filter((h) => h.size === 0).length, 0),
   });
@@ -285,7 +292,7 @@ function watch(job) {
     ...job, ticks: TICKS, elements: sim.elements.length,
     splits: sumSplits(confirmed), bigSplits: sumSplits(big),
     convert, shape, blend,
-    examples: big.slice(0, 5).map((e) => ({ t: e.t, parent: e.parent, sizes: e.sizes, cls: e.cls, alike: e.alike.map((v) => round(v)), later: e.later.map((h) => ({ size: round(h.size, 2), alike: round(h.alike) })) })),
+    examples: big.slice(0, 5).map((e) => ({ t: e.t, parent: e.parent, sizes: e.sizes, cls: e.cls, alike: e.alike.map((v) => round(v)), rejoined: e.rejoined, later: e.later.map((h) => ({ size: round(h.size, 2), alike: round(h.alike) })) })),
     hash: sim.hash(),
   };
 }
