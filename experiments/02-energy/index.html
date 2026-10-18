@@ -1,0 +1,756 @@
+<title>Genesis Energy</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap">
+<style>
+  /* Layout: the world fills the screen; a lab panel floats on the left, instruments bottom right. */
+  :root {
+    --void: #07080c;
+    --panel: rgba(14, 16, 24, 0.86);
+    --line: rgba(160, 172, 210, 0.16);
+    --ink: #e4e7f1;
+    --quiet: #8c93a8;
+    --accent: #f0b35a;
+    --cool: #6fc3df;
+    --ok: #7fd49a;
+    --bad: #ef7f7f;
+    --ui: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    color-scheme: dark;
+  }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--void); color: var(--ink); font-family: var(--ui); font-size: 14px; overflow: hidden; }
+  #world { position: fixed; inset: 0; display: block; width: 100%; height: 100%; touch-action: none; }
+
+  .panel {
+    position: fixed; z-index: 2;
+    top: calc(12px + env(safe-area-inset-top, 0px));
+    left: max(12px, env(safe-area-inset-left, 0px));
+    width: 300px; max-height: calc(100% - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    overflow-y: auto; box-sizing: border-box;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 16px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0; }
+  h1 { font-size: 22px; font-weight: 600; margin: 2px 0 0; letter-spacing: 0.01em; text-wrap: balance; }
+  .question { margin: 0; color: var(--quiet); line-height: 1.45; }
+  .question b { color: var(--ink); font-weight: 500; }
+
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  button {
+    font: 500 13px var(--ui); color: var(--ink); background: rgba(255,255,255,0.05);
+    border: 1px solid var(--line); border-radius: 6px; padding: 7px 11px; cursor: pointer;
+  }
+  button:hover { background: rgba(255,255,255,0.1); }
+  button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button.primary { background: var(--accent); color: #1a1205; border-color: transparent; min-width: 72px; }
+  button.primary:hover { background: #f5c47c; }
+
+  fieldset { border: 0; border-top: 1px solid var(--line); margin: 0; padding: 12px 0 0; display: grid; gap: 9px; }
+  legend { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--quiet); padding: 0 6px 0 0; }
+  .field { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 10px; }
+  .field label { color: var(--ink); }
+  .field output { font-family: var(--mono); font-size: 12px; color: var(--quiet); font-variant-numeric: tabular-nums; }
+  .field input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent); margin: 0; }
+  .note { font-size: 12px; color: var(--quiet); margin: -2px 0 0; }
+  .inline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .inline label { display: grid; gap: 4px; font-size: 12px; color: var(--quiet); }
+  input[type=number], select {
+    font: 13px var(--mono); color: var(--ink); background: rgba(255,255,255,0.05);
+    border: 1px solid var(--line); border-radius: 6px; padding: 6px 7px; width: 100%; box-sizing: border-box; min-width: 0;
+  }
+  .check { display: flex; gap: 8px; align-items: center; }
+  .check input { accent-color: var(--accent); }
+
+  .instruments {
+    position: fixed; z-index: 2;
+    right: max(12px, env(safe-area-inset-right, 0px));
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    width: 290px; box-sizing: border-box;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 12px 14px; display: grid; gap: 10px;
+  }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; margin: 0; }
+  .stats div { display: flex; justify-content: space-between; gap: 8px; min-width: 0; }
+  .stats dt { color: var(--quiet); font-size: 12px; }
+  .stats dd { margin: 0; font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; }
+  .spark { width: 100%; height: 64px; display: block; }
+  .legend { display: flex; gap: 14px; font-size: 11px; color: var(--quiet); font-family: var(--mono); }
+  .legend i { display: inline-block; width: 10px; height: 2px; vertical-align: middle; margin-right: 5px; }
+  .fingerprint { display: flex; align-items: center; justify-content: space-between; gap: 8px; border-top: 1px solid var(--line); padding-top: 9px; }
+  .fingerprint code { font-family: var(--mono); font-size: 13px; color: var(--cool); }
+  .fingerprint small { display: block; color: var(--quiet); font-size: 11px; }
+  #replayResult { font-size: 12px; color: var(--quiet); margin: 0; min-height: 1em; }
+  #replayResult.ok { color: var(--ok); }
+  #replayResult.bad { color: var(--bad); }
+
+  .map {
+    position: fixed; z-index: 4;
+    top: calc(12px + env(safe-area-inset-top, 0px));
+    right: max(12px, env(safe-area-inset-right, 0px));
+    width: 460px; max-width: calc(100% - 24px); box-sizing: border-box;
+    max-height: calc(100% - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); overflow-y: auto;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 14px; display: grid; gap: 10px;
+  }
+  .map[hidden], #fallback[hidden] { display: none; }
+  .mapHead { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+  .map h2 { margin: 2px 0 0; font-size: 17px; font-weight: 600; }
+  .mapScroll { overflow-x: auto; }
+  .mapGrid { display: grid; gap: 3px; font-family: var(--mono); font-size: 11px; color: var(--quiet); align-items: center; }
+  .mapGrid .colh, .mapGrid .rowh { text-align: center; font-variant-numeric: tabular-nums; }
+  .mapGrid .rowh { text-align: right; padding-right: 4px; }
+  .cell {
+    min-height: 26px; min-width: 52px; border-radius: 4px; border: 1px solid transparent; padding: 3px;
+    font: 500 10px var(--mono); color: rgba(255,255,255,0.85); cursor: pointer; background: #161a26;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .table { min-height: 26px; display: flex; align-items: center; }
+  .dots { display: flex; flex-wrap: wrap; gap: 3px; justify-content: center; align-items: center; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; box-sizing: border-box; flex: none; }
+  .dot.company { background: transparent !important; border: 2px solid; }
+  .dot.absent { opacity: 0.18; }
+  .mapGrid .recur { text-align: center; color: var(--ink); }
+  .elements { display: flex; flex-wrap: wrap; gap: 4px 10px; font-family: var(--mono); font-size: 11px; color: var(--quiet); min-height: 14px; }
+  .elements span { display: inline-flex; align-items: center; gap: 4px; }
+  .cell:hover { border-color: var(--ink); }
+  .cell.current { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .cell.gas { opacity: 0.55; }
+  .mapKey { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 11px; color: var(--quiet); }
+  .mapKey .dot { display: inline-block; margin-right: 5px; vertical-align: -1px; }
+
+  .toggle { display: none; }
+  #fallback { position: fixed; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--quiet); }
+
+  @media (max-width: 720px) {
+    .toggle {
+      display: block; position: fixed; z-index: 3;
+      top: calc(10px + env(safe-area-inset-top, 0px)); left: max(12px, env(safe-area-inset-left, 0px));
+    }
+    .panel { top: calc(54px + env(safe-area-inset-top, 0px)); width: auto; right: max(12px, env(safe-area-inset-right, 0px)); max-height: 62%; }
+    .panel.collapsed { display: none; }
+    .instruments { left: max(12px, env(safe-area-inset-left, 0px)); width: auto; }
+    .spark { height: 44px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+
+  details.more { border-top: 1px solid var(--line); padding-top: 10px; }
+  details.more summary { cursor: pointer; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--quiet); }
+  details.more[open] summary { margin-bottom: 10px; }
+  details.more fieldset { margin-top: 4px; }
+  .roles { display: grid; gap: 5px; font-size: 12px; }
+  .roles .head { color: var(--quiet); font-size: 11px; font-family: var(--mono); }
+  .role { display: grid; grid-template-columns: 12px 64px 40px 1fr; gap: 8px; align-items: center; }
+  .role b { font-weight: 500; }
+  .role .n { font-family: var(--mono); color: var(--quiet); font-size: 11px; text-align: right; }
+  .bar { height: 7px; border-radius: 4px; background: rgba(255,255,255,0.06); display: flex; overflow: hidden; }
+  .bar i { display: block; height: 100%; }
+  .bar .l { background: var(--accent); }
+  .bar .e { background: var(--bad); }
+  .bar .m { background: var(--cool); }
+  .cellRoles { display: flex; flex-wrap: wrap; gap: 2px 5px; justify-content: center; align-items: center; }
+  .cellRoles span { display: inline-flex; align-items: center; gap: 2px; font: 500 10px var(--mono); color: var(--ink); }
+  .mapGrid .web { text-align: center; color: var(--ink); }
+  .instruments { width: 310px; }
+</style>
+
+<canvas id="world" aria-label="3D view of the simulated particles under a moving sun"></canvas>
+<div id="fallback" hidden></div>
+
+<button class="toggle" id="togglePanel" aria-expanded="true" aria-controls="panel">Controls</button>
+
+<aside class="panel" id="panel">
+  <div>
+    <p class="eyebrow">Genesis &middot; Experiment 2</p>
+    <h1>Energy</h1>
+  </div>
+  <p class="question">The world of experiment 1, now with a sun. Light comes down from the ceiling in a band that sweeps across the world, so every place gets day and night. Particles absorb it by how well they match its color, eat from whatever they attend to, and spend what they store pushing themselves around. <b>Do absorbers, eaters, foraging and driven patterns appear?</b> Color shows the element; brighter means more stored energy.</p>
+
+  <div class="row">
+    <button class="primary" id="run" type="button">Pause</button>
+    <button id="stepOnce" type="button">Step</button>
+    <button id="restart" type="button">Restart</button>
+    <button id="newWorld" type="button">New world</button>
+    <button id="openMap" type="button" aria-controls="map" aria-expanded="false">World map</button>
+  </div>
+
+  <fieldset>
+    <legend>Universe</legend>
+    <div class="inline">
+      <label for="worldSeed">World seed<input id="worldSeed" type="number" min="1" step="1" value="1"></label>
+      <label for="lawSeed">Law seed<input id="lawSeed" type="number" min="1" step="1" value="8"></label>
+      <label for="n">Particles
+        <select id="n">
+          <option value="1000">1,000</option>
+          <option value="1500" selected>1,500</option>
+          <option value="2000">2,000</option>
+          <option value="3000">3,000</option>
+        </select>
+      </label>
+    </div>
+    <p class="note">The law seed picks the physics, including the light's color. The world seed picks the starting conditions. These restart the universe.</p>
+    <div class="field">
+      <label for="heat">Starting heat</label><output for="heat" id="heatOut"></output>
+      <input id="heat" type="range" min="0" max="4" step="0.1" value="2">
+    </div>
+    <div class="field">
+      <label for="spread">Starting genome range</label><output for="spread" id="spreadOut"></output>
+      <input id="spread" type="range" min="0" max="4" step="0.1" value="2.5">
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Sun and energy</legend>
+    <div class="field">
+      <label for="sun">Sunlight at noon</label><output for="sun" id="sunOut"></output>
+      <input id="sun" type="range" min="0" max="40" step="0.5" value="12">
+    </div>
+    <div class="field">
+      <label for="day">Length of a day (ticks)</label><output for="day" id="dayOut"></output>
+      <input id="day" type="range" min="200" max="4000" step="100" value="1000">
+    </div>
+    <div class="field">
+      <label for="absorb">Most a particle can absorb</label><output for="absorb" id="absorbOut"></output>
+      <input id="absorb" type="range" min="0" max="1" step="0.01" value="0.5">
+    </div>
+    <div class="field">
+      <label for="eatRate">Eating rate</label><output for="eatRate" id="eatRateOut"></output>
+      <input id="eatRate" type="range" min="0" max="3" step="0.05" value="0.5">
+    </div>
+    <div class="field">
+      <label for="eatGain">Share of food kept</label><output for="eatGain" id="eatGainOut"></output>
+      <input id="eatGain" type="range" min="0" max="1" step="0.01" value="0.5">
+    </div>
+    <div class="field">
+      <label for="leak">Cost of existing (leak)</label><output for="leak" id="leakOut"></output>
+      <input id="leak" type="range" min="0" max="0.5" step="0.005" value="0.05">
+    </div>
+    <div class="field">
+      <label for="thrust">Strongest self-push</label><output for="thrust" id="thrustOut"></output>
+      <input id="thrust" type="range" min="0" max="6" step="0.1" value="2">
+    </div>
+    <div class="field">
+      <label for="efficiency">Pushing efficiency</label><output for="efficiency" id="efficiencyOut"></output>
+      <input id="efficiency" type="range" min="0.05" max="1" step="0.01" value="0.7">
+    </div>
+  </fieldset>
+
+  <details class="more">
+    <summary>Experiment 1 physics</summary>
+    <fieldset>
+      <legend>Live physics</legend>
+      <div class="field">
+        <label for="drag">Drag (heat sink)</label><output for="drag" id="dragOut"></output>
+        <input id="drag" type="range" min="0" max="0.5" step="0.005" value="0.08">
+      </div>
+      <div class="field">
+        <label for="attraction">Match force</label><output for="attraction" id="attractionOut"></output>
+        <input id="attraction" type="range" min="0" max="5" step="0.05" value="1.5">
+      </div>
+      <div class="field">
+        <label for="sharpness">Attention sharpness</label><output for="sharpness" id="sharpnessOut"></output>
+        <input id="sharpness" type="range" min="0" max="5" step="0.05" value="1.5">
+      </div>
+      <div class="field">
+        <label for="depth">Valley depth</label><output for="depth" id="depthOut"></output>
+        <input id="depth" type="range" min="0" max="10" step="0.1" value="2">
+      </div>
+      <div class="field">
+        <label for="genomeRate">Genome drift rate</label><output for="genomeRate" id="genomeRateOut"></output>
+        <input id="genomeRate" type="range" min="0" max="1" step="0.01" value="0.2">
+      </div>
+      <div class="field">
+        <label for="stateRate">State change rate</label><output for="stateRate" id="stateRateOut"></output>
+        <input id="stateRate" type="range" min="0" max="0.5" step="0.005" value="0.1">
+      </div>
+      <div class="field">
+        <label for="noise">Noise</label><output for="noise" id="noiseOut"></output>
+        <input id="noise" type="range" min="0" max="1" step="0.01" value="0">
+      </div>
+      <p class="note">Noise is off by default. When on, it is drawn from the world seed, so runs still replay exactly.</p>
+    </fieldset>
+  </details>
+
+  <fieldset>
+    <legend>View</legend>
+    <div class="field">
+      <label for="speed">Ticks per frame</label><output for="speed" id="speedOut"></output>
+      <input id="speed" type="range" min="1" max="24" step="1" value="8">
+    </div>
+    <label class="check" for="showBonds"><input id="showBonds" type="checkbox"> Show bonds</label>
+    <label class="check" for="spin"><input id="spin" type="checkbox" checked> Slowly rotate</label>
+  </fieldset>
+</aside>
+
+<section class="map" id="map" hidden aria-label="World map">
+  <div class="mapHead">
+    <div>
+      <p class="eyebrow">World map</p>
+      <h2>What lives on what</h2>
+    </div>
+    <button id="closeMap" type="button" aria-label="Close the world map">Close</button>
+  </div>
+  <p class="note" id="mapNote">Each row is one law and each square one start, run headlessly for four days (4,000 ticks) with 1,500 particles. A square shows what each element lived on over the last two days. Click a square to load it.</p>
+  <div class="mapScroll"><div class="mapGrid" id="mapGrid"></div></div>
+  <div class="mapKey">
+    <span><b style="color: var(--ink)">A</b> absorber: lives on light</span>
+    <span><b style="color: var(--ink)">E</b> eater: lives on others</span>
+    <span><b style="color: var(--ink)">M</b> mixed</span>
+    <span><b style="color: var(--ink)">&middot;</b> inert: gets almost nothing</span>
+    <span><i class="dot company" style="border-color: #8c93a8"></i>everything not settled into a law element</span>
+    <span><b style="color: var(--ink)">Food web</b>: starts with both absorbers and eaters</span>
+  </div>
+</section>
+
+<section class="instruments" aria-label="Measurements">
+  <dl class="stats">
+    <div><dt>Day</dt><dd id="sDay">0</dd></div>
+    <div><dt>Temperature</dt><dd id="sTemp">-</dd></div>
+    <div><dt>Bonded</dt><dd id="sBonded">-</dd></div>
+    <div><dt>Groups (3+)</dt><dd id="sGroups">-</dd></div>
+    <div><dt>Elements</dt><dd id="sElements">-</dd></div>
+    <div><dt>Stored</dt><dd id="sStored">-</dd></div>
+    <div><dt>Light in</dt><dd id="sLight">-</dd></div>
+    <div><dt>Books</dt><dd id="sBooks">-</dd></div>
+  </dl>
+  <div class="roles" id="roles" aria-live="polite"><div class="head">Measuring what each element lives on&hellip;</div></div>
+  <canvas class="spark" id="spark" aria-label="Temperature, stored energy and light income over time"></canvas>
+  <div class="legend"><span><i style="background: var(--accent)"></i>light in</span><span><i style="background: var(--cool)"></i>temperature</span><span><i style="background: var(--ok)"></i>stored</span></div>
+  <div class="fingerprint">
+    <div><small>World fingerprint &middot; tick <span id="sTick">0</span></small><code id="sHash">--------</code></div>
+    <button id="verify" type="button">Verify replay</button>
+  </div>
+  <p id="replayResult" aria-live="polite"></p>
+</section>
+
+<script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  } }
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+  import { Sim, D, FAST } from './sim.js';
+
+  const $ = (id) => document.getElementById(id);
+  const RESTART_KEYS = ['worldSeed', 'lawSeed', 'n', 'heat', 'spread'];
+  const LIVE_KEYS = ['sun', 'day', 'absorb', 'eatRate', 'eatGain', 'leak', 'thrust', 'efficiency',
+    'drag', 'attraction', 'sharpness', 'depth', 'genomeRate', 'stateRate', 'noise'];
+  const WINDOW = 500; // ticks over which the roles panel adds up income
+
+  // ---------- renderer ----------
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas: $('world'), antialias: true });
+  } catch (e) {
+    $('fallback').hidden = false;
+    $('fallback').textContent = 'This view needs WebGL, which this browser has turned off.';
+    throw e;
+  }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x07080c);
+  const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 500);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.autoRotateSpeed = 0.35;
+
+  const pointMat = new THREE.ShaderMaterial({
+    transparent: false, depthWrite: true,
+    uniforms: { uSize: { value: 1 } },
+    vertexShader: `
+      attribute vec3 color; varying vec3 vColor; uniform float uSize;
+      void main() {
+        vColor = color;
+        vec4 mv = modelViewMatrix * vec4(position, 1.0);
+        gl_PointSize = uSize / -mv.z;
+        gl_Position = projectionMatrix * mv;
+      }`,
+    fragmentShader: `
+      varying vec3 vColor;
+      void main() {
+        vec2 c = (gl_PointCoord - 0.5) * 2.0; float d = dot(c, c);
+        if (d > 1.0) discard;
+        vec3 nrm = vec3(c.x, -c.y, sqrt(1.0 - d));
+        float light = 0.35 + 0.65 * max(dot(nrm, normalize(vec3(-0.2, 0.9, 0.4))), 0.0);
+        gl_FragColor = vec4(vColor * light, 1.0);
+      }`,
+  });
+  const bondMat = new THREE.LineBasicMaterial({ color: 0xc9d2ff, transparent: true, opacity: 0.05, depthWrite: false });
+
+  // The sun: a glowing ceiling, and a faint curtain of light under the lit band. Both are drawn
+  // from the same brightness profile the simulation uses.
+  const sunCanvas = document.createElement('canvas');
+  sunCanvas.width = 256; sunCanvas.height = 1;
+  const sunTex = new THREE.CanvasTexture(sunCanvas);
+  sunTex.colorSpace = THREE.SRGBColorSpace;
+  const shaftCanvas = document.createElement('canvas');
+  shaftCanvas.width = 256; shaftCanvas.height = 64;
+  const shaftTex = new THREE.CanvasTexture(shaftCanvas);
+  const ceilingMat = new THREE.MeshBasicMaterial({ map: sunTex, transparent: true, opacity: 0.9, side: THREE.DoubleSide, depthWrite: false });
+  const shaftMat = new THREE.MeshBasicMaterial({ map: shaftTex, transparent: true, opacity: 0.5, side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending });
+
+  let points, bonds, box, ceiling, shafts, posAttr, colAttr, bondAttr;
+
+  // Particles settled into one of the law's elements take that element's color; genomes still
+  // between valleys are dimmer. Brightness then follows stored energy.
+  const PALETTE = ['#f0b35a', '#5fc6e8', '#e8739e', '#8fd47f', '#a98cf2', '#f0855a', '#5ad0b0', '#d8d36a'];
+  const PROJ = [[0.9, -0.4, 0.5, 0.3], [0.2, 0.8, -0.4, 0.5], [0.4, 0.3, 0.6, -0.7]];
+  const tmpColor = new THREE.Color();
+  const elColors = PALETTE.map((c) => new THREE.Color(c));
+  const LOOSE = '#8c93a8';
+  function genomeColor(g, o = 0) {
+    let p0 = 0, p1 = 0, p2 = 0;
+    for (let a = 0; a < 4; a++) { const x = g[o + a]; p0 += PROJ[0][a] * x; p1 += PROJ[1][a] * x; p2 += PROJ[2][a] * x; }
+    const hue = (Math.atan2(p1, p0) / (2 * Math.PI) + 1) % 1;
+    return tmpColor.setHSL(hue, 0.25, 0.32 + 0.08 * Math.tanh(p2));
+  }
+  function particleColor(s, o) {
+    const els = sim.elements, r2 = 2 * (sim.settleRadius / 1.5) ** 2;
+    let best = 0, bk = 0;
+    for (let k = 0; k < els.length; k++) {
+      let d = 0;
+      for (let a = 0; a < 4; a++) d += (s[o + a] - els[k].g[a]) ** 2;
+      const w = Math.exp(-d / r2);
+      if (w > best) { best = w; bk = k; }
+    }
+    genomeColor(s, o);
+    return tmpColor.lerp(elColors[bk % elColors.length], best);
+  }
+  const kindColor = (k) => (k < sim.elements.length ? PALETTE[k % PALETTE.length] : LOOSE);
+
+  let sim, edits, history, initialParams, rises = 0, lastEco = null, lastBooks = null;
+
+  function readParams() {
+    const p = {};
+    for (const k of [...RESTART_KEYS, ...LIVE_KEYS]) p[k] = Number($(k).value);
+    return p;
+  }
+
+  // Simulation (x, y, z) with z up becomes three.js (x, y, z) with y up.
+  function build() {
+    initialParams = readParams();
+    sim = new Sim(initialParams);
+    sim.flow = new Float64Array((sim.elements.length + 1) ** 2);
+    edits = []; history = []; rises = 0; lastEco = null; lastBooks = null;
+    if (points) {
+      scene.remove(points, bonds, box, ceiling, shafts);
+      for (const o of [points, bonds, box, ceiling]) o.geometry.dispose();
+      shafts.children.forEach((m) => m.geometry.dispose());
+    }
+    const n = sim.n, L = sim.L, h = L / 2;
+    const g = new THREE.BufferGeometry();
+    posAttr = new THREE.BufferAttribute(new Float32Array(n * 3), 3).setUsage(THREE.DynamicDrawUsage);
+    colAttr = new THREE.BufferAttribute(new Float32Array(n * 3), 3).setUsage(THREE.DynamicDrawUsage);
+    g.setAttribute('position', posAttr); g.setAttribute('color', colAttr);
+    points = new THREE.Points(g, pointMat);
+    const bg = new THREE.BufferGeometry();
+    bondAttr = new THREE.BufferAttribute(new Float32Array(sim.maxBonds * 6), 3).setUsage(THREE.DynamicDrawUsage);
+    bg.setAttribute('position', bondAttr);
+    bonds = new THREE.LineSegments(bg, bondMat);
+    box = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(L, L, L)), new THREE.LineBasicMaterial({ color: 0x3a4058, transparent: true, opacity: 0.6 }));
+    ceiling = new THREE.Mesh(new THREE.PlaneGeometry(L, L), ceilingMat);
+    ceiling.rotation.x = -Math.PI / 2; ceiling.position.y = h;
+    shafts = new THREE.Group();
+    for (let k = 0; k < 3; k++) {
+      const m = new THREE.Mesh(new THREE.PlaneGeometry(L, L), shaftMat);
+      m.position.z = -h + (k + 0.5) * (L / 3);
+      shafts.add(m);
+    }
+    scene.add(box, ceiling, shafts, bonds, points);
+    camera.position.set(L * 1.25, L * 0.55, L * 1.5);
+    controls.target.set(0, 0, 0);
+    controls.update();
+    resize();
+    $('replayResult').textContent = ''; $('replayResult').className = '';
+    $('roles').innerHTML = '<div class="head">Measuring what each element lives on&hellip;</div>';
+    sync(true);
+  }
+
+  function drawSun() {
+    const ctx = sunCanvas.getContext('2d'), sh = shaftCanvas.getContext('2d');
+    const img = ctx.createImageData(256, 1), simg = sh.createImageData(256, 64);
+    const peak = Math.max(sim.p.sun, 1e-9);
+    for (let px = 0; px < 256; px++) {
+      const b = sim.sunAt(((px + 0.5) / 256) * sim.L) / peak;
+      const o = px * 4;
+      img.data[o] = 40 + 215 * b; img.data[o + 1] = 32 + 170 * b; img.data[o + 2] = 30 + 60 * b; img.data[o + 3] = 60 + 195 * b;
+      for (let py = 0; py < 64; py++) {
+        const f = b * (1 - py / 64) * 0.55, q = (py * 256 + px) * 4;
+        simg.data[q] = 255 * f; simg.data[q + 1] = 200 * f; simg.data[q + 2] = 110 * f; simg.data[q + 3] = 255;
+      }
+    }
+    ctx.putImageData(img, 0, 0); sh.putImageData(simg, 0, 0);
+    sunTex.needsUpdate = true; shaftTex.needsUpdate = true;
+  }
+
+  function sync(full) {
+    const n = sim.n, L = sim.L, h = L / 2, pos = sim.pos, s = sim.s, en = sim.en;
+    const pa = posAttr.array, ca = colAttr.array;
+    for (let i = 0; i < n; i++) {
+      pa[i * 3] = pos[i * 3] - h; pa[i * 3 + 1] = pos[i * 3 + 2] - h; pa[i * 3 + 2] = pos[i * 3 + 1] - h;
+      particleColor(s, i * D + FAST);
+      const b = 0.3 + 0.9 * Math.tanh(1.5 * en[i]);
+      ca[i * 3] = Math.min(1, tmpColor.r * b); ca[i * 3 + 1] = Math.min(1, tmpColor.g * b); ca[i * 3 + 2] = Math.min(1, tmpColor.b * b);
+    }
+    posAttr.needsUpdate = true; colAttr.needsUpdate = true;
+    let m = 0;
+    if ($('showBonds').checked) {
+      const ba = bondAttr.array;
+      for (let b = 0; b < sim.bondCount; b++) {
+        const i = sim.bondA[b], j = sim.bondB[b];
+        if (Math.abs(pos[i * 3] - pos[j * 3]) > h || Math.abs(pos[i * 3 + 1] - pos[j * 3 + 1]) > h) continue;
+        ba[m++] = pa[i * 3]; ba[m++] = pa[i * 3 + 1]; ba[m++] = pa[i * 3 + 2];
+        ba[m++] = pa[j * 3]; ba[m++] = pa[j * 3 + 1]; ba[m++] = pa[j * 3 + 2];
+      }
+      bondAttr.needsUpdate = true;
+    }
+    bonds.geometry.setDrawRange(0, m / 3);
+    drawSun();
+    if (full) measure();
+  }
+
+  function role(r, avg) {
+    const inc = r.light + r.eat;
+    if (!r.count || inc / r.count < 0.05 * avg) return 'inert';
+    if (r.light / inc > 0.7) return 'absorber';
+    if (r.eat / inc > 0.7) return 'eater';
+    return 'mixed';
+  }
+
+  function showRoles(eco) {
+    let tot = 0, cnt = 0, top = 1e-9;
+    for (const r of eco.rows) { tot += r.light + r.eat; cnt += r.count; }
+    for (const r of eco.rows) if (r.count) top = Math.max(top, (r.light + r.eat + r.move) / r.count);
+    const avg = tot / Math.max(cnt, 1);
+    const box = $('roles');
+    box.textContent = '';
+    const head = document.createElement('div');
+    head.className = 'head';
+    head.textContent = `What each element lived on, last ${eco.ticks} ticks`;
+    box.appendChild(head);
+    eco.rows.forEach((r, k) => {
+      if (r.count < 0.02 * sim.n) return;
+      const row = document.createElement('div'); row.className = 'role';
+      const dot = document.createElement('i'); dot.className = 'dot' + (k === sim.elements.length ? ' company' : '');
+      if (k === sim.elements.length) dot.style.borderColor = LOOSE; else dot.style.background = kindColor(k);
+      const name = document.createElement('b'); name.textContent = role(r, avg);
+      const cnt = document.createElement('span'); cnt.className = 'n'; cnt.textContent = r.count;
+      const bar = document.createElement('div'); bar.className = 'bar';
+      for (const [cls, v] of [['l', r.light], ['e', r.eat], ['m', r.move]]) {
+        const i = document.createElement('i'); i.className = cls; i.style.width = `${(100 * v / r.count / top / 1.0).toFixed(1)}%`; bar.appendChild(i);
+      }
+      const per = (v) => (v / r.count).toFixed(2);
+      row.title = `${k === sim.elements.length ? 'Unsettled particles' : 'Element ' + (k + 1)}: ${r.count} particles. Per particle: ${per(r.light)} from light, ${per(r.eat)} from eating, ${per(r.eaten)} eaten by others, ${per(r.move)} spent moving.`;
+      row.append(dot, name, cnt, bar);
+      box.appendChild(row);
+    });
+    const key = document.createElement('div'); key.className = 'head';
+    key.innerHTML = '<span style="color: var(--accent)">light</span> &middot; <span style="color: var(--bad)">eaten from others</span> &middot; <span style="color: var(--cool)">spent moving</span>';
+    box.appendChild(key);
+  }
+
+  function measure() {
+    const c = sim.clusters();
+    const T = sim.temperature();
+    const e = sim.census();
+    $('sTick').textContent = sim.tick.toLocaleString();
+    $('sDay').textContent = (sim.tick / sim.p.day).toFixed(2);
+    $('sTemp').textContent = T.toFixed(3);
+    $('sBonded').textContent = (c.bondedShare * 100).toFixed(1) + '%';
+    $('sGroups').textContent = c.groups;
+    $('sElements').textContent = `${e.present.length}/${e.possible}` + (e.company.length ? ` +${e.company.length}` : '');
+    $('sHash').textContent = sim.hash();
+    const E = sim.energy;
+    let lightRate = null;
+    if (E) {
+      $('sStored').textContent = Math.round(E.stored).toLocaleString();
+      // The books: total energy may rise only by the light absorbed. Count any reading where it
+      // rose by more, unless a knob was touched in between.
+      if (lastBooks && E.tick > lastBooks.tick) {
+        const excess = (E.total - lastBooks.total) - (E.lightIn - lastBooks.lightIn);
+        lightRate = (E.lightIn - lastBooks.lightIn) / (E.tick - lastBooks.tick);
+        const touched = edits.length && edits[edits.length - 1].tick >= lastBooks.tick;
+        if (excess > 1e-6 && !touched) rises++;
+        $('sLight').textContent = lightRate.toFixed(2) + '/tick';
+      }
+      $('sBooks').textContent = rises ? `${rises} slip${rises > 1 ? 's' : ''}` : 'balanced';
+      $('sBooks').title = 'Total energy (motion, bonds, genomes and storage) may only grow by the light absorbed.';
+      lastBooks = E;
+    }
+    if (sim.tick - sim.acc.since >= WINDOW) { lastEco = sim.ecology(); sim.resetTotals(); showRoles(lastEco); }
+    if (!history.length || history[history.length - 1].tick !== sim.tick) history.push({ tick: sim.tick, T, st: E ? E.stored : null, li: lightRate });
+    if (history.length > 400) history.splice(0, history.length - 400);
+    drawSpark();
+  }
+
+  function drawSpark() {
+    const cv = $('spark'), dpr = Math.min(window.devicePixelRatio, 2);
+    const w = cv.clientWidth, h = cv.clientHeight;
+    if (cv.width !== w * dpr) { cv.width = w * dpr; cv.height = h * dpr; }
+    const ctx = cv.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    ctx.strokeStyle = 'rgba(160,172,210,0.14)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(0, h - 0.5); ctx.lineTo(w, h - 0.5); ctx.stroke();
+    if (history.length < 2) return;
+    const t0 = history[0].tick, t1 = history[history.length - 1].tick || 1;
+    const X = (t) => ((t - t0) / Math.max(1, t1 - t0)) * (w - 4) + 2;
+    const line = (key, color) => {
+      const vals = history.filter((d) => d[key] !== null && d[key] !== undefined).map((d) => d[key]);
+      if (vals.length < 2) return;
+      const max = Math.max(...vals, 1e-6);
+      ctx.strokeStyle = color; ctx.lineWidth = 1.5; ctx.beginPath();
+      let started = false;
+      for (const d of history) {
+        if (d[key] === null || d[key] === undefined) continue;
+        const y = h - 3 - (d[key] / max) * (h - 8);
+        started ? ctx.lineTo(X(d.tick), y) : ctx.moveTo(X(d.tick), y);
+        started = true;
+      }
+      ctx.stroke();
+    };
+    line('li', '#f0b35a');
+    line('T', '#6fc3df');
+    line('st', '#7fd49a');
+  }
+
+  function resize() {
+    const w = window.innerWidth, h = window.innerHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+    pointMat.uniforms.uSize.value = Math.max(6, h * 0.07);
+  }
+  window.addEventListener('resize', resize);
+
+  // ---------- controls ----------
+  let running = true;
+  const fmt = { heat: 1, spread: 1, sun: 1, day: 0, absorb: 2, eatRate: 2, eatGain: 2, leak: 3, thrust: 1, efficiency: 2,
+    drag: 3, attraction: 2, sharpness: 2, depth: 1, genomeRate: 2, stateRate: 3, noise: 2, speed: 0 };
+  for (const k of Object.keys(fmt)) {
+    const el = $(k), out = $(k + 'Out');
+    const show = () => { out.textContent = Number(el.value).toFixed(fmt[k]); };
+    show();
+    el.addEventListener('input', () => {
+      show();
+      if (LIVE_KEYS.includes(k)) { sim.set(k, Number(el.value)); edits.push({ tick: sim.tick, key: k, value: Number(el.value) }); }
+    });
+    if (RESTART_KEYS.includes(k)) el.addEventListener('change', build);
+  }
+  for (const k of ['worldSeed', 'lawSeed', 'n']) $(k).addEventListener('change', build);
+  $('run').addEventListener('click', () => { running = !running; $('run').textContent = running ? 'Pause' : 'Run'; });
+  $('stepOnce').addEventListener('click', () => { sim.step(); sync(true); });
+  $('restart').addEventListener('click', build);
+  $('newWorld').addEventListener('click', () => { $('worldSeed').value = Number($('worldSeed').value) + 1; build(); });
+  $('spin').addEventListener('change', () => { controls.autoRotate = $('spin').checked; });
+  $('showBonds').addEventListener('change', () => sync(false));
+  $('togglePanel').addEventListener('click', () => {
+    const c = $('panel').classList.toggle('collapsed');
+    $('togglePanel').setAttribute('aria-expanded', String(!c));
+  });
+  if (window.matchMedia('(max-width: 720px)').matches) { $('panel').classList.add('collapsed'); $('togglePanel').setAttribute('aria-expanded', 'false'); }
+  controls.autoRotate = $('spin').checked && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Verify replay: rebuild the universe from its seeds, apply the same live edits at the same
+  // ticks, run to the current tick, and compare fingerprints.
+  $('verify').addEventListener('click', () => {
+    const target = sim.tick, want = sim.hash();
+    const replay = new Sim(initialParams);
+    const pending = edits.slice();
+    const out = $('replayResult');
+    out.className = ''; out.textContent = `Replaying ${target.toLocaleString()} ticks…`;
+    $('verify').disabled = true;
+    const chunk = () => {
+      const t0 = performance.now();
+      while (replay.tick < target && performance.now() - t0 < 12) {
+        while (pending.length && pending[0].tick === replay.tick) { const e = pending.shift(); replay.set(e.key, e.value); }
+        replay.step();
+      }
+      if (replay.tick < target) { out.textContent = `Replaying… ${replay.tick.toLocaleString()} / ${target.toLocaleString()}`; setTimeout(chunk, 0); return; }
+      const got = replay.hash();
+      $('verify').disabled = false;
+      if (got === want) { out.className = 'ok'; out.textContent = `Exact match at tick ${target.toLocaleString()} (${got}).`; }
+      else { out.className = 'bad'; out.textContent = `Fingerprints differ: ${got} vs ${want}.`; }
+    };
+    chunk();
+  });
+
+  build();
+
+  // ---------- world map ----------
+  let mapData = null;
+  async function openMap() {
+    $('map').hidden = false;
+    $('openMap').setAttribute('aria-expanded', 'true');
+    if (!mapData) {
+      try { mapData = await (await fetch('sweep-results.json')).json(); }
+      catch (e) { $('mapNote').textContent = 'The world map could not be loaded.'; return; }
+    }
+    drawMap();
+  }
+  const LETTER = { absorber: 'A', eater: 'E', mixed: 'M', inert: '\u00b7' };
+  function drawMap() {
+    const rows = mapData.results;
+    const laws = Object.keys(mapData.laws).map(Number).sort((a, b) => a - b);
+    const worlds = mapData.worlds;
+    const grid = $('mapGrid');
+    grid.style.gridTemplateColumns = `auto repeat(${worlds.length}, minmax(64px, 1fr)) auto`;
+    grid.textContent = '';
+    const add = (el) => grid.appendChild(el);
+    const div = (cls, text) => { const d = document.createElement('div'); d.className = cls; if (text !== undefined) d.textContent = text; return d; };
+    add(div('rowh', 'law'));
+    for (const w of worlds) add(div('colh', `start ${w}`));
+    add(div('colh', 'food web'));
+    for (const law of laws) {
+      const els = mapData.laws[law].elements;
+      add(div('rowh', law));
+      let webs = 0;
+      for (const w of worlds) {
+        const r = rows.find((x) => x.lawSeed === law && x.worldSeed === w);
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'cell';
+        const box = div('cellRoles');
+        const parts = [];
+        r.kinds.forEach((kd, k) => {
+          if (kd.count < 0.02 * mapData.n) return;
+          const sp = document.createElement('span'), d = document.createElement('i');
+          d.className = 'dot' + (k === els.length ? ' company' : '');
+          if (k === els.length) d.style.borderColor = LOOSE; else d.style.background = PALETTE[k % PALETTE.length];
+          sp.append(d, LETTER[kd.role]);
+          box.appendChild(sp);
+          parts.push(`${k === els.length ? 'unsettled' : 'element ' + (k + 1)} ${kd.role} (${kd.count}; light ${kd.light}, eats ${kd.eat}, eaten ${kd.eaten}, moves ${kd.move})`);
+        });
+        if (r.kinds.some((kd) => kd.role === 'absorber') && r.kinds.some((kd) => kd.role === 'eater')) webs++;
+        b.appendChild(box);
+        b.title = `Law ${law}, start ${w}: ${parts.join('; ')}. Temperature ${r.temperature}, ${Math.round(r.bondedShare * 100)}% bonded, ${r.groups} groups.`;
+        b.setAttribute('aria-label', b.title);
+        if (Number($('lawSeed').value) === law && Number($('worldSeed').value) === w && Number($('n').value) === mapData.n) b.classList.add('current');
+        b.addEventListener('click', () => { $('lawSeed').value = law; $('worldSeed').value = w; $('n').value = String(mapData.n); build(); drawMap(); });
+        add(b);
+      }
+      add(div('web', `${webs} of ${worlds.length}`));
+    }
+  }
+  $('openMap').addEventListener('click', () => ($('map').hidden ? openMap() : closeMap()));
+  function closeMap() { $('map').hidden = true; $('openMap').setAttribute('aria-expanded', 'false'); }
+  $('closeMap').addEventListener('click', closeMap);
+
+  let frame = 0;
+  function loop() {
+    requestAnimationFrame(loop);
+    if (running) {
+      const budget = performance.now() + 14, max = Number($('speed').value);
+      for (let i = 0; i < max && performance.now() < budget; i++) sim.step();
+      frame++;
+      sync(frame % 6 === 0);
+    }
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  loop();
+</script>
