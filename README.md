@@ -8,3 +8,5 @@ A simulated universe built from simple primitives, to see what emerges.
   eating along attention and self-propulsion. Do absorbers, eaters, foraging and driven patterns appear?
 - [Experiment 3: Geometry](experiments/03-geometry/): particles get a facing and six sticky faces, so
   bonds have direction. Do chains, rings and sheets form, and does any shape assemble copies of itself?
+- [Experiment 4: Face chemistry](experiments/04-face-chemistry/): each face of a particle gets its own
+  chemistry, so a chain's spine and its sides can bond differently. Can a chain act as a mold for a copy of itself?
