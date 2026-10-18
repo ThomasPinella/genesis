@@ -241,6 +241,8 @@
       <label for="faces">How different the faces are</label><output for="faces" id="facesOut"></output>
       <input id="faces" type="range" min="0" max="2" step="0.05" value="1">
     </div>
+    <button id="dropTemplate" type="button">Drop in a template chain</button>
+    <p class="note">Builds a 14-particle chain the law favors (two letters in a fixed order, where the law allows a code), frees 120 building blocks around it and zooms in. The shapes panel then counts partners beside it and how many are the matching letter.</p>
     <p class="note">Direction at 1 means particles bond face to face. At 0, bonds ignore direction and the world is experiment 2 exactly. Faces at 0 makes every face alike; higher makes them distinct sites.</p>
   </fieldset>
 
@@ -388,6 +390,7 @@
   import * as THREE from 'three';
   import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
   import { Sim, D, FAST } from './sim.js';
+  import { chemistry, codeChain, ladderChain, bestChain, layout, insert, feed, look } from './probe.js';
 
   const $ = (id) => document.getElementById(id);
   const RESTART_KEYS = ['worldSeed', 'lawSeed', 'n', 'heat', 'spread'];
@@ -519,7 +522,17 @@
   }
   const kindColor = (k) => (k < sim.elements.length ? PALETTE[k % PALETTE.length] : LOOSE);
 
-  let sim, edits, history, initialParams, rises = 0, lastEco = null, lastBooks = null;
+  let sim, edits, history, initialParams, rises = 0, lastEco = null, lastBooks = null, probe = null;
+  // The template probe: build the chain the law favors, drop it in, free building blocks around
+  // it. Deterministic given the world, so replay can repeat it at the same tick.
+  function dropTemplate(s) {
+    const chem = chemistry(s);
+    const chain = codeChain(chem) || ladderChain(chem) || bestChain(chem);
+    const laid = layout(chain, s);
+    const ids = insert(s, laid, chem.els, s.tick + 1);
+    feed(s, laid, ids, chem.els, 120, s.tick * 31 + 7);
+    return { ids, chain, els: chem.els };
+  }
 
   function readParams() {
     const p = {};
@@ -532,7 +545,7 @@
     initialParams = readParams();
     sim = new Sim(initialParams);
     sim.flow = new Float64Array((sim.elements.length + 1) ** 2);
-    edits = []; history = []; rises = 0; lastEco = null; lastBooks = null;
+    edits = []; history = []; rises = 0; lastEco = null; lastBooks = null; probe = null;
     if (points) {
       scene.remove(points, bonds, patches, box, ceiling, volume);
       for (const o of [points, bonds, patches, box, ceiling, volume]) o.geometry.dispose();
@@ -730,7 +743,7 @@
         const dim = fr >= 0 && root[i] !== fr ? 0.1 : (fade && !bonded[i] && fr < 0 ? 0.45 : 1);
         for (let k = 0; k < 6; k++) {
           const w = pw[i * 6 + k];
-          if (w < 0.5) continue;
+          if (w < 0.6) continue;
           const ax = k >> 1, sg = k & 1 ? -1 : 1, r = i * 9;
           // Body axis ax in world (simulation) coordinates is column ax of R; three.js swaps y and z.
           const len = PATCH_LEN * (fr >= 0 && root[i] === fr ? 1.4 : 1) * (dim < 1 ? 0.6 : 1);
@@ -932,6 +945,15 @@
       ? `Repeated patterns: ${st.repeated} groups share their exact arrangement with another (${st.kinds} arrangement${st.kinds > 1 ? 's' : ''}; most common: ${st.top.n} copies of a ${st.top.cls} of ${st.top.size}). Identical splits so far: ${splitCount}.`
       : `No patterned group (5+ particles, 2+ elements) repeats yet. Identical splits so far: ${splitCount}.`;
     box.appendChild(rep);
+    if (probe) {
+      const t = look(sim, probe.ids, probe.els, probe.chain);
+      const links = probe.ids.length - 1;
+      const pr = document.createElement('div'); pr.className = 'head';
+      pr.textContent = `Template: ${Math.round(t.intact * links)} of ${links} links holding; ${t.occupied} of ${probe.ids.length} sites have a partner beside them`
+        + (probe.chain.letters ? `; ${t.right} partners match the letter, ${t.wrong} do not` : '')
+        + `; longest run of partners linked to each other: ${t.copy}.`;
+      box.appendChild(pr);
+    }
   }
 
   function measure() {
@@ -1036,6 +1058,12 @@
   $('showBonds').addEventListener('change', () => sync(false));
   for (const k of ['colorBy', 'fadeLoose', 'showPatches']) $(k).addEventListener('change', () => { showKey(); sync(false); });
   $('focusNext').addEventListener('click', nextGroup);
+  $('dropTemplate').addEventListener('click', () => {
+    probe = dropTemplate(sim);
+    edits.push({ tick: sim.tick, key: 'template' });
+    focus = probe.ids[0]; members = []; groupCursor = -1; anim = 90;
+    sync(true);
+  });
   $('focusOut').addEventListener('click', wholeWorld);
   $('togglePanel').addEventListener('click', () => {
     const c = $('panel').classList.toggle('collapsed');
@@ -1056,7 +1084,10 @@
     const chunk = () => {
       const t0 = performance.now();
       while (replay.tick < target && performance.now() - t0 < 12) {
-        while (pending.length && pending[0].tick === replay.tick) { const e = pending.shift(); replay.set(e.key, e.value); }
+        while (pending.length && pending[0].tick === replay.tick) {
+          const e = pending.shift();
+          if (e.key === 'template') dropTemplate(replay); else replay.set(e.key, e.value);
+        }
         replay.step();
       }
       if (replay.tick < target) { out.textContent = `Replaying… ${replay.tick.toLocaleString()} / ${target.toLocaleString()}`; setTimeout(chunk, 0); return; }
