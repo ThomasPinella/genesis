@@ -37,6 +37,9 @@ const ISOLATE = process.env.ISOLATE === '1';
 // at rest, around the chain. In a settled soup almost everything is already bonded, so a chain
 // has nothing to copy itself from; this supplies the raw material.
 const FEED = Number(process.env.FEED) || 0;
+// NOISE turns on the sim's optional seeded jitter, which with drag acts as a heat bath that keeps
+// the soup warm instead of letting it freeze (off by default, as in every experiment).
+const NOISE = Number(process.env.NOISE) || 0;
 const WORLDS = [1, 2];
 const FACE = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]];
 const OPP = [[0, 1], [2, 3], [4, 5]];
@@ -292,10 +295,10 @@ if (isMainThread) {
     feed();
   })));
   results.sort((a, b) => a.lawSeed - b.lawSeed || a.worldSeed - b.worldSeed);
-  process.stdout.write(JSON.stringify({ settle: SETTLE, watch: WATCH, chain: CHAIN, faces: FACES, mode: CODE ? 'code' : LADDER ? 'ladder' : 'strongest', results }, null, 1));
+  process.stdout.write(JSON.stringify({ settle: SETTLE, watch: WATCH, chain: CHAIN, faces: FACES, noise: NOISE, feed: FEED, mode: CODE ? 'code' : LADDER ? 'ladder' : 'strongest', results }, null, 1));
 } else {
   parentPort.on('message', (job) => {
-    const sim = new Sim({ ...job, n: N, faces: FACES });
+    const sim = new Sim({ ...job, n: N, faces: FACES, noise: NOISE });
     const chem = chemistry(sim);
     const chain = CODE ? codeChain(chem) : LADDER ? ladderChain(chem) : bestChain(chem);
     if (!chain) { parentPort.postMessage({ ...job, chain: null }); return; }
