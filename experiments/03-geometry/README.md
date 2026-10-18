@@ -62,8 +62,35 @@ map panel.
 - **The books balance.** In all 96 worlds, total energy never rose by more than the light that
   came in over any 20-tick check.
 
-The next question is what a shape would need in order to template: probably longer, rigid
-chains whose free faces can hold loose particles in order. That is the open question for the next
-experiment.
+## The template probe
 
-Rerun the sweep with `node tools/sweep.mjs > sweep-results.json`.
+To test copying directly, `tools/template.mjs` builds a 14-particle chain by hand, drops it into a
+soup that has settled for 1,500 ticks, and watches for 3,000 more: do loose particles stick along
+its sides in order and link up into a second chain? It ran on all 12 laws (2 starts each) with the
+strongest chain each law allows, on four laws with a straight chain of one element that has a free
+sticky side face (laws 3, 8, 12, and law 231, found by searching 300 laws for two elements that
+prefer each other over themselves), and on four laws with the soup made inert. Results are in
+`template-results.json`.
+
+- **Long chains don't survive the soup.** In 22 of 24 worlds the chain lost most of its bonds
+  within 500 to 1,000 ticks; only law 5, the coldest, kept about 60%. It is mostly the soup, not
+  heat: with every other particle made inert, law 8's chain stays 77 to 92% intact. Loose particles
+  of the chain's own element bond to its spine faces as readily as to its sides, and pull it into
+  a sheet or a blob.
+- **Particles gather along the sides, but don't line up.** Up to 13 of the 14 members end with a
+  partner beside them, and in law 231 the partners favor the complementary element about two to
+  one. But partners never link into a second chain longer than 3, which is shorter than the chains
+  the soup makes on its own nearby (4 to 11). No copying.
+- **Why: faces decide where, not with whom.** A sticky face sticks to every element the genome
+  match likes, and a pair of elements bonds equally strongly through any faces. So a spine bond
+  and a side bond between the same two elements are the same bond. The template gets eaten from
+  the side, a copy that did form could not let go, and nothing favors partners lining up in
+  parallel over any other arrangement. In random laws, an element whose own shape could be copied
+  alongside it is common (113 in 300 laws), but two elements that could carry a sequence are rare
+  (6 in 300).
+
+A rule where each face has its own chemistry (a spine face that bonds with its own kind, a side
+face that is choosy) would remove that obstacle; it is the candidate for the next step.
+
+Rerun the sweep with `node tools/sweep.mjs > sweep-results.json`. The probe takes `LADDER=1`,
+`ISOLATE=1` and `LAWLIST=3,8` to choose what it builds and where.
