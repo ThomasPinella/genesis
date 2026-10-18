@@ -17,6 +17,7 @@
 // Usage: node tools/template.mjs > template-results.json
 import { Worker, isMainThread, parentPort } from 'node:worker_threads';
 import os from 'node:os';
+import fs from 'node:fs';
 import { Sim, S, D, FAST, dtanh, rng } from '../sim.js';
 
 const SETTLE = Number(process.env.SETTLE) || 1500;
@@ -271,12 +272,19 @@ function look(sim, ids, els, chain) {
 if (isMainThread) {
   const jobs = [];
   for (const lawSeed of LAWS) for (const worldSeed of WORLDS) jobs.push({ lawSeed, worldSeed });
-  const results = [];
+  // PARTIAL names a file where each finished world is saved as it lands, so a stopped run can
+  // pick up where it left off.
+  const partial = process.env.PARTIAL;
+  const results = partial && fs.existsSync(partial) ? fs.readFileSync(partial, 'utf8').split('\n').filter(Boolean).map((l) => JSON.parse(l)) : [];
+  const done = new Set(results.map((r) => JSON.stringify([r.lawSeed, r.worldSeed, r.geometry ?? null])));
+  const todo = jobs.filter((j) => !done.has(JSON.stringify([j.lawSeed, j.worldSeed, j.geometry ?? null])));
+  jobs.length = 0; jobs.push(...todo);
+  const total = results.length + jobs.length;
   let next = 0;
   await Promise.all(Array.from({ length: Math.max(1, os.cpus().length) }, () => new Promise((done) => {
     const w = new Worker(new URL(import.meta.url));
     const feed = () => (next < jobs.length ? w.postMessage(jobs[next++]) : (w.terminate(), done()));
-    w.on('message', (r) => { results.push(r); process.stderr.write(`${results.length}/${jobs.length}\n`); feed(); });
+    w.on('message', (r) => { results.push(r); if (partial) fs.appendFileSync(partial, JSON.stringify(r) + '\n'); process.stderr.write(`${results.length}/${total}\n`); feed(); });
     feed();
   })));
   results.sort((a, b) => a.lawSeed - b.lawSeed || a.worldSeed - b.worldSeed);
