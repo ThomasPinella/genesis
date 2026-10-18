@@ -143,7 +143,7 @@
   details.more fieldset { margin-top: 4px; }
   .roles { display: grid; gap: 5px; font-size: 12px; }
   .roles .head { color: var(--quiet); font-size: 11px; font-family: var(--mono); }
-  .role { display: grid; grid-template-columns: 12px 64px 40px 1fr; gap: 8px; align-items: center; }
+  .role { display: grid; grid-template-columns: 12px 92px 34px 1fr; gap: 8px; align-items: center; }
   .role b { font-weight: 500; }
   .role .n { font-family: var(--mono); color: var(--quiet); font-size: 11px; text-align: right; }
   .bar { height: 7px; border-radius: 4px; background: rgba(255,255,255,0.06); display: flex; overflow: hidden; }
@@ -155,6 +155,25 @@
   .cellRoles span { display: inline-flex; align-items: center; gap: 2px; font: 500 10px var(--mono); color: var(--ink); }
   .mapGrid .web { text-align: center; color: var(--ink); }
   .instruments { width: 310px; }
+  .key { display: grid; gap: 5px; font-size: 12px; color: var(--quiet); margin: -4px 0 0; padding: 0; list-style: none; }
+  .key li { display: flex; gap: 8px; align-items: center; }
+  .key .sw { width: 22px; flex: none; display: inline-flex; justify-content: center; align-items: center; }
+  .key .ln { width: 18px; height: 2px; background: #c9d2ff; opacity: 0.8; }
+  .key .glow { width: 18px; height: 10px; border-radius: 3px; background: linear-gradient(90deg, transparent, rgba(255,200,115,0.75), transparent); }
+  .key .ramp { width: 18px; height: 8px; border-radius: 2px; }
+  .key .dot.small { width: 5px; height: 5px; opacity: 0.6; }
+  .focusbar {
+    position: fixed; z-index: 3; top: calc(12px + env(safe-area-inset-top, 0px)); right: max(12px, env(safe-area-inset-right, 0px));
+    display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; max-width: calc(100% - 340px);
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  }
+  .focusbar[hidden] { display: none; }
+  #focusInfo { font-size: 12px; color: var(--quiet); display: inline-flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  #focusInfo span { display: inline-flex; gap: 3px; align-items: center; font-family: var(--mono); font-size: 11px; color: var(--ink); }
+  @media (max-width: 720px) {
+    .focusbar { left: auto; max-width: calc(100% - 120px); top: calc(10px + env(safe-area-inset-top, 0px)); padding: 6px 8px; }
+  }
 </style>
 
 <canvas id="world" aria-label="3D view of the simulated particles under a moving sun"></canvas>
@@ -167,7 +186,8 @@
     <p class="eyebrow">Genesis &middot; Experiment 2</p>
     <h1>Energy</h1>
   </div>
-  <p class="question">The world of experiment 1, now with a sun. Light comes down from the ceiling in a band that sweeps across the world, so every place gets day and night. Particles absorb it by how well they match its color, eat from whatever they attend to, and spend what they store pushing themselves around. <b>Do absorbers, eaters, foraging and driven patterns appear?</b> Color shows the element; brighter means more stored energy.</p>
+  <p class="question">The world of experiment 1, now with a sun. Light comes down from the ceiling in a band that sweeps across the world, so every place gets day and night. Particles absorb it by how well they match its color, eat from whatever they attend to, and spend what they store pushing themselves around. <b>Do absorbers, eaters, foraging and driven patterns appear?</b></p>
+  <ul class="key" id="viewKey" aria-label="How to read the view"></ul>
 
   <div class="row">
     <button class="primary" id="run" type="button">Pause</button>
@@ -280,10 +300,24 @@
       <label for="speed">Ticks per frame</label><output for="speed" id="speedOut"></output>
       <input id="speed" type="range" min="1" max="24" step="1" value="8">
     </div>
-    <label class="check" for="showBonds"><input id="showBonds" type="checkbox"> Show bonds</label>
+    <label class="inline1" for="colorBy" style="display: grid; gap: 4px; font-size: 12px; color: var(--quiet);">Color particles by
+      <select id="colorBy">
+        <option value="element">Element</option>
+        <option value="diet">What it lives on</option>
+        <option value="energy">Stored energy</option>
+      </select>
+    </label>
+    <label class="check" for="showBonds"><input id="showBonds" type="checkbox" checked> Show bonds</label>
+    <label class="check" for="fadeLoose"><input id="fadeLoose" type="checkbox" checked> Fade loose particles</label>
     <label class="check" for="spin"><input id="spin" type="checkbox" checked> Slowly rotate</label>
   </fieldset>
 </aside>
+
+<div class="focusbar" id="focusbar" aria-label="Zoom">
+  <span id="focusInfo" aria-live="polite"></span>
+  <button id="focusNext" type="button">Zoom to a group</button>
+  <button id="focusOut" type="button" hidden>Whole world</button>
+</div>
 
 <section class="map" id="map" hidden aria-label="World map">
   <div class="mapHead">
@@ -364,11 +398,11 @@
     transparent: false, depthWrite: true,
     uniforms: { uSize: { value: 1 } },
     vertexShader: `
-      attribute vec3 color; varying vec3 vColor; uniform float uSize;
+      attribute vec3 color; attribute float scale; varying vec3 vColor; uniform float uSize;
       void main() {
         vColor = color;
         vec4 mv = modelViewMatrix * vec4(position, 1.0);
-        gl_PointSize = uSize / -mv.z;
+        gl_PointSize = uSize * scale / -mv.z;
         gl_Position = projectionMatrix * mv;
       }`,
     fragmentShader: `
@@ -381,21 +415,54 @@
         gl_FragColor = vec4(vColor * light, 1.0);
       }`,
   });
-  const bondMat = new THREE.LineBasicMaterial({ color: 0xc9d2ff, transparent: true, opacity: 0.05, depthWrite: false });
+  const bondMat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.7, depthWrite: false });
 
-  // The sun: a glowing ceiling, and a faint curtain of light under the lit band. Both are drawn
-  // from the same brightness profile the simulation uses.
+  // The sun: a glowing strip on the ceiling, and the light under it drawn as a volume. For each
+  // pixel the shader walks the view ray through the box and adds up the same brightness profile
+  // the simulation uses, a little stronger near the ceiling, so the lit band reads as a soft slab
+  // of light from every angle.
   const sunCanvas = document.createElement('canvas');
   sunCanvas.width = 256; sunCanvas.height = 1;
   const sunTex = new THREE.CanvasTexture(sunCanvas);
   sunTex.colorSpace = THREE.SRGBColorSpace;
-  const shaftCanvas = document.createElement('canvas');
-  shaftCanvas.width = 256; shaftCanvas.height = 64;
-  const shaftTex = new THREE.CanvasTexture(shaftCanvas);
+  sunTex.wrapS = THREE.RepeatWrapping;
   const ceilingMat = new THREE.MeshBasicMaterial({ map: sunTex, transparent: true, opacity: 0.9, side: THREE.DoubleSide, depthWrite: false });
-  const shaftMat = new THREE.MeshBasicMaterial({ map: shaftTex, transparent: true, opacity: 0.5, side: THREE.DoubleSide, depthWrite: false, blending: THREE.AdditiveBlending });
+  const volumeMat = new THREE.ShaderMaterial({
+    side: THREE.BackSide, transparent: true, depthWrite: false, depthTest: false,
+    blending: THREE.AdditiveBlending,
+    uniforms: { uH: { value: 1 }, uL: { value: 2 }, uPhase: { value: 0 }, uShift: { value: 0 }, uStrength: { value: 0.3 } },
+    vertexShader: `
+      varying vec3 vWorld;
+      void main() {
+        vec4 w = modelMatrix * vec4(position, 1.0);
+        vWorld = w.xyz;
+        gl_Position = projectionMatrix * viewMatrix * w;
+      }`,
+    fragmentShader: `
+      uniform float uH, uL, uPhase, uShift, uStrength;
+      varying vec3 vWorld;
+      float band(float x) { return max(cos(6.2831853 * ((x + uH - uShift) / uL - uPhase)), 0.0); }
+      void main() {
+        vec3 ro = cameraPosition, rd = normalize(vWorld - ro);
+        vec3 inv = 1.0 / rd;
+        vec3 a = (vec3(-uH) - ro) * inv, b = (vec3(uH) - ro) * inv;
+        vec3 lo = min(a, b), hi = max(a, b);
+        float tn = max(max(lo.x, lo.y), max(lo.z, 0.0));
+        float tf = min(min(hi.x, hi.y), hi.z);
+        if (tf <= tn) discard;
+        const int N = 48;
+        float dt = (tf - tn) / float(N), acc = 0.0;
+        for (int i = 0; i < N; i++) {
+          vec3 p = ro + rd * (tn + (float(i) + 0.5) * dt);
+          float s = band(p.x);
+          acc += s * s * (0.35 + 0.65 * (p.y + uH) / (2.0 * uH)) * dt;
+        }
+        acc *= uStrength / (2.0 * uH);
+        gl_FragColor = vec4(vec3(1.0, 0.78, 0.45) * acc, 1.0);
+      }`,
+  });
 
-  let points, bonds, box, ceiling, shafts, posAttr, colAttr, bondAttr;
+  let points, bonds, box, ceiling, volume, posAttr, colAttr, sizeAttr, bondAttr, bondColAttr;
 
   // Particles settled into one of the law's elements take that element's color; genomes still
   // between valleys are dimmer. Brightness then follows stored energy.
@@ -439,80 +506,261 @@
     sim.flow = new Float64Array((sim.elements.length + 1) ** 2);
     edits = []; history = []; rises = 0; lastEco = null; lastBooks = null;
     if (points) {
-      scene.remove(points, bonds, box, ceiling, shafts);
-      for (const o of [points, bonds, box, ceiling]) o.geometry.dispose();
-      shafts.children.forEach((m) => m.geometry.dispose());
+      scene.remove(points, bonds, box, ceiling, volume);
+      for (const o of [points, bonds, box, ceiling, volume]) o.geometry.dispose();
     }
     const n = sim.n, L = sim.L, h = L / 2;
     const g = new THREE.BufferGeometry();
     posAttr = new THREE.BufferAttribute(new Float32Array(n * 3), 3).setUsage(THREE.DynamicDrawUsage);
     colAttr = new THREE.BufferAttribute(new Float32Array(n * 3), 3).setUsage(THREE.DynamicDrawUsage);
-    g.setAttribute('position', posAttr); g.setAttribute('color', colAttr);
+    sizeAttr = new THREE.BufferAttribute(new Float32Array(n).fill(1), 1).setUsage(THREE.DynamicDrawUsage);
+    g.setAttribute('position', posAttr); g.setAttribute('color', colAttr); g.setAttribute('scale', sizeAttr);
     points = new THREE.Points(g, pointMat);
     const bg = new THREE.BufferGeometry();
     bondAttr = new THREE.BufferAttribute(new Float32Array(sim.maxBonds * 6), 3).setUsage(THREE.DynamicDrawUsage);
-    bg.setAttribute('position', bondAttr);
+    bondColAttr = new THREE.BufferAttribute(new Float32Array(sim.maxBonds * 6), 3).setUsage(THREE.DynamicDrawUsage);
+    bg.setAttribute('position', bondAttr); bg.setAttribute('color', bondColAttr);
     bonds = new THREE.LineSegments(bg, bondMat);
     box = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(L, L, L)), new THREE.LineBasicMaterial({ color: 0x3a4058, transparent: true, opacity: 0.6 }));
     ceiling = new THREE.Mesh(new THREE.PlaneGeometry(L, L), ceilingMat);
     ceiling.rotation.x = -Math.PI / 2; ceiling.position.y = h;
-    shafts = new THREE.Group();
-    for (let k = 0; k < 3; k++) {
-      const m = new THREE.Mesh(new THREE.PlaneGeometry(L, L), shaftMat);
-      m.position.z = -h + (k + 0.5) * (L / 3);
-      shafts.add(m);
-    }
-    scene.add(box, ceiling, shafts, bonds, points);
+    volume = new THREE.Mesh(new THREE.BoxGeometry(L, L, L), volumeMat);
+    volume.renderOrder = -1;
+    volumeMat.uniforms.uH.value = h; volumeMat.uniforms.uL.value = L;
+    scene.add(box, ceiling, volume, bonds, points);
+    focus = -1; groupCursor = -1; rate = { light: new Float64Array(n), eat: new Float64Array(n), seenL: new Float64Array(n), seenE: new Float64Array(n), since: -1, tick: 0 };
+    showFocus();
     camera.position.set(L * 1.25, L * 0.55, L * 1.5);
     controls.target.set(0, 0, 0);
+    goal = null;
     controls.update();
     resize();
     $('replayResult').textContent = ''; $('replayResult').className = '';
     $('roles').innerHTML = '<div class="head">Measuring what each element lives on&hellip;</div>';
+    showKey();
     sync(true);
   }
 
   function drawSun() {
-    const ctx = sunCanvas.getContext('2d'), sh = shaftCanvas.getContext('2d');
-    const img = ctx.createImageData(256, 1), simg = sh.createImageData(256, 64);
+    const ctx = sunCanvas.getContext('2d');
+    const img = ctx.createImageData(256, 1);
     const peak = Math.max(sim.p.sun, 1e-9);
     for (let px = 0; px < 256; px++) {
-      const b = sim.sunAt(((px + 0.5) / 256) * sim.L) / peak;
+      const b = sim.sunAt((((px + 0.5) / 256) * sim.L - shift[0] + sim.L) % sim.L) / peak;
       const o = px * 4;
-      img.data[o] = 40 + 215 * b; img.data[o + 1] = 32 + 170 * b; img.data[o + 2] = 30 + 60 * b; img.data[o + 3] = 60 + 195 * b;
-      for (let py = 0; py < 64; py++) {
-        const f = b * (1 - py / 64) * 0.55, q = (py * 256 + px) * 4;
-        simg.data[q] = 255 * f; simg.data[q + 1] = 200 * f; simg.data[q + 2] = 110 * f; simg.data[q + 3] = 255;
-      }
+      img.data[o] = 40 + 215 * b; img.data[o + 1] = 32 + 170 * b; img.data[o + 2] = 30 + 60 * b; img.data[o + 3] = 40 + 215 * b;
     }
-    ctx.putImageData(img, 0, 0); sh.putImageData(simg, 0, 0);
-    sunTex.needsUpdate = true; shaftTex.needsUpdate = true;
+    ctx.putImageData(img, 0, 0);
+    sunTex.needsUpdate = true;
+    const u = volumeMat.uniforms;
+    u.uPhase.value = sim.tick / sim.p.day;
+    u.uShift.value = shift[0];
+    u.uStrength.value = 0.45 * Math.min(1.5, sim.p.sun / 12);
+  }
+
+  // ---------- groups, zoom and color modes ----------
+  // Groups are particles joined by bonds, found fresh every frame. Zooming follows one particle's
+  // group; the world is shifted around the wrap so that group sits in the middle of the box.
+  let focus = -1, groupCursor = -1, goal = null, focusSummary = null, rate = null, members = [];
+  let root = new Int32Array(0), gsize = new Int32Array(0), bonded = new Uint8Array(0);
+  const shift = [0, 0];
+  function findGroups() {
+    const n = sim.n;
+    if (root.length !== n) { root = new Int32Array(n); gsize = new Int32Array(n); bonded = new Uint8Array(n); }
+    for (let i = 0; i < n; i++) root[i] = i;
+    bonded.fill(0); gsize.fill(0);
+    const find = (x) => { while (root[x] !== x) { root[x] = root[root[x]]; x = root[x]; } return x; };
+    for (let b = 0; b < sim.bondCount; b++) {
+      const a = sim.bondA[b], c = sim.bondB[b];
+      bonded[a] = 1; bonded[c] = 1;
+      const ra = find(a), rc = find(c);
+      if (ra !== rc) { if (ra < rc) root[rc] = ra; else root[ra] = rc; }
+    }
+    for (let i = 0; i < n; i++) { root[i] = find(i); gsize[root[i]]++; }
+  }
+  // Center of a group on the wrap-around floor (a circular mean on x and y), its height, and spread.
+  function groupCenter(r) {
+    const L = sim.L, pos = sim.pos, k = 2 * Math.PI / L;
+    let cx = 0, sx = 0, cy = 0, sy = 0, z = 0, m = 0;
+    for (let i = 0; i < sim.n; i++) {
+      if (root[i] !== r) continue;
+      cx += Math.cos(k * pos[i * 3]); sx += Math.sin(k * pos[i * 3]);
+      cy += Math.cos(k * pos[i * 3 + 1]); sy += Math.sin(k * pos[i * 3 + 1]);
+      z += pos[i * 3 + 2]; m++;
+    }
+    const x = ((Math.atan2(sx, cx) / k) + L) % L, y = ((Math.atan2(sy, cy) / k) + L) % L;
+    z /= m;
+    const wrap = (d) => d - L * Math.round(d / L);
+    let r2 = 0;
+    for (let i = 0; i < sim.n; i++) {
+      if (root[i] !== r) continue;
+      r2 += wrap(pos[i * 3] - x) ** 2 + wrap(pos[i * 3 + 1] - y) ** 2 + (pos[i * 3 + 2] - z) ** 2;
+    }
+    return { x, y, z, radius: Math.sqrt(r2 / m), size: m };
+  }
+
+  const DIET_LIGHT = new THREE.Color('#f0b35a'), DIET_EAT = new THREE.Color('#ef6f8a'), DIET_NONE = new THREE.Color('#3c4256');
+  const EN_LOW = new THREE.Color('#1c2440'), EN_MID = new THREE.Color('#3fa98a'), EN_HIGH = new THREE.Color('#f4efb8');
+  const mix = new THREE.Color();
+  // Income per tick for each particle, smoothed over a few hundred ticks, from the running totals.
+  function updateRates() {
+    const a = sim.acc, n = sim.n, steps = sim.tick - rate.tick;
+    if (steps <= 0) return;
+    const fresh = a.since !== rate.since, keep = Math.exp(-steps / 300);
+    for (let i = 0; i < n; i++) {
+      const dl = fresh ? a.light[i] : a.light[i] - rate.seenL[i];
+      const de = fresh ? a.eat[i] : a.eat[i] - rate.seenE[i];
+      rate.light[i] = rate.light[i] * keep + (1 - keep) * dl / steps;
+      rate.eat[i] = rate.eat[i] * keep + (1 - keep) * de / steps;
+      rate.seenL[i] = a.light[i]; rate.seenE[i] = a.eat[i];
+    }
+    rate.since = a.since; rate.tick = sim.tick;
   }
 
   function sync(full) {
     const n = sim.n, L = sim.L, h = L / 2, pos = sim.pos, s = sim.s, en = sim.en;
-    const pa = posAttr.array, ca = colAttr.array;
+    const pa = posAttr.array, ca = colAttr.array, sa = sizeAttr.array;
+    findGroups();
+    updateRates();
+    let fr = -1;
+    if (focus >= 0) {
+      // Groups split and merge. If the followed particle has drifted off on its own, follow the
+      // largest piece of the group it was in instead.
+      if (gsize[root[focus]] < 3 && members.length) {
+        let best = -1;
+        for (const i of members) if (best < 0 || gsize[root[i]] > gsize[root[best]]) best = i;
+        if (gsize[root[best]] >= 3) focus = best;
+      }
+      fr = root[focus];
+      members = [];
+      for (let i = 0; i < n; i++) if (root[i] === fr) members.push(i);
+      const c = groupCenter(fr);
+      shift[0] = h - c.x; shift[1] = h - c.y;
+      focusSummary = c;
+      const dist = Math.min(L * 1.6, Math.max(2.2, c.radius * 5 + 1.5));
+      goal = { y: c.z - h, dist };
+    } else { shift[0] = 0; shift[1] = 0; focusSummary = null; }
+    const mode = $('colorBy').value, fade = $('fadeLoose').checked;
+    let avgInc = 0, avgEn = 0;
+    for (let i = 0; i < n; i++) { avgInc += rate.light[i] + rate.eat[i]; avgEn += Math.max(en[i], 0); }
+    avgInc = avgInc / n + 1e-12; avgEn = avgEn / n + 1e-12;
     for (let i = 0; i < n; i++) {
-      pa[i * 3] = pos[i * 3] - h; pa[i * 3 + 1] = pos[i * 3 + 2] - h; pa[i * 3 + 2] = pos[i * 3 + 1] - h;
-      particleColor(s, i * D + FAST);
-      const b = 0.3 + 0.9 * Math.tanh(1.5 * en[i]);
+      pa[i * 3] = ((pos[i * 3] + shift[0]) % L + L) % L - h;
+      pa[i * 3 + 1] = pos[i * 3 + 2] - h;
+      pa[i * 3 + 2] = ((pos[i * 3 + 1] + shift[1]) % L + L) % L - h;
+      let b;
+      if (mode === 'diet') {
+        const l = rate.light[i], e = rate.eat[i], inc = l + e;
+        mix.copy(DIET_EAT).lerp(DIET_LIGHT, inc > 0 ? l / inc : 0.5);
+        tmpColor.copy(DIET_NONE).lerp(mix, Math.tanh(1.5 * inc / avgInc));
+        b = 1.1;
+      } else if (mode === 'energy') {
+        const t = Math.tanh(0.7 * Math.max(en[i], 0) / avgEn);
+        if (t < 0.5) tmpColor.copy(EN_LOW).lerp(EN_MID, t * 2); else tmpColor.copy(EN_MID).lerp(EN_HIGH, t * 2 - 1);
+        b = 1;
+      } else {
+        particleColor(s, i * D + FAST);
+        b = 0.3 + 0.9 * Math.tanh(1.5 * en[i]);
+      }
+      let size = 1.2;
+      if (fr >= 0) {
+        if (root[i] === fr) size = 1.35; else { b *= 0.1; size = 0.5; }
+      } else if (fade && !bonded[i]) { b *= 0.4; size = 0.6; }
       ca[i * 3] = Math.min(1, tmpColor.r * b); ca[i * 3 + 1] = Math.min(1, tmpColor.g * b); ca[i * 3 + 2] = Math.min(1, tmpColor.b * b);
+      sa[i] = size;
     }
-    posAttr.needsUpdate = true; colAttr.needsUpdate = true;
+    posAttr.needsUpdate = true; colAttr.needsUpdate = true; sizeAttr.needsUpdate = true;
     let m = 0;
     if ($('showBonds').checked) {
-      const ba = bondAttr.array;
-      for (let b = 0; b < sim.bondCount; b++) {
-        const i = sim.bondA[b], j = sim.bondB[b];
-        if (Math.abs(pos[i * 3] - pos[j * 3]) > h || Math.abs(pos[i * 3 + 1] - pos[j * 3 + 1]) > h) continue;
-        ba[m++] = pa[i * 3]; ba[m++] = pa[i * 3 + 1]; ba[m++] = pa[i * 3 + 2];
-        ba[m++] = pa[j * 3]; ba[m++] = pa[j * 3 + 1]; ba[m++] = pa[j * 3 + 2];
+      const ba = bondAttr.array, bc = bondColAttr.array;
+      for (let k = 0; k < sim.bondCount; k++) {
+        const i = sim.bondA[k], j = sim.bondB[k];
+        if (Math.abs(pa[i * 3] - pa[j * 3]) > h || Math.abs(pa[i * 3 + 2] - pa[j * 3 + 2]) > h) continue;
+        const dim = fr >= 0 && root[i] !== fr ? 0.12 : 1;
+        for (const q of [i, j]) {
+          bc[m] = Math.min(1, ca[q * 3] * 1.6 * dim + 0.12 * dim); bc[m + 1] = Math.min(1, ca[q * 3 + 1] * 1.6 * dim + 0.12 * dim); bc[m + 2] = Math.min(1, ca[q * 3 + 2] * 1.6 * dim + 0.14 * dim);
+          ba[m++] = pa[q * 3]; ba[m++] = pa[q * 3 + 1]; ba[m++] = pa[q * 3 + 2];
+        }
       }
-      bondAttr.needsUpdate = true;
+      bondAttr.needsUpdate = true; bondColAttr.needsUpdate = true;
     }
     bonds.geometry.setDrawRange(0, m / 3);
     drawSun();
-    if (full) measure();
+    if (full) { measure(); showFocus(); }
+  }
+
+  // The key under the question says what the current coloring means.
+  function showKey() {
+    const mode = $('colorBy').value, key = $('viewKey');
+    const items = [];
+    if (mode === 'element') {
+      const dots = sim.elements.map((_, k) => `<i class="dot" style="background:${kindColor(k)}"></i>`).join('');
+      items.push([`<span class="sw" style="gap:2px">${dots}</span>`, 'Color is the element: the kind of particle its genome settled into. Brighter means more stored energy.']);
+    } else if (mode === 'diet') {
+      items.push(['<span class="sw"><i class="ramp" style="background:linear-gradient(90deg,#ef6f8a,#f0b35a)"></i></span>', 'Gold lives on light, pink on eating others; gray barely feeds.']);
+    } else {
+      items.push(['<span class="sw"><i class="ramp" style="background:linear-gradient(90deg,#1c2440,#3fa98a,#f4efb8)"></i></span>', 'Color is stored energy, from empty (dark) to full (pale).']);
+    }
+    items.push(['<span class="sw"><i class="ln"></i></span>', 'Lines are bonds; particles joined by them form groups.']);
+    if ($('fadeLoose').checked) items.push(['<span class="sw"><i class="dot small" style="background:#8c93a8"></i></span>', 'Small dim dots are loose particles with no bonds.']);
+    items.push(['<span class="sw"><i class="glow"></i></span>', 'The glow is sunlight, sweeping slowly across.']);
+    key.innerHTML = items.map(([sw, t]) => `<li>${sw}<span>${t}</span></li>`).join('');
+  }
+
+  function showFocus() {
+    const info = $('focusInfo');
+    if (focus < 0 || !focusSummary) {
+      info.textContent = '';
+      $('focusNext').textContent = 'Zoom to a group'; $('focusOut').hidden = true;
+      return;
+    }
+    $('focusNext').textContent = 'Next group'; $('focusOut').hidden = false;
+    const r = root[focus], counts = new Map();
+    for (let i = 0; i < sim.n; i++) if (root[i] === r) counts.set(sim.kind[i], (counts.get(sim.kind[i]) || 0) + 1);
+    const parts = [...counts.entries()].sort((a, b) => b[1] - a[1]).map(([k, c]) => {
+      const dot = k < sim.elements.length ? `<i class="dot" style="background:${kindColor(k)}"></i>` : `<i class="dot company" style="border-color:${LOOSE}"></i>`;
+      return `<span>${dot}${c}</span>`;
+    }).join('');
+    const sz = focusSummary.size;
+    info.innerHTML = `${sz === 1 ? 'A loose particle' : `Group of ${sz}`} ${parts}`;
+  }
+
+  function nextGroup() {
+    findGroups();
+    const roots = [];
+    for (let i = 0; i < sim.n; i++) if (root[i] === i && gsize[i] >= 3) roots.push(i);
+    roots.sort((a, b) => gsize[b] - gsize[a] || a - b);
+    if (!roots.length) return;
+    groupCursor = (groupCursor + 1) % roots.length;
+    focus = roots[groupCursor]; members = [];
+    anim = 90;
+    sync(true);
+  }
+  function wholeWorld() {
+    focus = -1; groupCursor = -1; anim = 90;
+    goal = { y: 0, dist: sim.L * 2.03 };
+    sync(true);
+  }
+  let anim = 0;
+  const tmpV = new THREE.Vector3();
+  // Fly the camera: ease the orbit center and distance toward the goal for a moment after a zoom
+  // change, then keep the center at the followed group's height.
+  function steerCamera() {
+    if (!goal) return;
+    const t = controls.target;
+    if (anim > 0) {
+      anim--;
+      const k = 0.08;
+      tmpV.copy(camera.position).sub(t);
+      const d = tmpV.length();
+      t.x += (0 - t.x) * k; t.z += (0 - t.z) * k; t.y += (goal.y - t.y) * k;
+      tmpV.multiplyScalar((d + (goal.dist - d) * k) / d);
+      camera.position.copy(t).add(tmpV);
+      if (anim === 0 && focus < 0) goal = null;
+    } else if (focus >= 0) {
+      const dy = (goal.y - t.y) * 0.05;
+      t.y += dy; camera.position.y += dy;
+    }
   }
 
   function role(r, avg) {
@@ -523,6 +771,7 @@
     return 'mixed';
   }
 
+  const ROLE_WORDS = { absorber: 'lives on light', eater: 'eats others', mixed: 'light + eating', inert: 'barely feeds' };
   function showRoles(eco) {
     let tot = 0, cnt = 0, top = 1e-9;
     for (const r of eco.rows) { tot += r.light + r.eat; cnt += r.count; }
@@ -539,7 +788,7 @@
       const row = document.createElement('div'); row.className = 'role';
       const dot = document.createElement('i'); dot.className = 'dot' + (k === sim.elements.length ? ' company' : '');
       if (k === sim.elements.length) dot.style.borderColor = LOOSE; else dot.style.background = kindColor(k);
-      const name = document.createElement('b'); name.textContent = role(r, avg);
+      const name = document.createElement('b'); name.textContent = ROLE_WORDS[role(r, avg)];
       const cnt = document.createElement('span'); cnt.className = 'n'; cnt.textContent = r.count;
       const bar = document.createElement('div'); bar.className = 'bar';
       for (const [cls, v] of [['l', r.light], ['e', r.eat], ['m', r.move]]) {
@@ -623,7 +872,12 @@
   function resize() {
     const w = window.innerWidth, h = window.innerHeight;
     renderer.setSize(w, h, false);
-    camera.aspect = w / h; camera.updateProjectionMatrix();
+    camera.aspect = w / h;
+    // Center the world in the space the panels leave free: right of the lab panel on wide
+    // screens, above the instruments on phones.
+    if (w > 720) camera.setViewOffset(w, h, -Math.min(150, w * 0.11), 0, w, h);
+    else camera.setViewOffset(w, h, 0, h * 0.16, w, h);
+    camera.updateProjectionMatrix();
     pointMat.uniforms.uSize.value = Math.max(6, h * 0.07);
   }
   window.addEventListener('resize', resize);
@@ -649,6 +903,9 @@
   $('newWorld').addEventListener('click', () => { $('worldSeed').value = Number($('worldSeed').value) + 1; build(); });
   $('spin').addEventListener('change', () => { controls.autoRotate = $('spin').checked; });
   $('showBonds').addEventListener('change', () => sync(false));
+  for (const k of ['colorBy', 'fadeLoose']) $(k).addEventListener('change', () => { showKey(); sync(false); });
+  $('focusNext').addEventListener('click', nextGroup);
+  $('focusOut').addEventListener('click', wholeWorld);
   $('togglePanel').addEventListener('click', () => {
     const c = $('panel').classList.toggle('collapsed');
     $('togglePanel').setAttribute('aria-expanded', String(!c));
@@ -749,6 +1006,7 @@
       frame++;
       sync(frame % 6 === 0);
     }
+    steerCamera();
     controls.update();
     renderer.render(scene, camera);
   }
