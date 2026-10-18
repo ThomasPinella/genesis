@@ -23,6 +23,9 @@ const LAWS = process.env.LAWLIST ? process.env.LAWLIST.split(',').map(Number) : 
 // LADDER=1 builds, instead of the strongest chain, a straight run of the element best placed to
 // hold a partner strand: one that bonds to itself, with two opposite sticky faces and a third.
 const LADDER = process.env.LADDER === '1';
+// ISOLATE=1 turns every other particle into the element that bonds least with the chain, to see
+// whether the chain falls apart on its own (heat) or because the soup pulls it apart.
+const ISOLATE = process.env.ISOLATE === '1';
 const WORLDS = [1, 2];
 const FACE = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]];
 const NU = (SPACING * SPACING) / (SPACING * SPACING + 0.15 * 0.15);
@@ -242,6 +245,12 @@ if (isMainThread) {
     const laid = layout(chain, sim);
     // Element indices in the chain refer to chem.els; census kinds refer to sim.elements.
     const ids = insert(sim, laid, chem.els, job.lawSeed * 7919 + job.worldSeed);
+    if (ISOLATE) {
+      let inert = 0, low = Infinity;
+      chem.els.forEach((_, x) => { const m = Math.max(...chain.pattern.map((y) => chem.gm[x][y])); if (m < low) { low = m; inert = x; } });
+      const keep = new Set(ids);
+      for (let i = 0; i < sim.n; i++) if (!keep.has(i)) for (let b = 0; b < S; b++) sim.s[i * D + FAST + b] = chem.els[inert].g[b];
+    }
     const series = [];
     for (let t = 1; t <= WATCH; t++) {
       sim.step();
