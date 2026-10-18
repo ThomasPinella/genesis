@@ -6,3 +6,5 @@ A simulated universe built from simple primitives, to see what emerges.
   starting hot with random genomes and cooling on one energy budget. Do elements and bonds freeze out?
 - [Experiment 2: Energy](experiments/02-energy/): the same world with a sweeping sun, stored energy,
   eating along attention and self-propulsion. Do absorbers, eaters, foraging and driven patterns appear?
+- [Experiment 3: Geometry](experiments/03-geometry/): particles get a facing and six sticky faces, so
+  bonds have direction. Do chains, rings and sheets form, and does any shape assemble copies of itself?
