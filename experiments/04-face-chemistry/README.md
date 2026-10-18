@@ -110,9 +110,9 @@ valleys might let a group recruit. The same checks ran with `depth` at 1 and 0.5
 - Joiners that took on the host's element went from 22 of about 24,000 at depth 2 to 241 at depth
   1 and 412 at depth 0.5 (about 2%). Every one of them was an unsettled genome that settled into
   the host's element. A genome already settled in one element never switched to the host's at any
-  depth; at depth 0.5 about 1,000 were knocked out of their element instead, into no element.
+  depth; at depth 0.5 about 900 ended up as neither their own element nor the host's.
 - The elements themselves blur: at depth 0.5, only 32 to 99% of genomes sit in an element, and up
-  to 7 kinds are present where 3 to 5 were before.
+  to 7 kinds are present, against 3 to 5 at depth 1.
 - Splits don't change: halves keep the parent's mix at chance, and the rare splits that end as two
   parent-sized groups stay at about 3%.
 - Why recruiting doesn't happen, as far as this shows: the bond energy pulls a genome toward
