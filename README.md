@@ -12,6 +12,8 @@ A simulated universe built from simple primitives, to see what emerges.
   chemistry, so a chain's spine and its sides can bond differently. Can a chain act as a mold for a copy of itself?
 - [Experiment 5: Shaking light](experiments/05-shaking-light/): part of the light a bonded particle absorbs
   pushes its bonds apart, so the world warms where the sun shines. Can a template's partners sort out and a copy let go?
+- [Experiment 6: Coarse-grained attention](experiments/06-coarse-grained-attention/): attention reaches far and sees
+  distant regions as one blend of their members. Do groups act as units, and does a group's arrangement show from afar?
 
 ## Series B
 
