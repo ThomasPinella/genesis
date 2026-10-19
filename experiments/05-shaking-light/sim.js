@@ -77,7 +77,7 @@ export const DEFAULTS = {
   efficiency: 0.7,  // the share of energy spent on pushing that becomes motion
   geometry: 1,      // how much direction matters in a match; 0 makes bonds and attention direction-blind
   faces: 1,         // how different a particle's faces are from each other; 0 makes them all alike
-  shake: 0.05,      // share of a bonded particle's absorbed light that shakes its bonds instead of being stored
+  shake: 0.25,      // share of a bonded particle's absorbed light that shakes its bonds instead of being stored
 };
 
 const RANGE = 1.0;      // interaction range: nothing farther than this is felt

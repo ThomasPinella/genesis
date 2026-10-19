@@ -1,27 +1,24 @@
-# Experiment 4: Face chemistry
+# Experiment 5: Shaking light
 
-**Question:** if each face of a particle has its own chemistry, can a chain act as a mold for a
-copy of itself?
+**Question:** if light warms what absorbs it, so that every place warms by day and cools by night,
+can a template's partners sort themselves out and a copy let go?
 
-This is the world of [experiment 3](../03-geometry/), changed in one place. In experiment 3 a face
-only decided *where* a particle was sticky; *who* it stuck to came from one genome match per pair
-of elements, the same through every face. The [template probe](../03-geometry/#the-template-probe)
-showed that this rules out copying: a bond along a chain's spine and a bond at its side were the
-same bond.
+This is the world of [experiment 4](../04-face-chemistry/), changed in one place. Until now, light
+that a particle absorbed went into its store and nowhere else, so the world cooled until nothing
+moved. Experiment 4's template probe found that the cold freezes wrong partners in, and that the
+optional noise, warm enough to free them, also breaks the template. The cheap checks there found
+that bonds make neighbors complementary rather than alike, which rules out recruiting but fits
+templating (as with DNA, where the copy of a copy is the original). What templating lacked was a
+way to let go.
 
-- **Each face has its own lens.** A particle shows its genome to a neighbor through the faces
-  turned that way, each face through its own lens: the genome as it is, plus a twist that belongs
-  to that face. The twists are matrices in the law, so nobody lists what a face likes. One face
-  can like the particle's own kind while another likes only a partner.
-- **One dial for how different faces are.** `faces` scales the twists. At 0 every face is alike;
-  at 1 (the default) faces are distinct sites. `geometry` at 0 still gives back experiment 2
-  exactly, which is the ablation.
-- **How open a face is** (how strongly its lens reads the genome) sets how much a particle attends
-  through it and how much light it sees through its top. The page draws a particle's most open
-  faces as short spikes.
-- **Still one energy.** Forces, torques and genome changes are the slopes of the same energy and
-  match finite differences; a pair's forces and torques add to no net push or twist; the books
-  balance in every world. Deterministic, as before.
+- **Light shakes bonds.** A share of the light a bonded particle absorbs (`shake`, default 0.25)
+  goes into its bonds instead of its store. Each bond gets an equal and opposite push along the
+  bond, apart, carrying exactly that energy. A bond the push carries past its depth breaks; a
+  stronger one rings and holds.
+- **Nothing else changes.** The pushes add no momentum and no turning (sideways momentum stays at
+  zero to rounding), total energy still never rises by more than the light absorbed, and nothing is
+  random. With `shake` at 0 the world is experiment 4 bit for bit, which is the ablation.
+- Since the sun sweeps across the world, each place gets its days and nights.
 
 ## Run it
 
@@ -29,97 +26,33 @@ same bond.
 python3 -m http.server 8000   # from this folder, then open http://localhost:8000
 ```
 
-**Drop in a template chain** (under Shape) builds the chain the law favors, frees 120 building
-blocks around it and zooms in; the shapes panel then counts partners beside it and how many are
-the matching letter. Verify replay repeats the drop.
+The new slider is under Sun and energy. **Drop in a template chain** works as in experiment 4.
 
-## Findings so far
+## Findings
 
-From a sweep of 48 worlds (12 laws × 4 starts, 4,000 ticks, 1,500 particles) with face
-chemistry, against the same laws and starts under experiment 3's rule (`sweep-results.json`, and
-the World map panel), plus template probes (`template-results.json`).
+From the template probe on the eight laws whose lenses allow a two-letter code (laws 5, 62, 74,
+76, 116, 155, 193 and 294; law 180 has none under the probe's test), 2 starts each, at shake 0,
+0.25, 0.5 and 1, with 120 building blocks freed beside the chain and watched for 4,000 ticks (four
+days). Results are in `template-results.json`.
 
-- **Every law bonds now.** Under experiment 3's rule, six laws stayed a gas with at most 16% of
-  particles bonded. With face chemistry every law bonds 53 to 100%, and still no giant blobs form
-  (the largest group in any world is 145 particles; experiment 2 had blobs up to 1,200).
-- **More sheets, and the longest chains yet.** Laws 5, 8 and 11 put about a third of their
-  particles in flat sheets. Law 11's chains average 9 particles, where every other law and
-  experiment so far averaged 3 to 5.
-- **Repeated arrangements spread across laws.** In every law, groups with the exact same
-  arrangement of elements recur in at least one start (up to 46 particles' worth per world in law
-  10), against 4 laws under experiment 3's rule. Law 5's big repeats are gone: it makes sheets instead.
-- **A template now survives.** The probe built a 14-particle chain of two letters in a fixed
-  order (in the laws whose lenses allow a code: each letter fits the spine with both letters and
-  prefers the other at its side). In law 5 it stayed 92 to 100% intact for 3,000 ticks, where in
-  experiment 3 such chains fell apart within about 1,000.
-- **Partners lean toward the right letter, but no copy forms.** In a settled soup almost every
-  particle is already bonded, so the chain finds few partners. With 120 building blocks freed
-  around it, up to 10 of its 14 sites pick one up, and partners are the matching letter 45 to 70%
-  of the time (chance is 50%; laws 5 and 62 lean right, law 155 does not). Kept warm by the optional seeded jitter, law 62 settles at about
-  70%. But partners never link into a second chain longer than 4.
-- **Why not yet, as far as the probe shows:**
-  - *Building blocks link up on their own.* The spine bond is as easy for two free blocks as for
-    two blocks held by the template, so the free ones form their own short chains and arrive as
-    clumps rather than one at a time.
-  - *Cold freezes mistakes in.* The soup cools until nothing moves, so a wrong partner never comes
-    off. Warmth lets wrong partners leave, but enough warmth to help also breaks the template's
-    own spine (law 62 at the higher jitter: down to 23% intact).
-  - Copying needs the spine bond to be much stronger than the side bond, and linking to be easy
-    *only* when two blocks are held side by side. Narrower faces might do both: an exact alignment
-    is hard to hit by chance and easy when the template holds blocks in place. That is the next
-    knob to test.
-- **The books balance.** In all 48 worlds, total energy never rose by more than the light that
-  came in over any 20-tick check.
+- **No copy forms.** At every shake level, partners beside the chain link into at most 4 to 7 in a
+  row, as in experiment 4.
+- **Partners don't sort themselves out.** The share of partners that are the matching letter stays
+  at chance, 41 to 53% at every level.
+- **Where the template absorbs light, the light breaks it.** In laws 74, 116, 193 and 294 the
+  chain's own members absorb light, and the share of its spine still intact falls from 19% without
+  shaking to 9%, 7% and 0% as the shake rises. Where the template barely absorbs (laws 5, 62, 76 and
+  155), the light lands on its neighbors and the chain holds about as well as without (49 to 63%
+  intact).
+- **Why, as far as this shows:** the push goes into every bond of a particle that absorbs, the
+  spine as much as the sides, so it frees right and wrong partners alike and weakens the template
+  too. The heat it adds is selective only through bond strength, and in these laws a right
+  partner's bond is barely stronger than a wrong one's (the code margins are small), so warming
+  gives selection almost nothing to work with. Copying would need a much larger gap between the
+  right side bond and the wrong one, and a spine much stronger than both.
 
-Rerun the sweep with `PARTIAL=partial.jsonl node tools/sweep.mjs > sweep-results.json` (it saves
-each world as it finishes, so a stopped run resumes; add the experiment 3 rows as `control` for
-the map). The probe: `CODE=1 FEED=120 NOISE=0.06 LAWLIST=62 node tools/template.mjs`.
+WORLD_SWEEP
 
-## Cheap checks toward multiplying
-
-Three routes to multiplying might already be half there in this world, with no new rule. The
-probes above test one of them (templating). `tools/checks.mjs` watches 48 ordinary worlds (12 laws
-× 4 starts, 4,000 ticks) for the other two, and for whether a group's state carries its shape. It
-only watches. Results are in `checks-results.json`.
-
-- **Groups split all the time, but the halves don't inherit anything beyond chance.** There were
-  19,167 splits of groups of 8 or more. Each half's mix of elements is as close to the parent's as
-  a random handful drawn from the parent would be (0.70 to 0.92 alike, against 0.75 to 0.92 for
-  the random handful), and no closer. Most halves dissolve or rejoin. In 526 splits (3%) both
-  halves later sit in separate groups at least three quarters of the parent's size with nearly
-  its mix, mostly in laws 5, 7 and 11, where a random handful already matches the parent at 0.86
-  to 0.90; that looks like the world sorting into groups of one element rather than lineages.
-- **Groups don't recruit.** Of 47,668 particles that joined a group of another element and stayed
-  for 200 ticks, 50 turned into the group's element, and 40 of those were unsettled genomes in law
-  12 that settled. Once a genome sits in its element's valley, its neighbors' pull doesn't move it
-  out; the `depth` setting (how deep the valleys are) is what would change that.
-- **A group's members speak with one voice, but not in a way that tells arrangements apart.**
-  Within each element, which group a particle belongs to explains about 80% of the spread in its
-  fast state (30 to 70% by chance), so bonded particles fall into a shared state. Where a particle
-  sits (chain end or middle) explains almost none of it (at most 9%). The kind of shape matters in
-  law 8 (28%, sheets against the rest) and a little in law 9 (11%). But two groups with the same
-  members arranged differently are hardly further apart in average fast state than two with the
-  same arrangement (law 4 is the clearest gap, 0.46 against 0.34; laws 9 and 12 go the other way):
-  identical structures settle into quite different shared states, depending on their history. So a coarse-grained blend would see makeup and a group's own state, which works like a
-  memory, but not its arrangement.
-
-**Shallower valleys.** If settled genomes are stuck because their valleys are deep, shallower
-valleys might let a group recruit. The same checks ran with `depth` at 1 and 0.5 (the default is
-2), on 12 laws × 2 starts each (`checks-depth1.json`, `checks-depth0.5.json`).
-
-- Joiners that took on the host's element went from 22 of about 24,000 at depth 2 to 241 at depth
-  1 and 412 at depth 0.5 (about 2%). Every one of them was an unsettled genome that settled into
-  the host's element. A genome already settled in one element never switched to the host's at any
-  depth; at depth 0.5 about 900 ended up as neither their own element nor the host's.
-- The elements themselves blur: at depth 0.5, only 32 to 99% of genomes sit in an element, and up
-  to 7 kinds are present, against 3 to 5 at depth 1.
-- Splits don't change: halves keep the parent's mix at chance, and the rare splits that end as two
-  parent-sized groups stay at about 3%.
-- Why recruiting doesn't happen, as far as this shows: the bond energy pulls a genome toward
-  whatever binds its neighbors best, which is a partner, not a copy. Two elements bond because they
-  fit each other; turning one into the other would usually make the bond worse. So in this world,
-  descent makes neighbors complementary, not alike. Like making like would need an element whose
-  best partner is its own kind, and those groups are already all one kind.
-
-Rerun with `WORLDS=1,2,3,4 PARTIAL=partial.jsonl node tools/checks.mjs > checks-results.json`
-(add `DEPTH=1` for shallower valleys).
+Rerun the probe with `CODE=1 FEED=120 WATCH=4000 SHAKES=0,0.25,0.5,1 LAWLIST=5,62,74,76,116,155,180,193,294 node tools/template.mjs > template-results.json`
+and the sweep with `SHAKES=0,0.25 WORLDS=1,2 node tools/sweep.mjs > sweep-results.json`. Both take
+`PARTIAL=file.jsonl` to save each world as it finishes.

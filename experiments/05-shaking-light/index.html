@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>Genesis Face Chemistry</title>
+<title>Genesis Shaking Light</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap">
@@ -193,10 +193,10 @@
 
 <aside class="panel" id="panel">
   <div>
-    <p class="eyebrow">Genesis &middot; Experiment 4</p>
-    <h1>Face chemistry</h1>
+    <p class="eyebrow">Genesis &middot; Experiment 5</p>
+    <h1>Shaking light</h1>
   </div>
-  <p class="question">The world of experiment 3, where each of a particle's six faces now has its own chemistry: every face shows the genome through its own lens, so one face can like its own kind while another likes only a partner. Particles turn to bring the right faces together. <b>Can a chain now act as a mold for a copy of itself?</b></p>
+  <p class="question">The world of experiment 4, where light now warms what absorbs it: part of the light a bonded particle takes in pushes its bonds apart, so weak bonds can break by day and strong ones ring and hold. As the sun sweeps across, each place warms and cools. <b>With days and nights, can a template's partners sort themselves out and a copy let go?</b></p>
   <ul class="key" id="viewKey" aria-label="How to read the view"></ul>
 
   <div class="row">
@@ -261,6 +261,11 @@
       <label for="absorb">Most a particle can absorb</label><output for="absorb" id="absorbOut"></output>
       <input id="absorb" type="range" min="0" max="1" step="0.01" value="0.5">
     </div>
+    <div class="field">
+      <label for="shake">Share of light that shakes bonds</label><output for="shake" id="shakeOut"></output>
+      <input id="shake" type="range" min="0" max="1" step="0.01" value="0.25">
+    </div>
+    <p class="note">At 0, all absorbed light is stored and the world is experiment 4 exactly.</p>
     <div class="field">
       <label for="eatRate">Eating rate</label><output for="eatRate" id="eatRateOut"></output>
       <input id="eatRate" type="range" min="0" max="3" step="0.05" value="0.5">
@@ -354,7 +359,7 @@
     </div>
     <button id="closeMap" type="button" aria-label="Close the world map">Close</button>
   </div>
-  <p class="note" id="mapNote">Each row is one law and each square one start, run headlessly for 4,000 ticks with 1,500 particles, with face chemistry. The thick bar shows how particles ended up arranged; the thin bar under it is the same law and start under experiment 3's rule, where a face only decided where a particle was sticky. A number counts groups that share their exact patterned arrangement with another group. Click a square to load it.</p>
+  <p class="note" id="mapNote">Each row is one law and each square one start, run headlessly for 4,000 ticks with 1,500 particles, with light shaking bonds (share 0.25). The thick bar shows how particles ended up arranged; the thin bar under it is the same law and start with no shaking, which is experiment 4. A number counts groups that share their exact patterned arrangement with another group. Click a square to load it.</p>
   <div class="mapScroll"><div class="mapGrid" id="mapGrid"></div></div>
   <div class="mapKey" id="mapKey"></div>
 </section>
@@ -396,7 +401,7 @@
   const $ = (id) => document.getElementById(id);
   const RESTART_KEYS = ['worldSeed', 'lawSeed', 'n', 'heat', 'spread'];
   const LIVE_KEYS = ['sun', 'day', 'absorb', 'eatRate', 'eatGain', 'leak', 'thrust', 'efficiency',
-    'drag', 'attraction', 'sharpness', 'depth', 'genomeRate', 'stateRate', 'noise', 'geometry', 'faces'];
+    'drag', 'attraction', 'sharpness', 'depth', 'genomeRate', 'stateRate', 'noise', 'geometry', 'faces', 'shake'];
   const WINDOW = 500; // ticks over which the roles panel adds up income
 
   // ---------- renderer ----------
@@ -1038,7 +1043,7 @@
 
   // ---------- controls ----------
   let running = true;
-  const fmt = { geometry: 2, faces: 2, heat: 1, spread: 1, sun: 1, day: 0, absorb: 2, eatRate: 2, eatGain: 2, leak: 3, thrust: 1, efficiency: 2,
+  const fmt = { geometry: 2, faces: 2, shake: 2, heat: 1, spread: 1, sun: 1, day: 0, absorb: 2, eatRate: 2, eatGain: 2, leak: 3, thrust: 1, efficiency: 2,
     drag: 3, attraction: 2, sharpness: 2, depth: 1, genomeRate: 2, stateRate: 3, noise: 2, speed: 0 };
   for (const k of Object.keys(fmt)) {
     const el = $(k), out = $(k + 'Out');
@@ -1149,13 +1154,14 @@
         const bars = div('shapeBars');
         bars.append(shapeBar(on, false), shapeBar(off, true));
         b.append(bars, div('rep', on.repeatMembers ? `×${on.repeatMembers}` : ''));
-        b.title = `Law ${law}, start ${w}. With face chemistry: ${shapeText(on)}; temperature ${on.temperature}; ${on.repeatMembers} groups repeat an arrangement; ${on.splits} identical splits. Under experiment 3's rule: ${shapeText(off)}; ${off.repeatMembers} repeat; ${off.splits} identical splits.`;
+        b.title = `Law ${law}, start ${w}. With shaking light: ${shapeText(on)}; temperature ${on.temperature}; ${on.repeatMembers} groups repeat an arrangement; ${on.splits} identical splits. Without shaking: ${shapeText(off)}; ${off.repeatMembers} repeat; ${off.splits} identical splits.`;
         b.setAttribute('aria-label', b.title);
         if (Number($('lawSeed').value) === law && Number($('worldSeed').value) === w && Number($('n').value) === mapData.n) b.classList.add('current');
         b.addEventListener('click', () => {
           $('lawSeed').value = law; $('worldSeed').value = w; $('n').value = String(mapData.n);
           $('geometry').value = '1'; $('geometryOut').textContent = '1.00';
           $('faces').value = String(mapData.faces ?? 1); $('facesOut').textContent = Number($('faces').value).toFixed(2);
+          $('shake').value = String(mapData.shake ?? 0.25); $('shakeOut').textContent = Number($('shake').value).toFixed(2);
           build(); drawMap();
         });
         add(b);
@@ -1163,7 +1169,7 @@
       add(div('web', `${splitsOn} / ${splitsOff}`));
     }
     $('mapKey').innerHTML = MAP_SHAPES.map((k) => `<span><i class="dot" style="background:${SHAPE_COLOR[k]}"></i>${SHAPE_WORDS[k]}</span>`).join('')
-      + '<span>empty bar: loose particles and pairs</span><span><b style="color: var(--ink)">×N</b>: groups sharing an exact patterned arrangement</span><span><b style="color: var(--ink)">splits</b>: groups that split into two identical halves, face chemistry / experiment 3</span>';
+      + '<span>empty bar: loose particles and pairs</span><span><b style="color: var(--ink)">×N</b>: groups sharing an exact patterned arrangement</span><span><b style="color: var(--ink)">splits</b>: groups that split into two identical halves, shaking / none</span>';
   }
   $('openMap').addEventListener('click', () => ($('map').hidden ? openMap() : closeMap()));
   function closeMap() { $('map').hidden = true; $('openMap').setAttribute('aria-expanded', 'false'); }

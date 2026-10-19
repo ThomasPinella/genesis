@@ -12,12 +12,11 @@ import { Sim } from '../sim.js';
 const TICKS = Number(process.env.TICKS) || 4000;
 const N = 1500;
 const LAWS = Array.from({ length: Number(process.env.LAWS) || 12 }, (_, i) => i + 1);
-const WORLDS = WORLDLIST || [1, 2, 3, 4];
+const WORLDS = process.env.WORLDS ? process.env.WORLDS.split(',').map(Number) : [1, 2, 3, 4];
 const GEOMETRY = [1];
 const FACES = process.env.FACES ? Number(process.env.FACES) : 1;
 // SHAKES lists the shares of absorbed light that shake bonds; 0 is experiment 4, the control.
-const SHAKES = process.env.SHAKES ? process.env.SHAKES.split(',').map(Number) : [0, 0.05];
-const WORLDLIST = process.env.WORLDS ? process.env.WORLDS.split(',').map(Number) : null;
+const SHAKES = process.env.SHAKES ? process.env.SHAKES.split(',').map(Number) : [0, 0.25];
 const CHECK = 20;      // ticks between energy-books checks
 const WATCH = 25;      // ticks between looks at the groups, for splits
 const SERIES = 500;    // ticks between points of the repeat count over time

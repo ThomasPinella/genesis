@@ -41,7 +41,7 @@ const FEED = Number(process.env.FEED) || 0;
 const NOISE = Number(process.env.NOISE) || 0;
 const WORLDS = [1, 2];
 // SHAKES lists the shares of absorbed light that shake bonds (experiment 5); each runs separately.
-const SHAKES = process.env.SHAKES ? process.env.SHAKES.split(',').map(Number) : [0.05];
+const SHAKES = process.env.SHAKES ? process.env.SHAKES.split(',').map(Number) : [0.25];
 
 
 if (isMainThread) {
