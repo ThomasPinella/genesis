@@ -29,7 +29,7 @@ or 0.15, nights at 0.06, a day and night last 100; two seeds. Averages over the 
   shapes of methane and ethane. They are few: about 1-10 present at a time.
 - **Complete molecules last.** With days at 0.12, 89-97% of complete molecules of three or more balls
   get through a day, against 26-29% of open groups. With days at 0.15 it is 47-57% against 5-8%. The
-  oldest group in four of the eight caps-50% runs is a five-ball molecule, and the longest-lived lasted
+  oldest group in seven of the eight caps-50% runs is a five-ball molecule, and the longest-lived lasted
   1050 time units, ten and a half days, nearly the whole run. Without caps nothing of three or more
   balls survives a day.
 - **Caps of one sign make bigger molecules.** With every cap +, caps can't waste themselves on each
