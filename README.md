@@ -25,3 +25,5 @@ A second series that keeps only polarity and energy flow: no attention, no genom
   has. Do well-connected groups outlast the days without the soup knitting into one net?
 - [B4: Caps](series-b/b4-caps/): some balls carry a single spot, like hydrogen. Can groups finish,
   using up every spot, and do complete molecules outlast the days?
+- [B5: Two levels](series-b/b5-two-levels/): caps hold twice as hard as other bonds. Do capped
+  molecules last while weak bonds between them build a second, looser level?
