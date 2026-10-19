@@ -19,3 +19,9 @@ A second series that keeps only polarity and energy flow: no attention, no genom
 
 - [B1: The polar soup](series-b/b1-soup/): balls with four + or − spots, cooling slowly. Do they build
   small shapes that repeat, one big net, or a crystal?
+- [B2: Day and night](series-b/b2-cycles/): the same soup in a bath that is warm by day and cool by
+  night. Does the cycle keep many kinds of small shape alive, and do any survive the days?
+- [B3: Teamwork bonds](series-b/b3-teamwork/): a ball holds each partner harder the more partners it
+  has. Do well-connected groups outlast the days without the soup knitting into one net?
+- [B4: Caps](series-b/b4-caps/): some balls carry a single spot, like hydrogen. Can groups finish,
+  using up every spot, and do complete molecules outlast the days?
