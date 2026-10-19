@@ -1,0 +1,1218 @@
+<meta charset="utf-8">
+<title>Genesis Far Attention</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap">
+<style>
+  /* Layout: the world fills the screen; a lab panel floats on the left, instruments bottom right. */
+  :root {
+    --void: #07080c;
+    --panel: rgba(14, 16, 24, 0.86);
+    --line: rgba(160, 172, 210, 0.16);
+    --ink: #e4e7f1;
+    --quiet: #8c93a8;
+    --accent: #f0b35a;
+    --cool: #6fc3df;
+    --ok: #7fd49a;
+    --bad: #ef7f7f;
+    --ui: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    color-scheme: dark;
+  }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--void); color: var(--ink); font-family: var(--ui); font-size: 14px; overflow: hidden; }
+  #world { position: fixed; inset: 0; display: block; width: 100%; height: 100%; touch-action: none; }
+
+  .panel {
+    position: fixed; z-index: 2;
+    top: calc(12px + env(safe-area-inset-top, 0px));
+    left: max(12px, env(safe-area-inset-left, 0px));
+    width: 300px; max-height: calc(100% - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    overflow-y: auto; box-sizing: border-box;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 16px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0; }
+  h1 { font-size: 22px; font-weight: 600; margin: 2px 0 0; letter-spacing: 0.01em; text-wrap: balance; }
+  .question { margin: 0; color: var(--quiet); line-height: 1.45; }
+  .question b { color: var(--ink); font-weight: 500; }
+
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  button {
+    font: 500 13px var(--ui); color: var(--ink); background: rgba(255,255,255,0.05);
+    border: 1px solid var(--line); border-radius: 6px; padding: 7px 11px; cursor: pointer;
+  }
+  button:hover { background: rgba(255,255,255,0.1); }
+  button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button.primary { background: var(--accent); color: #1a1205; border-color: transparent; min-width: 72px; }
+  button.primary:hover { background: #f5c47c; }
+
+  fieldset { border: 0; border-top: 1px solid var(--line); margin: 0; padding: 12px 0 0; display: grid; gap: 9px; }
+  legend { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--quiet); padding: 0 6px 0 0; }
+  .field { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 10px; }
+  .field label { color: var(--ink); }
+  .field output { font-family: var(--mono); font-size: 12px; color: var(--quiet); font-variant-numeric: tabular-nums; }
+  .field input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent); margin: 0; }
+  .note { font-size: 12px; color: var(--quiet); margin: -2px 0 0; }
+  .inline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .inline label { display: grid; gap: 4px; font-size: 12px; color: var(--quiet); }
+  input[type=number], select {
+    font: 13px var(--mono); color: var(--ink); background: rgba(255,255,255,0.05);
+    border: 1px solid var(--line); border-radius: 6px; padding: 6px 7px; width: 100%; box-sizing: border-box; min-width: 0;
+  }
+  .check { display: flex; gap: 8px; align-items: center; }
+  .check input { accent-color: var(--accent); }
+
+  .instruments {
+    position: fixed; z-index: 2;
+    right: max(12px, env(safe-area-inset-right, 0px));
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    width: 290px; box-sizing: border-box;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 12px 14px; display: grid; gap: 10px;
+  }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; margin: 0; }
+  .stats div { display: flex; justify-content: space-between; gap: 8px; min-width: 0; }
+  .stats dt { color: var(--quiet); font-size: 12px; }
+  .stats dd { margin: 0; font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; }
+  .spark { width: 100%; height: 64px; display: block; }
+  .legend { display: flex; gap: 14px; font-size: 11px; color: var(--quiet); font-family: var(--mono); }
+  .legend i { display: inline-block; width: 10px; height: 2px; vertical-align: middle; margin-right: 5px; }
+  .fingerprint { display: flex; align-items: center; justify-content: space-between; gap: 8px; border-top: 1px solid var(--line); padding-top: 9px; }
+  .fingerprint code { font-family: var(--mono); font-size: 13px; color: var(--cool); }
+  .fingerprint small { display: block; color: var(--quiet); font-size: 11px; }
+  #replayResult { font-size: 12px; color: var(--quiet); margin: 0; min-height: 1em; }
+  #replayResult.ok { color: var(--ok); }
+  #replayResult.bad { color: var(--bad); }
+
+  .map {
+    position: fixed; z-index: 4;
+    top: calc(12px + env(safe-area-inset-top, 0px));
+    right: max(12px, env(safe-area-inset-right, 0px));
+    width: 460px; max-width: calc(100% - 24px); box-sizing: border-box;
+    max-height: calc(100% - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); overflow-y: auto;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    padding: 14px; display: grid; gap: 10px;
+  }
+  .map[hidden], #fallback[hidden] { display: none; }
+  .mapHead { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+  .map h2 { margin: 2px 0 0; font-size: 17px; font-weight: 600; }
+  .mapScroll { overflow-x: auto; }
+  .mapGrid { display: grid; gap: 3px; font-family: var(--mono); font-size: 11px; color: var(--quiet); align-items: center; }
+  .mapGrid .colh, .mapGrid .rowh { text-align: center; font-variant-numeric: tabular-nums; }
+  .mapGrid .rowh { text-align: right; padding-right: 4px; }
+  .cell {
+    min-height: 26px; min-width: 52px; border-radius: 4px; border: 1px solid transparent; padding: 3px;
+    font: 500 10px var(--mono); color: rgba(255,255,255,0.85); cursor: pointer; background: #161a26;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .table { min-height: 26px; display: flex; align-items: center; }
+  .dots { display: flex; flex-wrap: wrap; gap: 3px; justify-content: center; align-items: center; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; box-sizing: border-box; flex: none; }
+  .dot.company { background: transparent !important; border: 2px solid; }
+  .dot.absent { opacity: 0.18; }
+  .mapGrid .recur { text-align: center; color: var(--ink); }
+  .elements { display: flex; flex-wrap: wrap; gap: 4px 10px; font-family: var(--mono); font-size: 11px; color: var(--quiet); min-height: 14px; }
+  .elements span { display: inline-flex; align-items: center; gap: 4px; }
+  .cell:hover { border-color: var(--ink); }
+  .cell.current { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .cell.gas { opacity: 0.55; }
+  .mapKey { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 11px; color: var(--quiet); }
+  .mapKey .dot { display: inline-block; margin-right: 5px; vertical-align: -1px; }
+
+  .toggle { display: none; }
+  #fallback { position: fixed; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--quiet); }
+
+  @media (max-width: 720px) {
+    .toggle {
+      display: block; position: fixed; z-index: 3;
+      top: calc(10px + env(safe-area-inset-top, 0px)); left: max(12px, env(safe-area-inset-left, 0px));
+    }
+    .panel { top: calc(54px + env(safe-area-inset-top, 0px)); width: auto; right: max(12px, env(safe-area-inset-right, 0px)); max-height: 62%; }
+    .panel.collapsed { display: none; }
+    .instruments { left: max(12px, env(safe-area-inset-left, 0px)); width: auto; }
+    .spark { height: 44px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+
+  details.more { border-top: 1px solid var(--line); padding-top: 10px; }
+  details.more summary { cursor: pointer; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--quiet); }
+  details.more[open] summary { margin-bottom: 10px; }
+  details.more fieldset { margin-top: 4px; }
+  .roles { display: grid; gap: 5px; font-size: 12px; }
+  .roles .head { color: var(--quiet); font-size: 11px; font-family: var(--mono); }
+  .role { display: grid; grid-template-columns: 12px 92px 34px 1fr; gap: 8px; align-items: center; }
+  .role b { font-weight: 500; }
+  .role .n { font-family: var(--mono); color: var(--quiet); font-size: 11px; text-align: right; }
+  .bar { height: 7px; border-radius: 4px; background: rgba(255,255,255,0.06); display: flex; overflow: hidden; }
+  .bar i { display: block; height: 100%; }
+  .bar .l { background: var(--accent); }
+  .bar .e { background: var(--bad); }
+  .bar .m { background: var(--cool); }
+  .cellRoles { display: flex; flex-wrap: wrap; gap: 2px 5px; justify-content: center; align-items: center; }
+  .cellRoles span { display: inline-flex; align-items: center; gap: 2px; font: 500 10px var(--mono); color: var(--ink); }
+  .mapGrid .web { text-align: center; color: var(--ink); }
+  .roles[hidden] { display: none; }
+  .shapeBars { display: grid; gap: 2px; width: 100%; }
+  .shapeBars .sb { display: flex; height: 9px; border-radius: 2px; overflow: hidden; background: rgba(255,255,255,0.06); }
+  .shapeBars .sb.thin { height: 4px; opacity: 0.8; }
+  .shapeBars .sb i { display: block; height: 100%; }
+  .cell .rep { font: 500 10px var(--mono); color: var(--ink); text-align: right; min-height: 11px; }
+  .cell.shapeCell { flex-direction: column; align-items: stretch; gap: 2px; min-width: 64px; }
+  .note.small { font-size: 11px; margin: 0; }
+  @media (max-width: 720px) { .instruments .spark, .instruments .legend { display: none; } }
+  .instruments { width: 310px; }
+  .key { display: grid; gap: 5px; font-size: 12px; color: var(--quiet); margin: -4px 0 0; padding: 0; list-style: none; }
+  .key li { display: flex; gap: 8px; align-items: center; }
+  .key .sw { min-width: 22px; flex: none; display: inline-flex; justify-content: center; align-items: center; }
+  .key .ln { width: 18px; height: 2px; background: #c9d2ff; opacity: 0.8; }
+  .key .glow { width: 18px; height: 10px; border-radius: 3px; background: linear-gradient(90deg, transparent, rgba(255,200,115,0.75), transparent); }
+  .key .ramp { width: 18px; height: 8px; border-radius: 2px; }
+  .key .dot.small { width: 5px; height: 5px; opacity: 0.6; }
+  .focusbar {
+    position: fixed; z-index: 3; top: calc(12px + env(safe-area-inset-top, 0px)); right: max(12px, env(safe-area-inset-right, 0px));
+    display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; max-width: calc(100% - 340px);
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  }
+  .focusbar[hidden] { display: none; }
+  #focusInfo { font-size: 12px; color: var(--quiet); display: inline-flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  #focusInfo span { display: inline-flex; gap: 3px; align-items: center; font-family: var(--mono); font-size: 11px; color: var(--ink); }
+  @media (max-width: 720px) {
+    .focusbar { left: auto; max-width: calc(100% - 120px); top: calc(10px + env(safe-area-inset-top, 0px)); padding: 6px 8px; }
+  }
+</style>
+
+<canvas id="world" aria-label="3D view of the simulated particles, their bonds and open faces, under a moving sun"></canvas>
+<div id="fallback" hidden></div>
+
+<button class="toggle" id="togglePanel" aria-expanded="true" aria-controls="panel">Controls</button>
+
+<aside class="panel" id="panel">
+  <div>
+    <p class="eyebrow">Genesis &middot; Experiment 6</p>
+    <h1>Coarse-grained attention</h1>
+  </div>
+  <p class="question">The world of experiment 5, where attention now reaches far: up close a particle hears each neighbor, and farther out it hears each region of the world as one blend of its members. Nothing looks for groups; a region whose members agree simply stands out. <b>Do groups start acting as units, and does what a group looks like from afar depend on how it is arranged?</b></p>
+  <p class="note"><b>Answer, from 24 worlds: no.</b> About a tenth of attention goes far, and the world hardly changes. Bonded groups share one fast state with or without far attention, and two groups with the same members look as alike from afar whether or not they are arranged alike. Listening harder along bonds, or giving empty space a share of attention, doesn't change that. Members of a group listen mostly to each other and settle into one shared state, which remembers the group's history rather than its shape.</p>
+  <ul class="key" id="viewKey" aria-label="How to read the view"></ul>
+
+  <div class="row">
+    <button class="primary" id="run" type="button">Pause</button>
+    <button id="stepOnce" type="button">Step</button>
+    <button id="restart" type="button">Restart</button>
+    <button id="newWorld" type="button">New world</button>
+    <button id="openMap" type="button" aria-controls="map" aria-expanded="false">World map</button>
+  </div>
+
+  <fieldset>
+    <legend>Universe</legend>
+    <div class="inline">
+      <label for="worldSeed">World seed<input id="worldSeed" type="number" min="1" step="1" value="1"></label>
+      <label for="lawSeed">Law seed<input id="lawSeed" type="number" min="1" step="1" value="5"></label>
+      <label for="n">Particles
+        <select id="n">
+          <option value="1000">1,000</option>
+          <option value="1500" selected>1,500</option>
+          <option value="2000">2,000</option>
+          <option value="3000">3,000</option>
+        </select>
+      </label>
+    </div>
+    <p class="note">The law seed picks the physics, including the light's color. The world seed picks the starting conditions. These restart the universe.</p>
+    <div class="field">
+      <label for="heat">Starting heat</label><output for="heat" id="heatOut"></output>
+      <input id="heat" type="range" min="0" max="4" step="0.1" value="2">
+    </div>
+    <div class="field">
+      <label for="spread">Starting genome range</label><output for="spread" id="spreadOut"></output>
+      <input id="spread" type="range" min="0" max="4" step="0.1" value="2.5">
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Shape</legend>
+    <div class="field">
+      <label for="geometry">How much direction matters</label><output for="geometry" id="geometryOut"></output>
+      <input id="geometry" type="range" min="0" max="1" step="0.05" value="1">
+    </div>
+    <div class="field">
+      <label for="faces">How different the faces are</label><output for="faces" id="facesOut"></output>
+      <input id="faces" type="range" min="0" max="2" step="0.05" value="1">
+    </div>
+    <button id="dropTemplate" type="button">Drop in a template chain</button>
+    <p class="note">Builds a 14-particle chain the law favors (two letters in a fixed order, where the law allows a code), frees 120 building blocks around it and zooms in. The shapes panel then counts partners beside it and how many are the matching letter.</p>
+    <p class="note">Direction at 1 means particles bond face to face. At 0, bonds ignore direction and the world is experiment 2 exactly. Faces at 0 makes every face alike; higher makes them distinct sites.</p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Attention</legend>
+    <div class="field">
+      <label for="coarse">How strongly attention reaches far</label><output for="coarse" id="coarseOut"></output>
+      <input id="coarse" type="range" min="0" max="8" step="0.1" value="1">
+    </div>
+    <div class="field">
+      <label for="far">How far it reaches</label><output for="far" id="farOut"></output>
+      <input id="far" type="range" min="1.5" max="5" step="0.1" value="3">
+    </div>
+    <p class="note">Up close a particle hears each neighbor; farther out it hears each cell of the world as one blend of its members. At 0, attention ends at one unit and the world is experiment 5 exactly.</p>
+    <div class="field">
+      <label for="listen">Listening along bonds</label><output for="listen" id="listenOut"></output>
+      <input id="listen" type="range" min="0" max="4" step="0.1" value="0">
+    </div>
+    <div class="field">
+      <label for="space">Attention to empty space</label><output for="space" id="spaceOut"></output>
+      <input id="space" type="range" min="0" max="8" step="0.1" value="0">
+    </div>
+    <p class="note">Two tests, off by default: attend more to bond partners, or give empty space a share of attention so that how many neighbors a particle has changes what it hears.</p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Sun and energy</legend>
+    <div class="field">
+      <label for="sun">Sunlight at noon</label><output for="sun" id="sunOut"></output>
+      <input id="sun" type="range" min="0" max="40" step="0.5" value="12">
+    </div>
+    <div class="field">
+      <label for="day">Length of a day (ticks)</label><output for="day" id="dayOut"></output>
+      <input id="day" type="range" min="200" max="4000" step="100" value="1000">
+    </div>
+    <div class="field">
+      <label for="absorb">Most a particle can absorb</label><output for="absorb" id="absorbOut"></output>
+      <input id="absorb" type="range" min="0" max="1" step="0.01" value="0.5">
+    </div>
+    <div class="field">
+      <label for="shake">Share of light that shakes bonds</label><output for="shake" id="shakeOut"></output>
+      <input id="shake" type="range" min="0" max="1" step="0.01" value="0.25">
+    </div>
+    <p class="note">At 0, all absorbed light is stored and the world is experiment 4 exactly.</p>
+    <div class="field">
+      <label for="eatRate">Eating rate</label><output for="eatRate" id="eatRateOut"></output>
+      <input id="eatRate" type="range" min="0" max="3" step="0.05" value="0.5">
+    </div>
+    <div class="field">
+      <label for="eatGain">Share of food kept</label><output for="eatGain" id="eatGainOut"></output>
+      <input id="eatGain" type="range" min="0" max="1" step="0.01" value="0.5">
+    </div>
+    <div class="field">
+      <label for="leak">Cost of existing (leak)</label><output for="leak" id="leakOut"></output>
+      <input id="leak" type="range" min="0" max="0.5" step="0.005" value="0.05">
+    </div>
+    <div class="field">
+      <label for="thrust">Strongest self-push</label><output for="thrust" id="thrustOut"></output>
+      <input id="thrust" type="range" min="0" max="6" step="0.1" value="2">
+    </div>
+    <div class="field">
+      <label for="efficiency">Pushing efficiency</label><output for="efficiency" id="efficiencyOut"></output>
+      <input id="efficiency" type="range" min="0.05" max="1" step="0.01" value="0.7">
+    </div>
+  </fieldset>
+
+  <details class="more">
+    <summary>Experiment 1 physics</summary>
+    <fieldset>
+      <legend>Live physics</legend>
+      <div class="field">
+        <label for="drag">Drag (heat sink)</label><output for="drag" id="dragOut"></output>
+        <input id="drag" type="range" min="0" max="0.5" step="0.005" value="0.08">
+      </div>
+      <div class="field">
+        <label for="attraction">Match force</label><output for="attraction" id="attractionOut"></output>
+        <input id="attraction" type="range" min="0" max="5" step="0.05" value="1.5">
+      </div>
+      <div class="field">
+        <label for="sharpness">Attention sharpness</label><output for="sharpness" id="sharpnessOut"></output>
+        <input id="sharpness" type="range" min="0" max="5" step="0.05" value="1.5">
+      </div>
+      <div class="field">
+        <label for="depth">Valley depth</label><output for="depth" id="depthOut"></output>
+        <input id="depth" type="range" min="0" max="10" step="0.1" value="2">
+      </div>
+      <div class="field">
+        <label for="genomeRate">Genome drift rate</label><output for="genomeRate" id="genomeRateOut"></output>
+        <input id="genomeRate" type="range" min="0" max="1" step="0.01" value="0.2">
+      </div>
+      <div class="field">
+        <label for="stateRate">State change rate</label><output for="stateRate" id="stateRateOut"></output>
+        <input id="stateRate" type="range" min="0" max="0.5" step="0.005" value="0.1">
+      </div>
+      <div class="field">
+        <label for="noise">Noise</label><output for="noise" id="noiseOut"></output>
+        <input id="noise" type="range" min="0" max="1" step="0.01" value="0">
+      </div>
+      <p class="note">Noise is off by default. When on, it is drawn from the world seed, so runs still replay exactly.</p>
+    </fieldset>
+  </details>
+
+  <fieldset>
+    <legend>View</legend>
+    <div class="field">
+      <label for="speed">Ticks per frame</label><output for="speed" id="speedOut"></output>
+      <input id="speed" type="range" min="1" max="24" step="1" value="8">
+    </div>
+    <label class="inline1" for="colorBy" style="display: grid; gap: 4px; font-size: 12px; color: var(--quiet);">Color particles by
+      <select id="colorBy">
+        <option value="element">Element</option>
+        <option value="shape">Shape of its group</option>
+        <option value="diet">What it lives on</option>
+        <option value="energy">Stored energy</option>
+      </select>
+    </label>
+    <label class="check" for="showBonds"><input id="showBonds" type="checkbox" checked> Show bonds</label>
+    <label class="check" for="fadeLoose"><input id="fadeLoose" type="checkbox" checked> Fade loose particles</label>
+    <label class="check" for="showPatches"><input id="showPatches" type="checkbox" checked> Show open faces</label>
+    <label class="check" for="spin"><input id="spin" type="checkbox" checked> Slowly rotate</label>
+  </fieldset>
+</aside>
+
+<div class="focusbar" id="focusbar" aria-label="Zoom">
+  <span id="focusInfo" aria-live="polite"></span>
+  <button id="focusNext" type="button">Zoom to a group</button>
+  <button id="focusOut" type="button" hidden>Whole world</button>
+</div>
+
+<section class="map" id="map" hidden aria-label="World map">
+  <div class="mapHead">
+    <div>
+      <p class="eyebrow">World map</p>
+      <h2>What shapes form</h2>
+    </div>
+    <button id="closeMap" type="button" aria-label="Close the world map">Close</button>
+  </div>
+  <p class="note" id="mapNote">Each row is one law and each square one start, run headlessly for 4,000 ticks with 1,500 particles, with far attention on. The thick bar shows how particles ended up arranged; the thin bar under it is the same law and start without far attention, which is experiment 5. A number counts groups that share their exact patterned arrangement with another group. Click a square to load it.</p>
+  <div class="mapScroll"><div class="mapGrid" id="mapGrid"></div></div>
+  <div class="mapKey" id="mapKey"></div>
+</section>
+
+<section class="instruments" aria-label="Measurements">
+  <dl class="stats">
+    <div><dt>Day</dt><dd id="sDay">0</dd></div>
+    <div><dt>Temperature</dt><dd id="sTemp">-</dd></div>
+    <div><dt>Bonded</dt><dd id="sBonded">-</dd></div>
+    <div><dt>Groups (3+)</dt><dd id="sGroups">-</dd></div>
+    <div><dt>Elements</dt><dd id="sElements">-</dd></div>
+    <div><dt>Stored</dt><dd id="sStored">-</dd></div>
+    <div><dt>Light in</dt><dd id="sLight">-</dd></div>
+    <div><dt>Books</dt><dd id="sBooks">-</dd></div>
+  </dl>
+  <div class="roles" id="shapes" aria-live="polite"><div class="head">Measuring shapes&hellip;</div></div>
+  <div class="roles" id="roles" hidden><div class="head">Measuring what each element lives on&hellip;</div></div>
+  <canvas class="spark" id="spark" aria-label="Temperature, stored energy and light income over time"></canvas>
+  <div class="legend"><span><i style="background: var(--accent)"></i>light in</span><span><i style="background: var(--cool)"></i>temperature</span><span><i style="background: var(--ok)"></i>stored</span></div>
+  <div class="fingerprint">
+    <div><small>World fingerprint &middot; tick <span id="sTick">0</span></small><code id="sHash">--------</code></div>
+    <button id="verify" type="button">Verify replay</button>
+  </div>
+  <p id="replayResult" aria-live="polite"></p>
+</section>
+
+<script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  } }
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+  import { Sim, D, FAST } from './sim.js';
+  import { chemistry, codeChain, ladderChain, bestChain, layout, insert, feed, look } from './probe.js';
+
+  const $ = (id) => document.getElementById(id);
+  const RESTART_KEYS = ['worldSeed', 'lawSeed', 'n', 'heat', 'spread'];
+  const LIVE_KEYS = ['sun', 'day', 'absorb', 'eatRate', 'eatGain', 'leak', 'thrust', 'efficiency',
+    'drag', 'attraction', 'sharpness', 'depth', 'genomeRate', 'stateRate', 'noise', 'geometry', 'faces', 'shake', 'coarse', 'far', 'listen', 'space'];
+  const WINDOW = 500; // ticks over which the roles panel adds up income
+
+  // ---------- renderer ----------
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas: $('world'), antialias: true });
+  } catch (e) {
+    $('fallback').hidden = false;
+    $('fallback').textContent = 'This view needs WebGL, which this browser has turned off.';
+    throw e;
+  }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x07080c);
+  const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 500);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.autoRotateSpeed = 0.35;
+
+  const pointMat = new THREE.ShaderMaterial({
+    transparent: false, depthWrite: true,
+    uniforms: { uSize: { value: 1 } },
+    vertexShader: `
+      attribute vec3 color; attribute float scale; varying vec3 vColor; uniform float uSize;
+      void main() {
+        vColor = color;
+        vec4 mv = modelViewMatrix * vec4(position, 1.0);
+        gl_PointSize = uSize * scale / -mv.z;
+        gl_Position = projectionMatrix * mv;
+      }`,
+    fragmentShader: `
+      varying vec3 vColor;
+      void main() {
+        vec2 c = (gl_PointCoord - 0.5) * 2.0; float d = dot(c, c);
+        if (d > 1.0) discard;
+        vec3 nrm = vec3(c.x, -c.y, sqrt(1.0 - d));
+        float light = 0.35 + 0.65 * max(dot(nrm, normalize(vec3(-0.2, 0.9, 0.4))), 0.0);
+        gl_FragColor = vec4(vColor * light, 1.0);
+      }`,
+  });
+  const bondMat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.7, depthWrite: false });
+
+  // The sun: a glowing strip on the ceiling, and the light under it drawn as a volume. For each
+  // pixel the shader walks the view ray through the box and adds up the same brightness profile
+  // the simulation uses, a little stronger near the ceiling, so the lit band reads as a soft slab
+  // of light from every angle.
+  const sunCanvas = document.createElement('canvas');
+  sunCanvas.width = 256; sunCanvas.height = 1;
+  const sunTex = new THREE.CanvasTexture(sunCanvas);
+  sunTex.colorSpace = THREE.SRGBColorSpace;
+  sunTex.wrapS = THREE.RepeatWrapping;
+  const ceilingMat = new THREE.MeshBasicMaterial({ map: sunTex, transparent: true, opacity: 0.9, side: THREE.DoubleSide, depthWrite: false });
+  const volumeMat = new THREE.ShaderMaterial({
+    side: THREE.BackSide, transparent: true, depthWrite: false, depthTest: false,
+    blending: THREE.AdditiveBlending,
+    uniforms: { uH: { value: 1 }, uL: { value: 2 }, uPhase: { value: 0 }, uShift: { value: 0 }, uStrength: { value: 0.3 } },
+    vertexShader: `
+      varying vec3 vWorld;
+      void main() {
+        vec4 w = modelMatrix * vec4(position, 1.0);
+        vWorld = w.xyz;
+        gl_Position = projectionMatrix * viewMatrix * w;
+      }`,
+    fragmentShader: `
+      uniform float uH, uL, uPhase, uShift, uStrength;
+      varying vec3 vWorld;
+      float band(float x) { return max(cos(6.2831853 * ((x + uH - uShift) / uL - uPhase)), 0.0); }
+      void main() {
+        vec3 ro = cameraPosition, rd = normalize(vWorld - ro);
+        vec3 inv = 1.0 / rd;
+        vec3 a = (vec3(-uH) - ro) * inv, b = (vec3(uH) - ro) * inv;
+        vec3 lo = min(a, b), hi = max(a, b);
+        float tn = max(max(lo.x, lo.y), max(lo.z, 0.0));
+        float tf = min(min(hi.x, hi.y), hi.z);
+        if (tf <= tn) discard;
+        const int N = 48;
+        float dt = (tf - tn) / float(N), acc = 0.0;
+        for (int i = 0; i < N; i++) {
+          vec3 p = ro + rd * (tn + (float(i) + 0.5) * dt);
+          float s = band(p.x);
+          acc += s * s * (0.35 + 0.65 * (p.y + uH) / (2.0 * uH)) * dt;
+        }
+        acc *= uStrength / (2.0 * uH);
+        gl_FragColor = vec4(vec3(1.0, 0.78, 0.45) * acc, 1.0);
+      }`,
+  });
+
+  let points, bonds, patches, box, ceiling, volume, posAttr, colAttr, sizeAttr, bondAttr, bondColAttr, patchAttr, patchColAttr;
+  const patchMat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.9, depthWrite: false });
+  const PATCH_LEN = 0.14; // how far a patch's spike sticks out from the particle's center
+
+  // Shapes of groups, from the last measurement: chain, ring, tree, sheet, blob, and pairs.
+  const SHAPES = ['pair', 'chain', 'ring', 'tree', 'sheet', 'blob'];
+  const SHAPE_COLOR = { pair: '#8c93a8', chain: '#6fc3df', ring: '#a98cf2', tree: '#7fd49a', sheet: '#f0b35a', blob: '#e8739e' };
+  const SHAPE_WORDS = { pair: 'pairs', chain: 'chains', ring: 'rings', tree: 'branched', sheet: 'sheets', blob: 'lumps' };
+  const shapeCols = Object.fromEntries(Object.entries(SHAPE_COLOR).map(([k, v]) => [k, new THREE.Color(v)]));
+  const LOOSE_COL = new THREE.Color('#3c4256');
+  let clsOf = [], groupOf = new Int32Array(0), shapeStats = null, splitCount = 0, prevGroupOf = null;
+
+  // Particles settled into one of the law's elements take that element's color; genomes still
+  // between valleys are dimmer. Brightness then follows stored energy.
+  const PALETTE = ['#f0b35a', '#5fc6e8', '#e8739e', '#8fd47f', '#a98cf2', '#f0855a', '#5ad0b0', '#d8d36a'];
+  const PROJ = [[0.9, -0.4, 0.5, 0.3], [0.2, 0.8, -0.4, 0.5], [0.4, 0.3, 0.6, -0.7]];
+  const tmpColor = new THREE.Color();
+  const elColors = PALETTE.map((c) => new THREE.Color(c));
+  const LOOSE = '#8c93a8';
+  function genomeColor(g, o = 0) {
+    let p0 = 0, p1 = 0, p2 = 0;
+    for (let a = 0; a < 4; a++) { const x = g[o + a]; p0 += PROJ[0][a] * x; p1 += PROJ[1][a] * x; p2 += PROJ[2][a] * x; }
+    const hue = (Math.atan2(p1, p0) / (2 * Math.PI) + 1) % 1;
+    return tmpColor.setHSL(hue, 0.25, 0.32 + 0.08 * Math.tanh(p2));
+  }
+  function particleColor(s, o) {
+    const els = sim.elements, r2 = 2 * (sim.settleRadius / 1.5) ** 2;
+    let best = 0, bk = 0;
+    for (let k = 0; k < els.length; k++) {
+      let d = 0;
+      for (let a = 0; a < 4; a++) d += (s[o + a] - els[k].g[a]) ** 2;
+      const w = Math.exp(-d / r2);
+      if (w > best) { best = w; bk = k; }
+    }
+    genomeColor(s, o);
+    return tmpColor.lerp(elColors[bk % elColors.length], best);
+  }
+  const kindColor = (k) => (k < sim.elements.length ? PALETTE[k % PALETTE.length] : LOOSE);
+
+  let sim, edits, history, initialParams, rises = 0, lastEco = null, lastBooks = null, probe = null;
+  // The template probe: build the chain the law favors, drop it in, free building blocks around
+  // it. Deterministic given the world, so replay can repeat it at the same tick.
+  function dropTemplate(s) {
+    const chem = chemistry(s);
+    const chain = codeChain(chem) || ladderChain(chem) || bestChain(chem);
+    const laid = layout(chain, s);
+    const ids = insert(s, laid, chem.els, s.tick + 1);
+    feed(s, laid, ids, chem.els, 120, s.tick * 31 + 7);
+    return { ids, chain, els: chem.els };
+  }
+
+  function readParams() {
+    const p = {};
+    for (const k of [...RESTART_KEYS, ...LIVE_KEYS]) p[k] = Number($(k).value);
+    return p;
+  }
+
+  // Simulation (x, y, z) with z up becomes three.js (x, y, z) with y up.
+  function build() {
+    initialParams = readParams();
+    sim = new Sim(initialParams);
+    sim.flow = new Float64Array((sim.elements.length + 1) ** 2);
+    edits = []; history = []; rises = 0; lastEco = null; lastBooks = null; probe = null;
+    if (points) {
+      scene.remove(points, bonds, patches, box, ceiling, volume);
+      for (const o of [points, bonds, patches, box, ceiling, volume]) o.geometry.dispose();
+    }
+    const n = sim.n, L = sim.L, h = L / 2;
+    const g = new THREE.BufferGeometry();
+    posAttr = new THREE.BufferAttribute(new Float32Array(n * 3), 3).setUsage(THREE.DynamicDrawUsage);
+    colAttr = new THREE.BufferAttribute(new Float32Array(n * 3), 3).setUsage(THREE.DynamicDrawUsage);
+    sizeAttr = new THREE.BufferAttribute(new Float32Array(n).fill(1), 1).setUsage(THREE.DynamicDrawUsage);
+    g.setAttribute('position', posAttr); g.setAttribute('color', colAttr); g.setAttribute('scale', sizeAttr);
+    points = new THREE.Points(g, pointMat);
+    const bg = new THREE.BufferGeometry();
+    bondAttr = new THREE.BufferAttribute(new Float32Array(sim.maxBonds * 6), 3).setUsage(THREE.DynamicDrawUsage);
+    bondColAttr = new THREE.BufferAttribute(new Float32Array(sim.maxBonds * 6), 3).setUsage(THREE.DynamicDrawUsage);
+    bg.setAttribute('position', bondAttr); bg.setAttribute('color', bondColAttr);
+    bonds = new THREE.LineSegments(bg, bondMat);
+    const pg = new THREE.BufferGeometry();
+    patchAttr = new THREE.BufferAttribute(new Float32Array(n * 6 * 6), 3).setUsage(THREE.DynamicDrawUsage);
+    patchColAttr = new THREE.BufferAttribute(new Float32Array(n * 6 * 6), 3).setUsage(THREE.DynamicDrawUsage);
+    pg.setAttribute('position', patchAttr); pg.setAttribute('color', patchColAttr);
+    patches = new THREE.LineSegments(pg, patchMat);
+    clsOf = new Array(n).fill(null); groupOf = new Int32Array(n).fill(-1); shapeStats = null; splitCount = 0; prevGroupOf = null;
+    box = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(L, L, L)), new THREE.LineBasicMaterial({ color: 0x3a4058, transparent: true, opacity: 0.6 }));
+    ceiling = new THREE.Mesh(new THREE.PlaneGeometry(L, L), ceilingMat);
+    ceiling.rotation.x = -Math.PI / 2; ceiling.position.y = h;
+    volume = new THREE.Mesh(new THREE.BoxGeometry(L, L, L), volumeMat);
+    volume.renderOrder = -1;
+    volumeMat.uniforms.uH.value = h; volumeMat.uniforms.uL.value = L;
+    scene.add(box, ceiling, volume, bonds, patches, points);
+    focus = -1; groupCursor = -1; rate = { light: new Float64Array(n), eat: new Float64Array(n), seenL: new Float64Array(n), seenE: new Float64Array(n), since: -1, tick: 0 };
+    showFocus();
+    camera.position.set(L * 1.25, L * 0.55, L * 1.5);
+    controls.target.set(0, 0, 0);
+    goal = null;
+    controls.update();
+    resize();
+    $('replayResult').textContent = ''; $('replayResult').className = '';
+    $('roles').innerHTML = '<div class="head">Measuring what each element lives on&hellip;</div>';
+    showKey();
+    sync(true);
+  }
+
+  function drawSun() {
+    const ctx = sunCanvas.getContext('2d');
+    const img = ctx.createImageData(256, 1);
+    const peak = Math.max(sim.p.sun, 1e-9);
+    for (let px = 0; px < 256; px++) {
+      const b = sim.sunAt((((px + 0.5) / 256) * sim.L - shift[0] + sim.L) % sim.L) / peak;
+      const o = px * 4;
+      img.data[o] = 40 + 215 * b; img.data[o + 1] = 32 + 170 * b; img.data[o + 2] = 30 + 60 * b; img.data[o + 3] = 40 + 215 * b;
+    }
+    ctx.putImageData(img, 0, 0);
+    sunTex.needsUpdate = true;
+    const u = volumeMat.uniforms;
+    u.uPhase.value = sim.tick / sim.p.day;
+    u.uShift.value = shift[0];
+    u.uStrength.value = 0.45 * Math.min(1.5, sim.p.sun / 12);
+  }
+
+  // ---------- groups, zoom and color modes ----------
+  // Groups are particles joined by bonds, found fresh every frame. Zooming follows one particle's
+  // group; the world is shifted around the wrap so that group sits in the middle of the box.
+  let focus = -1, groupCursor = -1, goal = null, focusSummary = null, rate = null, members = [];
+  let root = new Int32Array(0), gsize = new Int32Array(0), bonded = new Uint8Array(0);
+  const shift = [0, 0];
+  function findGroups() {
+    const n = sim.n;
+    if (root.length !== n) { root = new Int32Array(n); gsize = new Int32Array(n); bonded = new Uint8Array(n); }
+    for (let i = 0; i < n; i++) root[i] = i;
+    bonded.fill(0); gsize.fill(0);
+    const find = (x) => { while (root[x] !== x) { root[x] = root[root[x]]; x = root[x]; } return x; };
+    for (let b = 0; b < sim.bondCount; b++) {
+      const a = sim.bondA[b], c = sim.bondB[b];
+      bonded[a] = 1; bonded[c] = 1;
+      const ra = find(a), rc = find(c);
+      if (ra !== rc) { if (ra < rc) root[rc] = ra; else root[ra] = rc; }
+    }
+    for (let i = 0; i < n; i++) { root[i] = find(i); gsize[root[i]]++; }
+  }
+  // Center of a group on the wrap-around floor (a circular mean on x and y), its height, and spread.
+  function groupCenter(r) {
+    const L = sim.L, pos = sim.pos, k = 2 * Math.PI / L;
+    let cx = 0, sx = 0, cy = 0, sy = 0, z = 0, m = 0;
+    for (let i = 0; i < sim.n; i++) {
+      if (root[i] !== r) continue;
+      cx += Math.cos(k * pos[i * 3]); sx += Math.sin(k * pos[i * 3]);
+      cy += Math.cos(k * pos[i * 3 + 1]); sy += Math.sin(k * pos[i * 3 + 1]);
+      z += pos[i * 3 + 2]; m++;
+    }
+    const x = ((Math.atan2(sx, cx) / k) + L) % L, y = ((Math.atan2(sy, cy) / k) + L) % L;
+    z /= m;
+    const wrap = (d) => d - L * Math.round(d / L);
+    let r2 = 0;
+    for (let i = 0; i < sim.n; i++) {
+      if (root[i] !== r) continue;
+      r2 += wrap(pos[i * 3] - x) ** 2 + wrap(pos[i * 3 + 1] - y) ** 2 + (pos[i * 3 + 2] - z) ** 2;
+    }
+    return { x, y, z, radius: Math.sqrt(r2 / m), size: m };
+  }
+
+  const DIET_LIGHT = new THREE.Color('#f0b35a'), DIET_EAT = new THREE.Color('#ef6f8a'), DIET_NONE = new THREE.Color('#3c4256');
+  const EN_LOW = new THREE.Color('#1c2440'), EN_MID = new THREE.Color('#3fa98a'), EN_HIGH = new THREE.Color('#f4efb8');
+  const mix = new THREE.Color();
+  // Income per tick for each particle, smoothed over a few hundred ticks, from the running totals.
+  function updateRates() {
+    const a = sim.acc, n = sim.n, steps = sim.tick - rate.tick;
+    if (steps <= 0) return;
+    const fresh = a.since !== rate.since, keep = Math.exp(-steps / 300);
+    for (let i = 0; i < n; i++) {
+      const dl = fresh ? a.light[i] : a.light[i] - rate.seenL[i];
+      const de = fresh ? a.eat[i] : a.eat[i] - rate.seenE[i];
+      rate.light[i] = rate.light[i] * keep + (1 - keep) * dl / steps;
+      rate.eat[i] = rate.eat[i] * keep + (1 - keep) * de / steps;
+      rate.seenL[i] = a.light[i]; rate.seenE[i] = a.eat[i];
+    }
+    rate.since = a.since; rate.tick = sim.tick;
+  }
+
+  function sync(full) {
+    const n = sim.n, L = sim.L, h = L / 2, pos = sim.pos, s = sim.s, en = sim.en;
+    const pa = posAttr.array, ca = colAttr.array, sa = sizeAttr.array;
+    findGroups();
+    updateRates();
+    let fr = -1;
+    if (focus >= 0) {
+      // Groups split and merge. If the followed particle has drifted off on its own, follow the
+      // largest piece of the group it was in instead.
+      if (gsize[root[focus]] < 3 && members.length) {
+        let best = -1;
+        for (const i of members) if (best < 0 || gsize[root[i]] > gsize[root[best]]) best = i;
+        if (gsize[root[best]] >= 3) focus = best;
+      }
+      fr = root[focus];
+      members = [];
+      for (let i = 0; i < n; i++) if (root[i] === fr) members.push(i);
+      const c = groupCenter(fr);
+      shift[0] = h - c.x; shift[1] = h - c.y;
+      focusSummary = c;
+      const dist = Math.min(L * 1.6, Math.max(2.2, c.radius * 5 + 1.5));
+      goal = { y: c.z - h, dist };
+    } else { shift[0] = 0; shift[1] = 0; focusSummary = null; }
+    const mode = $('colorBy').value, fade = $('fadeLoose').checked;
+    let avgInc = 0, avgEn = 0;
+    for (let i = 0; i < n; i++) { avgInc += rate.light[i] + rate.eat[i]; avgEn += Math.max(en[i], 0); }
+    avgInc = avgInc / n + 1e-12; avgEn = avgEn / n + 1e-12;
+    for (let i = 0; i < n; i++) {
+      pa[i * 3] = ((pos[i * 3] + shift[0]) % L + L) % L - h;
+      pa[i * 3 + 1] = pos[i * 3 + 2] - h;
+      pa[i * 3 + 2] = ((pos[i * 3 + 1] + shift[1]) % L + L) % L - h;
+      let b;
+      if (mode === 'diet') {
+        const l = rate.light[i], e = rate.eat[i], inc = l + e;
+        mix.copy(DIET_EAT).lerp(DIET_LIGHT, inc > 0 ? l / inc : 0.5);
+        tmpColor.copy(DIET_NONE).lerp(mix, Math.tanh(1.5 * inc / avgInc));
+        b = 1.1;
+      } else if (mode === 'shape') {
+        tmpColor.copy(clsOf[i] ? shapeCols[clsOf[i]] : LOOSE_COL);
+        b = 1.1;
+      } else if (mode === 'energy') {
+        const t = Math.tanh(0.7 * Math.max(en[i], 0) / avgEn);
+        if (t < 0.5) tmpColor.copy(EN_LOW).lerp(EN_MID, t * 2); else tmpColor.copy(EN_MID).lerp(EN_HIGH, t * 2 - 1);
+        b = 1;
+      } else {
+        particleColor(s, i * D + FAST);
+        b = 0.3 + 0.9 * Math.tanh(1.5 * en[i]);
+      }
+      let size = 1.2;
+      if (fr >= 0) {
+        if (root[i] === fr) size = 1.35; else { b *= 0.1; size = 0.5; }
+      } else if (fade && !bonded[i]) { b *= 0.4; size = 0.6; }
+      ca[i * 3] = Math.min(1, tmpColor.r * b); ca[i * 3 + 1] = Math.min(1, tmpColor.g * b); ca[i * 3 + 2] = Math.min(1, tmpColor.b * b);
+      sa[i] = size;
+    }
+    posAttr.needsUpdate = true; colAttr.needsUpdate = true; sizeAttr.needsUpdate = true;
+    let m = 0;
+    if ($('showBonds').checked) {
+      const ba = bondAttr.array, bc = bondColAttr.array;
+      for (let k = 0; k < sim.bondCount; k++) {
+        const i = sim.bondA[k], j = sim.bondB[k];
+        if (Math.abs(pa[i * 3] - pa[j * 3]) > h || Math.abs(pa[i * 3 + 2] - pa[j * 3 + 2]) > h) continue;
+        const dim = fr >= 0 && root[i] !== fr ? 0.12 : 1;
+        for (const q of [i, j]) {
+          bc[m] = Math.min(1, ca[q * 3] * 1.6 * dim + 0.12 * dim); bc[m + 1] = Math.min(1, ca[q * 3 + 1] * 1.6 * dim + 0.12 * dim); bc[m + 2] = Math.min(1, ca[q * 3 + 2] * 1.6 * dim + 0.14 * dim);
+          ba[m++] = pa[q * 3]; ba[m++] = pa[q * 3 + 1]; ba[m++] = pa[q * 3 + 2];
+        }
+      }
+      bondAttr.needsUpdate = true; bondColAttr.needsUpdate = true;
+    }
+    bonds.geometry.setDrawRange(0, m / 3);
+    // Faces: a short spike from each particle toward each of its most open faces.
+    let pm = 0;
+    if ($('showPatches').checked && sim.p.geometry > 0) {
+      const R = sim.R, pw = sim.patch, ppa = patchAttr.array, ppc = patchColAttr.array;
+      for (let i = 0; i < n; i++) {
+        const dim = fr >= 0 && root[i] !== fr ? 0.1 : (fade && !bonded[i] && fr < 0 ? 0.45 : 1);
+        for (let k = 0; k < 6; k++) {
+          const w = pw[i * 6 + k];
+          if (w < 0.6) continue;
+          const ax = k >> 1, sg = k & 1 ? -1 : 1, r = i * 9;
+          // Body axis ax in world (simulation) coordinates is column ax of R; three.js swaps y and z.
+          const len = PATCH_LEN * (fr >= 0 && root[i] === fr ? 1.4 : 1) * (dim < 1 ? 0.6 : 1);
+          const wx = sg * R[r + ax] * len, wy = sg * R[r + 3 + ax] * len, wz = sg * R[r + 6 + ax] * len;
+          const cr = Math.min(1, ca[i * 3] * 1.5 + 0.15) * dim * w, cg = Math.min(1, ca[i * 3 + 1] * 1.5 + 0.15) * dim * w, cb = Math.min(1, ca[i * 3 + 2] * 1.5 + 0.15) * dim * w;
+          ppa[pm] = pa[i * 3]; ppa[pm + 1] = pa[i * 3 + 1]; ppa[pm + 2] = pa[i * 3 + 2];
+          ppc[pm] = cr; ppc[pm + 1] = cg; ppc[pm + 2] = cb;
+          ppa[pm + 3] = pa[i * 3] + wx; ppa[pm + 4] = pa[i * 3 + 1] + wz; ppa[pm + 5] = pa[i * 3 + 2] + wy;
+          ppc[pm + 3] = cr; ppc[pm + 4] = cg; ppc[pm + 5] = cb;
+          pm += 6;
+        }
+      }
+      patchAttr.needsUpdate = true; patchColAttr.needsUpdate = true;
+    }
+    patches.geometry.setDrawRange(0, pm / 3);
+    drawSun();
+    if (full) { measure(); showFocus(); }
+  }
+
+  // The key under the question says what the current coloring means.
+  function showKey() {
+    const mode = $('colorBy').value, key = $('viewKey');
+    const items = [];
+    if (mode === 'element') {
+      const dots = sim.elements.map((_, k) => `<i class="dot" style="background:${kindColor(k)}"></i>`).join('');
+      items.push([`<span class="sw" style="gap:2px">${dots}</span>`, 'Color is the element: the kind of particle its genome settled into. Brighter means more stored energy.']);
+    } else if (mode === 'shape') {
+      const dots = SHAPES.map((k) => `<i class="dot" style="background:${SHAPE_COLOR[k]}"></i>`).join('');
+      items.push([`<span class="sw" style="gap:1px">${dots}</span>`, 'Color is the shape of the particle\'s group: pairs, chains, rings, branched, sheets, lumps (see the panel at right).']);
+    } else if (mode === 'diet') {
+      items.push(['<span class="sw"><i class="ramp" style="background:linear-gradient(90deg,#ef6f8a,#f0b35a)"></i></span>', 'Gold lives on light, pink on eating others; gray barely feeds.']);
+    } else {
+      items.push(['<span class="sw"><i class="ramp" style="background:linear-gradient(90deg,#1c2440,#3fa98a,#f4efb8)"></i></span>', 'Color is stored energy, from empty (dark) to full (pale).']);
+    }
+    items.push(['<span class="sw"><i class="ln"></i></span>', 'Lines are bonds; particles joined by them form groups.']);
+    if ($('showPatches').checked) items.push(['<span class="sw"><i class="ln" style="width:7px;height:2px"></i></span>', 'Short spikes are a particle\'s most open faces. What each face likes is its own; particles bond where two faces that like each other meet.']);
+    if ($('fadeLoose').checked) items.push(['<span class="sw"><i class="dot small" style="background:#8c93a8"></i></span>', 'Small dim dots are loose particles with no bonds.']);
+    items.push(['<span class="sw"><i class="glow"></i></span>', 'The glow is sunlight, sweeping slowly across.']);
+    key.innerHTML = items.map(([sw, t]) => `<li>${sw}<span>${t}</span></li>`).join('');
+  }
+
+  function showFocus() {
+    const info = $('focusInfo');
+    if (focus < 0 || !focusSummary) {
+      info.textContent = '';
+      $('focusNext').textContent = 'Zoom to a group'; $('focusOut').hidden = true;
+      return;
+    }
+    $('focusNext').textContent = 'Next group'; $('focusOut').hidden = false;
+    const r = root[focus], counts = new Map();
+    for (let i = 0; i < sim.n; i++) if (root[i] === r) counts.set(sim.kind[i], (counts.get(sim.kind[i]) || 0) + 1);
+    const parts = [...counts.entries()].sort((a, b) => b[1] - a[1]).map(([k, c]) => {
+      const dot = k < sim.elements.length ? `<i class="dot" style="background:${kindColor(k)}"></i>` : `<i class="dot company" style="border-color:${LOOSE}"></i>`;
+      return `<span>${dot}${c}</span>`;
+    }).join('');
+    const sz = focusSummary.size, cls = clsOf[focus];
+    const noun = { pair: 'A pair', chain: `A chain of ${sz}`, ring: `A ring of ${sz}`, tree: `A branched group of ${sz}`, sheet: `A sheet of ${sz}`, blob: `A lump of ${sz}` };
+    info.innerHTML = `${sz === 1 ? 'A loose particle' : (cls && gsize[root[focus]] === sz ? noun[cls] : `Group of ${sz}`)} ${parts}`;
+  }
+
+  function nextGroup() {
+    findGroups();
+    const roots = [];
+    for (let i = 0; i < sim.n; i++) if (root[i] === i && gsize[i] >= 3) roots.push(i);
+    roots.sort((a, b) => gsize[b] - gsize[a] || a - b);
+    if (!roots.length) return;
+    groupCursor = (groupCursor + 1) % roots.length;
+    focus = roots[groupCursor]; members = [];
+    anim = 90;
+    sync(true);
+  }
+  function wholeWorld() {
+    focus = -1; groupCursor = -1; anim = 90;
+    goal = { y: 0, dist: sim.L * 2.03 };
+    sync(true);
+  }
+  let anim = 0;
+  const tmpV = new THREE.Vector3();
+  // Fly the camera: ease the orbit center and distance toward the goal for a moment after a zoom
+  // change, then keep the center at the followed group's height.
+  function steerCamera() {
+    if (!goal) return;
+    const t = controls.target;
+    if (anim > 0) {
+      anim--;
+      const k = 0.08;
+      tmpV.copy(camera.position).sub(t);
+      const d = tmpV.length();
+      t.x += (0 - t.x) * k; t.z += (0 - t.z) * k; t.y += (goal.y - t.y) * k;
+      tmpV.multiplyScalar((d + (goal.dist - d) * k) / d);
+      camera.position.copy(t).add(tmpV);
+      if (anim === 0 && focus < 0) goal = null;
+    } else if (focus >= 0) {
+      const dy = (goal.y - t.y) * 0.05;
+      t.y += dy; camera.position.y += dy;
+    }
+  }
+
+  function role(r, avg) {
+    const inc = r.light + r.eat;
+    if (!r.count || inc / r.count < 0.05 * avg) return 'inert';
+    if (r.light / inc > 0.7) return 'absorber';
+    if (r.eat / inc > 0.7) return 'eater';
+    return 'mixed';
+  }
+
+  const ROLE_WORDS = { absorber: 'lives on light', eater: 'eats others', mixed: 'light + eating', inert: 'barely feeds' };
+  function showRoles(eco) {
+    let tot = 0, cnt = 0, top = 1e-9;
+    for (const r of eco.rows) { tot += r.light + r.eat; cnt += r.count; }
+    for (const r of eco.rows) if (r.count) top = Math.max(top, (r.light + r.eat + r.move) / r.count);
+    const avg = tot / Math.max(cnt, 1);
+    const box = $('roles');
+    box.textContent = '';
+    const head = document.createElement('div');
+    head.className = 'head';
+    head.textContent = `What each element lived on, last ${eco.ticks} ticks`;
+    box.appendChild(head);
+    eco.rows.forEach((r, k) => {
+      if (r.count < 0.02 * sim.n) return;
+      const row = document.createElement('div'); row.className = 'role';
+      const dot = document.createElement('i'); dot.className = 'dot' + (k === sim.elements.length ? ' company' : '');
+      if (k === sim.elements.length) dot.style.borderColor = LOOSE; else dot.style.background = kindColor(k);
+      const name = document.createElement('b'); name.textContent = ROLE_WORDS[role(r, avg)];
+      const cnt = document.createElement('span'); cnt.className = 'n'; cnt.textContent = r.count;
+      const bar = document.createElement('div'); bar.className = 'bar';
+      for (const [cls, v] of [['l', r.light], ['e', r.eat], ['m', r.move]]) {
+        const i = document.createElement('i'); i.className = cls; i.style.width = `${(100 * v / r.count / top / 1.0).toFixed(1)}%`; bar.appendChild(i);
+      }
+      const per = (v) => (v / r.count).toFixed(2);
+      row.title = `${k === sim.elements.length ? 'Unsettled particles' : 'Element ' + (k + 1)}: ${r.count} particles. Per particle: ${per(r.light)} from light, ${per(r.eat)} from eating, ${per(r.eaten)} eaten by others, ${per(r.move)} spent moving.`;
+      row.append(dot, name, cnt, bar);
+      box.appendChild(row);
+    });
+    const key = document.createElement('div'); key.className = 'head';
+    key.innerHTML = '<span style="color: var(--accent)">light</span> &middot; <span style="color: var(--bad)">eaten from others</span> &middot; <span style="color: var(--cool)">spent moving</span>';
+    box.appendChild(key);
+  }
+
+  // Shapes of all groups of two or more, the patterned groups (5 or more, two or more elements)
+  // that share their exact arrangement with another, and splits into two identical halves.
+  function measureShapes() {
+    const groups = sim.shapes(2), n = sim.n;
+    clsOf.fill(null);
+    const now = new Int32Array(n).fill(-1);
+    const count = Object.fromEntries(SHAPES.map((k) => [k, 0]));
+    const sigs = new Map();
+    for (const g of groups) {
+      const cls = g.size === 2 ? 'pair' : g.cls;
+      count[cls] += g.size;
+      for (const i of g.members) { clsOf[i] = cls; now[i] = g.root; }
+      if (g.size >= 5 && g.kinds >= 2) {
+        if (!sigs.has(g.sig)) sigs.set(g.sig, []);
+        sigs.get(g.sig).push(g);
+      }
+    }
+    let repeated = 0, kinds = 0, top = null;
+    for (const list of sigs.values()) {
+      if (list.length < 2) continue;
+      repeated += list.length; kinds++;
+      if (!top || list.length > top.length) top = list;
+      // Identical halves that were one group at the last look.
+      if (prevGroupOf) {
+        const came = new Map();
+        for (const g of list) {
+          const votes = new Map();
+          for (const i of g.members) if (prevGroupOf[i] >= 0) votes.set(prevGroupOf[i], (votes.get(prevGroupOf[i]) || 0) + 1);
+          for (const [r, v] of votes) if (v * 2 >= g.size) came.set(r, (came.get(r) || 0) + 1);
+        }
+        for (const c of came.values()) if (c >= 2) splitCount++;
+      }
+    }
+    prevGroupOf = now;
+    shapeStats = { count, repeated, kinds, top: top ? { n: top.length, size: top[0].size, cls: top[0].cls } : null };
+    showShapes();
+  }
+  function showShapes() {
+    const box = $('shapes'), st = shapeStats, n = sim.n;
+    box.textContent = '';
+    const head = document.createElement('div'); head.className = 'head';
+    head.textContent = 'Particles by the shape of their group';
+    box.appendChild(head);
+    let most = 1;
+    for (const k of SHAPES) most = Math.max(most, st.count[k]);
+    for (const k of SHAPES) {
+      const row = document.createElement('div'); row.className = 'role';
+      const dot = document.createElement('i'); dot.className = 'dot'; dot.style.background = SHAPE_COLOR[k];
+      const name = document.createElement('b'); name.textContent = SHAPE_WORDS[k];
+      const cnt = document.createElement('span'); cnt.className = 'n'; cnt.textContent = st.count[k];
+      const bar = document.createElement('div'); bar.className = 'bar';
+      const f = document.createElement('i'); f.style.width = `${(100 * st.count[k] / most).toFixed(1)}%`; f.style.background = SHAPE_COLOR[k];
+      bar.appendChild(f);
+      row.title = `${st.count[k]} of ${n} particles are in ${SHAPE_WORDS[k]}.`;
+      row.append(dot, name, cnt, bar);
+      box.appendChild(row);
+    }
+    const rep = document.createElement('div'); rep.className = 'head';
+    rep.textContent = st.repeated
+      ? `Repeated patterns: ${st.repeated} groups share their exact arrangement with another (${st.kinds} arrangement${st.kinds > 1 ? 's' : ''}; most common: ${st.top.n} copies of a ${st.top.cls} of ${st.top.size}). Identical splits so far: ${splitCount}.`
+      : `No patterned group (5+ particles, 2+ elements) repeats yet. Identical splits so far: ${splitCount}.`;
+    box.appendChild(rep);
+    if (probe) {
+      const t = look(sim, probe.ids, probe.els, probe.chain);
+      const links = probe.ids.length - 1;
+      const pr = document.createElement('div'); pr.className = 'head';
+      pr.textContent = `Template: ${Math.round(t.intact * links)} of ${links} links holding; ${t.occupied} of ${probe.ids.length} sites have a partner beside them`
+        + (probe.chain.letters ? `; ${t.right} partners match the letter, ${t.wrong} do not` : '')
+        + `; longest run of partners linked to each other: ${t.copy}.`;
+      box.appendChild(pr);
+    }
+  }
+
+  function measure() {
+    const c = sim.clusters();
+    const T = sim.temperature();
+    const e = sim.census();
+    $('sTick').textContent = sim.tick.toLocaleString();
+    $('sDay').textContent = (sim.tick / sim.p.day).toFixed(2);
+    $('sTemp').textContent = T.toFixed(3);
+    $('sBonded').textContent = (c.bondedShare * 100).toFixed(1) + '%';
+    $('sGroups').textContent = c.groups;
+    $('sElements').textContent = `${e.present.length}/${e.possible}` + (e.company.length ? ` +${e.company.length}` : '');
+    $('sHash').textContent = sim.hash();
+    const E = sim.energy;
+    let lightRate = null;
+    if (E) {
+      $('sStored').textContent = Math.round(E.stored).toLocaleString();
+      // The books: total energy may rise only by the light absorbed. Count any reading where it
+      // rose by more, unless a knob was touched in between.
+      if (lastBooks && E.tick > lastBooks.tick) {
+        const excess = (E.total - lastBooks.total) - (E.lightIn - lastBooks.lightIn);
+        lightRate = (E.lightIn - lastBooks.lightIn) / (E.tick - lastBooks.tick);
+        const touched = edits.length && edits[edits.length - 1].tick >= lastBooks.tick;
+        if (excess > 1e-6 && !touched) rises++;
+        $('sLight').textContent = lightRate.toFixed(2) + '/tick';
+      }
+      $('sBooks').textContent = rises ? `${rises} slip${rises > 1 ? 's' : ''}` : 'balanced';
+      $('sBooks').title = 'Total energy (motion, bonds, genomes and storage) may only grow by the light absorbed.';
+      lastBooks = E;
+    }
+    if (sim.tick - sim.acc.since >= WINDOW) { lastEco = sim.ecology(); sim.resetTotals(); showRoles(lastEco); }
+    measureShapes();
+    if (!history.length || history[history.length - 1].tick !== sim.tick) history.push({ tick: sim.tick, T, st: E ? E.stored : null, li: lightRate });
+    if (history.length > 400) history.splice(0, history.length - 400);
+    drawSpark();
+  }
+
+  function drawSpark() {
+    const cv = $('spark'), dpr = Math.min(window.devicePixelRatio, 2);
+    const w = cv.clientWidth, h = cv.clientHeight;
+    if (cv.width !== w * dpr) { cv.width = w * dpr; cv.height = h * dpr; }
+    const ctx = cv.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    ctx.strokeStyle = 'rgba(160,172,210,0.14)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(0, h - 0.5); ctx.lineTo(w, h - 0.5); ctx.stroke();
+    if (history.length < 2) return;
+    const t0 = history[0].tick, t1 = history[history.length - 1].tick || 1;
+    const X = (t) => ((t - t0) / Math.max(1, t1 - t0)) * (w - 4) + 2;
+    const line = (key, color) => {
+      const vals = history.filter((d) => d[key] !== null && d[key] !== undefined).map((d) => d[key]);
+      if (vals.length < 2) return;
+      const max = Math.max(...vals, 1e-6);
+      ctx.strokeStyle = color; ctx.lineWidth = 1.5; ctx.beginPath();
+      let started = false;
+      for (const d of history) {
+        if (d[key] === null || d[key] === undefined) continue;
+        const y = h - 3 - (d[key] / max) * (h - 8);
+        started ? ctx.lineTo(X(d.tick), y) : ctx.moveTo(X(d.tick), y);
+        started = true;
+      }
+      ctx.stroke();
+    };
+    line('li', '#f0b35a');
+    line('T', '#6fc3df');
+    line('st', '#7fd49a');
+  }
+
+  function resize() {
+    const w = window.innerWidth, h = window.innerHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    // Center the world in the space the panels leave free: right of the lab panel on wide
+    // screens, above the instruments on phones.
+    if (w > 720) camera.setViewOffset(w, h, -Math.min(150, w * 0.11), 0, w, h);
+    else camera.setViewOffset(w, h, 0, h * 0.16, w, h);
+    camera.updateProjectionMatrix();
+    pointMat.uniforms.uSize.value = Math.max(6, h * 0.07);
+  }
+  window.addEventListener('resize', resize);
+
+  // ---------- controls ----------
+  let running = true;
+  const fmt = { geometry: 2, faces: 2, shake: 2, coarse: 1, far: 1, listen: 1, space: 1, heat: 1, spread: 1, sun: 1, day: 0, absorb: 2, eatRate: 2, eatGain: 2, leak: 3, thrust: 1, efficiency: 2,
+    drag: 3, attraction: 2, sharpness: 2, depth: 1, genomeRate: 2, stateRate: 3, noise: 2, speed: 0 };
+  for (const k of Object.keys(fmt)) {
+    const el = $(k), out = $(k + 'Out');
+    const show = () => { out.textContent = Number(el.value).toFixed(fmt[k]); };
+    show();
+    el.addEventListener('input', () => {
+      show();
+      if (LIVE_KEYS.includes(k)) { sim.set(k, Number(el.value)); edits.push({ tick: sim.tick, key: k, value: Number(el.value) }); }
+    });
+    if (RESTART_KEYS.includes(k)) el.addEventListener('change', build);
+  }
+  for (const k of ['worldSeed', 'lawSeed', 'n']) $(k).addEventListener('change', build);
+  $('run').addEventListener('click', () => { running = !running; $('run').textContent = running ? 'Pause' : 'Run'; });
+  $('stepOnce').addEventListener('click', () => { sim.step(); sync(true); });
+  $('restart').addEventListener('click', build);
+  $('newWorld').addEventListener('click', () => { $('worldSeed').value = Number($('worldSeed').value) + 1; build(); });
+  $('spin').addEventListener('change', () => { controls.autoRotate = $('spin').checked; });
+  $('showBonds').addEventListener('change', () => sync(false));
+  for (const k of ['colorBy', 'fadeLoose', 'showPatches']) $(k).addEventListener('change', () => { showKey(); sync(false); });
+  $('focusNext').addEventListener('click', nextGroup);
+  $('dropTemplate').addEventListener('click', () => {
+    probe = dropTemplate(sim);
+    edits.push({ tick: sim.tick, key: 'template' });
+    focus = probe.ids[0]; members = []; groupCursor = -1; anim = 90;
+    sync(true);
+  });
+  $('focusOut').addEventListener('click', wholeWorld);
+  $('togglePanel').addEventListener('click', () => {
+    const c = $('panel').classList.toggle('collapsed');
+    $('togglePanel').setAttribute('aria-expanded', String(!c));
+  });
+  if (window.matchMedia('(max-width: 720px)').matches) { $('panel').classList.add('collapsed'); $('togglePanel').setAttribute('aria-expanded', 'false'); }
+  controls.autoRotate = $('spin').checked && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Verify replay: rebuild the universe from its seeds, apply the same live edits at the same
+  // ticks, run to the current tick, and compare fingerprints.
+  $('verify').addEventListener('click', () => {
+    const target = sim.tick, want = sim.hash();
+    const replay = new Sim(initialParams);
+    const pending = edits.slice();
+    const out = $('replayResult');
+    out.className = ''; out.textContent = `Replaying ${target.toLocaleString()} ticks…`;
+    $('verify').disabled = true;
+    const chunk = () => {
+      const t0 = performance.now();
+      while (replay.tick < target && performance.now() - t0 < 12) {
+        while (pending.length && pending[0].tick === replay.tick) {
+          const e = pending.shift();
+          if (e.key === 'template') dropTemplate(replay); else replay.set(e.key, e.value);
+        }
+        replay.step();
+      }
+      if (replay.tick < target) { out.textContent = `Replaying… ${replay.tick.toLocaleString()} / ${target.toLocaleString()}`; setTimeout(chunk, 0); return; }
+      const got = replay.hash();
+      $('verify').disabled = false;
+      if (got === want) { out.className = 'ok'; out.textContent = `Exact match at tick ${target.toLocaleString()} (${got}).`; }
+      else { out.className = 'bad'; out.textContent = `Fingerprints differ: ${got} vs ${want}.`; }
+    };
+    chunk();
+  });
+
+  build();
+
+  // ---------- world map ----------
+  let mapData = null;
+  async function openMap() {
+    $('map').hidden = false;
+    $('openMap').setAttribute('aria-expanded', 'true');
+    if (!mapData) {
+      try { mapData = await (await fetch('units-results.json')).json(); }
+      catch (e) { $('mapNote').textContent = 'The world map could not be loaded.'; return; }
+    }
+    drawMap();
+  }
+  const MAP_SHAPES = ['chain', 'ring', 'tree', 'sheet', 'blob'];
+  function shapeBar(r, thin) {
+    const bar = document.createElement('div'); bar.className = 'sb' + (thin ? ' thin' : '');
+    for (const k of MAP_SHAPES) {
+      const v = r.shapes[k];
+      if (!v) continue;
+      const i = document.createElement('i'); i.style.width = `${(100 * v).toFixed(1)}%`; i.style.background = SHAPE_COLOR[k];
+      bar.appendChild(i);
+    }
+    return bar;
+  }
+  const shapeText = (r) => MAP_SHAPES.filter((k) => r.shapes[k] >= 0.01).map((k) => `${Math.round(100 * r.shapes[k])}% ${SHAPE_WORDS[k]}`).join(', ') || 'no groups of 3 or more';
+  function drawMap() {
+    const rows = mapData.results;
+    const laws = [...new Set(rows.filter((x) => x.mode === 'coarse').map((x) => x.lawSeed))].sort((a, b) => a - b);
+    const worlds = [...new Set(rows.filter((x) => x.mode === 'coarse').map((x) => x.worldSeed))].sort((a, b) => a - b);
+    const grid = $('mapGrid');
+    grid.style.gridTemplateColumns = `auto repeat(${worlds.length}, minmax(64px, 1fr)) auto`;
+    grid.textContent = '';
+    const add = (el) => grid.appendChild(el);
+    const div = (cls, text) => { const d = document.createElement('div'); d.className = cls; if (text !== undefined) d.textContent = text; return d; };
+    add(div('rowh', 'law'));
+    for (const w of worlds) add(div('colh', `start ${w}`));
+    add(div('colh', 'splits'));
+    for (const law of laws) {
+      add(div('rowh', law));
+      let splitsOn = 0, splitsOff = 0;
+      for (const w of worlds) {
+        const on = rows.find((x) => x.lawSeed === law && x.worldSeed === w && x.mode === 'coarse');
+        const off = rows.find((x) => x.lawSeed === law && x.worldSeed === w && x.mode === 'off');
+        splitsOn += on.splits; splitsOff += off.splits;
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'cell shapeCell';
+        const bars = div('shapeBars');
+        bars.append(shapeBar(on, false), shapeBar(off, true));
+        b.append(bars, div('rep', on.repeatMembers ? `×${on.repeatMembers}` : ''));
+        b.title = `Law ${law}, start ${w}. With far attention: ${shapeText(on)}; ${Math.round(100 * on.farShare)}% of attention goes far; ${on.repeatMembers} groups repeat an arrangement; ${on.splits} identical splits. Without: ${shapeText(off)}; ${off.repeatMembers} repeat; ${off.splits} identical splits.`;
+        b.setAttribute('aria-label', b.title);
+        if (Number($('lawSeed').value) === law && Number($('worldSeed').value) === w && Number($('n').value) === mapData.n) b.classList.add('current');
+        b.addEventListener('click', () => {
+          $('lawSeed').value = law; $('worldSeed').value = w; $('n').value = String(mapData.n);
+          $('geometry').value = '1'; $('geometryOut').textContent = '1.00';
+          $('faces').value = '1'; $('facesOut').textContent = '1.00';
+          $('shake').value = '0.25'; $('shakeOut').textContent = '0.25';
+          $('coarse').value = '1'; $('coarseOut').textContent = '1.0';
+          $('listen').value = '0'; $('listenOut').textContent = '0.0';
+          $('space').value = '0'; $('spaceOut').textContent = '0.0';
+          build(); drawMap();
+        });
+        add(b);
+      }
+      add(div('web', `${splitsOn} / ${splitsOff}`));
+    }
+    $('mapKey').innerHTML = MAP_SHAPES.map((k) => `<span><i class="dot" style="background:${SHAPE_COLOR[k]}"></i>${SHAPE_WORDS[k]}</span>`).join('')
+      + '<span>empty bar: loose particles and pairs</span><span><b style="color: var(--ink)">×N</b>: groups sharing an exact patterned arrangement</span><span><b style="color: var(--ink)">splits</b>: groups that split into two identical halves, far attention / none</span>';
+  }
+  $('openMap').addEventListener('click', () => ($('map').hidden ? openMap() : closeMap()));
+  function closeMap() { $('map').hidden = true; $('openMap').setAttribute('aria-expanded', 'false'); }
+  $('closeMap').addEventListener('click', closeMap);
+
+  let frame = 0;
+  function loop() {
+    requestAnimationFrame(loop);
+    if (running) {
+      const budget = performance.now() + 14, max = Number($('speed').value);
+      for (let i = 0; i < max && performance.now() < budget; i++) sim.step();
+      frame++;
+      sync(frame % 6 === 0);
+    }
+    steerCamera();
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  loop();
+</script>

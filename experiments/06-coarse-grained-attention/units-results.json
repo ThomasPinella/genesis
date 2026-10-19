@@ -1,0 +1,8035 @@
+{
+ "ticks": 4000,
+ "n": 1500,
+ "modes": [
+  "coarse",
+  "off",
+  "strong",
+  "listen",
+  "listen3",
+  "space",
+  "space5"
+ ],
+ "settings": {
+  "coarse": {
+   "coarse": 1
+  },
+  "off": {
+   "coarse": 0
+  },
+  "strong": {
+   "coarse": 4
+  },
+  "listen": {
+   "coarse": 1,
+   "listen": 1
+  },
+  "listen3": {
+   "coarse": 1,
+   "listen": 3
+  },
+  "space": {
+   "coarse": 1,
+   "space": 1
+  },
+  "space5": {
+   "coarse": 1,
+   "space": 5
+  }
+ },
+ "note": "coarse and off: 12 laws x starts 1,2; the other modes: start 1 only",
+ "results": [
+  {
+   "lawSeed": 1,
+   "worldSeed": 1,
+   "mode": "coarse",
+   "farShare": 0.0773,
+   "temperature": 0.1728,
+   "bondedShare": 0.511,
+   "groups": 115,
+   "largest": 10,
+   "sorting": 0.123,
+   "shapes": {
+    "chain": 0.181,
+    "ring": 0.006,
+    "tree": 0.097,
+    "sheet": 0.008,
+    "blob": 0.029
+   },
+   "structures": 33,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.855,
+     "chance": 0.635
+    },
+    "byChainPlace": {
+     "real": 0.021,
+     "chance": 0.013
+    },
+    "byBonds": {
+     "real": 0.036,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.01,
+     "chance": 0.022
+    }
+   },
+   "blend": {
+    "pairsSame": 10,
+    "pairsDiff": 43,
+    "kSame": 0.173,
+    "kDiff": 0.218,
+    "fSame": 0.161,
+    "fDiff": 0.188,
+    "gSame": 0.066,
+    "gDiff": 0.076
+   },
+   "standout": {
+    "group": {
+     "cells": 6,
+     "agree": 0.316
+    },
+    "loose": {
+     "cells": 83,
+     "agree": 0.293
+    },
+    "mixed": {
+     "cells": 183,
+     "agree": 0.219
+    }
+   },
+   "worstExcess": -176.783,
+   "hash": "f52fb688"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 2,
+   "mode": "coarse",
+   "farShare": 0.0767,
+   "temperature": 0.1714,
+   "bondedShare": 0.485,
+   "groups": 111,
+   "largest": 17,
+   "sorting": 0.138,
+   "shapes": {
+    "chain": 0.174,
+    "ring": 0.002,
+    "tree": 0.081,
+    "sheet": 0.007,
+    "blob": 0.051
+   },
+   "structures": 29,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.819,
+     "chance": 0.627
+    },
+    "byChainPlace": {
+     "real": 0.038,
+     "chance": 0.013
+    },
+    "byBonds": {
+     "real": 0.045,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.169,
+     "chance": 0.022
+    }
+   },
+   "blend": {
+    "pairsSame": 9,
+    "pairsDiff": 46,
+    "kSame": 0.123,
+    "kDiff": 0.196,
+    "fSame": 0.108,
+    "fDiff": 0.186,
+    "gSame": 0.055,
+    "gDiff": 0.068
+   },
+   "standout": {
+    "group": {
+     "cells": 9,
+     "agree": 0.226
+    },
+    "loose": {
+     "cells": 83,
+     "agree": 0.322
+    },
+    "mixed": {
+     "cells": 171,
+     "agree": 0.224
+    }
+   },
+   "worstExcess": -180.815,
+   "hash": "063cd4b3"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 1,
+   "mode": "coarse",
+   "farShare": 0.1062,
+   "temperature": 0.0457,
+   "bondedShare": 0.729,
+   "groups": 162,
+   "largest": 32,
+   "sorting": 0.085,
+   "shapes": {
+    "chain": 0.284,
+    "ring": 0.024,
+    "tree": 0.082,
+    "sheet": 0.021,
+    "blob": 0.138
+   },
+   "structures": 60,
+   "repeatKinds": 4,
+   "repeatMembers": 9,
+   "repeatSeries": [
+    9,
+    8,
+    4,
+    11,
+    6,
+    9
+   ],
+   "splits": 2,
+   "units": {
+    "sync": {
+     "real": 0.756,
+     "chance": 0.563
+    },
+    "byChainPlace": {
+     "real": 0.05,
+     "chance": 0.012
+    },
+    "byBonds": {
+     "real": 0.067,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.039,
+     "chance": 0.021
+    }
+   },
+   "blend": {
+    "pairsSame": 95,
+    "pairsDiff": 67,
+    "kSame": 0.074,
+    "kDiff": 0.082,
+    "fSame": 0.074,
+    "fDiff": 0.078,
+    "gSame": 0.028,
+    "gDiff": 0.026
+   },
+   "standout": {
+    "group": {
+     "cells": 34,
+     "agree": 0.12
+    },
+    "loose": {
+     "cells": 30,
+     "agree": 0.311
+    },
+    "mixed": {
+     "cells": 239,
+     "agree": 0.191
+    }
+   },
+   "worstExcess": -164.876,
+   "hash": "b46a7720"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 2,
+   "mode": "coarse",
+   "farShare": 0.1081,
+   "temperature": 0.0457,
+   "bondedShare": 0.73,
+   "groups": 181,
+   "largest": 22,
+   "sorting": 0.097,
+   "shapes": {
+    "chain": 0.325,
+    "ring": 0.022,
+    "tree": 0.094,
+    "sheet": 0.013,
+    "blob": 0.104
+   },
+   "structures": 64,
+   "repeatKinds": 8,
+   "repeatMembers": 21,
+   "repeatSeries": [
+    9,
+    7,
+    11,
+    6,
+    11,
+    21
+   ],
+   "splits": 4,
+   "units": {
+    "sync": {
+     "real": 0.805,
+     "chance": 0.6
+    },
+    "byChainPlace": {
+     "real": 0.024,
+     "chance": 0.011
+    },
+    "byBonds": {
+     "real": 0.033,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.054,
+     "chance": 0.018
+    }
+   },
+   "blend": {
+    "pairsSame": 73,
+    "pairsDiff": 129,
+    "kSame": 0.089,
+    "kDiff": 0.086,
+    "fSame": 0.084,
+    "fDiff": 0.08,
+    "gSame": 0.027,
+    "gDiff": 0.025
+   },
+   "standout": {
+    "group": {
+     "cells": 28,
+     "agree": 0.088
+    },
+    "loose": {
+     "cells": 30,
+     "agree": 0.299
+    },
+    "mixed": {
+     "cells": 242,
+     "agree": 0.185
+    }
+   },
+   "worstExcess": -164.384,
+   "hash": "bfad7b2f"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 1,
+   "mode": "coarse",
+   "farShare": 0.1201,
+   "temperature": 0.1914,
+   "bondedShare": 0.638,
+   "groups": 127,
+   "largest": 32,
+   "sorting": 0.396,
+   "shapes": {
+    "chain": 0.112,
+    "ring": 0.013,
+    "tree": 0.038,
+    "sheet": 0.087,
+    "blob": 0.3
+   },
+   "structures": 70,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    2,
+    2,
+    4,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.857,
+     "chance": 0.362
+    },
+    "byChainPlace": {
+     "real": 0.015,
+     "chance": 0.028
+    },
+    "byBonds": {
+     "real": 0.029,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.084,
+     "chance": 0.015
+    }
+   },
+   "blend": {
+    "pairsSame": 4,
+    "pairsDiff": 29,
+    "kSame": 0.146,
+    "kDiff": 0.1,
+    "fSame": 0.126,
+    "fDiff": 0.082,
+    "gSame": 0.036,
+    "gDiff": 0.035
+   },
+   "standout": {
+    "group": {
+     "cells": 29,
+     "agree": 0.75
+    },
+    "loose": {
+     "cells": 46,
+     "agree": 0.729
+    },
+    "mixed": {
+     "cells": 159,
+     "agree": 0.703
+    }
+   },
+   "worstExcess": -219.642,
+   "hash": "adc5a2ad"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 2,
+   "mode": "coarse",
+   "farShare": 0.1193,
+   "temperature": 0.1766,
+   "bondedShare": 0.623,
+   "groups": 119,
+   "largest": 32,
+   "sorting": 0.393,
+   "shapes": {
+    "chain": 0.1,
+    "ring": 0.006,
+    "tree": 0.045,
+    "sheet": 0.093,
+    "blob": 0.265
+   },
+   "structures": 75,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    2,
+    2,
+    0,
+    0,
+    0,
+    2
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.875,
+     "chance": 0.362
+    },
+    "byChainPlace": {
+     "real": 0.007,
+     "chance": 0.031
+    },
+    "byBonds": {
+     "real": 0.058,
+     "chance": 0.009
+    },
+    "byShape": {
+     "real": 0.128,
+     "chance": 0.021
+    }
+   },
+   "blend": {
+    "pairsSame": 2,
+    "pairsDiff": 28,
+    "kSame": 0.076,
+    "kDiff": 0.152,
+    "fSame": 0.055,
+    "fDiff": 0.121,
+    "gSame": 0.039,
+    "gDiff": 0.036
+   },
+   "standout": {
+    "group": {
+     "cells": 35,
+     "agree": 0.805
+    },
+    "loose": {
+     "cells": 44,
+     "agree": 0.721
+    },
+    "mixed": {
+     "cells": 165,
+     "agree": 0.707
+    }
+   },
+   "worstExcess": -232.833,
+   "hash": "de2cfaf5"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 1,
+   "mode": "coarse",
+   "farShare": 0.1007,
+   "temperature": 0.0171,
+   "bondedShare": 0.689,
+   "groups": 159,
+   "largest": 13,
+   "sorting": 0.155,
+   "shapes": {
+    "chain": 0.239,
+    "ring": 0.035,
+    "tree": 0.041,
+    "sheet": 0.011,
+    "blob": 0.136
+   },
+   "structures": 44,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    0,
+    5,
+    6,
+    0,
+    4,
+    2
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.785,
+     "chance": 0.658
+    },
+    "byChainPlace": {
+     "real": 0.132,
+     "chance": 0.009
+    },
+    "byBonds": {
+     "real": 0.124,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.057,
+     "chance": 0.026
+    }
+   },
+   "blend": {
+    "pairsSame": 21,
+    "pairsDiff": 152,
+    "kSame": 0.456,
+    "kDiff": 0.489,
+    "fSame": 0.447,
+    "fDiff": 0.476,
+    "gSame": 0.035,
+    "gDiff": 0.035
+   },
+   "standout": {
+    "group": {
+     "cells": 25,
+     "agree": 0.23
+    },
+    "loose": {
+     "cells": 55,
+     "agree": 0.29
+    },
+    "mixed": {
+     "cells": 227,
+     "agree": 0.237
+    }
+   },
+   "worstExcess": -178.065,
+   "hash": "0bc06e4e"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 2,
+   "mode": "coarse",
+   "farShare": 0.1011,
+   "temperature": 0.0178,
+   "bondedShare": 0.661,
+   "groups": 152,
+   "largest": 12,
+   "sorting": 0.158,
+   "shapes": {
+    "chain": 0.221,
+    "ring": 0.049,
+    "tree": 0.059,
+    "sheet": 0.013,
+    "blob": 0.091
+   },
+   "structures": 38,
+   "repeatKinds": 2,
+   "repeatMembers": 4,
+   "repeatSeries": [
+    11,
+    2,
+    8,
+    5,
+    15,
+    4
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.829,
+     "chance": 0.644
+    },
+    "byChainPlace": {
+     "real": 0.054,
+     "chance": 0.01
+    },
+    "byBonds": {
+     "real": 0.079,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.071,
+     "chance": 0.029
+    }
+   },
+   "blend": {
+    "pairsSame": 45,
+    "pairsDiff": 227,
+    "kSame": 0.408,
+    "kDiff": 0.484,
+    "fSame": 0.398,
+    "fDiff": 0.48,
+    "gSame": 0.034,
+    "gDiff": 0.04
+   },
+   "standout": {
+    "group": {
+     "cells": 28,
+     "agree": 0.174
+    },
+    "loose": {
+     "cells": 56,
+     "agree": 0.287
+    },
+    "mixed": {
+     "cells": 214,
+     "agree": 0.233
+    }
+   },
+   "worstExcess": -187.488,
+   "hash": "0a12a9fa"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 1,
+   "mode": "coarse",
+   "farShare": 0.096,
+   "temperature": 0.0059,
+   "bondedShare": 0.925,
+   "groups": 127,
+   "largest": 106,
+   "sorting": 0.459,
+   "shapes": {
+    "chain": 0.087,
+    "ring": 0.012,
+    "tree": 0.014,
+    "sheet": 0.194,
+    "blob": 0.563
+   },
+   "structures": 78,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    2,
+    2,
+    0,
+    0,
+    2,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.235,
+     "chance": 0.154
+    },
+    "byChainPlace": {
+     "real": 0.02,
+     "chance": 0.034
+    },
+    "byBonds": {
+     "real": 0.02,
+     "chance": 0.004
+    },
+    "byShape": {
+     "real": 0.011,
+     "chance": 0.007
+    }
+   },
+   "blend": {
+    "pairsSame": 26,
+    "pairsDiff": 67,
+    "kSame": 0.229,
+    "kDiff": 0.232,
+    "fSame": 0.243,
+    "fDiff": 0.237,
+    "gSame": 0.026,
+    "gDiff": 0.026
+   },
+   "standout": {
+    "group": {
+     "cells": 115,
+     "agree": 0.544
+    },
+    "loose": {
+     "cells": 3,
+     "agree": 0.542
+    },
+    "mixed": {
+     "cells": 179,
+     "agree": 0.282
+    }
+   },
+   "worstExcess": -23.821,
+   "hash": "6b8f144f"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 2,
+   "mode": "coarse",
+   "farShare": 0.0958,
+   "temperature": 0.0074,
+   "bondedShare": 0.911,
+   "groups": 114,
+   "largest": 152,
+   "sorting": 0.512,
+   "shapes": {
+    "chain": 0.081,
+    "ring": 0.019,
+    "tree": 0.024,
+    "sheet": 0.269,
+    "blob": 0.451
+   },
+   "structures": 72,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    2,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.257,
+     "chance": 0.146
+    },
+    "byChainPlace": {
+     "real": 0.048,
+     "chance": 0.02
+    },
+    "byBonds": {
+     "real": 0.033,
+     "chance": 0.005
+    },
+    "byShape": {
+     "real": 0.053,
+     "chance": 0.008
+    }
+   },
+   "blend": {
+    "pairsSame": 15,
+    "pairsDiff": 52,
+    "kSame": 0.293,
+    "kDiff": 0.343,
+    "fSame": 0.326,
+    "fDiff": 0.349,
+    "gSame": 0.041,
+    "gDiff": 0.038
+   },
+   "standout": {
+    "group": {
+     "cells": 127,
+     "agree": 0.559
+    },
+    "loose": {
+     "cells": 4,
+     "agree": 0.474
+    },
+    "mixed": {
+     "cells": 172,
+     "agree": 0.343
+    }
+   },
+   "worstExcess": -30.078,
+   "hash": "d421b1e8"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 1,
+   "mode": "coarse",
+   "farShare": 0.1256,
+   "temperature": 0.131,
+   "bondedShare": 0.472,
+   "groups": 87,
+   "largest": 9,
+   "sorting": 0.089,
+   "shapes": {
+    "chain": 0.146,
+    "ring": 0,
+    "tree": 0.069,
+    "sheet": 0,
+    "blob": 0.019
+   },
+   "structures": 20,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.901,
+     "chance": 0.683
+    },
+    "byChainPlace": {
+     "real": 0.03,
+     "chance": 0.02
+    },
+    "byBonds": {
+     "real": 0.031,
+     "chance": 0.025
+    },
+    "byShape": {
+     "real": 0.042,
+     "chance": 0.023
+    }
+   },
+   "blend": {
+    "pairsSame": 3,
+    "pairsDiff": 14,
+    "kSame": 0.082,
+    "kDiff": 0.096,
+    "fSame": 0.07,
+    "fDiff": 0.093,
+    "gSame": 0.04,
+    "gDiff": 0.037
+   },
+   "standout": {
+    "group": {
+     "cells": 2,
+     "agree": 0.472
+    },
+    "loose": {
+     "cells": 68,
+     "agree": 0.313
+    },
+    "mixed": {
+     "cells": 166,
+     "agree": 0.184
+    }
+   },
+   "worstExcess": -174.626,
+   "hash": "ee91546a"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 2,
+   "mode": "coarse",
+   "farShare": 0.1272,
+   "temperature": 0.1306,
+   "bondedShare": 0.434,
+   "groups": 75,
+   "largest": 12,
+   "sorting": 0.105,
+   "shapes": {
+    "chain": 0.137,
+    "ring": 0.003,
+    "tree": 0.037,
+    "sheet": 0,
+    "blob": 0.01
+   },
+   "structures": 12,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    2,
+    2,
+    0,
+    2,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.904,
+     "chance": 0.728
+    },
+    "byChainPlace": {
+     "real": 0.028,
+     "chance": 0.018
+    },
+    "byBonds": {
+     "real": 0.029,
+     "chance": 0.028
+    },
+    "byShape": {
+     "real": 0.045,
+     "chance": 0.045
+    }
+   },
+   "blend": {
+    "pairsSame": 6,
+    "pairsDiff": 11,
+    "kSame": 0.112,
+    "kDiff": 0.093,
+    "fSame": 0.119,
+    "fDiff": 0.098,
+    "gSame": 0.057,
+    "gDiff": 0.049
+   },
+   "standout": {
+    "group": {
+     "cells": 1,
+     "agree": 0.124
+    },
+    "loose": {
+     "cells": 80,
+     "agree": 0.368
+    },
+    "mixed": {
+     "cells": 159,
+     "agree": 0.171
+    }
+   },
+   "worstExcess": -187.891,
+   "hash": "c702be73"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 1,
+   "mode": "coarse",
+   "farShare": 0.0908,
+   "temperature": 0.0788,
+   "bondedShare": 0.82,
+   "groups": 174,
+   "largest": 36,
+   "sorting": 0.701,
+   "shapes": {
+    "chain": 0.103,
+    "ring": 0.016,
+    "tree": 0.023,
+    "sheet": 0.074,
+    "blob": 0.553
+   },
+   "structures": 106,
+   "repeatKinds": 3,
+   "repeatMembers": 7,
+   "repeatSeries": [
+    0,
+    4,
+    4,
+    2,
+    2,
+    7
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.772,
+     "chance": 0.348
+    },
+    "byChainPlace": {
+     "real": 0.036,
+     "chance": 0.032
+    },
+    "byBonds": {
+     "real": 0.063,
+     "chance": 0.009
+    },
+    "byShape": {
+     "real": 0.197,
+     "chance": 0.018
+    }
+   },
+   "blend": {
+    "pairsSame": 13,
+    "pairsDiff": 146,
+    "kSame": 0.144,
+    "kDiff": 0.131,
+    "fSame": 0.162,
+    "fDiff": 0.146,
+    "gSame": 0.026,
+    "gDiff": 0.026
+   },
+   "standout": {
+    "group": {
+     "cells": 65,
+     "agree": 0.742
+    },
+    "loose": {
+     "cells": 10,
+     "agree": 0.828
+    },
+    "mixed": {
+     "cells": 189,
+     "agree": 0.53
+    }
+   },
+   "worstExcess": -204.099,
+   "hash": "179484f6"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 2,
+   "mode": "coarse",
+   "farShare": 0.0868,
+   "temperature": 0.082,
+   "bondedShare": 0.812,
+   "groups": 169,
+   "largest": 33,
+   "sorting": 0.69,
+   "shapes": {
+    "chain": 0.083,
+    "ring": 0.01,
+    "tree": 0.063,
+    "sheet": 0.06,
+    "blob": 0.531
+   },
+   "structures": 115,
+   "repeatKinds": 6,
+   "repeatMembers": 13,
+   "repeatSeries": [
+    2,
+    4,
+    2,
+    6,
+    0,
+    13
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.738,
+     "chance": 0.32
+    },
+    "byChainPlace": {
+     "real": 0.053,
+     "chance": 0.031
+    },
+    "byBonds": {
+     "real": 0.068,
+     "chance": 0.007
+    },
+    "byShape": {
+     "real": 0.056,
+     "chance": 0.013
+    }
+   },
+   "blend": {
+    "pairsSame": 27,
+    "pairsDiff": 133,
+    "kSame": 0.183,
+    "kDiff": 0.16,
+    "fSame": 0.202,
+    "fDiff": 0.176,
+    "gSame": 0.042,
+    "gDiff": 0.041
+   },
+   "standout": {
+    "group": {
+     "cells": 81,
+     "agree": 0.753
+    },
+    "loose": {
+     "cells": 9,
+     "agree": 0.761
+    },
+    "mixed": {
+     "cells": 164,
+     "agree": 0.514
+    }
+   },
+   "worstExcess": -205.371,
+   "hash": "6fd9300c"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 1,
+   "mode": "coarse",
+   "farShare": 0.0741,
+   "temperature": 0.0455,
+   "bondedShare": 0.737,
+   "groups": 116,
+   "largest": 48,
+   "sorting": 0.433,
+   "shapes": {
+    "chain": 0.135,
+    "ring": 0.004,
+    "tree": 0.011,
+    "sheet": 0.086,
+    "blob": 0.382
+   },
+   "structures": 62,
+   "repeatKinds": 6,
+   "repeatMembers": 12,
+   "repeatSeries": [
+    6,
+    0,
+    4,
+    2,
+    2,
+    12
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.858,
+     "chance": 0.411
+    },
+    "byChainPlace": {
+     "real": 0.05,
+     "chance": 0.013
+    },
+    "byBonds": {
+     "real": 0.06,
+     "chance": 0.009
+    },
+    "byShape": {
+     "real": 0.334,
+     "chance": 0.013
+    }
+   },
+   "blend": {
+    "pairsSame": 31,
+    "pairsDiff": 47,
+    "kSame": 0.23,
+    "kDiff": 0.172,
+    "fSame": 0.246,
+    "fDiff": 0.196,
+    "gSame": 0.071,
+    "gDiff": 0.058
+   },
+   "standout": {
+    "group": {
+     "cells": 84,
+     "agree": 0.623
+    },
+    "loose": {
+     "cells": 50,
+     "agree": 0.308
+    },
+    "mixed": {
+     "cells": 155,
+     "agree": 0.315
+    }
+   },
+   "worstExcess": -196.286,
+   "hash": "a3cec897"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 2,
+   "mode": "coarse",
+   "farShare": 0.0725,
+   "temperature": 0.0479,
+   "bondedShare": 0.728,
+   "groups": 104,
+   "largest": 38,
+   "sorting": 0.383,
+   "shapes": {
+    "chain": 0.104,
+    "ring": 0.002,
+    "tree": 0.033,
+    "sheet": 0.137,
+    "blob": 0.339
+   },
+   "structures": 62,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    2,
+    0,
+    4,
+    4,
+    6,
+    2
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.864,
+     "chance": 0.399
+    },
+    "byChainPlace": {
+     "real": 0.008,
+     "chance": 0.014
+    },
+    "byBonds": {
+     "real": 0.076,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.278,
+     "chance": 0.018
+    }
+   },
+   "blend": {
+    "pairsSame": 37,
+    "pairsDiff": 43,
+    "kSame": 0.21,
+    "kDiff": 0.189,
+    "fSame": 0.216,
+    "fDiff": 0.189,
+    "gSame": 0.067,
+    "gDiff": 0.077
+   },
+   "standout": {
+    "group": {
+     "cells": 72,
+     "agree": 0.647
+    },
+    "loose": {
+     "cells": 56,
+     "agree": 0.309
+    },
+    "mixed": {
+     "cells": 154,
+     "agree": 0.308
+    }
+   },
+   "worstExcess": -183.475,
+   "hash": "640e2d28"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 1,
+   "mode": "coarse",
+   "farShare": 0.0942,
+   "temperature": 0.0064,
+   "bondedShare": 0.881,
+   "groups": 180,
+   "largest": 28,
+   "sorting": 0.053,
+   "shapes": {
+    "chain": 0.241,
+    "ring": 0.043,
+    "tree": 0.077,
+    "sheet": 0.12,
+    "blob": 0.137
+   },
+   "structures": 82,
+   "repeatKinds": 11,
+   "repeatMembers": 28,
+   "repeatSeries": [
+    26,
+    23,
+    17,
+    23,
+    20,
+    28
+   ],
+   "splits": 5,
+   "units": {
+    "sync": {
+     "real": 0.784,
+     "chance": 0.424
+    },
+    "byChainPlace": {
+     "real": 0.004,
+     "chance": 0.008
+    },
+    "byBonds": {
+     "real": 0.012,
+     "chance": 0.004
+    },
+    "byShape": {
+     "real": 0.12,
+     "chance": 0.012
+    }
+   },
+   "blend": {
+    "pairsSame": 122,
+    "pairsDiff": 430,
+    "kSame": 0.109,
+    "kDiff": 0.108,
+    "fSame": 0.076,
+    "fDiff": 0.076,
+    "gSame": 0.046,
+    "gDiff": 0.053
+   },
+   "standout": {
+    "group": {
+     "cells": 55,
+     "agree": 0.136
+    },
+    "loose": {
+     "cells": 9,
+     "agree": 0.253
+    },
+    "mixed": {
+     "cells": 232,
+     "agree": 0.154
+    }
+   },
+   "worstExcess": -93.966,
+   "hash": "b0cb7c09"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 2,
+   "mode": "coarse",
+   "farShare": 0.0938,
+   "temperature": 0.0052,
+   "bondedShare": 0.893,
+   "groups": 188,
+   "largest": 24,
+   "sorting": 0.05,
+   "shapes": {
+    "chain": 0.235,
+    "ring": 0.048,
+    "tree": 0.069,
+    "sheet": 0.137,
+    "blob": 0.142
+   },
+   "structures": 81,
+   "repeatKinds": 11,
+   "repeatMembers": 30,
+   "repeatSeries": [
+    19,
+    26,
+    34,
+    25,
+    19,
+    30
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.728,
+     "chance": 0.447
+    },
+    "byChainPlace": {
+     "real": 0.013,
+     "chance": 0.01
+    },
+    "byBonds": {
+     "real": 0.033,
+     "chance": 0.006
+    },
+    "byShape": {
+     "real": 0.094,
+     "chance": 0.015
+    }
+   },
+   "blend": {
+    "pairsSame": 156,
+    "pairsDiff": 613,
+    "kSame": 0.088,
+    "kDiff": 0.081,
+    "fSame": 0.064,
+    "fDiff": 0.055,
+    "gSame": 0.039,
+    "gDiff": 0.05
+   },
+   "standout": {
+    "group": {
+     "cells": 56,
+     "agree": 0.096
+    },
+    "loose": {
+     "cells": 5,
+     "agree": 0.245
+    },
+    "mixed": {
+     "cells": 244,
+     "agree": 0.183
+    }
+   },
+   "worstExcess": -87.034,
+   "hash": "2451efaf"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 1,
+   "mode": "coarse",
+   "farShare": 0.1207,
+   "temperature": 0.0415,
+   "bondedShare": 0.79,
+   "groups": 170,
+   "largest": 49,
+   "sorting": 0.667,
+   "shapes": {
+    "chain": 0.285,
+    "ring": 0.006,
+    "tree": 0.058,
+    "sheet": 0.118,
+    "blob": 0.246
+   },
+   "structures": 94,
+   "repeatKinds": 6,
+   "repeatMembers": 15,
+   "repeatSeries": [
+    2,
+    11,
+    16,
+    10,
+    16,
+    15
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.776,
+     "chance": 0.357
+    },
+    "byChainPlace": {
+     "real": 0.013,
+     "chance": 0.005
+    },
+    "byBonds": {
+     "real": 0.046,
+     "chance": 0.007
+    },
+    "byShape": {
+     "real": 0.073,
+     "chance": 0.013
+    }
+   },
+   "blend": {
+    "pairsSame": 116,
+    "pairsDiff": 168,
+    "kSame": 0.141,
+    "kDiff": 0.132,
+    "fSame": 0.135,
+    "fDiff": 0.109,
+    "gSame": 0.058,
+    "gDiff": 0.078
+   },
+   "standout": {
+    "group": {
+     "cells": 85,
+     "agree": 0.666
+    },
+    "loose": {
+     "cells": 19,
+     "agree": 0.339
+    },
+    "mixed": {
+     "cells": 177,
+     "agree": 0.452
+    }
+   },
+   "worstExcess": -110.3,
+   "hash": "2c6c51e6"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 2,
+   "mode": "coarse",
+   "farShare": 0.1225,
+   "temperature": 0.0452,
+   "bondedShare": 0.803,
+   "groups": 161,
+   "largest": 45,
+   "sorting": 0.716,
+   "shapes": {
+    "chain": 0.315,
+    "ring": 0.005,
+    "tree": 0.04,
+    "sheet": 0.108,
+    "blob": 0.241
+   },
+   "structures": 95,
+   "repeatKinds": 5,
+   "repeatMembers": 12,
+   "repeatSeries": [
+    2,
+    8,
+    8,
+    10,
+    9,
+    12
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.759,
+     "chance": 0.359
+    },
+    "byChainPlace": {
+     "real": 0.023,
+     "chance": 0.006
+    },
+    "byBonds": {
+     "real": 0.049,
+     "chance": 0.007
+    },
+    "byShape": {
+     "real": 0.068,
+     "chance": 0.012
+    }
+   },
+   "blend": {
+    "pairsSame": 115,
+    "pairsDiff": 129,
+    "kSame": 0.154,
+    "kDiff": 0.14,
+    "fSame": 0.134,
+    "fDiff": 0.118,
+    "gSame": 0.075,
+    "gDiff": 0.084
+   },
+   "standout": {
+    "group": {
+     "cells": 76,
+     "agree": 0.641
+    },
+    "loose": {
+     "cells": 20,
+     "agree": 0.475
+    },
+    "mixed": {
+     "cells": 176,
+     "agree": 0.459
+    }
+   },
+   "worstExcess": -105.908,
+   "hash": "4cd2396a"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 1,
+   "mode": "coarse",
+   "farShare": 0.1281,
+   "temperature": 0.0245,
+   "bondedShare": 0.825,
+   "groups": 86,
+   "largest": 105,
+   "sorting": 0.554,
+   "shapes": {
+    "chain": 0.121,
+    "ring": 0,
+    "tree": 0.019,
+    "sheet": 0.281,
+    "blob": 0.363
+   },
+   "structures": 70,
+   "repeatKinds": 1,
+   "repeatMembers": 4,
+   "repeatSeries": [
+    2,
+    8,
+    4,
+    4,
+    3,
+    4
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.495,
+     "chance": 0.262
+    },
+    "byChainPlace": {
+     "real": 0.015,
+     "chance": 0.011
+    },
+    "byBonds": {
+     "real": 0.021,
+     "chance": 0.014
+    },
+    "byShape": {
+     "real": 0.043,
+     "chance": 0.017
+    }
+   },
+   "blend": {
+    "pairsSame": 7,
+    "pairsDiff": 28,
+    "kSame": 0.084,
+    "kDiff": 0.121,
+    "fSame": 0.073,
+    "fDiff": 0.115,
+    "gSame": 0.057,
+    "gDiff": 0.049
+   },
+   "standout": {
+    "group": {
+     "cells": 103,
+     "agree": 0.738
+    },
+    "loose": {
+     "cells": 33,
+     "agree": 0.733
+    },
+    "mixed": {
+     "cells": 154,
+     "agree": 0.529
+    }
+   },
+   "worstExcess": -181.688,
+   "hash": "e2f92ee5"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 2,
+   "mode": "coarse",
+   "farShare": 0.1281,
+   "temperature": 0.0228,
+   "bondedShare": 0.857,
+   "groups": 81,
+   "largest": 297,
+   "sorting": 0.554,
+   "shapes": {
+    "chain": 0.124,
+    "ring": 0,
+    "tree": 0.022,
+    "sheet": 0.316,
+    "blob": 0.363
+   },
+   "structures": 58,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    2,
+    0,
+    7,
+    4,
+    2,
+    0
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.498,
+     "chance": 0.236
+    },
+    "byChainPlace": {
+     "real": 0.017,
+     "chance": 0.014
+    },
+    "byBonds": {
+     "real": 0.033,
+     "chance": 0.012
+    },
+    "byShape": {
+     "real": 0.031,
+     "chance": 0.016
+    }
+   },
+   "blend": {
+    "pairsSame": 7,
+    "pairsDiff": 17,
+    "kSame": 0.165,
+    "kDiff": 0.156,
+    "fSame": 0.142,
+    "fDiff": 0.15,
+    "gSame": 0.084,
+    "gDiff": 0.056
+   },
+   "standout": {
+    "group": {
+     "cells": 131,
+     "agree": 0.763
+    },
+    "loose": {
+     "cells": 24,
+     "agree": 0.777
+    },
+    "mixed": {
+     "cells": 135,
+     "agree": 0.519
+    }
+   },
+   "worstExcess": -167.586,
+   "hash": "da72df0d"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 1,
+   "mode": "coarse",
+   "farShare": 0.0624,
+   "temperature": 0.0523,
+   "bondedShare": 0.709,
+   "groups": 130,
+   "largest": 61,
+   "sorting": 0.373,
+   "shapes": {
+    "chain": 0.137,
+    "ring": 0.041,
+    "tree": 0.022,
+    "sheet": 0.103,
+    "blob": 0.323
+   },
+   "structures": 73,
+   "repeatKinds": 6,
+   "repeatMembers": 21,
+   "repeatSeries": [
+    12,
+    29,
+    22,
+    17,
+    21,
+    21
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.8,
+     "chance": 0.324
+    },
+    "byChainPlace": {
+     "real": 0.004,
+     "chance": 0.011
+    },
+    "byBonds": {
+     "real": 0.024,
+     "chance": 0.005
+    },
+    "byShape": {
+     "real": 0.079,
+     "chance": 0.012
+    }
+   },
+   "blend": {
+    "pairsSame": 136,
+    "pairsDiff": 401,
+    "kSame": 0.162,
+    "kDiff": 0.186,
+    "fSame": 0.191,
+    "fDiff": 0.221,
+    "gSame": 0.048,
+    "gDiff": 0.05
+   },
+   "standout": {
+    "group": {
+     "cells": 67,
+     "agree": 0.585
+    },
+    "loose": {
+     "cells": 60,
+     "agree": 0.292
+    },
+    "mixed": {
+     "cells": 152,
+     "agree": 0.364
+    }
+   },
+   "worstExcess": -177.83,
+   "hash": "8c46a347"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 2,
+   "mode": "coarse",
+   "farShare": 0.0631,
+   "temperature": 0.0576,
+   "bondedShare": 0.704,
+   "groups": 120,
+   "largest": 35,
+   "sorting": 0.349,
+   "shapes": {
+    "chain": 0.113,
+    "ring": 0.024,
+    "tree": 0.035,
+    "sheet": 0.147,
+    "blob": 0.274
+   },
+   "structures": 71,
+   "repeatKinds": 5,
+   "repeatMembers": 16,
+   "repeatSeries": [
+    17,
+    5,
+    14,
+    22,
+    25,
+    16
+   ],
+   "splits": 3,
+   "units": {
+    "sync": {
+     "real": 0.728,
+     "chance": 0.314
+    },
+    "byChainPlace": {
+     "real": 0.006,
+     "chance": 0.009
+    },
+    "byBonds": {
+     "real": 0.009,
+     "chance": 0.006
+    },
+    "byShape": {
+     "real": 0.026,
+     "chance": 0.015
+    }
+   },
+   "blend": {
+    "pairsSame": 120,
+    "pairsDiff": 477,
+    "kSame": 0.175,
+    "kDiff": 0.189,
+    "fSame": 0.214,
+    "fDiff": 0.237,
+    "gSame": 0.044,
+    "gDiff": 0.047
+   },
+   "standout": {
+    "group": {
+     "cells": 88,
+     "agree": 0.544
+    },
+    "loose": {
+     "cells": 72,
+     "agree": 0.288
+    },
+    "mixed": {
+     "cells": 131,
+     "agree": 0.341
+    }
+   },
+   "worstExcess": -183.511,
+   "hash": "ad49d5bb"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 1,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.1627,
+   "bondedShare": 0.514,
+   "groups": 115,
+   "largest": 14,
+   "sorting": 0.156,
+   "shapes": {
+    "chain": 0.182,
+    "ring": 0.017,
+    "tree": 0.069,
+    "sheet": 0,
+    "blob": 0.059
+   },
+   "structures": 29,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.855,
+     "chance": 0.606
+    },
+    "byChainPlace": {
+     "real": 0.007,
+     "chance": 0.008
+    },
+    "byBonds": {
+     "real": 0.01,
+     "chance": 0.012
+    },
+    "byShape": {
+     "real": 0.057,
+     "chance": 0.015
+    }
+   },
+   "blend": {
+    "pairsSame": 11,
+    "pairsDiff": 22,
+    "kSame": 0.169,
+    "kDiff": 0.133,
+    "fSame": 0.162,
+    "fDiff": 0.126,
+    "gSame": 0.046,
+    "gDiff": 0.053
+   },
+   "standout": {
+    "group": {
+     "cells": 12,
+     "agree": 0.247
+    },
+    "loose": {
+     "cells": 74,
+     "agree": 0.3
+    },
+    "mixed": {
+     "cells": 182,
+     "agree": 0.215
+    }
+   },
+   "worstExcess": -179.472,
+   "hash": "2e0f8aca"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 2,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.1818,
+   "bondedShare": 0.476,
+   "groups": 102,
+   "largest": 16,
+   "sorting": 0.115,
+   "shapes": {
+    "chain": 0.159,
+    "ring": 0.004,
+    "tree": 0.065,
+    "sheet": 0.004,
+    "blob": 0.102
+   },
+   "structures": 41,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.797,
+     "chance": 0.523
+    },
+    "byChainPlace": {
+     "real": 0.014,
+     "chance": 0.01
+    },
+    "byBonds": {
+     "real": 0.015,
+     "chance": 0.013
+    },
+    "byShape": {
+     "real": 0.02,
+     "chance": 0.023
+    }
+   },
+   "blend": {
+    "pairsSame": 4,
+    "pairsDiff": 29,
+    "kSame": 0.193,
+    "kDiff": 0.123,
+    "fSame": 0.177,
+    "fDiff": 0.096,
+    "gSame": 0.05,
+    "gDiff": 0.056
+   },
+   "standout": {
+    "group": {
+     "cells": 11,
+     "agree": 0.288
+    },
+    "loose": {
+     "cells": 83,
+     "agree": 0.237
+    },
+    "mixed": {
+     "cells": 162,
+     "agree": 0.217
+    }
+   },
+   "worstExcess": -178.099,
+   "hash": "c10cf6f6"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 1,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0427,
+   "bondedShare": 0.708,
+   "groups": 140,
+   "largest": 48,
+   "sorting": 0.087,
+   "shapes": {
+    "chain": 0.223,
+    "ring": 0.017,
+    "tree": 0.097,
+    "sheet": 0.048,
+    "blob": 0.13
+   },
+   "structures": 60,
+   "repeatKinds": 4,
+   "repeatMembers": 10,
+   "repeatSeries": [
+    4,
+    9,
+    4,
+    10,
+    12,
+    10
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.764,
+     "chance": 0.515
+    },
+    "byChainPlace": {
+     "real": 0.036,
+     "chance": 0.012
+    },
+    "byBonds": {
+     "real": 0.031,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.08,
+     "chance": 0.023
+    }
+   },
+   "blend": {
+    "pairsSame": 41,
+    "pairsDiff": 44,
+    "kSame": 0.079,
+    "kDiff": 0.109,
+    "fSame": 0.072,
+    "fDiff": 0.109,
+    "gSame": 0.024,
+    "gDiff": 0.038
+   },
+   "standout": {
+    "group": {
+     "cells": 35,
+     "agree": 0.111
+    },
+    "loose": {
+     "cells": 36,
+     "agree": 0.297
+    },
+    "mixed": {
+     "cells": 223,
+     "agree": 0.198
+    }
+   },
+   "worstExcess": -167.351,
+   "hash": "df3a7cca"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 2,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0469,
+   "bondedShare": 0.717,
+   "groups": 187,
+   "largest": 13,
+   "sorting": 0.106,
+   "shapes": {
+    "chain": 0.323,
+    "ring": 0.027,
+    "tree": 0.073,
+    "sheet": 0.056,
+    "blob": 0.069
+   },
+   "structures": 63,
+   "repeatKinds": 7,
+   "repeatMembers": 18,
+   "repeatSeries": [
+    9,
+    2,
+    8,
+    7,
+    14,
+    18
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.869,
+     "chance": 0.599
+    },
+    "byChainPlace": {
+     "real": 0.05,
+     "chance": 0.011
+    },
+    "byBonds": {
+     "real": 0.037,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.055,
+     "chance": 0.019
+    }
+   },
+   "blend": {
+    "pairsSame": 90,
+    "pairsDiff": 99,
+    "kSame": 0.091,
+    "kDiff": 0.085,
+    "fSame": 0.092,
+    "fDiff": 0.082,
+    "gSame": 0.026,
+    "gDiff": 0.028
+   },
+   "standout": {
+    "group": {
+     "cells": 31,
+     "agree": 0.164
+    },
+    "loose": {
+     "cells": 24,
+     "agree": 0.358
+    },
+    "mixed": {
+     "cells": 238,
+     "agree": 0.167
+    }
+   },
+   "worstExcess": -164.577,
+   "hash": "9b909234"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 1,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.1893,
+   "bondedShare": 0.595,
+   "groups": 117,
+   "largest": 25,
+   "sorting": 0.414,
+   "shapes": {
+    "chain": 0.104,
+    "ring": 0.006,
+    "tree": 0.067,
+    "sheet": 0.079,
+    "blob": 0.22
+   },
+   "structures": 69,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    4,
+    0,
+    4,
+    2,
+    0
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.909,
+     "chance": 0.356
+    },
+    "byChainPlace": {
+     "real": 0.019,
+     "chance": 0.024
+    },
+    "byBonds": {
+     "real": 0.064,
+     "chance": 0.012
+    },
+    "byShape": {
+     "real": 0.167,
+     "chance": 0.021
+    }
+   },
+   "blend": {
+    "pairsSame": 4,
+    "pairsDiff": 38,
+    "kSame": 0.123,
+    "kDiff": 0.121,
+    "fSame": 0.103,
+    "fDiff": 0.098,
+    "gSame": 0.042,
+    "gDiff": 0.038
+   },
+   "standout": {
+    "group": {
+     "cells": 38,
+     "agree": 0.792
+    },
+    "loose": {
+     "cells": 48,
+     "agree": 0.729
+    },
+    "mixed": {
+     "cells": 162,
+     "agree": 0.709
+    }
+   },
+   "worstExcess": -230.758,
+   "hash": "10e5dbe6"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 2,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.1919,
+   "bondedShare": 0.589,
+   "groups": 117,
+   "largest": 27,
+   "sorting": 0.429,
+   "shapes": {
+    "chain": 0.103,
+    "ring": 0.008,
+    "tree": 0.066,
+    "sheet": 0.108,
+    "blob": 0.191
+   },
+   "structures": 70,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    2,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.908,
+     "chance": 0.345
+    },
+    "byChainPlace": {
+     "real": 0.013,
+     "chance": 0.028
+    },
+    "byBonds": {
+     "real": 0.044,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.15,
+     "chance": 0.017
+    }
+   },
+   "blend": {
+    "pairsSame": 3,
+    "pairsDiff": 32,
+    "kSame": 0.41,
+    "kDiff": 0.122,
+    "fSame": 0.353,
+    "fDiff": 0.097,
+    "gSame": 0.016,
+    "gDiff": 0.035
+   },
+   "standout": {
+    "group": {
+     "cells": 37,
+     "agree": 0.808
+    },
+    "loose": {
+     "cells": 56,
+     "agree": 0.767
+    },
+    "mixed": {
+     "cells": 158,
+     "agree": 0.711
+    }
+   },
+   "worstExcess": -227.768,
+   "hash": "f0b805ad"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 1,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0186,
+   "bondedShare": 0.687,
+   "groups": 172,
+   "largest": 12,
+   "sorting": 0.148,
+   "shapes": {
+    "chain": 0.228,
+    "ring": 0.063,
+    "tree": 0.058,
+    "sheet": 0.021,
+    "blob": 0.118
+   },
+   "structures": 48,
+   "repeatKinds": 2,
+   "repeatMembers": 4,
+   "repeatSeries": [
+    6,
+    0,
+    2,
+    2,
+    6,
+    4
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.841,
+     "chance": 0.668
+    },
+    "byChainPlace": {
+     "real": 0.009,
+     "chance": 0.009
+    },
+    "byBonds": {
+     "real": 0.069,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.107,
+     "chance": 0.016
+    }
+   },
+   "blend": {
+    "pairsSame": 60,
+    "pairsDiff": 197,
+    "kSame": 0.423,
+    "kDiff": 0.547,
+    "fSame": 0.399,
+    "fDiff": 0.532,
+    "gSame": 0.041,
+    "gDiff": 0.038
+   },
+   "standout": {
+    "group": {
+     "cells": 36,
+     "agree": 0.263
+    },
+    "loose": {
+     "cells": 51,
+     "agree": 0.274
+    },
+    "mixed": {
+     "cells": 216,
+     "agree": 0.267
+    }
+   },
+   "worstExcess": -173.539,
+   "hash": "5c5ce518"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 2,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0192,
+   "bondedShare": 0.706,
+   "groups": 164,
+   "largest": 23,
+   "sorting": 0.153,
+   "shapes": {
+    "chain": 0.221,
+    "ring": 0.041,
+    "tree": 0.045,
+    "sheet": 0.013,
+    "blob": 0.163
+   },
+   "structures": 47,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    2,
+    2,
+    4,
+    0,
+    11,
+    2
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.842,
+     "chance": 0.632
+    },
+    "byChainPlace": {
+     "real": 0.053,
+     "chance": 0.011
+    },
+    "byBonds": {
+     "real": 0.111,
+     "chance": 0.012
+    },
+    "byShape": {
+     "real": 0.122,
+     "chance": 0.019
+    }
+   },
+   "blend": {
+    "pairsSame": 42,
+    "pairsDiff": 191,
+    "kSame": 0.532,
+    "kDiff": 0.55,
+    "fSame": 0.52,
+    "fDiff": 0.535,
+    "gSame": 0.035,
+    "gDiff": 0.037
+   },
+   "standout": {
+    "group": {
+     "cells": 34,
+     "agree": 0.223
+    },
+    "loose": {
+     "cells": 46,
+     "agree": 0.248
+    },
+    "mixed": {
+     "cells": 221,
+     "agree": 0.259
+    }
+   },
+   "worstExcess": -184.335,
+   "hash": "8a63aa60"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 1,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0073,
+   "bondedShare": 0.912,
+   "groups": 116,
+   "largest": 122,
+   "sorting": 0.432,
+   "shapes": {
+    "chain": 0.065,
+    "ring": 0.022,
+    "tree": 0.004,
+    "sheet": 0.235,
+    "blob": 0.537
+   },
+   "structures": 68,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    4,
+    4,
+    0,
+    2,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.266,
+     "chance": 0.143
+    },
+    "byChainPlace": {
+     "real": 0.059,
+     "chance": 0.025
+    },
+    "byBonds": {
+     "real": 0.018,
+     "chance": 0.005
+    },
+    "byShape": {
+     "real": 0.03,
+     "chance": 0.007
+    }
+   },
+   "blend": {
+    "pairsSame": 16,
+    "pairsDiff": 60,
+    "kSame": 0.128,
+    "kDiff": 0.363,
+    "fSame": 0.133,
+    "fDiff": 0.372,
+    "gSame": 0.027,
+    "gDiff": 0.035
+   },
+   "standout": {
+    "group": {
+     "cells": 126,
+     "agree": 0.529
+    },
+    "loose": {
+     "cells": 6,
+     "agree": 0.762
+    },
+    "mixed": {
+     "cells": 159,
+     "agree": 0.292
+    }
+   },
+   "worstExcess": -30.708,
+   "hash": "becd3740"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 2,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0096,
+   "bondedShare": 0.909,
+   "groups": 113,
+   "largest": 59,
+   "sorting": 0.443,
+   "shapes": {
+    "chain": 0.061,
+    "ring": 0.014,
+    "tree": 0,
+    "sheet": 0.269,
+    "blob": 0.499
+   },
+   "structures": 73,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.231,
+     "chance": 0.154
+    },
+    "byChainPlace": {
+     "real": 0.053,
+     "chance": 0.025
+    },
+    "byBonds": {
+     "real": 0.019,
+     "chance": 0.005
+    },
+    "byShape": {
+     "real": 0.019,
+     "chance": 0.006
+    }
+   },
+   "blend": {
+    "pairsSame": 15,
+    "pairsDiff": 58,
+    "kSame": 0.274,
+    "kDiff": 0.313,
+    "fSame": 0.259,
+    "fDiff": 0.309,
+    "gSame": 0.04,
+    "gDiff": 0.033
+   },
+   "standout": {
+    "group": {
+     "cells": 127,
+     "agree": 0.569
+    },
+    "loose": {
+     "cells": 6,
+     "agree": 0.786
+    },
+    "mixed": {
+     "cells": 163,
+     "agree": 0.319
+    }
+   },
+   "worstExcess": -35.395,
+   "hash": "2551bd3c"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 1,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.1422,
+   "bondedShare": 0.385,
+   "groups": 67,
+   "largest": 7,
+   "sorting": 0.122,
+   "shapes": {
+    "chain": 0.125,
+    "ring": 0,
+    "tree": 0.036,
+    "sheet": 0,
+    "blob": 0.005
+   },
+   "structures": 14,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.874,
+     "chance": 0.745
+    },
+    "byChainPlace": {
+     "real": 0.051,
+     "chance": 0.022
+    },
+    "byBonds": {
+     "real": 0.056,
+     "chance": 0.033
+    },
+    "byShape": {
+     "real": 0.02,
+     "chance": 0.033
+    }
+   },
+   "blend": {
+    "pairsSame": 0,
+    "pairsDiff": 4,
+    "kSame": null,
+    "kDiff": 0.119,
+    "fSame": null,
+    "fDiff": 0.157,
+    "gSame": null,
+    "gDiff": 0.077
+   },
+   "standout": {
+    "group": {
+     "cells": 1,
+     "agree": 0.03
+    },
+    "loose": {
+     "cells": 92,
+     "agree": 0.282
+    },
+    "mixed": {
+     "cells": 142,
+     "agree": 0.163
+    }
+   },
+   "worstExcess": -172.707,
+   "hash": "e81aebb9"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 2,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.1481,
+   "bondedShare": 0.407,
+   "groups": 75,
+   "largest": 9,
+   "sorting": 0.114,
+   "shapes": {
+    "chain": 0.139,
+    "ring": 0.004,
+    "tree": 0.042,
+    "sheet": 0,
+    "blob": 0
+   },
+   "structures": 10,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.928,
+     "chance": 0.766
+    },
+    "byChainPlace": {
+     "real": 0.087,
+     "chance": 0.023
+    },
+    "byBonds": {
+     "real": 0.09,
+     "chance": 0.038
+    },
+    "byShape": {
+     "real": 0.021,
+     "chance": 0.031
+    }
+   },
+   "blend": {
+    "pairsSame": 6,
+    "pairsDiff": 22,
+    "kSame": 0.122,
+    "kDiff": 0.107,
+    "fSame": 0.13,
+    "fDiff": 0.112,
+    "gSame": 0.051,
+    "gDiff": 0.047
+   },
+   "standout": {
+    "group": {
+     "cells": 2,
+     "agree": 0.104
+    },
+    "loose": {
+     "cells": 97,
+     "agree": 0.247
+    },
+    "mixed": {
+     "cells": 158,
+     "agree": 0.246
+    }
+   },
+   "worstExcess": -192.954,
+   "hash": "2b6f0828"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 1,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0819,
+   "bondedShare": 0.793,
+   "groups": 167,
+   "largest": 17,
+   "sorting": 0.676,
+   "shapes": {
+    "chain": 0.119,
+    "ring": 0.011,
+    "tree": 0.037,
+    "sheet": 0.065,
+    "blob": 0.488
+   },
+   "structures": 100,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.76,
+     "chance": 0.333
+    },
+    "byChainPlace": {
+     "real": 0.087,
+     "chance": 0.026
+    },
+    "byBonds": {
+     "real": 0.04,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.064,
+     "chance": 0.016
+    }
+   },
+   "blend": {
+    "pairsSame": 14,
+    "pairsDiff": 118,
+    "kSame": 0.194,
+    "kDiff": 0.165,
+    "fSame": 0.203,
+    "fDiff": 0.172,
+    "gSame": 0.039,
+    "gDiff": 0.037
+   },
+   "standout": {
+    "group": {
+     "cells": 72,
+     "agree": 0.743
+    },
+    "loose": {
+     "cells": 14,
+     "agree": 0.629
+    },
+    "mixed": {
+     "cells": 182,
+     "agree": 0.539
+    }
+   },
+   "worstExcess": -194.989,
+   "hash": "a065de2e"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 2,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0801,
+   "bondedShare": 0.797,
+   "groups": 155,
+   "largest": 37,
+   "sorting": 0.707,
+   "shapes": {
+    "chain": 0.102,
+    "ring": 0.014,
+    "tree": 0.07,
+    "sheet": 0.078,
+    "blob": 0.449
+   },
+   "structures": 101,
+   "repeatKinds": 2,
+   "repeatMembers": 4,
+   "repeatSeries": [
+    4,
+    2,
+    4,
+    4,
+    0,
+    4
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.706,
+     "chance": 0.298
+    },
+    "byChainPlace": {
+     "real": 0.049,
+     "chance": 0.027
+    },
+    "byBonds": {
+     "real": 0.061,
+     "chance": 0.008
+    },
+    "byShape": {
+     "real": 0.058,
+     "chance": 0.014
+    }
+   },
+   "blend": {
+    "pairsSame": 15,
+    "pairsDiff": 103,
+    "kSame": 0.211,
+    "kDiff": 0.171,
+    "fSame": 0.251,
+    "fDiff": 0.182,
+    "gSame": 0.037,
+    "gDiff": 0.035
+   },
+   "standout": {
+    "group": {
+     "cells": 80,
+     "agree": 0.701
+    },
+    "loose": {
+     "cells": 17,
+     "agree": 0.604
+    },
+    "mixed": {
+     "cells": 179,
+     "agree": 0.489
+    }
+   },
+   "worstExcess": -211.241,
+   "hash": "9d5f0b38"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 1,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.048,
+   "bondedShare": 0.756,
+   "groups": 132,
+   "largest": 49,
+   "sorting": 0.427,
+   "shapes": {
+    "chain": 0.155,
+    "ring": 0.006,
+    "tree": 0.046,
+    "sheet": 0.111,
+    "blob": 0.327
+   },
+   "structures": 69,
+   "repeatKinds": 2,
+   "repeatMembers": 6,
+   "repeatSeries": [
+    4,
+    2,
+    0,
+    8,
+    7,
+    6
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.889,
+     "chance": 0.45
+    },
+    "byChainPlace": {
+     "real": 0.042,
+     "chance": 0.016
+    },
+    "byBonds": {
+     "real": 0.021,
+     "chance": 0.013
+    },
+    "byShape": {
+     "real": 0.429,
+     "chance": 0.016
+    }
+   },
+   "blend": {
+    "pairsSame": 41,
+    "pairsDiff": 77,
+    "kSame": 0.201,
+    "kDiff": 0.188,
+    "fSame": 0.201,
+    "fDiff": 0.188,
+    "gSame": 0.088,
+    "gDiff": 0.082
+   },
+   "standout": {
+    "group": {
+     "cells": 74,
+     "agree": 0.68
+    },
+    "loose": {
+     "cells": 40,
+     "agree": 0.362
+    },
+    "mixed": {
+     "cells": 176,
+     "agree": 0.292
+    }
+   },
+   "worstExcess": -202.924,
+   "hash": "4fcb9c43"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 2,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0538,
+   "bondedShare": 0.702,
+   "groups": 105,
+   "largest": 35,
+   "sorting": 0.375,
+   "shapes": {
+    "chain": 0.109,
+    "ring": 0,
+    "tree": 0.015,
+    "sheet": 0.111,
+    "blob": 0.377
+   },
+   "structures": 63,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    4,
+    4,
+    0,
+    2,
+    10,
+    2
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.781,
+     "chance": 0.41
+    },
+    "byChainPlace": {
+     "real": 0.032,
+     "chance": 0.013
+    },
+    "byBonds": {
+     "real": 0.03,
+     "chance": 0.009
+    },
+    "byShape": {
+     "real": 0.272,
+     "chance": 0.014
+    }
+   },
+   "blend": {
+    "pairsSame": 22,
+    "pairsDiff": 23,
+    "kSame": 0.116,
+    "kDiff": 0.202,
+    "fSame": 0.131,
+    "fDiff": 0.202,
+    "gSame": 0.064,
+    "gDiff": 0.065
+   },
+   "standout": {
+    "group": {
+     "cells": 73,
+     "agree": 0.656
+    },
+    "loose": {
+     "cells": 61,
+     "agree": 0.264
+    },
+    "mixed": {
+     "cells": 150,
+     "agree": 0.343
+    }
+   },
+   "worstExcess": -196.425,
+   "hash": "59d3afe9"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 1,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0062,
+   "bondedShare": 0.893,
+   "groups": 202,
+   "largest": 21,
+   "sorting": 0.069,
+   "shapes": {
+    "chain": 0.27,
+    "ring": 0.035,
+    "tree": 0.075,
+    "sheet": 0.167,
+    "blob": 0.096
+   },
+   "structures": 84,
+   "repeatKinds": 11,
+   "repeatMembers": 25,
+   "repeatSeries": [
+    13,
+    18,
+    24,
+    14,
+    22,
+    25
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.826,
+     "chance": 0.481
+    },
+    "byChainPlace": {
+     "real": 0.04,
+     "chance": 0.006
+    },
+    "byBonds": {
+     "real": 0.025,
+     "chance": 0.006
+    },
+    "byShape": {
+     "real": 0.112,
+     "chance": 0.011
+    }
+   },
+   "blend": {
+    "pairsSame": 117,
+    "pairsDiff": 588,
+    "kSame": 0.122,
+    "kDiff": 0.091,
+    "fSame": 0.089,
+    "fDiff": 0.063,
+    "gSame": 0.042,
+    "gDiff": 0.045
+   },
+   "standout": {
+    "group": {
+     "cells": 39,
+     "agree": 0.115
+    },
+    "loose": {
+     "cells": 3,
+     "agree": 0.196
+    },
+    "mixed": {
+     "cells": 251,
+     "agree": 0.141
+    }
+   },
+   "worstExcess": -93.703,
+   "hash": "7b2b7bb2"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 2,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0064,
+   "bondedShare": 0.886,
+   "groups": 186,
+   "largest": 15,
+   "sorting": 0.045,
+   "shapes": {
+    "chain": 0.249,
+    "ring": 0.045,
+    "tree": 0.113,
+    "sheet": 0.143,
+    "blob": 0.107
+   },
+   "structures": 85,
+   "repeatKinds": 8,
+   "repeatMembers": 22,
+   "repeatSeries": [
+    14,
+    21,
+    25,
+    23,
+    14,
+    22
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.707,
+     "chance": 0.429
+    },
+    "byChainPlace": {
+     "real": 0.008,
+     "chance": 0.009
+    },
+    "byBonds": {
+     "real": 0.011,
+     "chance": 0.005
+    },
+    "byShape": {
+     "real": 0.057,
+     "chance": 0.013
+    }
+   },
+   "blend": {
+    "pairsSame": 241,
+    "pairsDiff": 826,
+    "kSame": 0.106,
+    "kDiff": 0.089,
+    "fSame": 0.077,
+    "fDiff": 0.062,
+    "gSame": 0.044,
+    "gDiff": 0.051
+   },
+   "standout": {
+    "group": {
+     "cells": 60,
+     "agree": 0.11
+    },
+    "loose": {
+     "cells": 7,
+     "agree": 0.235
+    },
+    "mixed": {
+     "cells": 219,
+     "agree": 0.158
+    }
+   },
+   "worstExcess": -84.461,
+   "hash": "52846520"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 1,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0445,
+   "bondedShare": 0.789,
+   "groups": 155,
+   "largest": 45,
+   "sorting": 0.71,
+   "shapes": {
+    "chain": 0.281,
+    "ring": 0.009,
+    "tree": 0.043,
+    "sheet": 0.113,
+    "blob": 0.222
+   },
+   "structures": 82,
+   "repeatKinds": 4,
+   "repeatMembers": 8,
+   "repeatSeries": [
+    0,
+    5,
+    13,
+    12,
+    4,
+    8
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.751,
+     "chance": 0.37
+    },
+    "byChainPlace": {
+     "real": 0.007,
+     "chance": 0.005
+    },
+    "byBonds": {
+     "real": 0.031,
+     "chance": 0.006
+    },
+    "byShape": {
+     "real": 0.066,
+     "chance": 0.015
+    }
+   },
+   "blend": {
+    "pairsSame": 108,
+    "pairsDiff": 168,
+    "kSame": 0.159,
+    "kDiff": 0.146,
+    "fSame": 0.154,
+    "fDiff": 0.121,
+    "gSame": 0.075,
+    "gDiff": 0.074
+   },
+   "standout": {
+    "group": {
+     "cells": 80,
+     "agree": 0.71
+    },
+    "loose": {
+     "cells": 25,
+     "agree": 0.301
+    },
+    "mixed": {
+     "cells": 173,
+     "agree": 0.443
+    }
+   },
+   "worstExcess": -116.832,
+   "hash": "29d1bd3d"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 2,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.035,
+   "bondedShare": 0.819,
+   "groups": 174,
+   "largest": 38,
+   "sorting": 0.692,
+   "shapes": {
+    "chain": 0.333,
+    "ring": 0.017,
+    "tree": 0.047,
+    "sheet": 0.077,
+    "blob": 0.29
+   },
+   "structures": 93,
+   "repeatKinds": 4,
+   "repeatMembers": 14,
+   "repeatSeries": [
+    0,
+    7,
+    10,
+    8,
+    6,
+    14
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.74,
+     "chance": 0.336
+    },
+    "byChainPlace": {
+     "real": 0.008,
+     "chance": 0.006
+    },
+    "byBonds": {
+     "real": 0.037,
+     "chance": 0.006
+    },
+    "byShape": {
+     "real": 0.09,
+     "chance": 0.011
+    }
+   },
+   "blend": {
+    "pairsSame": 172,
+    "pairsDiff": 131,
+    "kSame": 0.219,
+    "kDiff": 0.151,
+    "fSame": 0.198,
+    "fDiff": 0.132,
+    "gSame": 0.067,
+    "gDiff": 0.084
+   },
+   "standout": {
+    "group": {
+     "cells": 95,
+     "agree": 0.693
+    },
+    "loose": {
+     "cells": 25,
+     "agree": 0.335
+    },
+    "mixed": {
+     "cells": 156,
+     "agree": 0.448
+    }
+   },
+   "worstExcess": -107.922,
+   "hash": "51bd2481"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 1,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0277,
+   "bondedShare": 0.837,
+   "groups": 86,
+   "largest": 137,
+   "sorting": 0.561,
+   "shapes": {
+    "chain": 0.138,
+    "ring": 0,
+    "tree": 0.065,
+    "sheet": 0.237,
+    "blob": 0.359
+   },
+   "structures": 67,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    7,
+    2,
+    2,
+    4,
+    2,
+    2
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.401,
+     "chance": 0.236
+    },
+    "byChainPlace": {
+     "real": 0.028,
+     "chance": 0.012
+    },
+    "byBonds": {
+     "real": 0.045,
+     "chance": 0.012
+    },
+    "byShape": {
+     "real": 0.01,
+     "chance": 0.02
+    }
+   },
+   "blend": {
+    "pairsSame": 3,
+    "pairsDiff": 18,
+    "kSame": 0.116,
+    "kDiff": 0.158,
+    "fSame": 0.106,
+    "fDiff": 0.167,
+    "gSame": 0.076,
+    "gDiff": 0.057
+   },
+   "standout": {
+    "group": {
+     "cells": 122,
+     "agree": 0.738
+    },
+    "loose": {
+     "cells": 37,
+     "agree": 0.785
+    },
+    "mixed": {
+     "cells": 137,
+     "agree": 0.588
+    }
+   },
+   "worstExcess": -189.349,
+   "hash": "03cb5e40"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 2,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0262,
+   "bondedShare": 0.814,
+   "groups": 86,
+   "largest": 93,
+   "sorting": 0.536,
+   "shapes": {
+    "chain": 0.118,
+    "ring": 0,
+    "tree": 0.061,
+    "sheet": 0.205,
+    "blob": 0.399
+   },
+   "structures": 64,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    2,
+    4,
+    5,
+    5,
+    0
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.57,
+     "chance": 0.292
+    },
+    "byChainPlace": {
+     "real": 0.017,
+     "chance": 0.01
+    },
+    "byBonds": {
+     "real": 0.035,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.125,
+     "chance": 0.013
+    }
+   },
+   "blend": {
+    "pairsSame": 13,
+    "pairsDiff": 27,
+    "kSame": 0.179,
+    "kDiff": 0.115,
+    "fSame": 0.191,
+    "fDiff": 0.11,
+    "gSame": 0.069,
+    "gDiff": 0.05
+   },
+   "standout": {
+    "group": {
+     "cells": 94,
+     "agree": 0.713
+    },
+    "loose": {
+     "cells": 32,
+     "agree": 0.813
+    },
+    "mixed": {
+     "cells": 155,
+     "agree": 0.522
+    }
+   },
+   "worstExcess": -182.555,
+   "hash": "b45b8d0d"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 1,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.052,
+   "bondedShare": 0.73,
+   "groups": 125,
+   "largest": 74,
+   "sorting": 0.368,
+   "shapes": {
+    "chain": 0.119,
+    "ring": 0.023,
+    "tree": 0.056,
+    "sheet": 0.178,
+    "blob": 0.249
+   },
+   "structures": 77,
+   "repeatKinds": 5,
+   "repeatMembers": 18,
+   "repeatSeries": [
+    12,
+    17,
+    27,
+    16,
+    13,
+    18
+   ],
+   "splits": 2,
+   "units": {
+    "sync": {
+     "real": 0.799,
+     "chance": 0.31
+    },
+    "byChainPlace": {
+     "real": 0,
+     "chance": 0.008
+    },
+    "byBonds": {
+     "real": 0.016,
+     "chance": 0.006
+    },
+    "byShape": {
+     "real": 0.031,
+     "chance": 0.012
+    }
+   },
+   "blend": {
+    "pairsSame": 94,
+    "pairsDiff": 404,
+    "kSame": 0.176,
+    "kDiff": 0.134,
+    "fSame": 0.219,
+    "fDiff": 0.151,
+    "gSame": 0.036,
+    "gDiff": 0.04
+   },
+   "standout": {
+    "group": {
+     "cells": 62,
+     "agree": 0.581
+    },
+    "loose": {
+     "cells": 62,
+     "agree": 0.25
+    },
+    "mixed": {
+     "cells": 160,
+     "agree": 0.332
+    }
+   },
+   "worstExcess": -181.147,
+   "hash": "dd4e35a8"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 2,
+   "mode": "off",
+   "farShare": 0,
+   "temperature": 0.0581,
+   "bondedShare": 0.681,
+   "groups": 134,
+   "largest": 55,
+   "sorting": 0.357,
+   "shapes": {
+    "chain": 0.171,
+    "ring": 0.021,
+    "tree": 0.044,
+    "sheet": 0.133,
+    "blob": 0.205
+   },
+   "structures": 64,
+   "repeatKinds": 7,
+   "repeatMembers": 21,
+   "repeatSeries": [
+    9,
+    22,
+    24,
+    25,
+    24,
+    21
+   ],
+   "splits": 3,
+   "units": {
+    "sync": {
+     "real": 0.875,
+     "chance": 0.354
+    },
+    "byChainPlace": {
+     "real": 0.005,
+     "chance": 0.005
+    },
+    "byBonds": {
+     "real": 0.017,
+     "chance": 0.007
+    },
+    "byShape": {
+     "real": 0.05,
+     "chance": 0.018
+    }
+   },
+   "blend": {
+    "pairsSame": 252,
+    "pairsDiff": 550,
+    "kSame": 0.172,
+    "kDiff": 0.13,
+    "fSame": 0.206,
+    "fDiff": 0.14,
+    "gSame": 0.042,
+    "gDiff": 0.046
+   },
+   "standout": {
+    "group": {
+     "cells": 65,
+     "agree": 0.565
+    },
+    "loose": {
+     "cells": 74,
+     "agree": 0.299
+    },
+    "mixed": {
+     "cells": 154,
+     "agree": 0.357
+    }
+   },
+   "worstExcess": -182.014,
+   "hash": "43647358"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 1,
+   "mode": "strong",
+   "farShare": 0.2385,
+   "temperature": 0.175,
+   "bondedShare": 0.479,
+   "groups": 106,
+   "largest": 15,
+   "sorting": 0.148,
+   "shapes": {
+    "chain": 0.154,
+    "ring": 0.004,
+    "tree": 0.071,
+    "sheet": 0,
+    "blob": 0.084
+   },
+   "structures": 36,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    0,
+    2,
+    0,
+    2,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.868,
+     "chance": 0.595
+    },
+    "byChainPlace": {
+     "real": 0.035,
+     "chance": 0.01
+    },
+    "byBonds": {
+     "real": 0.028,
+     "chance": 0.013
+    },
+    "byShape": {
+     "real": 0.019,
+     "chance": 0.021
+    }
+   },
+   "blend": {
+    "pairsSame": 4,
+    "pairsDiff": 50,
+    "kSame": 0.115,
+    "kDiff": 0.116,
+    "fSame": 0.089,
+    "fDiff": 0.099,
+    "gSame": 0.059,
+    "gDiff": 0.06
+   },
+   "standout": {
+    "group": {
+     "cells": 11,
+     "agree": 0.149
+    },
+    "loose": {
+     "cells": 76,
+     "agree": 0.288
+    },
+    "mixed": {
+     "cells": 172,
+     "agree": 0.215
+    }
+   },
+   "worstExcess": -172.016,
+   "hash": "08ad025c"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 1,
+   "mode": "strong",
+   "farShare": 0.3147,
+   "temperature": 0.0348,
+   "bondedShare": 0.727,
+   "groups": 167,
+   "largest": 34,
+   "sorting": 0.103,
+   "shapes": {
+    "chain": 0.301,
+    "ring": 0.028,
+    "tree": 0.071,
+    "sheet": 0.024,
+    "blob": 0.153
+   },
+   "structures": 61,
+   "repeatKinds": 4,
+   "repeatMembers": 10,
+   "repeatSeries": [
+    10,
+    8,
+    15,
+    7,
+    17,
+    10
+   ],
+   "splits": 2,
+   "units": {
+    "sync": {
+     "real": 0.812,
+     "chance": 0.549
+    },
+    "byChainPlace": {
+     "real": 0.092,
+     "chance": 0.011
+    },
+    "byBonds": {
+     "real": 0.058,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.039,
+     "chance": 0.019
+    }
+   },
+   "blend": {
+    "pairsSame": 78,
+    "pairsDiff": 74,
+    "kSame": 0.054,
+    "kDiff": 0.066,
+    "fSame": 0.048,
+    "fDiff": 0.061,
+    "gSame": 0.028,
+    "gDiff": 0.031
+   },
+   "standout": {
+    "group": {
+     "cells": 32,
+     "agree": 0.144
+    },
+    "loose": {
+     "cells": 34,
+     "agree": 0.291
+    },
+    "mixed": {
+     "cells": 227,
+     "agree": 0.189
+    }
+   },
+   "worstExcess": -164.491,
+   "hash": "a608a9c6"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 1,
+   "mode": "strong",
+   "farShare": 0.3412,
+   "temperature": 0.1528,
+   "bondedShare": 0.659,
+   "groups": 112,
+   "largest": 36,
+   "sorting": 0.389,
+   "shapes": {
+    "chain": 0.079,
+    "ring": 0.011,
+    "tree": 0.055,
+    "sheet": 0.09,
+    "blob": 0.325
+   },
+   "structures": 68,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    4,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.748,
+     "chance": 0.305
+    },
+    "byChainPlace": {
+     "real": 0.018,
+     "chance": 0.034
+    },
+    "byBonds": {
+     "real": 0.038,
+     "chance": 0.008
+    },
+    "byShape": {
+     "real": 0.125,
+     "chance": 0.019
+    }
+   },
+   "blend": {
+    "pairsSame": 2,
+    "pairsDiff": 22,
+    "kSame": 0.024,
+    "kDiff": 0.059,
+    "fSame": 0.015,
+    "fDiff": 0.048,
+    "gSame": 0.024,
+    "gDiff": 0.031
+   },
+   "standout": {
+    "group": {
+     "cells": 40,
+     "agree": 0.765
+    },
+    "loose": {
+     "cells": 39,
+     "agree": 0.693
+    },
+    "mixed": {
+     "cells": 157,
+     "agree": 0.731
+    }
+   },
+   "worstExcess": -218.392,
+   "hash": "def2ddf1"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 1,
+   "mode": "strong",
+   "farShare": 0.2769,
+   "temperature": 0.0158,
+   "bondedShare": 0.675,
+   "groups": 164,
+   "largest": 18,
+   "sorting": 0.147,
+   "shapes": {
+    "chain": 0.221,
+    "ring": 0.045,
+    "tree": 0.076,
+    "sheet": 0.004,
+    "blob": 0.135
+   },
+   "structures": 50,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    8,
+    2,
+    2,
+    4,
+    4,
+    2
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.866,
+     "chance": 0.669
+    },
+    "byChainPlace": {
+     "real": 0.086,
+     "chance": 0.008
+    },
+    "byBonds": {
+     "real": 0.078,
+     "chance": 0.009
+    },
+    "byShape": {
+     "real": 0.058,
+     "chance": 0.021
+    }
+   },
+   "blend": {
+    "pairsSame": 67,
+    "pairsDiff": 289,
+    "kSame": 0.368,
+    "kDiff": 0.457,
+    "fSame": 0.355,
+    "fDiff": 0.45,
+    "gSame": 0.026,
+    "gDiff": 0.035
+   },
+   "standout": {
+    "group": {
+     "cells": 29,
+     "agree": 0.269
+    },
+    "loose": {
+     "cells": 49,
+     "agree": 0.259
+    },
+    "mixed": {
+     "cells": 228,
+     "agree": 0.269
+    }
+   },
+   "worstExcess": -178.468,
+   "hash": "bd5f2342"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 1,
+   "mode": "strong",
+   "farShare": 0.2939,
+   "temperature": 0.0045,
+   "bondedShare": 0.937,
+   "groups": 130,
+   "largest": 112,
+   "sorting": 0.556,
+   "shapes": {
+    "chain": 0.079,
+    "ring": 0.03,
+    "tree": 0.014,
+    "sheet": 0.287,
+    "blob": 0.483
+   },
+   "structures": 77,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.256,
+     "chance": 0.145
+    },
+    "byChainPlace": {
+     "real": 0.027,
+     "chance": 0.022
+    },
+    "byBonds": {
+     "real": 0.025,
+     "chance": 0.004
+    },
+    "byShape": {
+     "real": 0.032,
+     "chance": 0.007
+    }
+   },
+   "blend": {
+    "pairsSame": 44,
+    "pairsDiff": 126,
+    "kSame": 0.171,
+    "kDiff": 0.244,
+    "fSame": 0.174,
+    "fDiff": 0.241,
+    "gSame": 0.029,
+    "gDiff": 0.037
+   },
+   "standout": {
+    "group": {
+     "cells": 128,
+     "agree": 0.562
+    },
+    "loose": {
+     "cells": 2,
+     "agree": 0.979
+    },
+    "mixed": {
+     "cells": 172,
+     "agree": 0.325
+    }
+   },
+   "worstExcess": -18.371,
+   "hash": "6fb08b5b"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 1,
+   "mode": "strong",
+   "farShare": 0.365,
+   "temperature": 0.1268,
+   "bondedShare": 0.472,
+   "groups": 86,
+   "largest": 9,
+   "sorting": 0.108,
+   "shapes": {
+    "chain": 0.155,
+    "ring": 0,
+    "tree": 0.065,
+    "sheet": 0,
+    "blob": 0.007
+   },
+   "structures": 24,
+   "repeatKinds": 2,
+   "repeatMembers": 4,
+   "repeatSeries": [
+    2,
+    5,
+    0,
+    0,
+    0,
+    4
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.901,
+     "chance": 0.689
+    },
+    "byChainPlace": {
+     "real": 0.023,
+     "chance": 0.015
+    },
+    "byBonds": {
+     "real": 0.026,
+     "chance": 0.027
+    },
+    "byShape": {
+     "real": 0.017,
+     "chance": 0.027
+    }
+   },
+   "blend": {
+    "pairsSame": 5,
+    "pairsDiff": 29,
+    "kSame": 0.106,
+    "kDiff": 0.114,
+    "fSame": 0.1,
+    "fDiff": 0.111,
+    "gSame": 0.056,
+    "gDiff": 0.058
+   },
+   "standout": {
+    "group": {
+     "cells": 2,
+     "agree": 0.21
+    },
+    "loose": {
+     "cells": 71,
+     "agree": 0.388
+    },
+    "mixed": {
+     "cells": 155,
+     "agree": 0.177
+    }
+   },
+   "worstExcess": -183.144,
+   "hash": "713e2318"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 1,
+   "mode": "strong",
+   "farShare": 0.2857,
+   "temperature": 0.0642,
+   "bondedShare": 0.813,
+   "groups": 145,
+   "largest": 42,
+   "sorting": 0.683,
+   "shapes": {
+    "chain": 0.085,
+    "ring": 0.006,
+    "tree": 0.023,
+    "sheet": 0.158,
+    "blob": 0.477
+   },
+   "structures": 105,
+   "repeatKinds": 2,
+   "repeatMembers": 4,
+   "repeatSeries": [
+    2,
+    2,
+    2,
+    0,
+    4,
+    4
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.732,
+     "chance": 0.263
+    },
+    "byChainPlace": {
+     "real": 0.086,
+     "chance": 0.03
+    },
+    "byBonds": {
+     "real": 0.078,
+     "chance": 0.007
+    },
+    "byShape": {
+     "real": 0.113,
+     "chance": 0.012
+    }
+   },
+   "blend": {
+    "pairsSame": 7,
+    "pairsDiff": 89,
+    "kSame": 0.212,
+    "kDiff": 0.18,
+    "fSame": 0.218,
+    "fDiff": 0.208,
+    "gSame": 0.032,
+    "gDiff": 0.035
+   },
+   "standout": {
+    "group": {
+     "cells": 70,
+     "agree": 0.713
+    },
+    "loose": {
+     "cells": 18,
+     "agree": 0.801
+    },
+    "mixed": {
+     "cells": 175,
+     "agree": 0.553
+    }
+   },
+   "worstExcess": -202.228,
+   "hash": "4f1ba03e"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 1,
+   "mode": "strong",
+   "farShare": 0.2377,
+   "temperature": 0.0376,
+   "bondedShare": 0.693,
+   "groups": 120,
+   "largest": 50,
+   "sorting": 0.443,
+   "shapes": {
+    "chain": 0.106,
+    "ring": 0.008,
+    "tree": 0.024,
+    "sheet": 0.136,
+    "blob": 0.333
+   },
+   "structures": 67,
+   "repeatKinds": 1,
+   "repeatMembers": 3,
+   "repeatSeries": [
+    0,
+    6,
+    12,
+    0,
+    6,
+    3
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.894,
+     "chance": 0.463
+    },
+    "byChainPlace": {
+     "real": 0.023,
+     "chance": 0.012
+    },
+    "byBonds": {
+     "real": 0.055,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.31,
+     "chance": 0.017
+    }
+   },
+   "blend": {
+    "pairsSame": 12,
+    "pairsDiff": 37,
+    "kSame": 0.137,
+    "kDiff": 0.147,
+    "fSame": 0.15,
+    "fDiff": 0.151,
+    "gSame": 0.073,
+    "gDiff": 0.066
+   },
+   "standout": {
+    "group": {
+     "cells": 71,
+     "agree": 0.659
+    },
+    "loose": {
+     "cells": 71,
+     "agree": 0.294
+    },
+    "mixed": {
+     "cells": 146,
+     "agree": 0.327
+    }
+   },
+   "worstExcess": -170.337,
+   "hash": "b85b996b"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 1,
+   "mode": "strong",
+   "farShare": 0.2883,
+   "temperature": 0.0053,
+   "bondedShare": 0.882,
+   "groups": 184,
+   "largest": 21,
+   "sorting": 0.061,
+   "shapes": {
+    "chain": 0.267,
+    "ring": 0.047,
+    "tree": 0.052,
+    "sheet": 0.159,
+    "blob": 0.101
+   },
+   "structures": 75,
+   "repeatKinds": 7,
+   "repeatMembers": 21,
+   "repeatSeries": [
+    18,
+    16,
+    14,
+    23,
+    24,
+    21
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.769,
+     "chance": 0.439
+    },
+    "byChainPlace": {
+     "real": 0.047,
+     "chance": 0.005
+    },
+    "byBonds": {
+     "real": 0.027,
+     "chance": 0.005
+    },
+    "byShape": {
+     "real": 0.145,
+     "chance": 0.01
+    }
+   },
+   "blend": {
+    "pairsSame": 109,
+    "pairsDiff": 490,
+    "kSame": 0.102,
+    "kDiff": 0.105,
+    "fSame": 0.076,
+    "fDiff": 0.077,
+    "gSame": 0.036,
+    "gDiff": 0.048
+   },
+   "standout": {
+    "group": {
+     "cells": 32,
+     "agree": 0.148
+    },
+    "loose": {
+     "cells": 7,
+     "agree": 0.287
+    },
+    "mixed": {
+     "cells": 267,
+     "agree": 0.17
+    }
+   },
+   "worstExcess": -98.453,
+   "hash": "05ca839a"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 1,
+   "mode": "strong",
+   "farShare": 0.326,
+   "temperature": 0.0424,
+   "bondedShare": 0.772,
+   "groups": 159,
+   "largest": 35,
+   "sorting": 0.705,
+   "shapes": {
+    "chain": 0.281,
+    "ring": 0.007,
+    "tree": 0.058,
+    "sheet": 0.141,
+    "blob": 0.209
+   },
+   "structures": 79,
+   "repeatKinds": 2,
+   "repeatMembers": 5,
+   "repeatSeries": [
+    2,
+    4,
+    7,
+    11,
+    8,
+    5
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.775,
+     "chance": 0.375
+    },
+    "byChainPlace": {
+     "real": 0.016,
+     "chance": 0.01
+    },
+    "byBonds": {
+     "real": 0.044,
+     "chance": 0.006
+    },
+    "byShape": {
+     "real": 0.08,
+     "chance": 0.017
+    }
+   },
+   "blend": {
+    "pairsSame": 57,
+    "pairsDiff": 135,
+    "kSame": 0.133,
+    "kDiff": 0.157,
+    "fSame": 0.12,
+    "fDiff": 0.141,
+    "gSame": 0.058,
+    "gDiff": 0.063
+   },
+   "standout": {
+    "group": {
+     "cells": 82,
+     "agree": 0.697
+    },
+    "loose": {
+     "cells": 24,
+     "agree": 0.335
+    },
+    "mixed": {
+     "cells": 169,
+     "agree": 0.427
+    }
+   },
+   "worstExcess": -113.224,
+   "hash": "b297018a"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 1,
+   "mode": "strong",
+   "farShare": 0.3497,
+   "temperature": 0.0188,
+   "bondedShare": 0.833,
+   "groups": 71,
+   "largest": 305,
+   "sorting": 0.556,
+   "shapes": {
+    "chain": 0.111,
+    "ring": 0,
+    "tree": 0.049,
+    "sheet": 0.222,
+    "blob": 0.419
+   },
+   "structures": 58,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    4,
+    7,
+    4,
+    7,
+    4,
+    0
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.573,
+     "chance": 0.204
+    },
+    "byChainPlace": {
+     "real": 0.086,
+     "chance": 0.015
+    },
+    "byBonds": {
+     "real": 0.051,
+     "chance": 0.008
+    },
+    "byShape": {
+     "real": 0.065,
+     "chance": 0.013
+    }
+   },
+   "blend": {
+    "pairsSame": 1,
+    "pairsDiff": 16,
+    "kSame": 0.373,
+    "kDiff": 0.273,
+    "fSame": 0.42,
+    "fDiff": 0.285,
+    "gSame": 0.053,
+    "gDiff": 0.046
+   },
+   "standout": {
+    "group": {
+     "cells": 125,
+     "agree": 0.759
+    },
+    "loose": {
+     "cells": 25,
+     "agree": 0.788
+    },
+    "mixed": {
+     "cells": 153,
+     "agree": 0.589
+    }
+   },
+   "worstExcess": -165.349,
+   "hash": "e90f06da"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 1,
+   "mode": "strong",
+   "farShare": 0.2,
+   "temperature": 0.0473,
+   "bondedShare": 0.758,
+   "groups": 152,
+   "largest": 34,
+   "sorting": 0.358,
+   "shapes": {
+    "chain": 0.175,
+    "ring": 0.02,
+    "tree": 0.035,
+    "sheet": 0.183,
+    "blob": 0.261
+   },
+   "structures": 82,
+   "repeatKinds": 8,
+   "repeatMembers": 27,
+   "repeatSeries": [
+    12,
+    11,
+    21,
+    17,
+    21,
+    27
+   ],
+   "splits": 6,
+   "units": {
+    "sync": {
+     "real": 0.785,
+     "chance": 0.364
+    },
+    "byChainPlace": {
+     "real": 0.012,
+     "chance": 0.008
+    },
+    "byBonds": {
+     "real": 0.061,
+     "chance": 0.005
+    },
+    "byShape": {
+     "real": 0.088,
+     "chance": 0.012
+    }
+   },
+   "blend": {
+    "pairsSame": 215,
+    "pairsDiff": 612,
+    "kSame": 0.219,
+    "kDiff": 0.156,
+    "fSame": 0.304,
+    "fDiff": 0.201,
+    "gSame": 0.034,
+    "gDiff": 0.039
+   },
+   "standout": {
+    "group": {
+     "cells": 75,
+     "agree": 0.57
+    },
+    "loose": {
+     "cells": 44,
+     "agree": 0.336
+    },
+    "mixed": {
+     "cells": 164,
+     "agree": 0.392
+    }
+   },
+   "worstExcess": -166.807,
+   "hash": "ed5bf9ca"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 1,
+   "mode": "listen",
+   "farShare": 0.0525,
+   "temperature": 0.1814,
+   "bondedShare": 0.498,
+   "groups": 106,
+   "largest": 22,
+   "sorting": 0.138,
+   "shapes": {
+    "chain": 0.147,
+    "ring": 0.015,
+    "tree": 0.068,
+    "sheet": 0.013,
+    "blob": 0.082
+   },
+   "structures": 32,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.743,
+     "chance": 0.545
+    },
+    "byChainPlace": {
+     "real": 0.021,
+     "chance": 0.014
+    },
+    "byBonds": {
+     "real": 0.014,
+     "chance": 0.013
+    },
+    "byShape": {
+     "real": 0.024,
+     "chance": 0.025
+    }
+   },
+   "blend": {
+    "pairsSame": 1,
+    "pairsDiff": 34,
+    "kSame": 0.075,
+    "kDiff": 0.192,
+    "fSame": 0.061,
+    "fDiff": 0.183,
+    "gSame": 0.032,
+    "gDiff": 0.06
+   },
+   "standout": {
+    "group": {
+     "cells": 13,
+     "agree": 0.187
+    },
+    "loose": {
+     "cells": 82,
+     "agree": 0.304
+    },
+    "mixed": {
+     "cells": 171,
+     "agree": 0.215
+    }
+   },
+   "worstExcess": -162.151,
+   "hash": "b2aec8ff"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 1,
+   "mode": "listen",
+   "farShare": 0.0429,
+   "temperature": 0.0279,
+   "bondedShare": 0.737,
+   "groups": 176,
+   "largest": 26,
+   "sorting": 0.109,
+   "shapes": {
+    "chain": 0.287,
+    "ring": 0.029,
+    "tree": 0.081,
+    "sheet": 0.028,
+    "blob": 0.134
+   },
+   "structures": 67,
+   "repeatKinds": 6,
+   "repeatMembers": 18,
+   "repeatSeries": [
+    13,
+    14,
+    14,
+    8,
+    10,
+    18
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.827,
+     "chance": 0.555
+    },
+    "byChainPlace": {
+     "real": 0.044,
+     "chance": 0.01
+    },
+    "byBonds": {
+     "real": 0.041,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.049,
+     "chance": 0.022
+    }
+   },
+   "blend": {
+    "pairsSame": 64,
+    "pairsDiff": 67,
+    "kSame": 0.066,
+    "kDiff": 0.082,
+    "fSame": 0.064,
+    "fDiff": 0.077,
+    "gSame": 0.025,
+    "gDiff": 0.033
+   },
+   "standout": {
+    "group": {
+     "cells": 38,
+     "agree": 0.171
+    },
+    "loose": {
+     "cells": 35,
+     "agree": 0.344
+    },
+    "mixed": {
+     "cells": 220,
+     "agree": 0.174
+    }
+   },
+   "worstExcess": -173.614,
+   "hash": "4f34bf4e"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 1,
+   "mode": "listen",
+   "farShare": 0.0818,
+   "temperature": 0.1498,
+   "bondedShare": 0.686,
+   "groups": 127,
+   "largest": 24,
+   "sorting": 0.448,
+   "shapes": {
+    "chain": 0.087,
+    "ring": 0.01,
+    "tree": 0.038,
+    "sheet": 0.175,
+    "blob": 0.271
+   },
+   "structures": 86,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    0,
+    2,
+    2,
+    0,
+    0,
+    2
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.795,
+     "chance": 0.337
+    },
+    "byChainPlace": {
+     "real": 0.016,
+     "chance": 0.037
+    },
+    "byBonds": {
+     "real": 0.085,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.162,
+     "chance": 0.016
+    }
+   },
+   "blend": {
+    "pairsSame": 2,
+    "pairsDiff": 27,
+    "kSame": 0.128,
+    "kDiff": 0.09,
+    "fSame": 0.101,
+    "fDiff": 0.068,
+    "gSame": 0.068,
+    "gDiff": 0.038
+   },
+   "standout": {
+    "group": {
+     "cells": 41,
+     "agree": 0.823
+    },
+    "loose": {
+     "cells": 37,
+     "agree": 0.751
+    },
+    "mixed": {
+     "cells": 166,
+     "agree": 0.705
+    }
+   },
+   "worstExcess": -218.01,
+   "hash": "5224bc1a"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 1,
+   "mode": "listen",
+   "farShare": 0.0619,
+   "temperature": 0.0186,
+   "bondedShare": 0.692,
+   "groups": 164,
+   "largest": 17,
+   "sorting": 0.153,
+   "shapes": {
+    "chain": 0.223,
+    "ring": 0.049,
+    "tree": 0.058,
+    "sheet": 0.021,
+    "blob": 0.136
+   },
+   "structures": 55,
+   "repeatKinds": 2,
+   "repeatMembers": 5,
+   "repeatSeries": [
+    0,
+    5,
+    0,
+    4,
+    0,
+    5
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.822,
+     "chance": 0.647
+    },
+    "byChainPlace": {
+     "real": 0.046,
+     "chance": 0.012
+    },
+    "byBonds": {
+     "real": 0.051,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.08,
+     "chance": 0.025
+    }
+   },
+   "blend": {
+    "pairsSame": 43,
+    "pairsDiff": 276,
+    "kSame": 0.332,
+    "kDiff": 0.477,
+    "fSame": 0.316,
+    "fDiff": 0.459,
+    "gSame": 0.038,
+    "gDiff": 0.037
+   },
+   "standout": {
+    "group": {
+     "cells": 39,
+     "agree": 0.223
+    },
+    "loose": {
+     "cells": 51,
+     "agree": 0.291
+    },
+    "mixed": {
+     "cells": 217,
+     "agree": 0.23
+    }
+   },
+   "worstExcess": -173.776,
+   "hash": "7560a72c"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 1,
+   "mode": "listen",
+   "farShare": 0.0306,
+   "temperature": 0.0084,
+   "bondedShare": 0.905,
+   "groups": 126,
+   "largest": 55,
+   "sorting": 0.455,
+   "shapes": {
+    "chain": 0.089,
+    "ring": 0.007,
+    "tree": 0.019,
+    "sheet": 0.381,
+    "blob": 0.355
+   },
+   "structures": 92,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    6,
+    4,
+    2,
+    2,
+    2,
+    2
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.294,
+     "chance": 0.173
+    },
+    "byChainPlace": {
+     "real": 0.025,
+     "chance": 0.03
+    },
+    "byBonds": {
+     "real": 0.012,
+     "chance": 0.004
+    },
+    "byShape": {
+     "real": 0.032,
+     "chance": 0.009
+    }
+   },
+   "blend": {
+    "pairsSame": 6,
+    "pairsDiff": 60,
+    "kSame": 0.268,
+    "kDiff": 0.297,
+    "fSame": 0.272,
+    "fDiff": 0.299,
+    "gSame": 0.04,
+    "gDiff": 0.031
+   },
+   "standout": {
+    "group": {
+     "cells": 108,
+     "agree": 0.494
+    },
+    "loose": {
+     "cells": 7,
+     "agree": 0.592
+    },
+    "mixed": {
+     "cells": 179,
+     "agree": 0.351
+    }
+   },
+   "worstExcess": -32.449,
+   "hash": "f2ed8143"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 1,
+   "mode": "listen",
+   "farShare": 0.101,
+   "temperature": 0.1568,
+   "bondedShare": 0.428,
+   "groups": 79,
+   "largest": 11,
+   "sorting": 0.095,
+   "shapes": {
+    "chain": 0.153,
+    "ring": 0.003,
+    "tree": 0.028,
+    "sheet": 0,
+    "blob": 0.016
+   },
+   "structures": 13,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.883,
+     "chance": 0.751
+    },
+    "byChainPlace": {
+     "real": 0.042,
+     "chance": 0.02
+    },
+    "byBonds": {
+     "real": 0.048,
+     "chance": 0.028
+    },
+    "byShape": {
+     "real": 0.039,
+     "chance": 0.036
+    }
+   },
+   "blend": {
+    "pairsSame": 7,
+    "pairsDiff": 12,
+    "kSame": 0.092,
+    "kDiff": 0.069,
+    "fSame": 0.073,
+    "fDiff": 0.075,
+    "gSame": 0.035,
+    "gDiff": 0.045
+   },
+   "standout": {
+    "group": {
+     "cells": 1,
+     "agree": 0.006
+    },
+    "loose": {
+     "cells": 90,
+     "agree": 0.255
+    },
+    "mixed": {
+     "cells": 157,
+     "agree": 0.143
+    }
+   },
+   "worstExcess": -187.303,
+   "hash": "b800aa13"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 1,
+   "mode": "listen",
+   "farShare": 0.0506,
+   "temperature": 0.0695,
+   "bondedShare": 0.816,
+   "groups": 176,
+   "largest": 25,
+   "sorting": 0.712,
+   "shapes": {
+    "chain": 0.121,
+    "ring": 0.016,
+    "tree": 0.035,
+    "sheet": 0.159,
+    "blob": 0.423
+   },
+   "structures": 109,
+   "repeatKinds": 3,
+   "repeatMembers": 6,
+   "repeatSeries": [
+    2,
+    0,
+    11,
+    4,
+    6,
+    6
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.745,
+     "chance": 0.314
+    },
+    "byChainPlace": {
+     "real": 0.021,
+     "chance": 0.025
+    },
+    "byBonds": {
+     "real": 0.065,
+     "chance": 0.007
+    },
+    "byShape": {
+     "real": 0.141,
+     "chance": 0.014
+    }
+   },
+   "blend": {
+    "pairsSame": 33,
+    "pairsDiff": 115,
+    "kSame": 0.167,
+    "kDiff": 0.14,
+    "fSame": 0.17,
+    "fDiff": 0.143,
+    "gSame": 0.043,
+    "gDiff": 0.034
+   },
+   "standout": {
+    "group": {
+     "cells": 78,
+     "agree": 0.738
+    },
+    "loose": {
+     "cells": 18,
+     "agree": 0.678
+    },
+    "mixed": {
+     "cells": 177,
+     "agree": 0.538
+    }
+   },
+   "worstExcess": -216.627,
+   "hash": "8c5cd34f"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 1,
+   "mode": "listen",
+   "farShare": 0.0375,
+   "temperature": 0.0477,
+   "bondedShare": 0.728,
+   "groups": 100,
+   "largest": 34,
+   "sorting": 0.372,
+   "shapes": {
+    "chain": 0.097,
+    "ring": 0.006,
+    "tree": 0.039,
+    "sheet": 0.107,
+    "blob": 0.359
+   },
+   "structures": 63,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    2,
+    0,
+    3,
+    0,
+    6,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.839,
+     "chance": 0.385
+    },
+    "byChainPlace": {
+     "real": 0.028,
+     "chance": 0.023
+    },
+    "byBonds": {
+     "real": 0.049,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.347,
+     "chance": 0.021
+    }
+   },
+   "blend": {
+    "pairsSame": 13,
+    "pairsDiff": 46,
+    "kSame": 0.302,
+    "kDiff": 0.264,
+    "fSame": 0.321,
+    "fDiff": 0.28,
+    "gSame": 0.083,
+    "gDiff": 0.077
+   },
+   "standout": {
+    "group": {
+     "cells": 85,
+     "agree": 0.64
+    },
+    "loose": {
+     "cells": 55,
+     "agree": 0.316
+    },
+    "mixed": {
+     "cells": 151,
+     "agree": 0.315
+    }
+   },
+   "worstExcess": -197.321,
+   "hash": "de7f1c88"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 1,
+   "mode": "listen",
+   "farShare": 0.0491,
+   "temperature": 0.0052,
+   "bondedShare": 0.887,
+   "groups": 195,
+   "largest": 14,
+   "sorting": 0.056,
+   "shapes": {
+    "chain": 0.275,
+    "ring": 0.043,
+    "tree": 0.084,
+    "sheet": 0.115,
+    "blob": 0.094
+   },
+   "structures": 80,
+   "repeatKinds": 12,
+   "repeatMembers": 31,
+   "repeatSeries": [
+    24,
+    19,
+    27,
+    17,
+    30,
+    31
+   ],
+   "splits": 2,
+   "units": {
+    "sync": {
+     "real": 0.792,
+     "chance": 0.454
+    },
+    "byChainPlace": {
+     "real": 0.016,
+     "chance": 0.006
+    },
+    "byBonds": {
+     "real": 0.044,
+     "chance": 0.005
+    },
+    "byShape": {
+     "real": 0.115,
+     "chance": 0.011
+    }
+   },
+   "blend": {
+    "pairsSame": 161,
+    "pairsDiff": 692,
+    "kSame": 0.099,
+    "kDiff": 0.102,
+    "fSame": 0.07,
+    "fDiff": 0.072,
+    "gSame": 0.04,
+    "gDiff": 0.048
+   },
+   "standout": {
+    "group": {
+     "cells": 40,
+     "agree": 0.099
+    },
+    "loose": {
+     "cells": 6,
+     "agree": 0.392
+    },
+    "mixed": {
+     "cells": 251,
+     "agree": 0.143
+    }
+   },
+   "worstExcess": -100.752,
+   "hash": "2b272085"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 1,
+   "mode": "listen",
+   "farShare": 0.073,
+   "temperature": 0.0477,
+   "bondedShare": 0.829,
+   "groups": 173,
+   "largest": 49,
+   "sorting": 0.643,
+   "shapes": {
+    "chain": 0.257,
+    "ring": 0.007,
+    "tree": 0.067,
+    "sheet": 0.081,
+    "blob": 0.334
+   },
+   "structures": 91,
+   "repeatKinds": 3,
+   "repeatMembers": 6,
+   "repeatSeries": [
+    2,
+    11,
+    9,
+    9,
+    11,
+    6
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.716,
+     "chance": 0.359
+    },
+    "byChainPlace": {
+     "real": 0.024,
+     "chance": 0.011
+    },
+    "byBonds": {
+     "real": 0.031,
+     "chance": 0.006
+    },
+    "byShape": {
+     "real": 0.059,
+     "chance": 0.01
+    }
+   },
+   "blend": {
+    "pairsSame": 136,
+    "pairsDiff": 190,
+    "kSame": 0.124,
+    "kDiff": 0.125,
+    "fSame": 0.102,
+    "fDiff": 0.091,
+    "gSame": 0.076,
+    "gDiff": 0.089
+   },
+   "standout": {
+    "group": {
+     "cells": 77,
+     "agree": 0.594
+    },
+    "loose": {
+     "cells": 9,
+     "agree": 0.462
+    },
+    "mixed": {
+     "cells": 187,
+     "agree": 0.404
+    }
+   },
+   "worstExcess": -107.726,
+   "hash": "415ed1e7"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 1,
+   "mode": "listen",
+   "farShare": 0.0706,
+   "temperature": 0.0249,
+   "bondedShare": 0.827,
+   "groups": 76,
+   "largest": 128,
+   "sorting": 0.556,
+   "shapes": {
+    "chain": 0.143,
+    "ring": 0,
+    "tree": 0.033,
+    "sheet": 0.308,
+    "blob": 0.318
+   },
+   "structures": 57,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    4,
+    2,
+    0,
+    0,
+    0,
+    2
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.37,
+     "chance": 0.248
+    },
+    "byChainPlace": {
+     "real": 0.037,
+     "chance": 0.009
+    },
+    "byBonds": {
+     "real": 0.052,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.018,
+     "chance": 0.016
+    }
+   },
+   "blend": {
+    "pairsSame": 11,
+    "pairsDiff": 22,
+    "kSame": 0.084,
+    "kDiff": 0.135,
+    "fSame": 0.077,
+    "fDiff": 0.139,
+    "gSame": 0.046,
+    "gDiff": 0.057
+   },
+   "standout": {
+    "group": {
+     "cells": 118,
+     "agree": 0.713
+    },
+    "loose": {
+     "cells": 26,
+     "agree": 0.762
+    },
+    "mixed": {
+     "cells": 139,
+     "agree": 0.481
+    }
+   },
+   "worstExcess": -195.163,
+   "hash": "eaa08037"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 1,
+   "mode": "listen",
+   "farShare": 0.0224,
+   "temperature": 0.0613,
+   "bondedShare": 0.733,
+   "groups": 145,
+   "largest": 49,
+   "sorting": 0.371,
+   "shapes": {
+    "chain": 0.167,
+    "ring": 0.013,
+    "tree": 0.058,
+    "sheet": 0.215,
+    "blob": 0.184
+   },
+   "structures": 86,
+   "repeatKinds": 7,
+   "repeatMembers": 26,
+   "repeatSeries": [
+    10,
+    17,
+    20,
+    26,
+    23,
+    26
+   ],
+   "splits": 3,
+   "units": {
+    "sync": {
+     "real": 0.772,
+     "chance": 0.336
+    },
+    "byChainPlace": {
+     "real": 0.045,
+     "chance": 0.004
+    },
+    "byBonds": {
+     "real": 0.031,
+     "chance": 0.005
+    },
+    "byShape": {
+     "real": 0.053,
+     "chance": 0.011
+    }
+   },
+   "blend": {
+    "pairsSame": 171,
+    "pairsDiff": 460,
+    "kSame": 0.163,
+    "kDiff": 0.087,
+    "fSame": 0.188,
+    "fDiff": 0.08,
+    "gSame": 0.045,
+    "gDiff": 0.039
+   },
+   "standout": {
+    "group": {
+     "cells": 67,
+     "agree": 0.581
+    },
+    "loose": {
+     "cells": 58,
+     "agree": 0.314
+    },
+    "mixed": {
+     "cells": 163,
+     "agree": 0.368
+    }
+   },
+   "worstExcess": -183.781,
+   "hash": "70507564"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 1,
+   "mode": "listen3",
+   "farShare": 0.0245,
+   "temperature": 0.1717,
+   "bondedShare": 0.5,
+   "groups": 106,
+   "largest": 15,
+   "sorting": 0.117,
+   "shapes": {
+    "chain": 0.163,
+    "ring": 0.006,
+    "tree": 0.087,
+    "sheet": 0.013,
+    "blob": 0.065
+   },
+   "structures": 43,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    4,
+    2,
+    0,
+    0,
+    0,
+    2
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.715,
+     "chance": 0.545
+    },
+    "byChainPlace": {
+     "real": 0.02,
+     "chance": 0.01
+    },
+    "byBonds": {
+     "real": 0.035,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.027,
+     "chance": 0.018
+    }
+   },
+   "blend": {
+    "pairsSame": 4,
+    "pairsDiff": 41,
+    "kSame": 0.127,
+    "kDiff": 0.198,
+    "fSame": 0.088,
+    "fDiff": 0.195,
+    "gSame": 0.073,
+    "gDiff": 0.066
+   },
+   "standout": {
+    "group": {
+     "cells": 10,
+     "agree": 0.272
+    },
+    "loose": {
+     "cells": 78,
+     "agree": 0.303
+    },
+    "mixed": {
+     "cells": 175,
+     "agree": 0.226
+    }
+   },
+   "worstExcess": -180.056,
+   "hash": "f0d9eae5"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 1,
+   "mode": "listen3",
+   "farShare": 0.0037,
+   "temperature": 0.0211,
+   "bondedShare": 0.741,
+   "groups": 195,
+   "largest": 14,
+   "sorting": 0.115,
+   "shapes": {
+    "chain": 0.385,
+    "ring": 0.032,
+    "tree": 0.041,
+    "sheet": 0.043,
+    "blob": 0.067
+   },
+   "structures": 62,
+   "repeatKinds": 5,
+   "repeatMembers": 17,
+   "repeatSeries": [
+    12,
+    12,
+    21,
+    14,
+    3,
+    17
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.834,
+     "chance": 0.616
+    },
+    "byChainPlace": {
+     "real": 0.025,
+     "chance": 0.007
+    },
+    "byBonds": {
+     "real": 0.03,
+     "chance": 0.009
+    },
+    "byShape": {
+     "real": 0.039,
+     "chance": 0.019
+    }
+   },
+   "blend": {
+    "pairsSame": 244,
+    "pairsDiff": 154,
+    "kSame": 0.079,
+    "kDiff": 0.08,
+    "fSame": 0.075,
+    "fDiff": 0.076,
+    "gSame": 0.028,
+    "gDiff": 0.037
+   },
+   "standout": {
+    "group": {
+     "cells": 34,
+     "agree": 0.128
+    },
+    "loose": {
+     "cells": 31,
+     "agree": 0.332
+    },
+    "mixed": {
+     "cells": 235,
+     "agree": 0.205
+    }
+   },
+   "worstExcess": -167.058,
+   "hash": "2bcfe5d7"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 1,
+   "mode": "listen3",
+   "farShare": 0.02,
+   "temperature": 0.1,
+   "bondedShare": 0.751,
+   "groups": 123,
+   "largest": 70,
+   "sorting": 0.355,
+   "shapes": {
+    "chain": 0.052,
+    "ring": 0.004,
+    "tree": 0.016,
+    "sheet": 0.33,
+    "blob": 0.267
+   },
+   "structures": 95,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.833,
+     "chance": 0.337
+    },
+    "byChainPlace": {
+     "real": 0.055,
+     "chance": 0.054
+    },
+    "byBonds": {
+     "real": 0.015,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.079,
+     "chance": 0.017
+    }
+   },
+   "blend": {
+    "pairsSame": 1,
+    "pairsDiff": 19,
+    "kSame": 0.059,
+    "kDiff": 0.083,
+    "fSame": 0.032,
+    "fDiff": 0.064,
+    "gSame": 0.083,
+    "gDiff": 0.03
+   },
+   "standout": {
+    "group": {
+     "cells": 77,
+     "agree": 0.785
+    },
+    "loose": {
+     "cells": 38,
+     "agree": 0.717
+    },
+    "mixed": {
+     "cells": 144,
+     "agree": 0.703
+    }
+   },
+   "worstExcess": -225.319,
+   "hash": "8e66bcd3"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 1,
+   "mode": "listen3",
+   "farShare": 0.0262,
+   "temperature": 0.0272,
+   "bondedShare": 0.719,
+   "groups": 180,
+   "largest": 10,
+   "sorting": 0.194,
+   "shapes": {
+    "chain": 0.221,
+    "ring": 0.043,
+    "tree": 0.086,
+    "sheet": 0.04,
+    "blob": 0.137
+   },
+   "structures": 66,
+   "repeatKinds": 3,
+   "repeatMembers": 8,
+   "repeatSeries": [
+    4,
+    10,
+    6,
+    4,
+    4,
+    8
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.816,
+     "chance": 0.61
+    },
+    "byChainPlace": {
+     "real": 0.019,
+     "chance": 0.012
+    },
+    "byBonds": {
+     "real": 0.013,
+     "chance": 0.008
+    },
+    "byShape": {
+     "real": 0.023,
+     "chance": 0.021
+    }
+   },
+   "blend": {
+    "pairsSame": 49,
+    "pairsDiff": 220,
+    "kSame": 0.272,
+    "kDiff": 0.412,
+    "fSame": 0.269,
+    "fDiff": 0.396,
+    "gSame": 0.031,
+    "gDiff": 0.033
+   },
+   "standout": {
+    "group": {
+     "cells": 39,
+     "agree": 0.266
+    },
+    "loose": {
+     "cells": 38,
+     "agree": 0.286
+    },
+    "mixed": {
+     "cells": 219,
+     "agree": 0.267
+    }
+   },
+   "worstExcess": -170.965,
+   "hash": "5f7e3c90"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 1,
+   "mode": "listen3",
+   "farShare": 0.0023,
+   "temperature": 0.0088,
+   "bondedShare": 0.892,
+   "groups": 119,
+   "largest": 92,
+   "sorting": 0.5,
+   "shapes": {
+    "chain": 0.089,
+    "ring": 0.017,
+    "tree": 0.009,
+    "sheet": 0.233,
+    "blob": 0.496
+   },
+   "structures": 71,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    6,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.309,
+     "chance": 0.152
+    },
+    "byChainPlace": {
+     "real": 0.059,
+     "chance": 0.033
+    },
+    "byBonds": {
+     "real": 0.027,
+     "chance": 0.005
+    },
+    "byShape": {
+     "real": 0.025,
+     "chance": 0.009
+    }
+   },
+   "blend": {
+    "pairsSame": 34,
+    "pairsDiff": 76,
+    "kSame": 0.366,
+    "kDiff": 0.326,
+    "fSame": 0.373,
+    "fDiff": 0.33,
+    "gSame": 0.032,
+    "gDiff": 0.032
+   },
+   "standout": {
+    "group": {
+     "cells": 105,
+     "agree": 0.536
+    },
+    "loose": {
+     "cells": 6,
+     "agree": 0.51
+    },
+    "mixed": {
+     "cells": 185,
+     "agree": 0.356
+    }
+   },
+   "worstExcess": -38.802,
+   "hash": "3f84326c"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 1,
+   "mode": "listen3",
+   "farShare": 0.0594,
+   "temperature": 0.1746,
+   "bondedShare": 0.369,
+   "groups": 65,
+   "largest": 8,
+   "sorting": 0.108,
+   "shapes": {
+    "chain": 0.121,
+    "ring": 0,
+    "tree": 0.03,
+    "sheet": 0,
+    "blob": 0.005
+   },
+   "structures": 10,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.905,
+     "chance": 0.782
+    },
+    "byChainPlace": {
+     "real": 0.13,
+     "chance": 0.03
+    },
+    "byBonds": {
+     "real": 0.113,
+     "chance": 0.036
+    },
+    "byShape": {
+     "real": 0.027,
+     "chance": 0.037
+    }
+   },
+   "blend": {
+    "pairsSame": 4,
+    "pairsDiff": 0,
+    "kSame": 0.134,
+    "kDiff": null,
+    "fSame": 0.163,
+    "fDiff": null,
+    "gSame": 0.048,
+    "gDiff": null
+   },
+   "standout": {
+    "group": {
+     "cells": 1,
+     "agree": 0.034
+    },
+    "loose": {
+     "cells": 106,
+     "agree": 0.226
+    },
+    "mixed": {
+     "cells": 146,
+     "agree": 0.158
+    }
+   },
+   "worstExcess": -193.678,
+   "hash": "99d3b474"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 1,
+   "mode": "listen3",
+   "farShare": 0.011,
+   "temperature": 0.0536,
+   "bondedShare": 0.801,
+   "groups": 199,
+   "largest": 16,
+   "sorting": 0.705,
+   "shapes": {
+    "chain": 0.109,
+    "ring": 0.044,
+    "tree": 0.043,
+    "sheet": 0.093,
+    "blob": 0.453
+   },
+   "structures": 114,
+   "repeatKinds": 4,
+   "repeatMembers": 12,
+   "repeatSeries": [
+    0,
+    7,
+    15,
+    7,
+    11,
+    12
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.686,
+     "chance": 0.361
+    },
+    "byChainPlace": {
+     "real": 0.025,
+     "chance": 0.019
+    },
+    "byBonds": {
+     "real": 0.029,
+     "chance": 0.007
+    },
+    "byShape": {
+     "real": 0.081,
+     "chance": 0.015
+    }
+   },
+   "blend": {
+    "pairsSame": 90,
+    "pairsDiff": 255,
+    "kSame": 0.139,
+    "kDiff": 0.197,
+    "fSame": 0.17,
+    "fDiff": 0.224,
+    "gSame": 0.023,
+    "gDiff": 0.027
+   },
+   "standout": {
+    "group": {
+     "cells": 83,
+     "agree": 0.769
+    },
+    "loose": {
+     "cells": 19,
+     "agree": 0.731
+    },
+    "mixed": {
+     "cells": 185,
+     "agree": 0.559
+    }
+   },
+   "worstExcess": -222.048,
+   "hash": "055f783a"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 1,
+   "mode": "listen3",
+   "farShare": 0.008,
+   "temperature": 0.0552,
+   "bondedShare": 0.741,
+   "groups": 130,
+   "largest": 32,
+   "sorting": 0.437,
+   "shapes": {
+    "chain": 0.13,
+    "ring": 0.004,
+    "tree": 0.041,
+    "sheet": 0.128,
+    "blob": 0.317
+   },
+   "structures": 66,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    6,
+    0,
+    4,
+    4,
+    0
+   ],
+   "splits": 2,
+   "units": {
+    "sync": {
+     "real": 0.855,
+     "chance": 0.468
+    },
+    "byChainPlace": {
+     "real": 0.065,
+     "chance": 0.012
+    },
+    "byBonds": {
+     "real": 0.064,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.241,
+     "chance": 0.023
+    }
+   },
+   "blend": {
+    "pairsSame": 20,
+    "pairsDiff": 78,
+    "kSame": 0.187,
+    "kDiff": 0.169,
+    "fSame": 0.198,
+    "fDiff": 0.184,
+    "gSame": 0.071,
+    "gDiff": 0.069
+   },
+   "standout": {
+    "group": {
+     "cells": 70,
+     "agree": 0.666
+    },
+    "loose": {
+     "cells": 38,
+     "agree": 0.287
+    },
+    "mixed": {
+     "cells": 176,
+     "agree": 0.335
+    }
+   },
+   "worstExcess": -212.429,
+   "hash": "c87e3a3b"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 1,
+   "mode": "listen3",
+   "farShare": 0.0112,
+   "temperature": 0.0053,
+   "bondedShare": 0.871,
+   "groups": 188,
+   "largest": 15,
+   "sorting": 0.059,
+   "shapes": {
+    "chain": 0.308,
+    "ring": 0.034,
+    "tree": 0.069,
+    "sheet": 0.054,
+    "blob": 0.073
+   },
+   "structures": 59,
+   "repeatKinds": 11,
+   "repeatMembers": 26,
+   "repeatSeries": [
+    26,
+    17,
+    21,
+    28,
+    24,
+    26
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.771,
+     "chance": 0.48
+    },
+    "byChainPlace": {
+     "real": 0.008,
+     "chance": 0.006
+    },
+    "byBonds": {
+     "real": 0.06,
+     "chance": 0.005
+    },
+    "byShape": {
+     "real": 0.109,
+     "chance": 0.009
+    }
+   },
+   "blend": {
+    "pairsSame": 222,
+    "pairsDiff": 634,
+    "kSame": 0.115,
+    "kDiff": 0.233,
+    "fSame": 0.084,
+    "fDiff": 0.181,
+    "gSame": 0.041,
+    "gDiff": 0.051
+   },
+   "standout": {
+    "group": {
+     "cells": 31,
+     "agree": 0.152
+    },
+    "loose": {
+     "cells": 8,
+     "agree": 0.319
+    },
+    "mixed": {
+     "cells": 271,
+     "agree": 0.147
+    }
+   },
+   "worstExcess": -108.526,
+   "hash": "f7ee435a"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 1,
+   "mode": "listen3",
+   "farShare": 0.0186,
+   "temperature": 0.0383,
+   "bondedShare": 0.847,
+   "groups": 174,
+   "largest": 45,
+   "sorting": 0.654,
+   "shapes": {
+    "chain": 0.279,
+    "ring": 0.007,
+    "tree": 0.059,
+    "sheet": 0.205,
+    "blob": 0.203
+   },
+   "structures": 106,
+   "repeatKinds": 8,
+   "repeatMembers": 23,
+   "repeatSeries": [
+    0,
+    10,
+    11,
+    19,
+    17,
+    23
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.696,
+     "chance": 0.352
+    },
+    "byChainPlace": {
+     "real": 0.021,
+     "chance": 0.004
+    },
+    "byBonds": {
+     "real": 0.027,
+     "chance": 0.005
+    },
+    "byShape": {
+     "real": 0.038,
+     "chance": 0.012
+    }
+   },
+   "blend": {
+    "pairsSame": 134,
+    "pairsDiff": 284,
+    "kSame": 0.195,
+    "kDiff": 0.136,
+    "fSame": 0.164,
+    "fDiff": 0.105,
+    "gSame": 0.074,
+    "gDiff": 0.087
+   },
+   "standout": {
+    "group": {
+     "cells": 69,
+     "agree": 0.658
+    },
+    "loose": {
+     "cells": 7,
+     "agree": 0.284
+    },
+    "mixed": {
+     "cells": 198,
+     "agree": 0.374
+    }
+   },
+   "worstExcess": -96.307,
+   "hash": "c93fae2b"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 1,
+   "mode": "listen3",
+   "farShare": 0.0184,
+   "temperature": 0.023,
+   "bondedShare": 0.817,
+   "groups": 75,
+   "largest": 158,
+   "sorting": 0.556,
+   "shapes": {
+    "chain": 0.143,
+    "ring": 0.004,
+    "tree": 0.014,
+    "sheet": 0.161,
+    "blob": 0.471
+   },
+   "structures": 53,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    3,
+    2,
+    2,
+    0,
+    2,
+    0
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.472,
+     "chance": 0.22
+    },
+    "byChainPlace": {
+     "real": 0.012,
+     "chance": 0.018
+    },
+    "byBonds": {
+     "real": 0.019,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.046,
+     "chance": 0.021
+    }
+   },
+   "blend": {
+    "pairsSame": 2,
+    "pairsDiff": 12,
+    "kSame": 0.174,
+    "kDiff": 0.133,
+    "fSame": 0.202,
+    "fDiff": 0.147,
+    "gSame": 0.045,
+    "gDiff": 0.06
+   },
+   "standout": {
+    "group": {
+     "cells": 115,
+     "agree": 0.743
+    },
+    "loose": {
+     "cells": 41,
+     "agree": 0.731
+    },
+    "mixed": {
+     "cells": 144,
+     "agree": 0.439
+    }
+   },
+   "worstExcess": -207.107,
+   "hash": "e10ed13c"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 1,
+   "mode": "listen3",
+   "farShare": 0.0022,
+   "temperature": 0.0636,
+   "bondedShare": 0.742,
+   "groups": 138,
+   "largest": 56,
+   "sorting": 0.369,
+   "shapes": {
+    "chain": 0.145,
+    "ring": 0.012,
+    "tree": 0.056,
+    "sheet": 0.135,
+    "blob": 0.291
+   },
+   "structures": 77,
+   "repeatKinds": 9,
+   "repeatMembers": 22,
+   "repeatSeries": [
+    15,
+    16,
+    15,
+    32,
+    19,
+    22
+   ],
+   "splits": 10,
+   "units": {
+    "sync": {
+     "real": 0.765,
+     "chance": 0.335
+    },
+    "byChainPlace": {
+     "real": 0.007,
+     "chance": 0.005
+    },
+    "byBonds": {
+     "real": 0.028,
+     "chance": 0.009
+    },
+    "byShape": {
+     "real": 0.041,
+     "chance": 0.017
+    }
+   },
+   "blend": {
+    "pairsSame": 103,
+    "pairsDiff": 403,
+    "kSame": 0.17,
+    "kDiff": 0.154,
+    "fSame": 0.197,
+    "fDiff": 0.171,
+    "gSame": 0.037,
+    "gDiff": 0.04
+   },
+   "standout": {
+    "group": {
+     "cells": 61,
+     "agree": 0.618
+    },
+    "loose": {
+     "cells": 39,
+     "agree": 0.318
+    },
+    "mixed": {
+     "cells": 182,
+     "agree": 0.374
+    }
+   },
+   "worstExcess": -174.924,
+   "hash": "69bc2dce"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 1,
+   "mode": "space",
+   "farShare": 0.0635,
+   "temperature": 0.1651,
+   "bondedShare": 0.507,
+   "groups": 105,
+   "largest": 17,
+   "sorting": 0.134,
+   "shapes": {
+    "chain": 0.161,
+    "ring": 0.009,
+    "tree": 0.073,
+    "sheet": 0.009,
+    "blob": 0.063
+   },
+   "structures": 35,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.84,
+     "chance": 0.536
+    },
+    "byChainPlace": {
+     "real": 0.01,
+     "chance": 0.014
+    },
+    "byBonds": {
+     "real": 0.015,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.127,
+     "chance": 0.024
+    }
+   },
+   "blend": {
+    "pairsSame": 3,
+    "pairsDiff": 18,
+    "kSame": 0.289,
+    "kDiff": 0.206,
+    "fSame": 0.281,
+    "fDiff": 0.189,
+    "gSame": 0.073,
+    "gDiff": 0.067
+   },
+   "standout": {
+    "group": {
+     "cells": 11,
+     "agree": 0.246
+    },
+    "loose": {
+     "cells": 61,
+     "agree": 0.289
+    },
+    "mixed": {
+     "cells": 195,
+     "agree": 0.246
+    }
+   },
+   "worstExcess": -173.803,
+   "hash": "f1bd6132"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 1,
+   "mode": "space",
+   "farShare": 0.0845,
+   "temperature": 0.0433,
+   "bondedShare": 0.699,
+   "groups": 175,
+   "largest": 12,
+   "sorting": 0.094,
+   "shapes": {
+    "chain": 0.292,
+    "ring": 0.025,
+    "tree": 0.103,
+    "sheet": 0.022,
+    "blob": 0.109
+   },
+   "structures": 70,
+   "repeatKinds": 5,
+   "repeatMembers": 10,
+   "repeatSeries": [
+    8,
+    8,
+    2,
+    8,
+    4,
+    10
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.799,
+     "chance": 0.594
+    },
+    "byChainPlace": {
+     "real": 0.064,
+     "chance": 0.007
+    },
+    "byBonds": {
+     "real": 0.056,
+     "chance": 0.009
+    },
+    "byShape": {
+     "real": 0.035,
+     "chance": 0.018
+    }
+   },
+   "blend": {
+    "pairsSame": 27,
+    "pairsDiff": 73,
+    "kSame": 0.08,
+    "kDiff": 0.074,
+    "fSame": 0.068,
+    "fDiff": 0.066,
+    "gSame": 0.028,
+    "gDiff": 0.031
+   },
+   "standout": {
+    "group": {
+     "cells": 31,
+     "agree": 0.154
+    },
+    "loose": {
+     "cells": 43,
+     "agree": 0.256
+    },
+    "mixed": {
+     "cells": 225,
+     "agree": 0.166
+    }
+   },
+   "worstExcess": -164.039,
+   "hash": "85a5b686"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 1,
+   "mode": "space",
+   "farShare": 0.0791,
+   "temperature": 0.1774,
+   "bondedShare": 0.579,
+   "groups": 124,
+   "largest": 17,
+   "sorting": 0.408,
+   "shapes": {
+    "chain": 0.095,
+    "ring": 0.011,
+    "tree": 0.075,
+    "sheet": 0.127,
+    "blob": 0.177
+   },
+   "structures": 74,
+   "repeatKinds": 5,
+   "repeatMembers": 10,
+   "repeatSeries": [
+    2,
+    2,
+    0,
+    2,
+    0,
+    10
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.906,
+     "chance": 0.384
+    },
+    "byChainPlace": {
+     "real": 0.055,
+     "chance": 0.018
+    },
+    "byBonds": {
+     "real": 0.095,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.211,
+     "chance": 0.017
+    }
+   },
+   "blend": {
+    "pairsSame": 9,
+    "pairsDiff": 53,
+    "kSame": 0.267,
+    "kDiff": 0.242,
+    "fSame": 0.178,
+    "fDiff": 0.174,
+    "gSame": 0.073,
+    "gDiff": 0.055
+   },
+   "standout": {
+    "group": {
+     "cells": 37,
+     "agree": 0.766
+    },
+    "loose": {
+     "cells": 63,
+     "agree": 0.711
+    },
+    "mixed": {
+     "cells": 154,
+     "agree": 0.676
+    }
+   },
+   "worstExcess": -216.479,
+   "hash": "bdc91b64"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 1,
+   "mode": "space",
+   "farShare": 0.0788,
+   "temperature": 0.02,
+   "bondedShare": 0.665,
+   "groups": 155,
+   "largest": 14,
+   "sorting": 0.148,
+   "shapes": {
+    "chain": 0.253,
+    "ring": 0.045,
+    "tree": 0.035,
+    "sheet": 0.009,
+    "blob": 0.1
+   },
+   "structures": 49,
+   "repeatKinds": 3,
+   "repeatMembers": 7,
+   "repeatSeries": [
+    2,
+    4,
+    4,
+    6,
+    2,
+    7
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.845,
+     "chance": 0.647
+    },
+    "byChainPlace": {
+     "real": 0.042,
+     "chance": 0.014
+    },
+    "byBonds": {
+     "real": 0.043,
+     "chance": 0.012
+    },
+    "byShape": {
+     "real": 0.079,
+     "chance": 0.02
+    }
+   },
+   "blend": {
+    "pairsSame": 44,
+    "pairsDiff": 165,
+    "kSame": 0.233,
+    "kDiff": 0.209,
+    "fSame": 0.233,
+    "fDiff": 0.207,
+    "gSame": 0.038,
+    "gDiff": 0.04
+   },
+   "standout": {
+    "group": {
+     "cells": 24,
+     "agree": 0.159
+    },
+    "loose": {
+     "cells": 58,
+     "agree": 0.254
+    },
+    "mixed": {
+     "cells": 221,
+     "agree": 0.207
+    }
+   },
+   "worstExcess": -194.564,
+   "hash": "b8d7aabb"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 1,
+   "mode": "space",
+   "farShare": 0.078,
+   "temperature": 0.0097,
+   "bondedShare": 0.893,
+   "groups": 129,
+   "largest": 102,
+   "sorting": 0.411,
+   "shapes": {
+    "chain": 0.106,
+    "ring": 0.031,
+    "tree": 0,
+    "sheet": 0.131,
+    "blob": 0.581
+   },
+   "structures": 76,
+   "repeatKinds": 2,
+   "repeatMembers": 4,
+   "repeatSeries": [
+    6,
+    0,
+    2,
+    2,
+    6,
+    4
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.291,
+     "chance": 0.181
+    },
+    "byChainPlace": {
+     "real": 0.022,
+     "chance": 0.019
+    },
+    "byBonds": {
+     "real": 0.015,
+     "chance": 0.004
+    },
+    "byShape": {
+     "real": 0.028,
+     "chance": 0.006
+    }
+   },
+   "blend": {
+    "pairsSame": 12,
+    "pairsDiff": 45,
+    "kSame": 0.166,
+    "kDiff": 0.292,
+    "fSame": 0.165,
+    "fDiff": 0.283,
+    "gSame": 0.029,
+    "gDiff": 0.029
+   },
+   "standout": {
+    "group": {
+     "cells": 110,
+     "agree": 0.514
+    },
+    "loose": {
+     "cells": 3,
+     "agree": 0.546
+    },
+    "mixed": {
+     "cells": 182,
+     "agree": 0.326
+    }
+   },
+   "worstExcess": -32.436,
+   "hash": "9fe066c5"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 1,
+   "mode": "space",
+   "farShare": 0.0979,
+   "temperature": 0.1393,
+   "bondedShare": 0.481,
+   "groups": 96,
+   "largest": 14,
+   "sorting": 0.107,
+   "shapes": {
+    "chain": 0.195,
+    "ring": 0.003,
+    "tree": 0.021,
+    "sheet": 0,
+    "blob": 0.022
+   },
+   "structures": 16,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    2,
+    0,
+    3,
+    0,
+    2,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.896,
+     "chance": 0.706
+    },
+    "byChainPlace": {
+     "real": 0.056,
+     "chance": 0.014
+    },
+    "byBonds": {
+     "real": 0.047,
+     "chance": 0.021
+    },
+    "byShape": {
+     "real": 0.056,
+     "chance": 0.026
+    }
+   },
+   "blend": {
+    "pairsSame": 14,
+    "pairsDiff": 7,
+    "kSame": 0.086,
+    "kDiff": 0.089,
+    "fSame": 0.089,
+    "fDiff": 0.079,
+    "gSame": 0.035,
+    "gDiff": 0.05
+   },
+   "standout": {
+    "group": {
+     "cells": 3,
+     "agree": 0.055
+    },
+    "loose": {
+     "cells": 79,
+     "agree": 0.267
+    },
+    "mixed": {
+     "cells": 167,
+     "agree": 0.188
+    }
+   },
+   "worstExcess": -189.487,
+   "hash": "94a8e2ce"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 1,
+   "mode": "space",
+   "farShare": 0.0866,
+   "temperature": 0.0743,
+   "bondedShare": 0.81,
+   "groups": 161,
+   "largest": 31,
+   "sorting": 0.677,
+   "shapes": {
+    "chain": 0.117,
+    "ring": 0.014,
+    "tree": 0.015,
+    "sheet": 0.072,
+    "blob": 0.515
+   },
+   "structures": 96,
+   "repeatKinds": 2,
+   "repeatMembers": 4,
+   "repeatSeries": [
+    0,
+    0,
+    4,
+    0,
+    0,
+    4
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.76,
+     "chance": 0.307
+    },
+    "byChainPlace": {
+     "real": 0.016,
+     "chance": 0.017
+    },
+    "byBonds": {
+     "real": 0.062,
+     "chance": 0.008
+    },
+    "byShape": {
+     "real": 0.085,
+     "chance": 0.017
+    }
+   },
+   "blend": {
+    "pairsSame": 16,
+    "pairsDiff": 107,
+    "kSame": 0.219,
+    "kDiff": 0.184,
+    "fSame": 0.233,
+    "fDiff": 0.197,
+    "gSame": 0.046,
+    "gDiff": 0.037
+   },
+   "standout": {
+    "group": {
+     "cells": 87,
+     "agree": 0.786
+    },
+    "loose": {
+     "cells": 20,
+     "agree": 0.75
+    },
+    "mixed": {
+     "cells": 171,
+     "agree": 0.549
+    }
+   },
+   "worstExcess": -201.676,
+   "hash": "6f80a875"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 1,
+   "mode": "space",
+   "farShare": 0.0615,
+   "temperature": 0.0523,
+   "bondedShare": 0.709,
+   "groups": 113,
+   "largest": 34,
+   "sorting": 0.456,
+   "shapes": {
+    "chain": 0.112,
+    "ring": 0.01,
+    "tree": 0.041,
+    "sheet": 0.119,
+    "blob": 0.317
+   },
+   "structures": 54,
+   "repeatKinds": 2,
+   "repeatMembers": 5,
+   "repeatSeries": [
+    2,
+    0,
+    2,
+    4,
+    10,
+    5
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.892,
+     "chance": 0.424
+    },
+    "byChainPlace": {
+     "real": 0.093,
+     "chance": 0.012
+    },
+    "byBonds": {
+     "real": 0.055,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.332,
+     "chance": 0.023
+    }
+   },
+   "blend": {
+    "pairsSame": 39,
+    "pairsDiff": 67,
+    "kSame": 0.198,
+    "kDiff": 0.198,
+    "fSame": 0.194,
+    "fDiff": 0.198,
+    "gSame": 0.086,
+    "gDiff": 0.087
+   },
+   "standout": {
+    "group": {
+     "cells": 72,
+     "agree": 0.652
+    },
+    "loose": {
+     "cells": 63,
+     "agree": 0.274
+    },
+    "mixed": {
+     "cells": 149,
+     "agree": 0.333
+    }
+   },
+   "worstExcess": -187.332,
+   "hash": "ebfd138c"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 1,
+   "mode": "space",
+   "farShare": 0.0737,
+   "temperature": 0.0056,
+   "bondedShare": 0.881,
+   "groups": 179,
+   "largest": 18,
+   "sorting": 0.057,
+   "shapes": {
+    "chain": 0.235,
+    "ring": 0.054,
+    "tree": 0.051,
+    "sheet": 0.104,
+    "blob": 0.143
+   },
+   "structures": 68,
+   "repeatKinds": 7,
+   "repeatMembers": 17,
+   "repeatSeries": [
+    13,
+    22,
+    13,
+    20,
+    16,
+    17
+   ],
+   "splits": 2,
+   "units": {
+    "sync": {
+     "real": 0.793,
+     "chance": 0.451
+    },
+    "byChainPlace": {
+     "real": 0.013,
+     "chance": 0.008
+    },
+    "byBonds": {
+     "real": 0.033,
+     "chance": 0.004
+    },
+    "byShape": {
+     "real": 0.122,
+     "chance": 0.013
+    }
+   },
+   "blend": {
+    "pairsSame": 121,
+    "pairsDiff": 505,
+    "kSame": 0.094,
+    "kDiff": 0.088,
+    "fSame": 0.066,
+    "fDiff": 0.061,
+    "gSame": 0.045,
+    "gDiff": 0.049
+   },
+   "standout": {
+    "group": {
+     "cells": 45,
+     "agree": 0.084
+    },
+    "loose": {
+     "cells": 8,
+     "agree": 0.173
+    },
+    "mixed": {
+     "cells": 238,
+     "agree": 0.146
+    }
+   },
+   "worstExcess": -87.126,
+   "hash": "296bf061"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 1,
+   "mode": "space",
+   "farShare": 0.0815,
+   "temperature": 0.0695,
+   "bondedShare": 0.755,
+   "groups": 144,
+   "largest": 83,
+   "sorting": 0.682,
+   "shapes": {
+    "chain": 0.255,
+    "ring": 0.009,
+    "tree": 0.041,
+    "sheet": 0.051,
+    "blob": 0.295
+   },
+   "structures": 86,
+   "repeatKinds": 4,
+   "repeatMembers": 9,
+   "repeatSeries": [
+    0,
+    7,
+    6,
+    6,
+    8,
+    9
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.742,
+     "chance": 0.329
+    },
+    "byChainPlace": {
+     "real": 0.011,
+     "chance": 0.009
+    },
+    "byBonds": {
+     "real": 0.057,
+     "chance": 0.008
+    },
+    "byShape": {
+     "real": 0.195,
+     "chance": 0.017
+    }
+   },
+   "blend": {
+    "pairsSame": 123,
+    "pairsDiff": 58,
+    "kSame": 0.066,
+    "kDiff": 0.111,
+    "fSame": 0.05,
+    "fDiff": 0.084,
+    "gSame": 0.041,
+    "gDiff": 0.063
+   },
+   "standout": {
+    "group": {
+     "cells": 68,
+     "agree": 0.702
+    },
+    "loose": {
+     "cells": 27,
+     "agree": 0.338
+    },
+    "mixed": {
+     "cells": 172,
+     "agree": 0.469
+    }
+   },
+   "worstExcess": -90.243,
+   "hash": "10db7df8"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 1,
+   "mode": "space",
+   "farShare": 0.0951,
+   "temperature": 0.0222,
+   "bondedShare": 0.833,
+   "groups": 80,
+   "largest": 189,
+   "sorting": 0.561,
+   "shapes": {
+    "chain": 0.139,
+    "ring": 0,
+    "tree": 0.037,
+    "sheet": 0.234,
+    "blob": 0.392
+   },
+   "structures": 62,
+   "repeatKinds": 2,
+   "repeatMembers": 5,
+   "repeatSeries": [
+    0,
+    0,
+    2,
+    6,
+    0,
+    5
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.521,
+     "chance": 0.235
+    },
+    "byChainPlace": {
+     "real": 0.019,
+     "chance": 0.01
+    },
+    "byBonds": {
+     "real": 0.043,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.063,
+     "chance": 0.015
+    }
+   },
+   "blend": {
+    "pairsSame": 6,
+    "pairsDiff": 30,
+    "kSame": 0.091,
+    "kDiff": 0.142,
+    "fSame": 0.06,
+    "fDiff": 0.141,
+    "gSame": 0.063,
+    "gDiff": 0.067
+   },
+   "standout": {
+    "group": {
+     "cells": 116,
+     "agree": 0.74
+    },
+    "loose": {
+     "cells": 31,
+     "agree": 0.779
+    },
+    "mixed": {
+     "cells": 130,
+     "agree": 0.476
+    }
+   },
+   "worstExcess": -178.548,
+   "hash": "0df41940"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 1,
+   "mode": "space",
+   "farShare": 0.0478,
+   "temperature": 0.0549,
+   "bondedShare": 0.733,
+   "groups": 150,
+   "largest": 44,
+   "sorting": 0.347,
+   "shapes": {
+    "chain": 0.169,
+    "ring": 0.031,
+    "tree": 0.04,
+    "sheet": 0.071,
+    "blob": 0.327
+   },
+   "structures": 82,
+   "repeatKinds": 10,
+   "repeatMembers": 30,
+   "repeatSeries": [
+    13,
+    19,
+    16,
+    22,
+    14,
+    30
+   ],
+   "splits": 2,
+   "units": {
+    "sync": {
+     "real": 0.857,
+     "chance": 0.319
+    },
+    "byChainPlace": {
+     "real": 0.014,
+     "chance": 0.006
+    },
+    "byBonds": {
+     "real": 0.027,
+     "chance": 0.006
+    },
+    "byShape": {
+     "real": 0.042,
+     "chance": 0.01
+    }
+   },
+   "blend": {
+    "pairsSame": 191,
+    "pairsDiff": 572,
+    "kSame": 0.046,
+    "kDiff": 0.049,
+    "fSame": 0.014,
+    "fDiff": 0.023,
+    "gSame": 0.042,
+    "gDiff": 0.043
+   },
+   "standout": {
+    "group": {
+     "cells": 62,
+     "agree": 0.52
+    },
+    "loose": {
+     "cells": 55,
+     "agree": 0.318
+    },
+    "mixed": {
+     "cells": 168,
+     "agree": 0.399
+    }
+   },
+   "worstExcess": -174.384,
+   "hash": "d1a693f3"
+  },
+  {
+   "lawSeed": 1,
+   "worldSeed": 1,
+   "mode": "space5",
+   "farShare": 0.0382,
+   "temperature": 0.172,
+   "bondedShare": 0.501,
+   "groups": 108,
+   "largest": 12,
+   "sorting": 0.156,
+   "shapes": {
+    "chain": 0.174,
+    "ring": 0.011,
+    "tree": 0.064,
+    "sheet": 0.009,
+    "blob": 0.053
+   },
+   "structures": 36,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    4,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.791,
+     "chance": 0.609
+    },
+    "byChainPlace": {
+     "real": 0.014,
+     "chance": 0.015
+    },
+    "byBonds": {
+     "real": 0.023,
+     "chance": 0.014
+    },
+    "byShape": {
+     "real": 0.073,
+     "chance": 0.033
+    }
+   },
+   "blend": {
+    "pairsSame": 2,
+    "pairsDiff": 29,
+    "kSame": 0.078,
+    "kDiff": 0.131,
+    "fSame": 0.048,
+    "fDiff": 0.12,
+    "gSame": 0.069,
+    "gDiff": 0.059
+   },
+   "standout": {
+    "group": {
+     "cells": 8,
+     "agree": 0.196
+    },
+    "loose": {
+     "cells": 72,
+     "agree": 0.29
+    },
+    "mixed": {
+     "cells": 185,
+     "agree": 0.207
+    }
+   },
+   "worstExcess": -154.667,
+   "hash": "2d5b549a"
+  },
+  {
+   "lawSeed": 2,
+   "worldSeed": 1,
+   "mode": "space5",
+   "farShare": 0.0457,
+   "temperature": 0.0365,
+   "bondedShare": 0.727,
+   "groups": 176,
+   "largest": 21,
+   "sorting": 0.088,
+   "shapes": {
+    "chain": 0.308,
+    "ring": 0.029,
+    "tree": 0.112,
+    "sheet": 0.011,
+    "blob": 0.111
+   },
+   "structures": 60,
+   "repeatKinds": 5,
+   "repeatMembers": 11,
+   "repeatSeries": [
+    13,
+    12,
+    4,
+    11,
+    8,
+    11
+   ],
+   "splits": 2,
+   "units": {
+    "sync": {
+     "real": 0.758,
+     "chance": 0.615
+    },
+    "byChainPlace": {
+     "real": 0.041,
+     "chance": 0.008
+    },
+    "byBonds": {
+     "real": 0.058,
+     "chance": 0.01
+    },
+    "byShape": {
+     "real": 0.068,
+     "chance": 0.018
+    }
+   },
+   "blend": {
+    "pairsSame": 105,
+    "pairsDiff": 50,
+    "kSame": 0.042,
+    "kDiff": 0.049,
+    "fSame": 0.036,
+    "fDiff": 0.042,
+    "gSame": 0.026,
+    "gDiff": 0.025
+   },
+   "standout": {
+    "group": {
+     "cells": 39,
+     "agree": 0.178
+    },
+    "loose": {
+     "cells": 26,
+     "agree": 0.247
+    },
+    "mixed": {
+     "cells": 228,
+     "agree": 0.192
+    }
+   },
+   "worstExcess": -153.216,
+   "hash": "95340de7"
+  },
+  {
+   "lawSeed": 3,
+   "worldSeed": 1,
+   "mode": "space5",
+   "farShare": 0.0458,
+   "temperature": 0.1633,
+   "bondedShare": 0.656,
+   "groups": 120,
+   "largest": 30,
+   "sorting": 0.428,
+   "shapes": {
+    "chain": 0.111,
+    "ring": 0.006,
+    "tree": 0.049,
+    "sheet": 0.103,
+    "blob": 0.293
+   },
+   "structures": 72,
+   "repeatKinds": 2,
+   "repeatMembers": 4,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    4
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.769,
+     "chance": 0.3
+    },
+    "byChainPlace": {
+     "real": 0.098,
+     "chance": 0.019
+    },
+    "byBonds": {
+     "real": 0.081,
+     "chance": 0.009
+    },
+    "byShape": {
+     "real": 0.21,
+     "chance": 0.021
+    }
+   },
+   "blend": {
+    "pairsSame": 4,
+    "pairsDiff": 35,
+    "kSame": 0.099,
+    "kDiff": 0.129,
+    "fSame": 0.092,
+    "fDiff": 0.096,
+    "gSame": 0.032,
+    "gDiff": 0.04
+   },
+   "standout": {
+    "group": {
+     "cells": 45,
+     "agree": 0.721
+    },
+    "loose": {
+     "cells": 46,
+     "agree": 0.682
+    },
+    "mixed": {
+     "cells": 150,
+     "agree": 0.703
+    }
+   },
+   "worstExcess": -204.511,
+   "hash": "116d14b0"
+  },
+  {
+   "lawSeed": 4,
+   "worldSeed": 1,
+   "mode": "space5",
+   "farShare": 0.0424,
+   "temperature": 0.0271,
+   "bondedShare": 0.669,
+   "groups": 153,
+   "largest": 20,
+   "sorting": 0.129,
+   "shapes": {
+    "chain": 0.207,
+    "ring": 0.039,
+    "tree": 0.081,
+    "sheet": 0.004,
+    "blob": 0.116
+   },
+   "structures": 42,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    0,
+    0,
+    3,
+    3,
+    0,
+    2
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.844,
+     "chance": 0.615
+    },
+    "byChainPlace": {
+     "real": 0.065,
+     "chance": 0.01
+    },
+    "byBonds": {
+     "real": 0.022,
+     "chance": 0.009
+    },
+    "byShape": {
+     "real": 0.03,
+     "chance": 0.024
+    }
+   },
+   "blend": {
+    "pairsSame": 37,
+    "pairsDiff": 204,
+    "kSame": 0.118,
+    "kDiff": 0.151,
+    "fSame": 0.113,
+    "fDiff": 0.138,
+    "gSame": 0.028,
+    "gDiff": 0.037
+   },
+   "standout": {
+    "group": {
+     "cells": 31,
+     "agree": 0.174
+    },
+    "loose": {
+     "cells": 58,
+     "agree": 0.26
+    },
+    "mixed": {
+     "cells": 217,
+     "agree": 0.231
+    }
+   },
+   "worstExcess": -204.787,
+   "hash": "14a65610"
+  },
+  {
+   "lawSeed": 5,
+   "worldSeed": 1,
+   "mode": "space5",
+   "farShare": 0.0521,
+   "temperature": 0.0363,
+   "bondedShare": 0.86,
+   "groups": 115,
+   "largest": 50,
+   "sorting": 0.306,
+   "shapes": {
+    "chain": 0.033,
+    "ring": 0.015,
+    "tree": 0.009,
+    "sheet": 0.191,
+    "blob": 0.563
+   },
+   "structures": 86,
+   "repeatKinds": 1,
+   "repeatMembers": 2,
+   "repeatSeries": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.511,
+     "chance": 0.241
+    },
+    "byChainPlace": {
+     "real": 0.02,
+     "chance": 0.025
+    },
+    "byBonds": {
+     "real": 0.014,
+     "chance": 0.006
+    },
+    "byShape": {
+     "real": 0.019,
+     "chance": 0.015
+    }
+   },
+   "blend": {
+    "pairsSame": 2,
+    "pairsDiff": 27,
+    "kSame": 0.407,
+    "kDiff": 0.684,
+    "fSame": 0.388,
+    "fDiff": 0.651,
+    "gSame": 0.052,
+    "gDiff": 0.041
+   },
+   "standout": {
+    "group": {
+     "cells": 117,
+     "agree": 0.529
+    },
+    "loose": {
+     "cells": 7,
+     "agree": 0.565
+    },
+    "mixed": {
+     "cells": 156,
+     "agree": 0.364
+    }
+   },
+   "worstExcess": -109.791,
+   "hash": "768a7fa7"
+  },
+  {
+   "lawSeed": 6,
+   "worldSeed": 1,
+   "mode": "space5",
+   "farShare": 0.0531,
+   "temperature": 0.1313,
+   "bondedShare": 0.434,
+   "groups": 75,
+   "largest": 10,
+   "sorting": 0.106,
+   "shapes": {
+    "chain": 0.147,
+    "ring": 0.002,
+    "tree": 0.032,
+    "sheet": 0,
+    "blob": 0.007
+   },
+   "structures": 17,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.862,
+     "chance": 0.693
+    },
+    "byChainPlace": {
+     "real": 0.028,
+     "chance": 0.02
+    },
+    "byBonds": {
+     "real": 0.04,
+     "chance": 0.026
+    },
+    "byShape": {
+     "real": 0.034,
+     "chance": 0.036
+    }
+   },
+   "blend": {
+    "pairsSame": 7,
+    "pairsDiff": 1,
+    "kSame": 0.051,
+    "kDiff": 0.131,
+    "fSame": 0.065,
+    "fDiff": 0.095,
+    "gSame": 0.072,
+    "gDiff": 0.094
+   },
+   "standout": {
+    "group": {
+     "cells": 0,
+     "agree": null
+    },
+    "loose": {
+     "cells": 83,
+     "agree": 0.279
+    },
+    "mixed": {
+     "cells": 151,
+     "agree": 0.194
+    }
+   },
+   "worstExcess": -192.835,
+   "hash": "53455ae7"
+  },
+  {
+   "lawSeed": 7,
+   "worldSeed": 1,
+   "mode": "space5",
+   "farShare": 0.0666,
+   "temperature": 0.092,
+   "bondedShare": 0.759,
+   "groups": 148,
+   "largest": 34,
+   "sorting": 0.656,
+   "shapes": {
+    "chain": 0.065,
+    "ring": 0.02,
+    "tree": 0.053,
+    "sheet": 0.046,
+    "blob": 0.473
+   },
+   "structures": 92,
+   "repeatKinds": 2,
+   "repeatMembers": 4,
+   "repeatSeries": [
+    2,
+    0,
+    2,
+    4,
+    7,
+    4
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.751,
+     "chance": 0.331
+    },
+    "byChainPlace": {
+     "real": 0.063,
+     "chance": 0.03
+    },
+    "byBonds": {
+     "real": 0.049,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.104,
+     "chance": 0.02
+    }
+   },
+   "blend": {
+    "pairsSame": 14,
+    "pairsDiff": 96,
+    "kSame": 0.173,
+    "kDiff": 0.17,
+    "fSame": 0.182,
+    "fDiff": 0.181,
+    "gSame": 0.032,
+    "gDiff": 0.032
+   },
+   "standout": {
+    "group": {
+     "cells": 59,
+     "agree": 0.731
+    },
+    "loose": {
+     "cells": 17,
+     "agree": 0.702
+    },
+    "mixed": {
+     "cells": 177,
+     "agree": 0.567
+    }
+   },
+   "worstExcess": -217.393,
+   "hash": "7b94a3e3"
+  },
+  {
+   "lawSeed": 8,
+   "worldSeed": 1,
+   "mode": "space5",
+   "farShare": 0.0367,
+   "temperature": 0.0754,
+   "bondedShare": 0.674,
+   "groups": 103,
+   "largest": 48,
+   "sorting": 0.496,
+   "shapes": {
+    "chain": 0.101,
+    "ring": 0.002,
+    "tree": 0.049,
+    "sheet": 0.031,
+    "blob": 0.365
+   },
+   "structures": 52,
+   "repeatKinds": 0,
+   "repeatMembers": 0,
+   "repeatSeries": [
+    0,
+    0,
+    4,
+    4,
+    0,
+    0
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.841,
+     "chance": 0.452
+    },
+    "byChainPlace": {
+     "real": 0.062,
+     "chance": 0.023
+    },
+    "byBonds": {
+     "real": 0.065,
+     "chance": 0.013
+    },
+    "byShape": {
+     "real": 0.367,
+     "chance": 0.021
+    }
+   },
+   "blend": {
+    "pairsSame": 10,
+    "pairsDiff": 44,
+    "kSame": 0.212,
+    "kDiff": 0.173,
+    "fSame": 0.267,
+    "fDiff": 0.179,
+    "gSame": 0.084,
+    "gDiff": 0.079
+   },
+   "standout": {
+    "group": {
+     "cells": 58,
+     "agree": 0.649
+    },
+    "loose": {
+     "cells": 54,
+     "agree": 0.289
+    },
+    "mixed": {
+     "cells": 157,
+     "agree": 0.325
+    }
+   },
+   "worstExcess": -188.737,
+   "hash": "f54e8f03"
+  },
+  {
+   "lawSeed": 9,
+   "worldSeed": 1,
+   "mode": "space5",
+   "farShare": 0.042,
+   "temperature": 0.0056,
+   "bondedShare": 0.899,
+   "groups": 184,
+   "largest": 15,
+   "sorting": 0.061,
+   "shapes": {
+    "chain": 0.26,
+    "ring": 0.04,
+    "tree": 0.085,
+    "sheet": 0.105,
+    "blob": 0.106
+   },
+   "structures": 80,
+   "repeatKinds": 9,
+   "repeatMembers": 24,
+   "repeatSeries": [
+    13,
+    14,
+    28,
+    15,
+    22,
+    24
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.724,
+     "chance": 0.464
+    },
+    "byChainPlace": {
+     "real": 0.02,
+     "chance": 0.009
+    },
+    "byBonds": {
+     "real": 0.018,
+     "chance": 0.007
+    },
+    "byShape": {
+     "real": 0.076,
+     "chance": 0.012
+    }
+   },
+   "blend": {
+    "pairsSame": 105,
+    "pairsDiff": 382,
+    "kSame": 0.071,
+    "kDiff": 0.069,
+    "fSame": 0.047,
+    "fDiff": 0.045,
+    "gSame": 0.041,
+    "gDiff": 0.047
+   },
+   "standout": {
+    "group": {
+     "cells": 39,
+     "agree": 0.147
+    },
+    "loose": {
+     "cells": 5,
+     "agree": 0.26
+    },
+    "mixed": {
+     "cells": 262,
+     "agree": 0.157
+    }
+   },
+   "worstExcess": -84.146,
+   "hash": "7eaecd34"
+  },
+  {
+   "lawSeed": 10,
+   "worldSeed": 1,
+   "mode": "space5",
+   "farShare": 0.0382,
+   "temperature": 0.0678,
+   "bondedShare": 0.718,
+   "groups": 140,
+   "largest": 32,
+   "sorting": 0.739,
+   "shapes": {
+    "chain": 0.248,
+    "ring": 0.008,
+    "tree": 0.056,
+    "sheet": 0.097,
+    "blob": 0.2
+   },
+   "structures": 76,
+   "repeatKinds": 1,
+   "repeatMembers": 3,
+   "repeatSeries": [
+    2,
+    0,
+    4,
+    8,
+    4,
+    3
+   ],
+   "splits": 0,
+   "units": {
+    "sync": {
+     "real": 0.718,
+     "chance": 0.326
+    },
+    "byChainPlace": {
+     "real": 0.008,
+     "chance": 0.021
+    },
+    "byBonds": {
+     "real": 0.105,
+     "chance": 0.011
+    },
+    "byShape": {
+     "real": 0.072,
+     "chance": 0.023
+    }
+   },
+   "blend": {
+    "pairsSame": 76,
+    "pairsDiff": 120,
+    "kSame": 0.053,
+    "kDiff": 0.104,
+    "fSame": 0.029,
+    "fDiff": 0.072,
+    "gSame": 0.042,
+    "gDiff": 0.066
+   },
+   "standout": {
+    "group": {
+     "cells": 88,
+     "agree": 0.738
+    },
+    "loose": {
+     "cells": 30,
+     "agree": 0.388
+    },
+    "mixed": {
+     "cells": 148,
+     "agree": 0.45
+    }
+   },
+   "worstExcess": -68.398,
+   "hash": "29097543"
+  },
+  {
+   "lawSeed": 11,
+   "worldSeed": 1,
+   "mode": "space5",
+   "farShare": 0.0502,
+   "temperature": 0.0187,
+   "bondedShare": 0.86,
+   "groups": 81,
+   "largest": 158,
+   "sorting": 0.571,
+   "shapes": {
+    "chain": 0.127,
+    "ring": 0,
+    "tree": 0.053,
+    "sheet": 0.206,
+    "blob": 0.441
+   },
+   "structures": 67,
+   "repeatKinds": 1,
+   "repeatMembers": 4,
+   "repeatSeries": [
+    9,
+    2,
+    4,
+    6,
+    6,
+    4
+   ],
+   "splits": 1,
+   "units": {
+    "sync": {
+     "real": 0.347,
+     "chance": 0.181
+    },
+    "byChainPlace": {
+     "real": 0.087,
+     "chance": 0.014
+    },
+    "byBonds": {
+     "real": 0.151,
+     "chance": 0.008
+    },
+    "byShape": {
+     "real": 0.07,
+     "chance": 0.011
+    }
+   },
+   "blend": {
+    "pairsSame": 14,
+    "pairsDiff": 23,
+    "kSame": 0.064,
+    "kDiff": 0.063,
+    "fSame": 0.057,
+    "fDiff": 0.064,
+    "gSame": 0.047,
+    "gDiff": 0.055
+   },
+   "standout": {
+    "group": {
+     "cells": 117,
+     "agree": 0.733
+    },
+    "loose": {
+     "cells": 23,
+     "agree": 0.702
+    },
+    "mixed": {
+     "cells": 153,
+     "agree": 0.545
+    }
+   },
+   "worstExcess": -158.171,
+   "hash": "f2b8fe5b"
+  },
+  {
+   "lawSeed": 12,
+   "worldSeed": 1,
+   "mode": "space5",
+   "farShare": 0.0276,
+   "temperature": 0.0473,
+   "bondedShare": 0.703,
+   "groups": 120,
+   "largest": 75,
+   "sorting": 0.356,
+   "shapes": {
+    "chain": 0.109,
+    "ring": 0.041,
+    "tree": 0.028,
+    "sheet": 0.144,
+    "blob": 0.291
+   },
+   "structures": 74,
+   "repeatKinds": 7,
+   "repeatMembers": 20,
+   "repeatSeries": [
+    13,
+    18,
+    20,
+    17,
+    29,
+    20
+   ],
+   "splits": 6,
+   "units": {
+    "sync": {
+     "real": 0.898,
+     "chance": 0.286
+    },
+    "byChainPlace": {
+     "real": 0.016,
+     "chance": 0.017
+    },
+    "byBonds": {
+     "real": 0.056,
+     "chance": 0.008
+    },
+    "byShape": {
+     "real": 0.056,
+     "chance": 0.013
+    }
+   },
+   "blend": {
+    "pairsSame": 134,
+    "pairsDiff": 523,
+    "kSame": 0.084,
+    "kDiff": 0.069,
+    "fSame": 0.074,
+    "fDiff": 0.051,
+    "gSame": 0.044,
+    "gDiff": 0.045
+   },
+   "standout": {
+    "group": {
+     "cells": 54,
+     "agree": 0.56
+    },
+    "loose": {
+     "cells": 68,
+     "agree": 0.325
+    },
+    "mixed": {
+     "cells": 155,
+     "agree": 0.405
+    }
+   },
+   "worstExcess": -193.369,
+   "hash": "75185eac"
+  }
+ ]
+}
