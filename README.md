@@ -19,3 +19,5 @@ A second series that keeps only polarity and energy flow: no attention, no genom
   small shapes that repeat, one big net, or a crystal?
 - [B2: Day and night](series-b/b2-cycles/): the same soup in a bath that is warm by day and cool by
   night. Does the cycle keep many kinds of small shape alive, and do any survive the days?
+- [B3: Teamwork bonds](series-b/b3-teamwork/): a ball holds each partner harder the more partners it
+  has. Do well-connected groups outlast the days without the soup knitting into one net?

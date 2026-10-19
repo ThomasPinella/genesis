@@ -103,7 +103,7 @@
         <option value="0.3">Crowded</option>
       </select>
     </label>
-    <label>Day warmth <output id="dayOut">0.25</output><input id="day" type="range" min="0.06" max="0.4" step="0.01" value="0.25"></label>
+    <label>Day warmth <output id="dayOut">0.30</output><input id="day" type="range" min="0.06" max="0.4" step="0.01" value="0.3"></label>
     <label>Night warmth <output id="nightOut">0.06</output><input id="night" type="range" min="0.03" max="0.15" step="0.01" value="0.06"></label>
     <label class="wide">Teamwork <output id="teamworkOut">0.50</output><input id="teamwork" type="range" min="0" max="0.6" step="0.05" value="0.5"></label>
     <label class="wide">Length of a day and night <output id="periodOut">100</output><input id="period" type="range" min="20" max="400" step="10" value="100"></label>
@@ -319,13 +319,12 @@
   loop();
 </script>
 <template id="findingsText">
-  <p><b>Answer: the variety stays alive, but nothing in it lasts.</b> Hot days stop the net for good, yet almost every group breaks within a day or two.</p>
+  <p><b>Answer: no.</b> Teamwork makes groups sturdier, but it makes the net sturdier too, so the same trade-off comes back at a higher temperature.</p>
   <ul>
-    <li><b>Hot days stop the net.</b> With days at 0.2, a sparse soup keeps about 80 kinds of small group at once and the biggest group stays under 7% of the balls. A steady bath at the same warmth keeps only about 35 kinds, and steady cooler baths end in a net. The cycle itself is what keeps the variety.</li>
-    <li><b>Gentle days lose.</b> With days at 0.15, every sparse soup still ends in one net.</li>
-    <li><b>Nothing lasts.</b> On the hot cycle only 1 to 17% of groups of three or more get through a day. No group outlives about two days, and the survivors are almost all three-ball chains.</li>
-    <li><b>No sign of selection.</b> Groups that survive a day are no better built than those that break. Heat breaks bonds without regard to what they belong to.</li>
-    <li><b>Crowded soups just flip.</b> Each night builds a net of almost every ball; each day melts it.</li>
+    <li><b>Hot enough to stop the net, nothing lasts.</b> Wherever the days keep the biggest group under 10% of the balls, only 1 to 7% of groups get through a day, the same as with plain bonds.</li>
+    <li><b>Cool enough for groups to last, the net wins.</b> Where 50 to 90% of groups survive a day, one group swallows 60 to 100% of the balls.</li>
+    <li><b>Rings do hold better.</b> With strong teamwork, three-ball rings survive days about twice as often as chains, and the oldest group in those soups is a ring that lasted over five days. But rings are rare, and they get swallowed too.</li>
+    <li><b>The bond limit slips.</b> At the strongest teamwork, up to 6% of spots hold two partners, so very deep bonds start to bend the one-partner rule.</li>
   </ul>
-  <p><b>What it means:</b> every bond is the same strength, so heat cannot tell a well-built group from a loose one. A day hot enough to melt the net melts everything. For anything to persist, some bonds have to hold better than others because of how they are arranged.</p>
+  <p><b>What it means:</b> any rule that rewards being well bonded rewards the net most, because the net is the most bonded thing there is. To get many separate, lasting things, groups need a way to finish: to use up their open spots and stop sticking, the way a water molecule is complete and doesn't fuse with its neighbors.</p>
 </template>
