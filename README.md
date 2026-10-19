@@ -10,6 +10,8 @@ A simulated universe built from simple primitives, to see what emerges.
   bonds have direction. Do chains, rings and sheets form, and does any shape assemble copies of itself?
 - [Experiment 4: Face chemistry](experiments/04-face-chemistry/): each face of a particle gets its own
   chemistry, so a chain's spine and its sides can bond differently. Can a chain act as a mold for a copy of itself?
+- [Experiment 5: Shaking light](experiments/05-shaking-light/): part of the light a bonded particle absorbs
+  pushes its bonds apart, so the world warms where the sun shines. Can a template's partners sort out and a copy let go?
 
 ## Series B
 
