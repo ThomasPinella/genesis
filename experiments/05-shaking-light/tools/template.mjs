@@ -19,7 +19,7 @@ import { Worker, isMainThread, parentPort } from 'node:worker_threads';
 import os from 'node:os';
 import fs from 'node:fs';
 import { Sim, S, D, FAST, rng } from '../sim.js';
-import { CHAIN, FACE, chemistry, bestChain, ladderChain, codeChain, layout, insert, feed, look } from '../probe.js';
+import { CHAIN, FACE, chemistry, bestChain, ladderChain, codeChain, strictCode, layout, insert, feed, look } from '../probe.js';
 
 const SETTLE = Number(process.env.SETTLE) || 1500;
 const WATCH = Number(process.env.WATCH) || 3000;
@@ -29,6 +29,8 @@ const FACES = process.env.FACES ? Number(process.env.FACES) : 1;
 const LAWS = process.env.LAWLIST ? process.env.LAWLIST.split(',').map(Number) : Array.from({ length: Number(process.env.LAWS) || 12 }, (_, i) => i + 1);
 const LADDER = process.env.LADDER === '1';
 const CODE = process.env.CODE === '1';
+// STRICT picks the code by the law search's stricter test (strictCode) instead of codeChain.
+const STRICT = process.env.STRICT === '1';
 // ISOLATE=1 turns every other particle into the element that bonds least with the chain, to see
 // whether the chain falls apart on its own (heat) or because the soup pulls it apart.
 const ISOLATE = process.env.ISOLATE === '1';
@@ -63,12 +65,12 @@ if (isMainThread) {
     feed();
   })));
   results.sort((a, b) => a.shake - b.shake || a.lawSeed - b.lawSeed || a.worldSeed - b.worldSeed);
-  process.stdout.write(JSON.stringify({ settle: SETTLE, watch: WATCH, chain: CHAIN, faces: FACES, noise: NOISE, feed: FEED, mode: CODE ? 'code' : LADDER ? 'ladder' : 'strongest', results }, null, 1));
+  process.stdout.write(JSON.stringify({ settle: SETTLE, watch: WATCH, chain: CHAIN, faces: FACES, noise: NOISE, feed: FEED, mode: STRICT ? 'strict' : CODE ? 'code' : LADDER ? 'ladder' : 'strongest', results }, null, 1));
 } else {
   parentPort.on('message', (job) => {
     const sim = new Sim({ ...job, n: N, faces: FACES, noise: NOISE });
     const chem = chemistry(sim);
-    const chain = CODE ? codeChain(chem) : LADDER ? ladderChain(chem) : bestChain(chem);
+    const chain = STRICT ? strictCode(chem) : CODE ? codeChain(chem) : LADDER ? ladderChain(chem) : bestChain(chem);
     if (!chain) { parentPort.postMessage({ ...job, chain: null }); return; }
     for (let t = 0; t < SETTLE; t++) sim.step();
     const laid = layout(chain, sim);
