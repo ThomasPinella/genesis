@@ -17,3 +17,5 @@ A second series that keeps only polarity and energy flow: no attention, no genom
 
 - [B1: The polar soup](series-b/b1-soup/): balls with four + or − spots, cooling slowly. Do they build
   small shapes that repeat, one big net, or a crystal?
+- [B2: Day and night](series-b/b2-cycles/): the same soup in a bath that is warm by day and cool by
+  night. Does the cycle keep many kinds of small shape alive, and do any survive the days?
