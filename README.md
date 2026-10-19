@@ -21,3 +21,5 @@ A second series that keeps only polarity and energy flow: no attention, no genom
   night. Does the cycle keep many kinds of small shape alive, and do any survive the days?
 - [B3: Teamwork bonds](series-b/b3-teamwork/): a ball holds each partner harder the more partners it
   has. Do well-connected groups outlast the days without the soup knitting into one net?
+- [B4: Caps](series-b/b4-caps/): some balls carry a single spot, like hydrogen. Can groups finish,
+  using up every spot, and do complete molecules outlast the days?
