@@ -27,3 +27,5 @@ A second series that keeps only polarity and energy flow: no attention, no genom
   using up every spot, and do complete molecules outlast the days?
 - [B5: Two levels](series-b/b5-two-levels/): caps hold twice as hard as other bonds. Do capped
   molecules last while weak bonds between them build a second, looser level?
+- [B6 (probe): Copying](series-b/b6-copying/): blocks with a strong backbone and a letter that pairs
+  only with letters. Does a chain gather a copy at night and release it by day?
