@@ -70,6 +70,29 @@ From a sweep of 48 worlds: 12 laws × 2 starts, each with shake 0.25 and with sh
 - **The books balance.** In all 48 worlds, total energy never rose by more than the light that
   came in over any 20-tick check.
 
+## Searching laws for a strong code
+
+Every copying test so far ran into the same thing: in the laws tried, a right partner bonds only a
+little more strongly than a wrong one. `tools/search.mjs` changes no rule; it scans 100,000 laws for
+the biggest code gap: a spine much stronger than the right side bond, and the right side bond much
+stronger than the same letter at that face (`search-results-faces1.json`, `-faces2.json`).
+
+- **Big gaps exist, but rarely.** About 1.7% of laws have any gap at all (1.2% at faces 2). The best gap at faces 1
+  (law 64401: spine 2.1, right 1.3, wrong 0.16) is four times law 5's, and eight times with the
+  faces dial at 2 (law 94116).
+- **They don't copy either.** The template probe (`STRICT=1`) on the four best laws at faces 1 and
+  the three best at faces 2, with and without shaking light (`search-template-results.json`):
+  templates fall apart (0 to 46% intact) and partners are the matching letter 20 to 55% of the
+  time, at or below chance. No copy grows past 6.
+- **Why: every open face is a site.** A partner can stick to any of the four faces a chain member
+  leaves open, and the soup holds every element of the law. Counting all of those (the all-sites
+  gap), the right partner at the side face beats every other attachment in none of the 200,000
+  laws at faces 1 and 2; the best comes within 0.07. In a quick check of 2,000 laws with longer
+  genomes (8 numbers instead of 4) it is worse, because a law then has more elements and so more wrong partners. In a random law,
+  any face that is sticky at all is sticky to many partners, so one right partner never stands out.
+
+The search: `FACES=1 LAWS=100000 node tools/search.mjs > search-results-faces1.json`; the probe on its best laws: `STRICT=1 FEED=120 WATCH=4000 SHAKES=0,0.25 LAWLIST=64401,68320,44510,12291 node tools/template.mjs`.
+
 Rerun the probe with `CODE=1 FEED=120 WATCH=4000 SHAKES=0,0.25,0.5,1 LAWLIST=5,62,74,76,116,155,180,193,294 node tools/template.mjs > template-results.json`
 and the sweep with `SHAKES=0,0.25 WORLDS=1,2 node tools/sweep.mjs > sweep-results.json`. Both take
 `PARTIAL=file.jsonl` to save each world as it finishes.

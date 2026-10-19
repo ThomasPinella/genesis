@@ -90,6 +90,31 @@ export function codeChain({ els, m }) {
   return best;
 }
 
+// The strongest code by a stricter test (experiment 5's law search): the spine must beat the right
+// side bond, and the right side bond must beat any wrong one, where wrong is the same letter at that
+// side face through any of its faces. The gap is the smaller of the two margins.
+export function strictCode({ els, m }) {
+  let best = null;
+  for (let a = 0; a < els.length; a++) for (let b = a + 1; b < els.length; b++) {
+    for (const [p, q] of OPP) for (const [bk, fw] of [[p, q], [q, p]]) {
+      const spine = Math.min(m[a][fw][a][bk], m[a][fw][b][bk], m[b][fw][a][bk], m[b][fw][b][bk]);
+      for (let sd = 0; sd < 6; sd++) {
+        if (sd === p || sd === q) continue;
+        const right = m[a][sd][b][sd];
+        let wrong = -Infinity;
+        for (let g = 0; g < 6; g++) wrong = Math.max(wrong, m[a][sd][a][g], m[b][sd][b][g]);
+        const gap = Math.min(spine - right, right - wrong);
+        if (!best || gap > best.gap) best = { gap, score: gap, spine, right, wrong, letters: [a, b], faces: { [a]: [bk, fw, sd], [b]: [bk, fw, sd] } };
+      }
+    }
+  }
+  if (!best) return null;
+  const r = rng(12345);
+  best.seq = Array.from({ length: CHAIN }, () => best.letters[r() < 0.5 ? 0 : 1]);
+  best.full = true;
+  return best;
+}
+
 // Rotation (body to world) sending body axes b1, b2 to world axes w1, w2; as a quaternion.
 export function orient(b1, b2, w1, w2) {
   const b3 = cross(b1, b2), w3 = cross(w1, w2);

@@ -1,0 +1,442 @@
+{
+ "laws": 100000,
+ "faces": 1,
+ "withCode": 99301,
+ "positive": 0.0165,
+ "above": {
+  "1": 0,
+  "0.25": 0.0012,
+  "0.5": 0.0003
+ },
+ "allSites": {
+  "positive": 0,
+  "best": -0.068
+ },
+ "top": [
+  {
+   "lawSeed": 64401,
+   "gap": 0.799,
+   "spine": 2.125,
+   "right": 1.326,
+   "wrong": 0.155,
+   "letters": [
+    1,
+    2
+   ],
+   "faces": [
+    2,
+    3,
+    5
+   ],
+   "allSites": -2.65
+  },
+  {
+   "lawSeed": 68320,
+   "gap": 0.79,
+   "spine": 1.511,
+   "right": 0.718,
+   "wrong": -0.073,
+   "letters": [
+    0,
+    1
+   ],
+   "faces": [
+    4,
+    5,
+    0
+   ],
+   "allSites": -1.331
+  },
+  {
+   "lawSeed": 44510,
+   "gap": 0.745,
+   "spine": 2.09,
+   "right": 0.752,
+   "wrong": 0.007,
+   "letters": [
+    1,
+    2
+   ],
+   "faces": [
+    0,
+    1,
+    3
+   ],
+   "allSites": -1.894
+  },
+  {
+   "lawSeed": 12291,
+   "gap": 0.694,
+   "spine": 1.934,
+   "right": 0.857,
+   "wrong": 0.162,
+   "letters": [
+    0,
+    1
+   ],
+   "faces": [
+    2,
+    3,
+    5
+   ],
+   "allSites": -2.023
+  },
+  {
+   "lawSeed": 73676,
+   "gap": 0.658,
+   "spine": 1.372,
+   "right": 0.714,
+   "wrong": -0.259,
+   "letters": [
+    1,
+    2
+   ],
+   "faces": [
+    5,
+    4,
+    3
+   ],
+   "allSites": -0.851
+  },
+  {
+   "lawSeed": 54434,
+   "gap": 0.648,
+   "spine": 1.958,
+   "right": 0.983,
+   "wrong": 0.334,
+   "letters": [
+    0,
+    1
+   ],
+   "faces": [
+    2,
+    3,
+    1
+   ],
+   "allSites": -1.598
+  },
+  {
+   "lawSeed": 18449,
+   "gap": 0.644,
+   "spine": 1.285,
+   "right": 0.641,
+   "wrong": -0.025,
+   "letters": [
+    0,
+    2
+   ],
+   "faces": [
+    4,
+    5,
+    0
+   ],
+   "allSites": -1.752
+  },
+  {
+   "lawSeed": 78146,
+   "gap": 0.637,
+   "spine": 1.47,
+   "right": 0.634,
+   "wrong": -0.003,
+   "letters": [
+    1,
+    2
+   ],
+   "faces": [
+    0,
+    1,
+    4
+   ],
+   "allSites": -1.005
+  },
+  {
+   "lawSeed": 72666,
+   "gap": 0.614,
+   "spine": 1.727,
+   "right": 1.114,
+   "wrong": 0.19,
+   "letters": [
+    1,
+    2
+   ],
+   "faces": [
+    0,
+    1,
+    5
+   ],
+   "allSites": -2.672
+  },
+  {
+   "lawSeed": 8987,
+   "gap": 0.595,
+   "spine": 1.166,
+   "right": 0.571,
+   "wrong": -0.036,
+   "letters": [
+    0,
+    2
+   ],
+   "faces": [
+    2,
+    3,
+    0
+   ],
+   "allSites": -1.776
+  },
+  {
+   "lawSeed": 49190,
+   "gap": 0.593,
+   "spine": 0.705,
+   "right": 0.112,
+   "wrong": -0.654,
+   "letters": [
+    2,
+    3
+   ],
+   "faces": [
+    4,
+    5,
+    2
+   ],
+   "allSites": -1.557
+  },
+  {
+   "lawSeed": 11739,
+   "gap": 0.589,
+   "spine": 1.495,
+   "right": 0.72,
+   "wrong": 0.131,
+   "letters": [
+    3,
+    4
+   ],
+   "faces": [
+    2,
+    3,
+    0
+   ],
+   "allSites": -1.545
+  },
+  {
+   "lawSeed": 23741,
+   "gap": 0.575,
+   "spine": 1.96,
+   "right": 0.748,
+   "wrong": 0.173,
+   "letters": [
+    1,
+    2
+   ],
+   "faces": [
+    2,
+    3,
+    4
+   ],
+   "allSites": -1.215
+  },
+  {
+   "lawSeed": 84627,
+   "gap": 0.57,
+   "spine": 1.329,
+   "right": 0.58,
+   "wrong": 0.009,
+   "letters": [
+    0,
+    1
+   ],
+   "faces": [
+    0,
+    1,
+    4
+   ],
+   "allSites": -0.375
+  },
+  {
+   "lawSeed": 63157,
+   "gap": 0.564,
+   "spine": 1.402,
+   "right": 0.679,
+   "wrong": 0.115,
+   "letters": [
+    0,
+    4
+   ],
+   "faces": [
+    2,
+    3,
+    0
+   ],
+   "allSites": -2.249
+  },
+  {
+   "lawSeed": 65515,
+   "gap": 0.562,
+   "spine": 2.366,
+   "right": 1.804,
+   "wrong": 0.905,
+   "letters": [
+    0,
+    4
+   ],
+   "faces": [
+    0,
+    1,
+    4
+   ],
+   "allSites": -1.613
+  },
+  {
+   "lawSeed": 84453,
+   "gap": 0.556,
+   "spine": 2.03,
+   "right": 0.836,
+   "wrong": 0.28,
+   "letters": [
+    0,
+    1
+   ],
+   "faces": [
+    4,
+    5,
+    0
+   ],
+   "allSites": -1.219
+  },
+  {
+   "lawSeed": 18385,
+   "gap": 0.543,
+   "spine": 1.321,
+   "right": 0.553,
+   "wrong": 0.01,
+   "letters": [
+    2,
+    3
+   ],
+   "faces": [
+    4,
+    5,
+    3
+   ],
+   "allSites": -2.264
+  },
+  {
+   "lawSeed": 37008,
+   "gap": 0.538,
+   "spine": 0.841,
+   "right": 0.303,
+   "wrong": -0.241,
+   "letters": [
+    2,
+    3
+   ],
+   "faces": [
+    0,
+    1,
+    2
+   ],
+   "allSites": -1.643
+  },
+  {
+   "lawSeed": 82725,
+   "gap": 0.531,
+   "spine": 1.034,
+   "right": 0.503,
+   "wrong": -0.081,
+   "letters": [
+    0,
+    1
+   ],
+   "faces": [
+    4,
+    5,
+    0
+   ],
+   "allSites": -2.17
+  },
+  {
+   "lawSeed": 19410,
+   "gap": 0.53,
+   "spine": 1.038,
+   "right": 0.406,
+   "wrong": -0.123,
+   "letters": [
+    1,
+    2
+   ],
+   "faces": [
+    0,
+    1,
+    3
+   ],
+   "allSites": -0.905
+  },
+  {
+   "lawSeed": 54010,
+   "gap": 0.528,
+   "spine": 2.917,
+   "right": 0.91,
+   "wrong": 0.382,
+   "letters": [
+    0,
+    1
+   ],
+   "faces": [
+    4,
+    5,
+    1
+   ],
+   "allSites": -2.102
+  },
+  {
+   "lawSeed": 14982,
+   "gap": 0.526,
+   "spine": 1.655,
+   "right": 0.712,
+   "wrong": 0.186,
+   "letters": [
+    0,
+    1
+   ],
+   "faces": [
+    2,
+    3,
+    1
+   ],
+   "allSites": -2.1
+  },
+  {
+   "lawSeed": 8299,
+   "gap": 0.52,
+   "spine": 0.587,
+   "right": 0.067,
+   "wrong": -0.536,
+   "letters": [
+    1,
+    2
+   ],
+   "faces": [
+    2,
+    3,
+    4
+   ],
+   "allSites": -1.366
+  },
+  {
+   "lawSeed": 99709,
+   "gap": 0.52,
+   "spine": 1.28,
+   "right": 0.631,
+   "wrong": 0.111,
+   "letters": [
+    0,
+    3
+   ],
+   "faces": [
+    2,
+    3,
+    4
+   ],
+   "allSites": -1.891
+  }
+ ]
+}
